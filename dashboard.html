@@ -650,11 +650,26 @@ function updateDashboard() {
 updateDashboard();
 
 
+/* =========================================
+   WOJTEK DASHBOARD GREETING
+   ========================================= */
+
+const wojtekData = load();
+
+const wojtekName =
+    wojtekData.name || "student";
+
+wojtekSay(
+    "wave",
+    `<strong>Welcome back, ${wojtekName}!</strong><br>
+     Ready to make some progress?`
+);
+
+
 window.addEventListener(
     "storage",
     updateDashboard
 );
-
 </script>
 
 
