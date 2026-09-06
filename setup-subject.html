@@ -4,39 +4,175 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Choose Subject — GCSE Hub</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="css/style.css">
+    <title>Choose Subjects — GCSE Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .selection-info {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+            color: #6d7688;
+
+        }
+
+
+        .selection-count {
+
+            font-weight: 800;
+
+            color: #5b5ce2;
+
+        }
+
+
+        .subject-option {
+
+            position: relative;
+
+        }
+
+
+        .checkmark {
+
+            position: absolute;
+
+            top: 12px;
+
+            right: 12px;
+
+            width: 25px;
+
+            height: 25px;
+
+            border-radius: 50%;
+
+            border: 2px solid #e4e7ef;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 14px;
+
+            background: white;
+
+        }
+
+
+        .option.selected
+        .checkmark {
+
+            background: #5b5ce2;
+
+            border-color: #5b5ce2;
+
+            color: white;
+
+        }
+
+
+        .option.selected
+        .checkmark::after {
+
+            content: "✓";
+
+        }
+
+
+        .option.selected
+        .checkmark {
+
+            font-size: 0;
+
+        }
+
+
+        .option.selected
+        .checkmark::after {
+
+            font-size: 14px;
+
+        }
+
+
+        .continue-message {
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            color: #6d7688;
+
+            font-size: 14px;
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
+
 
 <main class="main">
 
     <div class="setup-title">
 
         <h1>
-            Choose your subject
+            What subjects do you study?
         </h1>
 
         <p>
-            You can add more subjects later.
+            Select all the GCSE subjects you study.
         </p>
 
     </div>
 
 
-    <div id="subjects" class="option-grid"></div>
+    <div class="selection-info">
+
+        <span
+            id="selectionCount"
+            class="selection-count"
+        >
+            0 subjects selected
+        </span>
+
+    </div>
+
+
+    <div
+        id="subjects"
+        class="option-grid"
+    ></div>
 
 
     <div class="footer-actions">
 
-        <a href="setup-name.html" class="btn ghost">
+        <a
+            href="setup-name.html"
+            class="btn ghost"
+        >
             ← Back
         </a>
+
 
         <button
             id="continueButton"
@@ -44,10 +180,19 @@
             disabled
             onclick="continueSetup()"
         >
+
             Continue →
+
         </button>
 
     </div>
+
+
+    <p class="continue-message">
+
+        You can change your subjects later in Settings.
+
+    </p>
 
 </main>
 
@@ -57,92 +202,263 @@
 
 <script>
 
-let selectedSubject = load().subject;
 
+/* =========================================================
+   CURRENT SELECTION
+   ========================================================= */
+
+const data =
+    load();
+
+
+let selectedSubjects =
+    Array.isArray(data.subjects)
+        ? [...data.subjects]
+        : [];
+
+
+/* =========================================================
+   BUILD SUBJECT GRID
+   ========================================================= */
 
 const container =
     document.getElementById("subjects");
 
 
 container.innerHTML =
+
     Object.entries(SUBJECTS)
-    .map(([id, subject]) => {
 
-        const selected =
-            id === selectedSubject
-            ? "selected"
-            : "";
+        .map(
+            ([id, subject]) => {
 
-        return `
-
-        <button
-            class="option ${selected}"
-            onclick="selectSubject('${id}', this)"
-        >
-
-            <span class="big">
-                ${subject.icon}
-            </span>
-
-            <strong>
-                ${subject.name}
-            </strong>
-
-            <small>
-                ${subject.boards.join(" • ")}
-            </small>
-
-        </button>
-
-        `;
-
-    })
-    .join("");
+                const selected =
+                    selectedSubjects.includes(id)
+                        ? "selected"
+                        : "";
 
 
-if (selectedSubject) {
+                return `
 
-    document.getElementById("continueButton")
-        .disabled = false;
-}
+                    <button
+
+                        type="button"
+
+                        class="
+                            option
+                            subject-option
+                            ${selected}
+                        "
+
+                        data-subject-id="${id}"
+
+                        onclick="
+                            toggleSubject(
+                                '${id}',
+                                this
+                            )
+                        "
+                    >
+
+                        <span class="checkmark">
+                        </span>
 
 
-function selectSubject(id, button) {
+                        <span class="big">
 
-    selectedSubject = id;
+                            ${subject.icon}
+
+                        </span>
 
 
-    document
-        .querySelectorAll(".option")
-        .forEach(option =>
-            option.classList.remove("selected")
+                        <strong>
+
+                            ${subject.name}
+
+                        </strong>
+
+
+                        <small>
+
+                            ${subject.boards.join(
+                                " • "
+                            )}
+
+                        </small>
+
+                    </button>
+
+                `;
+
+            }
+        )
+
+        .join("");
+
+
+/* =========================================================
+   TOGGLE SUBJECT
+   ========================================================= */
+
+function toggleSubject(
+    id,
+    button
+) {
+
+    if (
+        selectedSubjects.includes(id)
+    ) {
+
+        selectedSubjects =
+            selectedSubjects.filter(
+                subject =>
+                    subject !== id
+            );
+
+
+        button.classList.remove(
+            "selected"
         );
 
+    }
 
-    button.classList.add("selected");
+    else {
+
+        selectedSubjects.push(id);
+
+        button.classList.add(
+            "selected"
+        );
+
+    }
 
 
-    document.getElementById("continueButton")
-        .disabled = false;
+    updateSelectionUI();
+
 }
 
+
+/* =========================================================
+   UPDATE SELECTION UI
+   ========================================================= */
+
+function updateSelectionUI() {
+
+    const count =
+        selectedSubjects.length;
+
+
+    document.getElementById(
+        "selectionCount"
+    ).textContent =
+
+        count === 1
+
+            ? "1 subject selected"
+
+            : `${count} subjects selected`;
+
+
+    document.getElementById(
+        "continueButton"
+    ).disabled =
+        count === 0;
+
+}
+
+
+updateSelectionUI();
+
+
+/* =========================================================
+   CONTINUE
+   ========================================================= */
 
 function continueSetup() {
 
-    const data = load();
+    if (
+        selectedSubjects.length === 0
+    ) {
 
-    data.subject = selectedSubject;
+        return;
 
-    data.board =
-        SUBJECTS[selectedSubject].boards[0];
+    }
+
+
+    const data =
+        load();
+
+
+    /*
+       Save ALL selected subjects.
+    */
+
+    data.subjects =
+        [...selectedSubjects];
+
+
+    /*
+       Keep current subject if it
+       is still selected.
+    */
+
+    if (
+        !data.currentSubject ||
+        !selectedSubjects.includes(
+            data.currentSubject
+        )
+    ) {
+
+        data.currentSubject =
+            selectedSubjects[0];
+
+    }
+
+
+    /*
+       Give every subject a default
+       level and board if it doesn't
+       already have one.
+    */
+
+    selectedSubjects.forEach(
+        subjectId => {
+
+            if (
+                !data.boards[subjectId]
+            ) {
+
+                data.boards[subjectId] =
+                    SUBJECTS[
+                        subjectId
+                    ].boards[0];
+
+            }
+
+
+            if (
+                !data.levels[subjectId]
+            ) {
+
+                data.levels[subjectId] =
+                    "Higher";
+
+            }
+
+        }
+    );
+
 
     save(data);
 
+
     window.location.href =
         "setup-level.html";
+
 }
 
 </script>
 
 </body>
+
 </html>
