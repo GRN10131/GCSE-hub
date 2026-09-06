@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <style>
-
         .flashcards-page {
             max-width: 1050px;
             margin: auto;
@@ -23,10 +21,6 @@
             font-weight: 700;
         }
 
-        /* =========================
-           HEADER
-           ========================= */
-
         .flash-header {
             text-align: center;
             margin-bottom: 30px;
@@ -35,10 +29,6 @@
         .flash-header-icon {
             font-size: 55px;
         }
-
-        /* =========================
-           STATS
-           ========================= */
 
         .flash-stats {
             display: grid;
@@ -70,10 +60,6 @@
             font-size: 13px;
         }
 
-        /* =========================
-           SETUP
-           ========================= */
-
         .flashcard-setup {
             max-width: 850px;
             margin: auto;
@@ -84,13 +70,17 @@
             margin-bottom: 30px;
         }
 
-        .subject-grid {
+        .subject-grid,
+        .topic-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
             gap: 12px;
         }
 
-        .subject-select {
+        .subject-select,
+        .topic-button,
+        .special-mode {
             border: 2px solid #e3e5ec;
             background: white;
             border-radius: 15px;
@@ -100,11 +90,15 @@
             transition: 0.15s;
         }
 
-        .subject-select:hover {
+        .subject-select:hover,
+        .topic-button:hover,
+        .special-mode:hover {
             transform: translateY(-2px);
         }
 
-        .subject-select.selected {
+        .subject-select.selected,
+        .topic-button.selected,
+        .special-mode.selected {
             border-color: #5b5ce2;
             background: #f3f3ff;
         }
@@ -126,10 +120,6 @@
             margin-top: 5px;
         }
 
-        /* =========================
-           TOPICS
-           ========================= */
-
         .flash-select {
             width: 100%;
             padding: 13px;
@@ -139,50 +129,11 @@
             font-size: 15px;
         }
 
-        .topic-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 10px;
-        }
-
-        .topic-button {
-            padding: 13px;
-            border-radius: 12px;
-            border: 2px solid #e2e4eb;
-            background: white;
-            cursor: pointer;
-            font-weight: 700;
-        }
-
-        .topic-button.selected {
-            border-color: #5b5ce2;
-            background: #f3f3ff;
-            color: #5b5ce2;
-        }
-
-        /* =========================
-           SPECIAL MODES
-           ========================= */
-
         .special-modes {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
             margin-bottom: 25px;
-        }
-
-        .special-mode {
-            border: 2px solid #e4e6ed;
-            background: white;
-            border-radius: 17px;
-            padding: 20px;
-            cursor: pointer;
-            text-align: left;
-            transition: .15s;
-        }
-
-        .special-mode:hover {
-            transform: translateY(-2px);
         }
 
         .special-mode strong {
@@ -193,15 +144,6 @@
         .special-mode small {
             color: #777;
         }
-
-        .special-mode.selected {
-            border-color: #5b5ce2;
-            background: #f3f3ff;
-        }
-
-        /* =========================
-           SESSION
-           ========================= */
 
         .session {
             display: none;
@@ -238,20 +180,17 @@
             height: 100%;
             width: 0%;
             background: #5b5ce2;
-            transition: width .3s;
+            transition: width 0.3s;
         }
-
-        /* =========================
-           QUESTION
-           ========================= */
 
         .question-card {
             background: white;
             border-radius: 25px;
             padding: 45px 35px;
             text-align: center;
-            box-shadow: 0 12px 35px rgba(0,0,0,.08);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
             min-height: 370px;
+
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -311,32 +250,27 @@
             display: flex;
         }
 
-       .flash-rating {
-    min-width: 130px;
-    padding: 14px 18px;
-    border-radius: 13px;
-    border: 2px solid #ddd;
-    background: white;
-    cursor: pointer;
-    font-weight: 800;
-    display: inline-block;
-}
+        .flash-rating {
+            min-width: 130px;
+            padding: 14px 18px;
+            border-radius: 13px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-weight: 800;
+        }
 
-.flash-rating:hover {
-    transform: translateY(-1px);
-}
+        .flash-rating.wrong {
+            border-color: #e57373;
+        }
 
-.flash-rating.wrong {
-    border-color: #e57373;
-}
+        .flash-rating.almost {
+            border-color: #e0b64d;
+        }
 
-.flash-rating.almost {
-    border-color: #e0b64d;
-}
-
-.flash-rating.correct {
-    border-color: #62b879;
-}
+        .flash-rating.correct {
+            border-color: #62b879;
+        }
 
         .xp-earned {
             text-align: center;
@@ -344,10 +278,6 @@
             min-height: 25px;
             font-weight: 800;
         }
-
-        /* =========================
-           RESULTS
-           ========================= */
 
         .results {
             display: none;
@@ -390,11 +320,12 @@
             margin-top: 5px;
         }
 
-        .results-actions {
+        .v3-links {
             display: flex;
-            justify-content: center;
             gap: 10px;
+            justify-content: center;
             flex-wrap: wrap;
+            margin: 20px 0;
         }
 
         @media(max-width:700px) {
@@ -411,11 +342,12 @@
                 grid-template-columns: repeat(2,1fr);
             }
 
+            .question {
+                font-size: 22px;
+            }
         }
-
     </style>
 </head>
-
 
 <body>
 
@@ -425,13 +357,11 @@
     injectHeader();
 </script>
 
-
 <main class="main flashcards-page">
 
     <a href="dashboard.html" class="back-link">
         ← Dashboard
     </a>
-
 
     <div class="flash-header">
 
@@ -442,95 +372,69 @@
         <h1>Flashcards</h1>
 
         <p>
-            Build your memory through active recall.
+            Active recall, spaced repetition and
+            specification-focused revision.
         </p>
 
     </div>
 
+    <div class="v3-links">
 
-    <!-- =========================
-         STATS
-         ========================= -->
+        <a class="btn secondary" href="mindmap.html">
+            🗺️ Explore Mind Maps
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
 
     <div class="flash-stats">
 
         <div class="flash-stat">
-
             <div class="flash-stat-icon">🧠</div>
-
-            <div
-                id="statReviewed"
-                class="flash-stat-value"
-            >
+            <div id="statReviewed" class="flash-stat-value">
                 0
             </div>
-
             <div class="flash-stat-label">
                 Cards reviewed
             </div>
-
         </div>
 
-
         <div class="flash-stat">
-
             <div class="flash-stat-icon">🏆</div>
-
-            <div
-                id="statMastered"
-                class="flash-stat-value"
-            >
+            <div id="statMastered" class="flash-stat-value">
                 0
             </div>
-
             <div class="flash-stat-label">
                 Cards mastered
             </div>
-
         </div>
 
-
         <div class="flash-stat">
-
             <div class="flash-stat-icon">🎯</div>
-
-            <div
-                id="statAccuracy"
-                class="flash-stat-value"
-            >
+            <div id="statAccuracy" class="flash-stat-value">
                 0%
             </div>
-
             <div class="flash-stat-label">
                 Accuracy
             </div>
-
         </div>
 
-
         <div class="flash-stat">
-
             <div class="flash-stat-icon">🔄</div>
-
-            <div
-                id="statDue"
-                class="flash-stat-value"
-            >
+            <div id="statDue" class="flash-stat-value">
                 0
             </div>
-
             <div class="flash-stat-label">
                 Due for review
             </div>
-
         </div>
 
     </div>
 
 
-    <!-- =========================
-         SETUP
-         ========================= -->
+    <!-- SETUP -->
 
     <section id="setup" class="flashcard-setup">
 
@@ -543,7 +447,7 @@
                 </h2>
 
                 <p>
-                    GCSE Hub will remember how you perform.
+                    Your progress is remembered on this device.
                 </p>
 
             </div>
@@ -554,6 +458,7 @@
                 <button
                     class="special-mode selected"
                     data-mode="normal"
+                    type="button"
                 >
 
                     <strong>
@@ -561,7 +466,7 @@
                     </strong>
 
                     <small>
-                        Revise the cards available for your selection.
+                        Revise your available specification content.
                     </small>
 
                 </button>
@@ -570,6 +475,7 @@
                 <button
                     class="special-mode"
                     data-mode="weak"
+                    type="button"
                 >
 
                     <strong>
@@ -577,7 +483,7 @@
                     </strong>
 
                     <small>
-                        Focus on cards you've struggled with.
+                        Focus on knowledge you need to practise.
                     </small>
 
                 </button>
@@ -586,6 +492,7 @@
                 <button
                     class="special-mode"
                     data-mode="due"
+                    type="button"
                 >
 
                     <strong>
@@ -593,7 +500,7 @@
                     </strong>
 
                     <small>
-                        Revise cards that are ready to come back.
+                        Review cards according to spaced repetition.
                     </small>
 
                 </button>
@@ -605,19 +512,13 @@
                 Choose a subject
             </h2>
 
-
-            <div
-                id="subjectGrid"
-                class="subject-grid"
-            ></div>
+            <div id="subjectGrid" class="subject-grid"></div>
 
 
             <div style="margin-top:25px">
 
                 <label>
-                    <strong>
-                        Topic
-                    </strong>
+                    <strong>Topic</strong>
                 </label>
 
                 <select
@@ -642,7 +543,6 @@
                 </strong>
 
                 <div
-                    id="numberGrid"
                     class="topic-grid"
                     style="margin-top:10px"
                 >
@@ -693,9 +593,7 @@
                 class="btn"
                 style="width:100%;margin-top:25px"
             >
-
                 Start Revision 🚀
-
             </button>
 
         </div>
@@ -703,14 +601,9 @@
     </section>
 
 
-    <!-- =========================
-         SESSION
-         ========================= -->
+    <!-- SESSION -->
 
-    <section
-        id="session"
-        class="session"
-    >
+    <section id="session" class="session">
 
         <div class="session-header">
 
@@ -728,13 +621,10 @@
 
             </div>
 
-
             <div
                 id="counter"
                 class="session-counter"
-            >
-                1 / 10
-            </div>
+            ></div>
 
         </div>
 
@@ -795,25 +685,25 @@
                 >
 
                     <button
-    class="flash-rating wrong"
-    data-rating="wrong"
->
-    ❌ Got it wrong
-</button>
+                        class="flash-rating wrong"
+                        data-rating="wrong"
+                    >
+                        ❌ Got it wrong
+                    </button>
 
-<button
-    class="flash-rating almost"
-    data-rating="almost"
->
-    😐 Almost
-</button>
+                    <button
+                        class="flash-rating almost"
+                        data-rating="almost"
+                    >
+                        😐 Almost
+                    </button>
 
-<button
-    class="flash-rating correct"
-    data-rating="correct"
->
-    😄 Got it
-</button>
+                    <button
+                        class="flash-rating correct"
+                        data-rating="correct"
+                    >
+                        😄 Got it
+                    </button>
 
                 </div>
 
@@ -830,14 +720,9 @@
     </section>
 
 
-    <!-- =========================
-         RESULTS
-         ========================= -->
+    <!-- RESULTS -->
 
-    <section
-        id="results"
-        class="results"
-    >
+    <section id="results" class="results">
 
         <div class="card">
 
@@ -905,6 +790,13 @@
                 </button>
 
                 <a
+                    href="mindmap.html"
+                    class="btn secondary"
+                >
+                    Mind Maps
+                </a>
+
+                <a
                     href="dashboard.html"
                     class="btn secondary"
                 >
@@ -921,6 +813,7 @@
 
 
 <script src="js/flashcard-data.js"></script>
+<script src="js/specification-data.js"></script>
 <script src="js/flashcards.js"></script>
 
 </body>
