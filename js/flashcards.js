@@ -17,7 +17,539 @@ let sessionXP = 0;
 
 let ratingLocked = false;
 
+/* =========================================================
+   ENGLISH LITERATURE TEXT SELECTION
+   ========================================================= */
 
+const ENGLISH_TEXT_STORAGE_KEY =
+    "gcseHubEnglishLiteratureTexts";
+
+
+const ENGLISH_LITERATURE_OPTIONS = {
+
+    shakespeare: {
+        title: "🎭 Shakespeare",
+        texts: [
+            "Macbeth",
+            "Romeo and Juliet",
+            "The Tempest",
+            "The Merchant of Venice",
+            "Much Ado About Nothing",
+            "Julius Caesar"
+        ]
+    },
+
+    novel: {
+        title: "📖 19th-Century Novel",
+        texts: [
+            "The Strange Case of Dr Jekyll and Mr Hyde",
+            "A Christmas Carol",
+            "Great Expectations",
+            "Jane Eyre",
+            "Frankenstein",
+            "Pride and Prejudice",
+            "The Sign of Four"
+        ]
+    },
+
+    modern: {
+        title: "📚 Modern Text",
+        texts: [
+            "An Inspector Calls",
+            "Blood Brothers",
+            "DNA",
+            "A Taste of Honey",
+            "Animal Farm",
+            "Lord of the Flies",
+            "Anita and Me",
+            "Pigeon English",
+            "Princess & The Hustler",
+            "Leave Taking",
+            "My Name is Leon",
+            "Telling Tales"
+        ]
+    },
+
+    poetry: {
+        title: "📝 Poetry Anthology",
+        texts: [
+            "Power and Conflict",
+            "Love and Relationships",
+            "Worlds and Lives"
+        ]
+    }
+
+};
+
+
+let selectedEnglishTexts =
+    loadEnglishTextChoices();
+
+
+function loadEnglishTextChoices() {
+
+    try {
+
+        const saved =
+            localStorage.getItem(
+                ENGLISH_TEXT_STORAGE_KEY
+            );
+
+        if (!saved) {
+
+            return {
+                shakespeare: "",
+                novel: "",
+                modern: "",
+                poetry: ""
+            };
+
+        }
+
+
+        const parsed =
+            JSON.parse(saved);
+
+
+        return {
+
+            shakespeare:
+                parsed.shakespeare || "",
+
+            novel:
+                parsed.novel || "",
+
+            modern:
+                parsed.modern || "",
+
+            poetry:
+                parsed.poetry || ""
+
+        };
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not load English Literature choices.",
+            error
+        );
+
+
+        return {
+            shakespeare: "",
+            novel: "",
+            modern: "",
+            poetry: ""
+        };
+
+    }
+
+}
+
+
+function saveEnglishTextChoices() {
+
+    try {
+
+        localStorage.setItem(
+
+            ENGLISH_TEXT_STORAGE_KEY,
+
+            JSON.stringify(
+                selectedEnglishTexts
+            )
+
+        );
+
+    }
+
+    catch (error) {
+
+        console.warn(
+            "Could not save English Literature choices.",
+            error
+        );
+
+    }
+
+}
+
+
+/*
+ * English is stored as "english"
+ * in app.js.
+ */
+
+function isEnglishSubject() {
+
+    return (
+        normalise(selectedSubject) ===
+        "english"
+    );
+
+}
+
+
+/*
+ * Find which set text an English card belongs to.
+ *
+ * When we create the English cards we will use:
+ *
+ * text: "Macbeth"
+ *
+ * But this also accepts a few alternative field
+ * names so the system is more flexible.
+ */
+
+function getEnglishCardText(card) {
+
+    if (!card) {
+        return "";
+    }
+
+
+    return (
+
+        card.text ||
+
+        card.textTitle ||
+
+        card.literatureText ||
+
+        card.work ||
+
+        card.play ||
+
+        card.novel ||
+
+        card.poetryCluster ||
+
+        card.cluster ||
+
+        ""
+
+    );
+
+}
+
+
+/*
+ * Returns all four texts currently selected
+ * by the student.
+ */
+
+function getSelectedEnglishTextList() {
+
+    return Object
+        .values(
+            selectedEnglishTexts
+        )
+        .filter(Boolean);
+
+}
+
+
+/*
+ * Should this English card be available?
+ *
+ * IMPORTANT:
+ *
+ * Cards without a "text" are allowed.
+ * This means future English Language cards,
+ * general Literature cards and unseen-poetry
+ * cards still work.
+ */
+
+function englishCardMatchesSelection(card) {
+
+    if (!isEnglishSubject()) {
+        return true;
+    }
+
+
+    const cardText =
+        getEnglishCardText(card);
+
+
+    /*
+     * No text field means this is probably
+     * English Language, unseen poetry or
+     * general English knowledge.
+     */
+
+    if (!cardText) {
+        return true;
+    }
+
+
+    const choices =
+        getSelectedEnglishTextList();
+
+
+    if (!choices.length) {
+        return false;
+    }
+
+
+    return choices.some(
+
+        choice =>
+
+            normalise(choice) ===
+            normalise(cardText)
+
+    );
+
+}
+
+
+/* =========================================================
+   ENGLISH TEXT SELECTION UI
+   ========================================================= */
+
+function renderEnglishTextSelection() {
+
+    const oldPanel =
+        document.getElementById(
+            "englishTextSelection"
+        );
+
+
+    if (oldPanel) {
+        oldPanel.remove();
+    }
+
+
+    if (!isEnglishSubject()) {
+        return;
+    }
+
+
+    const subjectGrid =
+        document.getElementById(
+            "subjectGrid"
+        );
+
+
+    if (!subjectGrid) {
+        return;
+    }
+
+
+    const panel =
+        document.createElement("div");
+
+
+    panel.id =
+        "englishTextSelection";
+
+
+    panel.style.marginTop =
+        "25px";
+
+
+    panel.innerHTML = `
+
+        <div
+            style="
+                border:2px solid #e3e5ec;
+                border-radius:18px;
+                padding:22px;
+                background:#fafaff;
+            "
+        >
+
+            <div
+                style="
+                    text-align:center;
+                    margin-bottom:22px;
+                "
+            >
+
+                <h2
+                    style="
+                        margin:0 0 7px;
+                    "
+                >
+                    📚 Your English Literature texts
+                </h2>
+
+                <p
+                    style="
+                        margin:0;
+                        color:#777;
+                    "
+                >
+                    Choose the texts your school studies.
+                    These choices are remembered on this device.
+                </p>
+
+            </div>
+
+            <div id="englishTextGroups"></div>
+
+        </div>
+
+    `;
+
+
+    subjectGrid.insertAdjacentElement(
+        "afterend",
+        panel
+    );
+
+
+    const groups =
+        document.getElementById(
+            "englishTextGroups"
+        );
+
+
+    Object.entries(
+        ENGLISH_LITERATURE_OPTIONS
+    )
+    .forEach(
+        ([groupKey, group]) => {
+
+            const section =
+                document.createElement(
+                    "div"
+                );
+
+
+            section.style.marginTop =
+                "18px";
+
+
+            const heading =
+                document.createElement(
+                    "h3"
+                );
+
+
+            heading.textContent =
+                group.title;
+
+
+            heading.style.margin =
+                "0 0 9px";
+
+
+            section.appendChild(
+                heading
+            );
+
+
+            const select =
+                document.createElement(
+                    "select"
+                );
+
+
+            select.className =
+                "flash-select";
+
+
+            select.dataset.englishGroup =
+                groupKey;
+
+
+            select.innerHTML = `
+
+                <option value="">
+                    Choose your text...
+                </option>
+
+            `;
+
+
+            group.texts.forEach(
+                text => {
+
+                    const option =
+                        document.createElement(
+                            "option"
+                        );
+
+
+                    option.value =
+                        text;
+
+
+                    option.textContent =
+                        text;
+
+
+                    select.appendChild(
+                        option
+                    );
+
+                }
+            );
+
+
+            if (
+                selectedEnglishTexts[
+                    groupKey
+                ]
+            ) {
+
+                select.value =
+                    selectedEnglishTexts[
+                        groupKey
+                    ];
+
+            }
+
+
+            select.addEventListener(
+                "change",
+                () => {
+
+                    selectedEnglishTexts[
+                        groupKey
+                    ] =
+                        select.value;
+
+
+                    saveEnglishTextChoices();
+
+
+                    /*
+                     * Refresh topics because changing
+                     * texts changes which literature
+                     * flashcards are available.
+                     */
+
+                    selectedTopic =
+                        "all";
+
+
+                    loadTopics();
+
+                    updateStats();
+
+                    hideSetupMessage();
+
+                }
+            );
+
+
+            section.appendChild(
+                select
+            );
+
+
+            groups.appendChild(
+                section
+            );
+
+        }
+    );
+
+}
 /* =========================================================
    GENERAL HELPERS
    ========================================================= */
@@ -389,7 +921,17 @@ function cardMatchesStudent(card) {
         }
 
     }
+    /* -----------------------------------------------------
+       ENGLISH LITERATURE TEXT
+       ----------------------------------------------------- */
 
+    if (
+        !englishCardMatchesSelection(card)
+    ) {
+
+        return false;
+
+    }
 
     return true;
 
