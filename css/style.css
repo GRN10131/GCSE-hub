@@ -1119,3 +1119,37 @@ hr {
 .wojtek.paused {
     animation-play-state: paused;
 }
+
+/* =========================================
+   WOJTEK - DASHBOARD MASCOT
+   ========================================= */
+
+.wojtek-dashboard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 240px;
+}
+
+/* Make Wojtek a little larger on the dashboard */
+
+.wojtek-dashboard .wojtek {
+    width: 240px;
+    height: 85px;
+}
+
+/* Don't hide Wojtek on smaller screens */
+
+@media (max-width: 800px) {
+
+    .hero .wojtek-dashboard {
+        display: flex;
+        min-width: 180px;
+    }
+
+    .wojtek-dashboard .wojtek {
+        width: 180px;
+        height: 64px;
+    }
+
+}
