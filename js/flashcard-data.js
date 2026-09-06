@@ -1500,4 +1500,1473 @@ const FLASHCARDS = [
     answer: "Photosynthesis produces glucose and oxygen, which can be used in aerobic respiration. Respiration produces carbon dioxide and water, which can be used in photosynthesis."
 }
 
+   },
+   /* =========================================================
+   BIOLOGY CARDS 101–200
+   AQA GCSE BIOLOGY 8461
+   PAPER 2
+   ========================================================= */
+
+
+/* =========================================================
+   5. HOMEOSTASIS AND RESPONSE — 40 CARDS
+   ========================================================= */
+
+
+/* ---------- Homeostasis ---------- */
+
+{
+    id: "bio-home-101",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Homeostasis",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is homeostasis?",
+    answer: "Homeostasis is the regulation of internal conditions to maintain optimum conditions for function in response to internal and external changes."
+},
+
+{
+    id: "bio-home-102",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Homeostasis",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why is homeostasis important for enzyme activity?",
+    answer: "It helps maintain suitable conditions such as temperature and pH so enzymes can function effectively."
+},
+
+{
+    id: "bio-home-103",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Control systems",
+    type: "Recall",
+    difficulty: 1,
+    question: "What are the three main components of a control system?",
+    answer: "Receptors, coordination centres and effectors."
+},
+
+{
+    id: "bio-home-104",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Control systems",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of a receptor?",
+    answer: "A receptor detects a stimulus or change in the internal or external environment."
+},
+
+{
+    id: "bio-home-105",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Control systems",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of an effector?",
+    answer: "An effector carries out a response to a stimulus. Effectors are usually muscles or glands."
+},
+
+{
+    id: "bio-home-106",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Control systems",
+    type: "Explain",
+    difficulty: 2,
+    question: "What is negative feedback?",
+    answer: "Negative feedback reverses a change so that a condition returns towards its normal or optimum level."
+},
+
+
+/* ---------- Nervous system ---------- */
+
+{
+    id: "bio-home-107",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the role of the nervous system?",
+    answer: "It allows the body to detect and respond rapidly to changes in the environment."
+},
+
+{
+    id: "bio-home-108",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a stimulus?",
+    answer: "A stimulus is a change in the environment that can be detected by a receptor."
+},
+
+{
+    id: "bio-home-109",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an impulse?",
+    answer: "An impulse is an electrical signal transmitted along a neurone."
+},
+
+{
+    id: "bio-home-110",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a neurone?",
+    answer: "A neurone is a nerve cell that carries electrical impulses."
+},
+
+{
+    id: "bio-home-111",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the role of a sensory neurone?",
+    answer: "It carries impulses from receptors to the central nervous system."
+},
+
+{
+    id: "bio-home-112",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the role of a motor neurone?",
+    answer: "It carries impulses from the central nervous system to an effector."
+},
+
+{
+    id: "bio-home-113",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the role of a relay neurone?",
+    answer: "It carries impulses between neurones within the central nervous system."
+},
+
+{
+    id: "bio-home-114",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Reflexes",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why are reflex actions important?",
+    answer: "They provide rapid automatic responses that can protect the body from potentially harmful stimuli."
+},
+
+{
+    id: "bio-home-115",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Reflexes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a reflex arc?",
+    answer: "A reflex arc is the pathway followed by an impulse during a reflex action."
+},
+
+{
+    id: "bio-home-116",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Synapses",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a synapse?",
+    answer: "A synapse is a junction between two neurones."
+},
+
+{
+    id: "bio-home-117",
+    subject: "biology",
+     board: "AQA",
+     level:"Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Synapses",
+    type: "Explain",
+    difficulty: 3,
+    question: "How does an impulse cross a synapse?",
+    answer: "The arriving electrical impulse causes a chemical neurotransmitter to be released. The neurotransmitter diffuses across the synapse and binds to receptors on the next neurone, triggering a new electrical impulse."
+},
+
+{
+    id: "bio-home-118",
+    subject: "biology",
+     board: "AQA",
+     level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Reflexes",
+    type: "Application",
+    difficulty: 2,
+    question: "What is the usual pathway of a reflex arc?",
+    answer: "Receptor → sensory neurone → relay neurone → motor neurone → effector."
+},
+
+/* ---------- The brain ---------- */
+
+{
+    id: "bio-home-119",
+    subject: "biology",
+     board: "AQA",
+     level:"Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Brain",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which part of the brain is responsible for conscious thought and intelligence?",
+    answer: "The cerebral cortex."
+},
+
+{
+    id: "bio-home-120",
+    subject: "biology",
+     board: "AQA",
+     level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Brain",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which part of the brain coordinates muscle movement?",
+    answer: "The cerebellum."
+},
+
+{
+    id: "bio-home-121",
+    subject: "biology",
+     board: "AQA",
+      level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Brain",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which part of the brain controls automatic functions such as breathing?",
+    answer: "The medulla."
+},
+
+{
+    id: "bio-home-122",
+    subject: "biology",
+     board: "AQA",
+     level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Brain",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Why is it difficult to investigate the precise functions of different regions of the brain?",
+    answer: "The brain is complex and different regions interact. Investigations may also involve ethical difficulties and risks to patients."
+},
+
+/* ---------- Eye ---------- */
+
+{
+    id: "bio-home-123",
+    subject: "biology",
+     board: "AQA",
+     level:"Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the iris?",
+    answer: "The iris controls the size of the pupil and therefore regulates the amount of light entering the eye."
+},
+
+{
+    id: "bio-home-124",
+    subject: "biology",
+     board: "AQA",
+     level:"Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the retina?",
+    answer: "The retina contains light-sensitive receptor cells that detect light."
+},
+
+{
+    id: "bio-home-125",
+    subject: "biology",
+     board: "AQA",
+      level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the lens?",
+    answer: "The lens focuses light onto the retina."
+},
+
+{
+    id: "bio-home-126",
+    subject: "biology",
+     board: "AQA",
+     level:"Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Eye",
+    type: "Explain",
+    difficulty: 2,
+    question: "What happens to the pupil in bright light?",
+    answer: "The pupil becomes smaller, reducing the amount of light entering the eye."
+},
+
+{
+    id: "bio-home-127",
+    subject: "biology",
+     board: "AQA",
+     level:  "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Accommodation",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does the eye focus on a nearby object?",
+    answer: "The ciliary muscles contract, the suspensory ligaments become less tight and the lens becomes thicker and more curved."
+},
+
+{
+    id: "bio-home-128",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Accommodation",
+    type: "Explain",
+    difficulty: 3,
+    question: "How does the eye focus on a distant object?",
+    answer: "The ciliary muscles relax, the suspensory ligaments become tight and the lens becomes thinner and less curved."
+},
+
+/* ---------- Hormones ---------- */
+
+{
+    id: "bio-home-129",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a hormone?",
+    answer: "A hormone is a chemical messenger released by a gland and transported in the blood."
+},
+
+{
+    id: "bio-home-130",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Hormones",
+    type: "Compare",
+    difficulty: 2,
+    question: "How do hormonal responses differ from nervous responses?",
+    answer: "Hormonal responses are generally slower and longer-lasting, while nervous responses are usually rapid and short-lived."
+},
+
+{
+    id: "bio-home-131",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Endocrine system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the endocrine system?",
+    answer: "It is a collection of glands that produce and release hormones into the bloodstream."
+},
+
+/* ---------- Blood glucose ---------- */
+
+{
+    id: "bio-home-132",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which organ monitors blood glucose concentration?",
+    answer: "The pancreas."
+},
+
+{
+    id: "bio-home-133",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which hormone lowers blood glucose concentration?",
+    answer: "Insulin."
+},
+
+{
+    id: "bio-home-134",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which hormone raises blood glucose concentration?",
+    answer: "Glucagon."
+},
+
+{
+    id: "bio-home-135",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does insulin reduce blood glucose concentration?",
+    answer: "Insulin causes cells to take up more glucose and causes excess glucose to be converted into glycogen for storage."
+},
+
+{
+    id: "bio-home-136",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Explain",
+    difficulty: 3,
+    question: "How does glucagon increase blood glucose concentration?",
+    answer: "Glucagon causes glycogen stored in the liver to be converted into glucose, increasing blood glucose concentration."
+},
+
+{
+    id: "bio-home-137",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is Type 1 diabetes?",
+    answer: "Type 1 diabetes is a condition in which the pancreas does not produce enough insulin."
+},
+
+{
+    id: "bio-home-138",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: 1,
+    question: "How is Type 1 diabetes commonly treated?",
+    answer: "Insulin can be administered, alongside careful management of diet and carbohydrate intake."
+},
+
+{
+    id: "bio-home-139",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is Type 2 diabetes?",
+    answer: "Type 2 diabetes occurs when body cells become resistant to insulin and the pancreas may eventually produce insufficient insulin."
+},
+
+{
+    id: "bio-home-140",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "What lifestyle factors can increase the risk of developing Type 2 diabetes?",
+    answer: "An unhealthy diet, obesity and lack of physical activity can increase the risk."
+},
+
+/* ---------- Temperature ---------- */
+
+{
+    id: "bio-home-141",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why must human body temperature be regulated?",
+    answer: "Enzymes work best within a narrow temperature range, so temperature must be kept near an optimum."
+},
+
+{
+    id: "bio-home-142",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What happens to blood vessels near the skin when the body is too hot?",
+    answer: "They dilate, increasing blood flow near the skin and increasing heat loss."
+},
+
+{
+    id: "bio-home-143",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is vasodilation?",
+    answer: "Vasodilation is the widening of blood vessels near the skin."
+},
+
+{
+    id: "bio-home-144",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is vasoconstriction?",
+    answer: "Vasoconstriction is the narrowing of blood vessels near the skin, reducing blood flow and heat loss."
+},
+
+{
+    id: "bio-home-145",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does sweating help cool the body?",
+    answer: "Water in sweat evaporates from the skin, transferring thermal energy away from the body."
+},
+
+{
+    id: "bio-home-146",
+    subject: "biology",
+    board: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does shivering help raise body temperature?",
+    answer: "Muscles contract rapidly, increasing respiration and releasing more thermal energy."
+},
+
+/* ---------- Water balance ---------- */
+
+{
+    id: "bio-home-147",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Water balance",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why must water content be controlled in the body?",
+    answer: "Cells need a suitable water concentration for normal function and enzyme activity."
+},
+
+{
+    id: "bio-home-148",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Kidneys",
+    type: "Recall",
+    difficulty: 2,
+    question: "What is the main role of the kidneys in water balance?",
+    answer: "The kidneys remove urea and control the amount of water and ions in the blood."
+},
+
+{
+    id: "bio-home-149",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "ADH",
+    type: "Recall",
+    difficulty: 2,
+    question: "What hormone controls the amount of water reabsorbed by the kidneys?",
+    answer: "ADH, or antidiuretic hormone."
+},
+
+{
+    id: "bio-home-150",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "ADH",
+    type: "Explain",
+    difficulty: 3,
+    question: "What happens to ADH release when the blood becomes too concentrated?",
+    answer: "More ADH is released, causing the kidneys to reabsorb more water and produce a smaller volume of more concentrated urine."
+},
+
+
+/* =========================================================
+   6. INHERITANCE, VARIATION AND EVOLUTION — 30 CARDS
+   ========================================================= */
+
+
+/* ---------- Reproduction ---------- */
+
+{
+    id: "bio-inherit-151",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Sexual reproduction",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is sexual reproduction?",
+    answer: "Sexual reproduction involves the fusion of male and female gametes and produces genetically different offspring."
+},
+
+{
+    id: "bio-inherit-152",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Asexual reproduction",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is asexual reproduction?",
+    answer: "Asexual reproduction involves one parent and produces genetically identical offspring."
+},
+
+{
+    id: "bio-inherit-153",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Asexual reproduction",
+    type: "Compare",
+    difficulty: 2,
+    question: "Give two advantages of asexual reproduction.",
+    answer: "Only one parent is needed and reproduction can be rapid, allowing many genetically identical offspring to be produced."
+},
+
+{
+    id: "bio-inherit-154",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Sexual reproduction",
+    type: "Compare",
+    difficulty: 2,
+    question: "What is a major advantage of sexual reproduction?",
+    answer: "It produces genetic variation, which can help a population adapt to changing environments."
+},
+
+/* ---------- Meiosis ---------- */
+
+{
+    id: "bio-inherit-155",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Meiosis",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is meiosis?",
+    answer: "Meiosis is a type of cell division that produces genetically different haploid gametes."
+},
+
+{
+    id: "bio-inherit-156",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Meiosis",
+    type: "Recall",
+    difficulty: 1,
+    question: "How many cells are produced by meiosis?",
+    answer: "Four genetically different cells."
+},
+
+{
+    id: "bio-inherit-157",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Meiosis",
+    type: "Compare",
+    difficulty: 2,
+    question: "How does meiosis differ from mitosis?",
+    answer: "Mitosis produces two genetically identical diploid cells, while meiosis produces four genetically different haploid cells."
+},
+
+/* ---------- DNA and genome ---------- */
+
+{
+    id: "bio-inherit-158",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "DNA",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is DNA?",
+    answer: "DNA is the molecule that carries genetic information."
+},
+
+{
+    id: "bio-inherit-159",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Genome",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a genome?",
+    answer: "A genome is the entire genetic material of an organism."
+},
+
+{
+    id: "bio-inherit-160",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Genes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a gene?",
+    answer: "A gene is a section of DNA that codes for a particular sequence of amino acids or a functional product."
+},
+
+{
+    id: "bio-inherit-161",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Chromosomes",
+    type: "Recall",
+    difficulty: 1,
+    question: "Where are chromosomes found?",
+    answer: "Chromosomes are found in the nucleus of eukaryotic cells."
+},
+
+{
+    id: "bio-inherit-162",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Chromosomes",
+    type: "Recall",
+    difficulty: 1,
+    question: "How many pairs of chromosomes are found in a typical human body cell?",
+    answer: "23 pairs, giving 46 chromosomes in total."
+},
+
+/* ---------- Genetic terminology ---------- */
+
+{
+    id: "bio-inherit-163",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Alleles",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an allele?",
+    answer: "An allele is a different version of a gene."
+},
+
+{
+    id: "bio-inherit-164",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Genotype",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a genotype?",
+    answer: "A genotype is the genetic makeup of an organism."
+},
+
+{
+    id: "bio-inherit-165",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Phenotype",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a phenotype?",
+    answer: "A phenotype is the observable characteristics of an organism, resulting from its genotype and the environment."
+},
+
+{
+    id: "bio-inherit-166",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Homozygous",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does homozygous mean?",
+    answer: "It means an organism has two identical alleles for a particular gene."
+},
+
+{
+    id: "bio-inherit-167",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Heterozygous",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does heterozygous mean?",
+    answer: "It means an organism has two different alleles for a particular gene."
+},
+
+{
+    id: "bio-inherit-168",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Dominant alleles",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a dominant allele?",
+    answer: "A dominant allele is expressed in the phenotype when at least one copy is present."
+},
+
+{
+    id: "bio-inherit-169",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Recessive alleles",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a recessive allele?",
+    answer: "A recessive allele is expressed only when two copies are present."
+},
+
+/* ---------- Genetic crosses ---------- */
+
+{
+    id: "bio-inherit-170",
+    subject: "biology",
+    board: "Foundation",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Genetic crosses",
+    type: "Application",
+    difficulty: 2,
+    question: "If two heterozygous parents have the genotypes Aa and Aa, what proportion of their offspring are expected to be aa?",
+    answer: "One quarter, or 25%."
+},
+
+{
+    id: "bio-inherit-171",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Genetic crosses",
+    type: "Application",
+    difficulty: 2,
+    question: "If A is dominant to a, what phenotype would an individual with genotype Aa have?",
+    answer: "The dominant phenotype."
+},
+
+{
+    id: "bio-inherit-172",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Genetic crosses",
+    type: "Calculation",
+    difficulty: 3,
+    question: "Two heterozygous parents have the genotypes Bb and Bb. What percentage of their offspring are expected to show the recessive phenotype?",
+    answer: "25%."
+},
+
+/* ---------- Sex determination ---------- */
+
+{
+    id: "bio-inherit-173",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Sex determination",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which sex chromosomes does a typical human female have?",
+    answer: "XX."
+},
+
+{
+    id: "bio-inherit-174",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Sex determination",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which sex chromosomes does a typical human male have?",
+    answer: "XY."
+},
+
+{
+    id: "bio-inherit-175",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Sex determination",
+    type: "Application",
+    difficulty: 2,
+    question: "Why is there approximately a 50% chance of a child being male or female?",
+    answer: "Egg cells normally carry an X chromosome, while sperm cells carry either X or Y, so there is approximately an equal chance of an X- or Y-bearing sperm fertilising the egg."
+},
+
+/* ---------- Variation and mutation ---------- */
+
+{
+    id: "bio-inherit-176",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Variation",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is variation?",
+    answer: "Variation refers to differences in characteristics between individuals of the same species."
+},
+
+{
+    id: "bio-inherit-177",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Variation",
+    type: "Explain",
+    difficulty: 2,
+    question: "What are three possible causes of variation?",
+    answer: "Genetic differences, environmental factors, or a combination of genetic and environmental factors."
+},
+
+{
+    id: "bio-inherit-178",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Mutation",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a mutation?",
+    answer: "A mutation is a random change in the genetic material."
+},
+
+{
+    id: "bio-inherit-179",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Mutation",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why can mutations lead to variation?",
+    answer: "Mutations can create new alleles, which may change characteristics."
+},
+
+/* ---------- Natural selection ---------- */
+
+{
+    id: "bio-inherit-180",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Natural selection",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is natural selection?",
+    answer: "Natural selection is the process in which individuals with advantageous characteristics are more likely to survive and reproduce."
+},
+
+{
+    id: "bio-inherit-181",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance, Variation and Evolution",
+    subtopic: "Natural selection",
+    type: "Explain",
+    difficulty: 3,
+    question: "How can a mutation eventually become common in a population?",
+    answer: "If the mutation gives an advantageous characteristic, individuals with it are more likely to survive and reproduce. They pass the allele to offspring, so its frequency increases over generations."
+},
+
+
+/* =========================================================
+   7. ECOLOGY — 20 CARDS
+   ========================================================= */
+
+
+/* ---------- Communities ---------- */
+
+{
+    id: "bio-eco-182",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Communities",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a community?",
+    answer: "A community is all the populations of different species living and interacting in an area."
+},
+
+{
+    id: "bio-eco-183",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Ecosystems",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an ecosystem?",
+    answer: "An ecosystem is the interaction between a community of living organisms and the non-living components of their environment."
+},
+
+{
+    id: "bio-eco-184",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Recall",
+    difficulty: 1,
+    question: "What do organisms compete for?",
+    answer: "Organisms may compete for resources such as food, water, light, space and mates."
+},
+
+{
+    id: "bio-eco-185",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Interdependence",
+    type: "Explain",
+    difficulty: 2,
+    question: "What does interdependence mean in an ecosystem?",
+    answer: "It means organisms depend on other organisms and environmental factors for resources and survival."
+},
+
+/* ---------- Food chains ---------- */
+
+{
+    id: "bio-eco-186",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a producer?",
+    answer: "A producer is an organism that makes its own food, usually by photosynthesis."
+},
+
+{
+    id: "bio-eco-187",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a primary consumer?",
+    answer: "A primary consumer is an organism that feeds directly on producers."
+},
+
+{
+    id: "bio-eco-188",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a secondary consumer?",
+    answer: "A secondary consumer feeds on primary consumers."
+},
+
+{
+    id: "bio-eco-189",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Predator-prey relationships",
+    type: "Explain",
+    difficulty: 2,
+    question: "What happens to a prey population when the number of predators increases?",
+    answer: "The prey population usually decreases because more individuals are being eaten."
+},
+
+{
+    id: "bio-eco-190",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Predator-prey relationships",
+    type: "Application",
+    difficulty: 3,
+    question: "Why do predator and prey populations often show repeating cycles?",
+    answer: "An increase in prey provides more food for predators, causing predator numbers to increase. More predators then reduce prey numbers, causing predator numbers to fall, allowing prey numbers to recover."
+},
+
+/* ---------- Sampling ---------- */
+
+{
+    id: "bio-eco-191",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Sampling",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a quadrat used for?",
+    answer: "A quadrat is used to sample organisms that do not move or move very little, such as plants."
+},
+
+{
+    id: "bio-eco-192",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Sampling",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a transect used for?",
+    answer: "A transect is used to investigate how the distribution of organisms changes across an area."
+},
+
+{
+    id: "bio-eco-193",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Sampling",
+    type: "Application",
+    difficulty: 2,
+    question: "Why should quadrats be placed randomly when estimating plant abundance?",
+    answer: "Random sampling reduces bias and gives a more representative sample of the area."
+},
+
+/* ---------- Material cycles ---------- */
+
+{
+    id: "bio-eco-194",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Carbon cycle",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which process removes carbon dioxide from the atmosphere?",
+    answer: "Photosynthesis."
+},
+
+{
+    id: "bio-eco-195",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Carbon cycle",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which processes release carbon dioxide into the atmosphere?",
+    answer: "Respiration and combustion release carbon dioxide. Decomposition also releases carbon dioxide."
+},
+
+{
+    id: "bio-eco-196",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Decomposition",
+    type: "Explain",
+    difficulty: 2,
+    question: "What role do microorganisms play in the carbon cycle?",
+    answer: "Microorganisms decompose dead organisms and waste, releasing carbon dioxide through respiration."
+},
+
+{
+    id: "bio-eco-197",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Water cycle",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is evaporation?",
+    answer: "Evaporation is the change of liquid water into water vapour."
+},
+
+{
+    id: "bio-eco-198",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Water cycle",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is precipitation?",
+    answer: "Precipitation is water falling from clouds to Earth's surface, for example as rain."
+},
+
+/* ---------- Biodiversity ---------- */
+
+{
+    id: "bio-eco-199",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biodiversity",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is biodiversity?",
+    answer: "Biodiversity is the variety of different species of organisms in an area."
+},
+
+{
+    id: "bio-eco-200",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biodiversity",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Why is maintaining biodiversity important?",
+    answer: "Biodiversity supports stable ecosystems and provides resources and ecosystem services that humans depend on."
+}
+
 ];
+
+
