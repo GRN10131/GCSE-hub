@@ -341,46 +341,108 @@ function cardMatchesStudent(card) {
         return false;
     }
 
+    /*
+     * SUBJECT
+     *
+     * Card data uses lowercase subject IDs
+     * such as "biology", while the GCSE Hub
+     * may use "Biology".
+     *
+     * Normalise both sides so the comparison
+     * is case-insensitive.
+     */
+
+    const cardSubject =
+        String(card.subject || "")
+            .trim()
+            .toLowerCase();
+
+    const studentSubject =
+        String(selectedSubject || "")
+            .trim()
+            .toLowerCase();
 
     if (
-        card.subject !==
-        selectedSubject
+        !studentSubject ||
+        cardSubject !== studentSubject
     ) {
-
         return false;
-
     }
 
 
+    /*
+     * APP DATA
+     */
+
     const data =
         getAppData();
-
 
     if (!data) {
         return false;
     }
 
 
-    const board =
-        data.boards &&
-        data.boards[selectedSubject]
-            ? data.boards[selectedSubject]
-            : null;
+    /*
+     * Find the student's board and level.
+     *
+     * This also handles cases where the
+     * subject key has different capitalisation.
+     */
 
+    function getSubjectSetting(settings) {
+
+        if (
+            !settings ||
+            typeof settings !== "object"
+        ) {
+            return null;
+        }
+
+        /*
+         * First try the exact key.
+         */
+
+        if (
+            settings[selectedSubject]
+        ) {
+            return settings[selectedSubject];
+        }
+
+        /*
+         * Then try a case-insensitive key.
+         */
+
+        const key =
+            Object.keys(settings).find(
+                k =>
+                    String(k)
+                        .trim()
+                        .toLowerCase() ===
+                    studentSubject
+            );
+
+        return key
+            ? settings[key]
+            : null;
+    }
+
+
+    const board =
+        getSubjectSetting(
+            data.boards
+        );
 
     const level =
-        data.levels &&
-        data.levels[selectedSubject]
-            ? data.levels[selectedSubject]
-            : null;
+        getSubjectSetting(
+            data.levels
+        );
 
 
     /*
-     * Board
+     * BOARD
      *
-     * If the student's board is known,
-     * only reject cards belonging to
-     * a different board.
+     * If a student has a board selected,
+     * reject cards belonging to another board.
      *
      * Cards without a board remain usable.
      */
@@ -388,69 +450,75 @@ function cardMatchesStudent(card) {
     if (
         board &&
         card.board &&
-        card.board !== board
+        String(card.board)
+            .trim()
+            .toLowerCase() !==
+        String(board)
+            .trim()
+            .toLowerCase()
     ) {
-
         return false;
-
     }
 
 
     /*
-     * Level
+     * LEVEL
      *
-     * Cards with no level are available
-     * to everybody.
+     * Cards without a level are available
+     * to everyone.
      *
      * Foundation cards are available to
-     * Foundation and Higher students.
+     * Foundation AND Higher students.
      *
      * Higher cards are Higher-only.
      */
 
-    if (card.level) {
+    const cardLevel =
+        String(card.level || "")
+            .trim()
+            .toLowerCase();
 
-        if (
-            card.level === "Higher" &&
-            level !== "Higher"
-        ) {
-
-            return false;
-
-        }
+    const studentLevel =
+        String(level || "")
+            .trim()
+            .toLowerCase();
 
 
-        if (
-            card.level === "Foundation" &&
-            level !== "Foundation" &&
-            level !== "Higher"
-        ) {
+    if (
+        cardLevel === "higher" &&
+        studentLevel !== "higher"
+    ) {
+        return false;
+    }
 
-            return false;
 
-        }
-
+    if (
+        cardLevel === "foundation" &&
+        studentLevel !== "foundation" &&
+        studentLevel !== "higher"
+    ) {
+        return false;
     }
 
 
     /*
-     * Topic
+     * TOPIC
      */
 
     if (
         selectedTopic !== "all" &&
         card.topic !== selectedTopic
     ) {
-
         return false;
-
     }
 
 
+    /*
+     * CARD PASSES ALL FILTERS
+     */
+
     return true;
-
 }
-
 
 /* =========================================================
    STUDENT CARDS
