@@ -12,21 +12,132 @@
 
     <title>Settings — GCSE Hub</title>
 
-    <link rel="stylesheet"
-          href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .settings-section {
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .settings-section h2 {
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .subject-setting {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding: 15px;
+
+            background: white;
+
+            border: 1px solid #e4e7ef;
+
+            border-radius: 16px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .subject-setting-name {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .subject-setting-icon {
+
+            font-size: 25px;
+
+        }
+
+
+        .current-badge {
+
+            padding: 5px 9px;
+
+            border-radius: 999px;
+
+            background: #eef0ff;
+
+            color: #5b5ce2;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+        }
+
+
+        .goal-options {
+
+            display: flex;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .goal-option {
+
+            cursor: pointer;
+
+        }
+
+
+        .profile-value {
+
+            font-size: 18px;
+
+            font-weight: 800;
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
+
 
 <script src="js/app.js"></script>
 
 <script>
+
 injectHeader();
+
 </script>
 
 
-<main class="main center">
+<main class="main">
+
 
     <div class="setup-title">
 
@@ -41,99 +152,137 @@ injectHeader();
     </div>
 
 
-    <div class="card">
+    <!-- PROFILE -->
 
+    <div class="card settings-section">
 
-        <h3>
+        <h2>
             Profile
-        </h3>
+        </h2>
 
 
         <p>
-            <strong>Name:</strong>
-            <span data-name></span>
+            Your name
         </p>
 
 
-        <p>
-            <strong>Subject:</strong>
-            <span data-subject></span>
-        </p>
+        <div class="profile-value">
 
-
-        <p>
-            <strong>Level:</strong>
-            <span id="level"></span>
-        </p>
-
-
-        <hr>
-
-
-        <h3>
-            Daily goal
-        </h3>
-
-
-        <p class="muted">
-            Choose how many points you want
-            to earn each day.
-        </p>
-
-
-        <div class="button-row">
-
-            <button
-                class="btn secondary"
-                onclick="changeGoal(250)"
-            >
-                250
-            </button>
-
-
-            <button
-                class="btn secondary"
-                onclick="changeGoal(500)"
-            >
-                500
-            </button>
-
-
-            <button
-                class="btn secondary"
-                onclick="changeGoal(750)"
-            >
-                750
-            </button>
-
-
-            <button
-                class="btn secondary"
-                onclick="changeGoal(1000)"
-            >
-                1000
-            </button>
+            <span data-name>
+                Student
+            </span>
 
         </div>
 
+    </div>
 
-        <hr>
+
+    <!-- SUBJECTS -->
+
+    <div class="card settings-section">
+
+        <h2>
+            Your subjects
+        </h2>
 
 
-        <h3>
-            Streak Freezes
-        </h3>
+        <p class="muted">
+
+            Select a subject below to make it
+            your current revision subject.
+
+        </p>
+
+
+        <div
+            id="subjectSettings"
+        ></div>
+
+
+        <a
+            href="setup-subject.html"
+            class="btn secondary"
+        >
+
+            Edit subjects
+
+        </a>
+
+    </div>
+
+
+    <!-- DAILY GOAL -->
+
+    <div class="card settings-section">
+
+        <h2>
+            Daily goal 🎯
+        </h2>
+
+
+        <p class="muted">
+
+            Choose how many points you want
+            to earn each day.
+
+        </p>
+
+
+        <div
+            id="goalOptions"
+            class="goal-options"
+        ></div>
+
+    </div>
+
+
+    <!-- STREAK -->
+
+    <div class="card settings-section">
+
+        <h2>
+            Streak 🔥
+        </h2>
 
 
         <p>
 
-            🧊
+            Current streak:
 
-            <strong id="freezes">
-                0
+            <strong>
+
+                <span data-streak>
+                    0
+                </span>
+
+                days
+
             </strong>
 
-            streak freezes
+        </p>
+
+
+        <p>
+
+            Streak freezes:
+
+            <strong>
+
+                🧊
+
+                <span id="freezes">
+                    0
+                </span>
+
+            </strong>
+
+        </p>
+
+
+        <p class="muted">
+
+            A streak freeze protects your streak
+            when you miss a day.
 
         </p>
 
@@ -143,33 +292,61 @@ injectHeader();
             onclick="buyFreeze()"
         >
 
-            Buy freeze — 100 💎
+            Buy streak freeze — 100 💎
 
         </button>
 
-
-        <hr>
-
-
-        <h3>
-            Subject
-        </h3>
+    </div>
 
 
-        <a
-            href="setup-subject.html"
-            class="btn secondary"
-        >
-            Change subject
-        </a>
+    <!-- ACCOUNT DATA -->
+
+    <div class="card settings-section">
+
+        <h2>
+            Your progress
+        </h2>
 
 
-        <hr>
+        <p>
+
+            Total points:
+
+            <strong>
+                ⭐ <span data-points>0</span>
+            </strong>
+
+        </p>
 
 
-        <h3>
-            Danger Zone
-        </h3>
+        <p>
+
+            Gems:
+
+            <strong>
+                💎 <span data-gems>0</span>
+            </strong>
+
+        </p>
+
+    </div>
+
+
+    <!-- RESET -->
+
+    <div class="card settings-section">
+
+        <h2>
+            Reset
+        </h2>
+
+
+        <p class="muted">
+
+            This will permanently delete your
+            local GCSE Hub progress on this device.
+
+        </p>
 
 
         <button
@@ -190,7 +367,9 @@ injectHeader();
             href="dashboard.html"
             class="btn ghost"
         >
+
             ← Dashboard
+
         </a>
 
     </div>
@@ -200,27 +379,254 @@ injectHeader();
 
 <script>
 
-let data = load();
+
+/* =========================================================
+   SUBJECT SETTINGS
+   ========================================================= */
+
+function renderSubjectSettings() {
+
+    const data =
+        load();
 
 
-document.getElementById("level")
-    .textContent = data.level;
+    const container =
+        document.getElementById(
+            "subjectSettings"
+        );
 
 
-document.getElementById("freezes")
-    .textContent =
-    data.streakFreezes;
+    if (
+        data.subjects.length === 0
+    ) {
 
+        container.innerHTML = `
+
+            <p class="muted">
+
+                You haven't selected any subjects.
+
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+
+        data.subjects
+
+            .map(
+                id => {
+
+                    const subject =
+                        SUBJECTS[id];
+
+
+                    if (!subject) {
+                        return "";
+                    }
+
+
+                    const current =
+                        id ===
+                        data.currentSubject;
+
+
+                    return `
+
+                        <div
+                            class="subject-setting"
+                        >
+
+                            <div
+                                class="
+                                    subject-setting-name
+                                "
+                            >
+
+                                <span
+                                    class="
+                                        subject-setting-icon
+                                    "
+                                >
+
+                                    ${subject.icon}
+
+                                </span>
+
+
+                                <span>
+
+                                    ${subject.name}
+
+                                </span>
+
+
+                                ${
+                                    current
+                                        ? `
+                                            <span
+                                                class="
+                                                    current-badge
+                                                "
+                                            >
+                                                Current
+                                            </span>
+                                        `
+                                        : ""
+                                }
+
+                            </div>
+
+
+                            ${
+                                current
+                                    ? `
+                                        <button
+                                            class="
+                                                btn
+                                                secondary
+                                            "
+                                            disabled
+                                        >
+                                            Selected
+                                        </button>
+                                    `
+                                    : `
+                                        <button
+
+                                            class="btn"
+
+                                            onclick="
+                                                makeCurrent(
+                                                    '${id}'
+                                                )
+                                            "
+                                        >
+                                            Select
+                                        </button>
+                                    `
+                            }
+
+                        </div>
+
+                    `;
+
+                }
+            )
+
+            .join("");
+
+}
+
+
+/* =========================================================
+   MAKE CURRENT SUBJECT
+   ========================================================= */
+
+function makeCurrent(id) {
+
+    setCurrentSubject(id);
+
+    renderSubjectSettings();
+
+}
+
+
+/* =========================================================
+   DAILY GOALS
+   ========================================================= */
+
+const goals = [
+    250,
+    500,
+    750,
+    1000
+];
+
+
+function renderGoals() {
+
+    const data =
+        load();
+
+
+    const container =
+        document.getElementById(
+            "goalOptions"
+        );
+
+
+    container.innerHTML =
+
+        goals
+
+            .map(
+                goal => `
+
+                    <button
+
+                        class="
+                            btn
+                            ${
+                                data.dailyGoal === goal
+                                    ? ""
+                                    : "secondary"
+                            }
+                        "
+
+                        onclick="
+                            changeGoal(
+                                ${goal}
+                            )
+                        "
+                    >
+
+                        ${goal} points
+
+                    </button>
+
+                `
+            )
+
+            .join("");
+
+}
+
+
+/* =========================================================
+   CHANGE GOAL
+   ========================================================= */
 
 function changeGoal(goal) {
 
-    const data = load();
+    const data =
+        load();
 
-    data.dailyGoal = goal;
+
+    data.dailyGoal =
+        goal;
+
 
     save(data);
 
+
     renderStats();
+
+    renderGoals();
+
+
+    /*
+       Tell the user it worked.
+    */
+
+    const today =
+        data.pointsToday;
+
 
     alert(
         `Daily goal changed to ${goal} points.`
@@ -229,18 +635,26 @@ function changeGoal(goal) {
 }
 
 
+/* =========================================================
+   BUY STREAK FREEZE
+   ========================================================= */
+
 function buyFreeze() {
 
-    const data = load();
+    const data =
+        load();
 
 
-    if (data.gems < 100) {
+    if (
+        data.gems < 100
+    ) {
 
         alert(
             "You need 100 gems to buy a streak freeze."
         );
 
         return;
+
     }
 
 
@@ -251,21 +665,41 @@ function buyFreeze() {
 
     save(data);
 
+
     renderStats();
 
 
-    document.getElementById("freezes")
-        .textContent =
+    document.getElementById(
+        "freezes"
+    ).textContent =
         data.streakFreezes;
 
 
     alert(
-        "Streak Freeze added! 🧊"
+        "Streak Freeze purchased! 🧊"
     );
 
 }
 
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+renderSubjectSettings();
+
+renderGoals();
+
+
+document.getElementById(
+    "freezes"
+).textContent =
+    load().streakFreezes;
+
+
 </script>
 
+
 </body>
+
 </html>
