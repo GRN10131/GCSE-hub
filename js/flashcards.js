@@ -334,7 +334,6 @@ function getFlashcardData() {
 /* =========================================================
    SUBJECT CARD FILTER
    ========================================================= */
-
 function cardMatchesStudent(card) {
 
     if (!card) {
@@ -343,13 +342,6 @@ function cardMatchesStudent(card) {
 
     /*
      * SUBJECT
-     *
-     * Card data uses lowercase subject IDs
-     * such as "biology", while the GCSE Hub
-     * may use "Biology".
-     *
-     * Normalise both sides so the comparison
-     * is case-insensitive.
      */
 
     const cardSubject =
@@ -371,133 +363,161 @@ function cardMatchesStudent(card) {
 
 
     /*
-     * APP DATA
+     * If no board/level information is
+     * available from the Hub, don't reject
+     * the cards.
      */
 
-    const data =
-        getAppData();
+    let board = null;
+    let level = null;
 
-    if (!data) {
-        return false;
-    }
+    try {
 
+        const data =
+            getAppData();
 
-    /*
-     * Find the student's board and level.
-     *
-     * This also handles cases where the
-     * subject key has different capitalisation.
-     */
+        if (data) {
 
-    function getSubjectSetting(settings) {
+            function getSubjectSetting(settings) {
 
-        if (
-            !settings ||
-            typeof settings !== "object"
-        ) {
-            return null;
+                if (
+                    !settings ||
+                    typeof settings !== "object"
+                ) {
+                    return null;
+                }
+
+                /*
+                 * Exact match
+                 */
+
+                if (
+                    settings[selectedSubject]
+                ) {
+                    return settings[selectedSubject];
+                }
+
+                /*
+                 * Case-insensitive match
+                 */
+
+                const key =
+                    Object.keys(settings).find(
+                        k =>
+                            String(k)
+                                .trim()
+                                .toLowerCase() ===
+                            studentSubject
+                    );
+
+                return key
+                    ? settings[key]
+                    : null;
+            }
+
+            board =
+                getSubjectSetting(
+                    data.boards
+                );
+
+            level =
+                getSubjectSetting(
+                    data.levels
+                );
         }
 
-        /*
-         * First try the exact key.
-         */
+    } catch (error) {
 
-        if (
-            settings[selectedSubject]
-        ) {
-            return settings[selectedSubject];
-        }
+        console.warn(
+            "Could not read student board/level. Using subject only.",
+            error
+        );
 
-        /*
-         * Then try a case-insensitive key.
-         */
-
-        const key =
-            Object.keys(settings).find(
-                k =>
-                    String(k)
-                        .trim()
-                        .toLowerCase() ===
-                    studentSubject
-            );
-
-        return key
-            ? settings[key]
-            : null;
     }
-
-
-    const board =
-        getSubjectSetting(
-            data.boards
-        );
-
-    const level =
-        getSubjectSetting(
-            data.levels
-        );
 
 
     /*
      * BOARD
      *
-     * If a student has a board selected,
-     * reject cards belonging to another board.
-     *
-     * Cards without a board remain usable.
+     * Only filter by board when BOTH
+     * the student's board and the card's
+     * board are known.
      */
 
     if (
         board &&
-        card.board &&
-        String(card.board)
-            .trim()
-            .toLowerCase() !==
-        String(board)
-            .trim()
-            .toLowerCase()
+        card.board
     ) {
-        return false;
+
+        const cardBoard =
+            String(card.board)
+                .trim()
+                .toLowerCase();
+
+        const studentBoard =
+            String(board)
+                .trim()
+                .toLowerCase();
+
+        if (
+            cardBoard !==
+            studentBoard
+        ) {
+            return false;
+        }
     }
 
 
     /*
      * LEVEL
      *
-     * Cards without a level are available
-     * to everyone.
+     * Foundation cards:
+     * available to Foundation AND Higher.
      *
-     * Foundation cards are available to
-     * Foundation AND Higher students.
+     * Higher cards:
+     * available only to Higher.
      *
-     * Higher cards are Higher-only.
+     * If the student's level cannot be
+     * determined, don't reject the card.
      */
 
-    const cardLevel =
-        String(card.level || "")
-            .trim()
-            .toLowerCase();
-
-    const studentLevel =
-        String(level || "")
-            .trim()
-            .toLowerCase();
-
-
     if (
-        cardLevel === "higher" &&
-        studentLevel !== "higher"
+        level &&
+        card.level
     ) {
-        return false;
-    }
 
+        const cardLevel =
+            String(card.level)
+                .trim()
+                .toLowerCase();
 
-    if (
-        cardLevel === "foundation" &&
-        studentLevel !== "foundation" &&
-        studentLevel !== "higher"
-    ) {
-        return false;
+        const studentLevel =
+            String(level)
+                .trim()
+                .toLowerCase();
+
+        /*
+         * Higher
+         */
+
+        if (
+            cardLevel === "higher" &&
+            studentLevel !== "higher"
+        ) {
+            return false;
+        }
+
+        /*
+         * Foundation
+         */
+
+        if (
+            cardLevel === "foundation" &&
+            studentLevel !== "foundation" &&
+            studentLevel !== "higher"
+        ) {
+            return false;
+        }
     }
 
 
@@ -514,11 +534,11 @@ function cardMatchesStudent(card) {
 
 
     /*
-     * CARD PASSES ALL FILTERS
+     * CARD PASSES
      */
 
     return true;
-}
+}    
 
 /* =========================================================
    STUDENT CARDS
