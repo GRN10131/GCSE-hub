@@ -311,27 +311,32 @@
             display: flex;
         }
 
-        .rating {
-            min-width: 130px;
-            padding: 14px 18px;
-            border-radius: 13px;
-            border: 2px solid #ddd;
-            background: white;
-            cursor: pointer;
-            font-weight: 800;
-        }
+       .flash-rating {
+    min-width: 130px;
+    padding: 14px 18px;
+    border-radius: 13px;
+    border: 2px solid #ddd;
+    background: white;
+    cursor: pointer;
+    font-weight: 800;
+    display: inline-block;
+}
 
-        .rating.wrong {
-            border-color: #e57373;
-        }
+.flash-rating:hover {
+    transform: translateY(-1px);
+}
 
-        .rating.almost {
-            border-color: #e0b64d;
-        }
+.flash-rating.wrong {
+    border-color: #e57373;
+}
 
-        .rating.correct {
-            border-color: #62b879;
-        }
+.flash-rating.almost {
+    border-color: #e0b64d;
+}
+
+.flash-rating.correct {
+    border-color: #62b879;
+}
 
         .xp-earned {
             text-align: center;
@@ -790,25 +795,25 @@
                 >
 
                     <button
-                        class="rating wrong"
-                        data-rating="wrong"
-                    >
-                        ❌ Got it wrong
-                    </button>
+    class="flash-rating wrong"
+    data-rating="wrong"
+>
+    ❌ Got it wrong
+</button>
 
-                    <button
-                        class="rating almost"
-                        data-rating="almost"
-                    >
-                        😐 Almost
-                    </button>
+<button
+    class="flash-rating almost"
+    data-rating="almost"
+>
+    😐 Almost
+</button>
 
-                    <button
-                        class="rating correct"
-                        data-rating="correct"
-                    >
-                        😄 Got it
-                    </button>
+<button
+    class="flash-rating correct"
+    data-rating="correct"
+>
+    😄 Got it
+</button>
 
                 </div>
 
