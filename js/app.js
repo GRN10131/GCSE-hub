@@ -640,45 +640,44 @@ function resetData() {
         "setup-name.html";
 
 }
-
 /* =========================================
    WOJTEK MASCOT SYSTEM
    ========================================= */
 
-function createWojtek(element, animation = "idle") {
+const WOJTEK_IMAGES = {
 
-    if (!element) return;
+    happy: "assets/wojtek/happy.png",
 
-    element.className = "wojtek " + animation;
-}
+    wave: "assets/wojtek/waving.png",
+
+    thinking: "assets/wojtek/thinking.png",
+
+    studying: "assets/wojtek/studying.png",
+
+    celebrate: "assets/wojtek/celebrate.png"
+
+};
 
 
-/* Change Wojtek's animation */
+/* Change Wojtek's image */
 
 function wojtekAnimation(animation) {
 
-    const wojteks = document.querySelectorAll(".wojtek");
+    const image =
+        WOJTEK_IMAGES[animation] ||
+        WOJTEK_IMAGES.happy;
 
-    wojteks.forEach(wojtek => {
+    document
+        .querySelectorAll(".wojtek")
+        .forEach(wojtek => {
 
-        wojtek.classList.remove(
-            "idle",
-            "wave",
-            "happy",
-            "celebrate",
-            "thinking",
-            "studying",
-            "encourage",
-            "surprised",
-            "achievement",
-            "sleep",
-            "keep-going",
-            "welcome"
-        );
+            wojtek.style.backgroundImage =
+                `url("${image}")`;
 
-        wojtek.classList.add(animation);
+            wojtek.dataset.animation =
+                animation;
 
-    });
+        });
 
 }
 
@@ -687,18 +686,18 @@ function wojtekAnimation(animation) {
 
 function wojtekSpeak(message) {
 
-    const messages = document.querySelectorAll(".wojtek-message");
+    document
+        .querySelectorAll(".wojtek-message")
+        .forEach(box => {
 
-    messages.forEach(box => {
+            box.innerHTML = message;
 
-        box.innerHTML = message;
-
-    });
+        });
 
 }
 
 
-/* Animation + speech together */
+/* Change animation + speech */
 
 function wojtekSay(animation, message) {
 
