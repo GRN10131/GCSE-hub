@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Subject — GCSE Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<main class="main">
+
+    <div class="setup-title">
+
+        <h1>
+            Choose your subject
+        </h1>
+
+        <p>
+            You can add more subjects later.
+        </p>
+
+    </div>
+
+
+    <div id="subjects" class="option-grid"></div>
+
+
+    <div class="footer-actions">
+
+        <a href="setup-name.html" class="btn ghost">
+            ← Back
+        </a>
+
+        <button
+            id="continueButton"
+            class="btn"
+            disabled
+            onclick="continueSetup()"
+        >
+            Continue →
+        </button>
+
+    </div>
+
+</main>
+
+
+<script src="js/app.js"></script>
+
+
+<script>
+
+let selectedSubject = load().subject;
+
+
+const container =
+    document.getElementById("subjects");
+
+
+container.innerHTML =
+    Object.entries(SUBJECTS)
+    .map(([id, subject]) => {
+
+        const selected =
+            id === selectedSubject
+            ? "selected"
+            : "";
+
+        return `
+
+        <button
+            class="option ${selected}"
+            onclick="selectSubject('${id}', this)"
+        >
+
+            <span class="big">
+                ${subject.icon}
+            </span>
+
+            <strong>
+                ${subject.name}
+            </strong>
+
+            <small>
+                ${subject.boards.join(" • ")}
+            </small>
+
+        </button>
+
+        `;
+
+    })
+    .join("");
+
+
+if (selectedSubject) {
+
+    document.getElementById("continueButton")
+        .disabled = false;
+}
+
+
+function selectSubject(id, button) {
+
+    selectedSubject = id;
+
+
+    document
+        .querySelectorAll(".option")
+        .forEach(option =>
+            option.classList.remove("selected")
+        );
+
+
+    button.classList.add("selected");
+
+
+    document.getElementById("continueButton")
+        .disabled = false;
+}
+
+
+function continueSetup() {
+
+    const data = load();
+
+    data.subject = selectedSubject;
+
+    data.board =
+        SUBJECTS[selectedSubject].boards[0];
+
+    save(data);
+
+    window.location.href =
+        "setup-level.html";
+}
+
+</script>
+
+</body>
+</html>
