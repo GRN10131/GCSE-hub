@@ -1,820 +1,960 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width,initial-scale=1"
+    >
 
     <title>Flashcards — GCSE Hub</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
 
     <style>
-        .flashcards-page {
-            max-width: 1050px;
-            margin: auto;
-        }
 
-        .back-link {
-            display: inline-block;
-            margin-bottom: 20px;
-            text-decoration: none;
-            font-weight: 700;
-        }
+        /* =========================================
+           FLASHCARD WOJTEK
+           ========================================= */
 
-        .flash-header {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .flash-header-icon {
-            font-size: 55px;
-        }
-
-        .flash-stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .flash-stat {
-            background: white;
-            border: 1px solid #e5e7ee;
-            border-radius: 16px;
-            padding: 18px;
-            text-align: center;
-        }
-
-        .flash-stat-icon {
-            font-size: 25px;
-        }
-
-        .flash-stat-value {
-            font-size: 25px;
-            font-weight: 900;
-            margin-top: 5px;
-        }
-
-        .flash-stat-label {
-            color: #777;
-            font-size: 13px;
-        }
-
-        .flashcard-setup {
-            max-width: 850px;
-            margin: auto;
-        }
-
-        .setup-heading {
-            text-align: center;
-            margin-bottom: 30px;
-        }
-
-        .subject-grid,
-        .topic-grid {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-        }
-
-        .subject-select,
-        .topic-button,
-        .special-mode {
-            border: 2px solid #e3e5ec;
-            background: white;
-            border-radius: 15px;
-            padding: 16px;
-            cursor: pointer;
-            text-align: left;
-            transition: 0.15s;
-        }
-
-        .subject-select:hover,
-        .topic-button:hover,
-        .special-mode:hover {
-            transform: translateY(-2px);
-        }
-
-        .subject-select.selected,
-        .topic-button.selected,
-        .special-mode.selected {
-            border-color: #5b5ce2;
-            background: #f3f3ff;
-        }
-
-        .subject-select-icon {
-            font-size: 28px;
-            display: block;
-            margin-bottom: 7px;
-        }
-
-        .subject-select-name {
-            font-weight: 800;
-            display: block;
-        }
-
-        .subject-select-info {
-            font-size: 12px;
-            color: #777;
-            margin-top: 5px;
-        }
-
-        .flash-select {
-            width: 100%;
-            padding: 13px;
-            border: 2px solid #e1e3ea;
-            border-radius: 12px;
-            background: white;
-            font-size: 15px;
-        }
-
-        .special-modes {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 25px;
-        }
-
-        .special-mode strong {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .special-mode small {
-            color: #777;
-        }
-
-        .session {
-            display: none;
-        }
-
-        .session.active {
-            display: block;
-        }
-
-        .session-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .session-subject {
-            font-weight: 800;
-        }
-
-        .session-counter {
-            font-weight: 800;
-        }
-
-        .session-progress {
-            height: 9px;
-            background: #e9ebf1;
-            border-radius: 10px;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-
-        .session-progress-bar {
-            height: 100%;
-            width: 0%;
-            background: #5b5ce2;
-            transition: width 0.3s;
-        }
-
-        .question-card {
-            background: white;
-            border-radius: 25px;
-            padding: 45px 35px;
-            text-align: center;
-            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
-            min-height: 370px;
+        .flashcard-wojtek {
 
             display: flex;
+
+            justify-content: center;
+
+            margin:
+                10px 0 20px;
+
+        }
+
+
+        .flashcard-wojtek-area {
+
+            display: flex;
+
             flex-direction: column;
-            justify-content: center;
+
+            align-items: center;
+
+            gap: 8px;
+
         }
 
-        .question-label {
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #777;
-            margin-bottom: 20px;
+
+        .flashcard-wojtek-image {
+
+            width: 170px;
+
+            height: 170px;
+
+            background-repeat: no-repeat;
+
+            background-position: center;
+
+            background-size: contain;
+
+            transition:
+                opacity .15s ease,
+                transform .2s ease;
+
+            filter:
+                drop-shadow(
+                    0 6px 6px
+                    rgba(0,0,0,.08)
+                );
+
         }
 
-        .question-topic {
-            font-size: 13px;
-            color: #777;
-            margin-bottom: 15px;
+
+        /* Small bounce whenever Wojtek changes */
+
+        .flashcard-wojtek-image.change {
+
+            animation:
+                wojtekFlashcardChange .45s ease;
+
         }
 
-        .question {
-            font-size: 27px;
-            font-weight: 850;
+
+        @keyframes wojtekFlashcardChange {
+
+            0% {
+
+                opacity: .55;
+
+                transform:
+                    scale(.94);
+
+            }
+
+            50% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1.06);
+
+            }
+
+            100% {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        /* Speech bubble */
+
+        .flashcard-wojtek-message {
+
+            position: relative;
+
+            max-width: 310px;
+
+            padding:
+                10px 15px;
+
+            background: white;
+
+            border:
+                1px solid var(--border);
+
+            border-radius: 16px;
+
+            box-shadow:
+                var(--shadow);
+
+            text-align: center;
+
+            font-size: 14px;
+
             line-height: 1.4;
-            margin-bottom: 30px;
+
         }
 
-        .answer {
-            display: none;
-            border-top: 1px solid #e7e8ed;
-            padding-top: 25px;
+
+        .flashcard-wojtek-message::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: -8px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            border-left:
+                8px solid transparent;
+
+            border-right:
+                8px solid transparent;
+
+            border-bottom:
+                8px solid white;
+
         }
 
-        .answer.visible {
-            display: block;
+
+        .flashcard-wojtek-message strong {
+
+            color:
+                var(--primary);
+
         }
 
-        .answer-label {
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
 
-        .answer-text {
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .rating-buttons {
-            display: none;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-top: 25px;
-        }
-
-        .rating-buttons.visible {
-            display: flex;
-        }
-
-        .flash-rating {
-            min-width: 130px;
-            padding: 14px 18px;
-            border-radius: 13px;
-            border: 2px solid #ddd;
-            background: white;
-            cursor: pointer;
-            font-weight: 800;
-        }
-
-        .flash-rating.wrong {
-            border-color: #e57373;
-        }
-
-        .flash-rating.almost {
-            border-color: #e0b64d;
-        }
-
-        .flash-rating.correct {
-            border-color: #62b879;
-        }
-
-        .xp-earned {
-            text-align: center;
-            margin-top: 20px;
-            min-height: 25px;
-            font-weight: 800;
-        }
-
-        .results {
-            display: none;
-            max-width: 750px;
-            margin: 30px auto;
-            text-align: center;
-        }
-
-        .results.active {
-            display: block;
-        }
-
-        .results-icon {
-            font-size: 70px;
-        }
-
-        .results-score {
-            font-size: 50px;
-            font-weight: 900;
-            margin: 20px 0;
-        }
-
-        .result-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 12px;
-            margin: 30px 0;
-        }
-
-        .result-stat {
-            padding: 20px;
-            border-radius: 15px;
-            background: white;
-            border: 1px solid #e4e6ec;
-        }
-
-        .result-stat strong {
-            display: block;
-            font-size: 25px;
-            margin-top: 5px;
-        }
-
-        .v3-links {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin: 20px 0;
-        }
+        /* Mobile */
 
         @media(max-width:700px) {
 
-            .flash-stats {
-                grid-template-columns: repeat(2,1fr);
+            .flashcard-wojtek-image {
+
+                width: 135px;
+
+                height: 135px;
+
             }
 
-            .special-modes {
-                grid-template-columns: 1fr;
+            .flashcard-wojtek-message {
+
+                max-width: 270px;
+
+                font-size: 13px;
+
             }
 
-            .result-grid {
-                grid-template-columns: repeat(2,1fr);
-            }
-
-            .question {
-                font-size: 22px;
-            }
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<script src="js/app.js"></script>
+<div class="app">
 
-<script>
-    injectHeader();
-</script>
+    <main class="main">
 
-<main class="main flashcards-page">
+        <!-- =====================================
+             PAGE HEADER
+             ===================================== -->
 
-    <a href="dashboard.html" class="back-link">
-        ← Dashboard
-    </a>
+        <div class="hero">
 
-    <div class="flash-header">
+            <div>
 
-        <div class="flash-header-icon">
-            🧠
-        </div>
-
-        <h1>Flashcards</h1>
-
-        <p>
-            Active recall, spaced repetition and
-            specification-focused revision.
-        </p>
-
-    </div>
-
-    <div class="v3-links">
-
-        <a class="btn secondary" href="mindmap.html">
-            🗺️ Explore Mind Maps
-        </a>
-
-    </div>
-
-
-    <!-- STATISTICS -->
-
-    <div class="flash-stats">
-
-        <div class="flash-stat">
-            <div class="flash-stat-icon">🧠</div>
-            <div id="statReviewed" class="flash-stat-value">
-                0
-            </div>
-            <div class="flash-stat-label">
-                Cards reviewed
-            </div>
-        </div>
-
-        <div class="flash-stat">
-            <div class="flash-stat-icon">🏆</div>
-            <div id="statMastered" class="flash-stat-value">
-                0
-            </div>
-            <div class="flash-stat-label">
-                Cards mastered
-            </div>
-        </div>
-
-        <div class="flash-stat">
-            <div class="flash-stat-icon">🎯</div>
-            <div id="statAccuracy" class="flash-stat-value">
-                0%
-            </div>
-            <div class="flash-stat-label">
-                Accuracy
-            </div>
-        </div>
-
-        <div class="flash-stat">
-            <div class="flash-stat-icon">🔄</div>
-            <div id="statDue" class="flash-stat-value">
-                0
-            </div>
-            <div class="flash-stat-label">
-                Due for review
-            </div>
-        </div>
-
-    </div>
-
-
-    <!-- SETUP -->
-
-    <section id="setup" class="flashcard-setup">
-
-        <div class="card">
-
-            <div class="setup-heading">
-
-                <h2>
-                    Choose your revision mode
-                </h2>
+                <h1>
+                    Flashcards 🗂️
+                </h1>
 
                 <p>
-                    Your progress is remembered on this device.
+                    Specific questions, not just topic names.
                 </p>
 
             </div>
 
-
-            <div class="special-modes">
-
-                <button
-                    class="special-mode selected"
-                    data-mode="normal"
-                    type="button"
-                >
-
-                    <strong>
-                        📚 All Cards
-                    </strong>
-
-                    <small>
-                        Revise your available specification content.
-                    </small>
-
-                </button>
+        </div>
 
 
-                <button
-                    class="special-mode"
-                    data-mode="weak"
-                    type="button"
-                >
+        <!-- =====================================
+             WOJTEK
+             ===================================== -->
 
-                    <strong>
-                        🎯 Weak Cards
-                    </strong>
+        <div class="flashcard-wojtek">
 
-                    <small>
-                        Focus on knowledge you need to practise.
-                    </small>
-
-                </button>
-
-
-                <button
-                    class="special-mode"
-                    data-mode="due"
-                    type="button"
-                >
-
-                    <strong>
-                        🔄 Due for Review
-                    </strong>
-
-                    <small>
-                        Review cards according to spaced repetition.
-                    </small>
-
-                </button>
-
-            </div>
-
-
-            <h2>
-                Choose a subject
-            </h2>
-
-            <div id="subjectGrid" class="subject-grid"></div>
-
-
-            <div style="margin-top:25px">
-
-                <label>
-                    <strong>Topic</strong>
-                </label>
-
-                <select
-                    id="topic"
-                    class="flash-select"
-                    style="margin-top:8px"
-                >
-
-                    <option value="all">
-                        All available topics
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div style="margin-top:25px">
-
-                <strong>
-                    Number of cards
-                </strong>
+            <div class="flashcard-wojtek-area">
 
                 <div
-                    class="topic-grid"
-                    style="margin-top:10px"
+                    id="flashWojtek"
+                    class="flashcard-wojtek-image"
+                ></div>
+
+
+                <div
+                    id="flashWojtekMessage"
+                    class="flashcard-wojtek-message"
                 >
-
-                    <button
-                        type="button"
-                        class="topic-button selected"
-                        data-number="10"
-                    >
-                        10 cards
-                    </button>
-
-                    <button
-                        type="button"
-                        class="topic-button"
-                        data-number="20"
-                    >
-                        20 cards
-                    </button>
-
-                    <button
-                        type="button"
-                        class="topic-button"
-                        data-number="30"
-                    >
-                        30 cards
-                    </button>
-
+                    <strong>Let's revise!</strong>
+                    <br>
+                    Think carefully before revealing the answer.
                 </div>
 
             </div>
 
-
-            <div
-                id="setupMessage"
-                style="
-                    display:none;
-                    margin-top:15px;
-                    padding:12px;
-                    border-radius:12px;
-                    background:#fff4e5;
-                "
-            ></div>
-
-
-            <button
-                id="startButton"
-                class="btn"
-                style="width:100%;margin-top:25px"
-            >
-                Start Revision 🚀
-            </button>
-
         </div>
 
-    </section>
 
+        <!-- =====================================
+             FLASHCARD
+             ===================================== -->
 
-    <!-- SESSION -->
-
-    <section id="session" class="session">
-
-        <div class="session-header">
-
-            <div>
-
-                <div
-                    id="sessionSubject"
-                    class="session-subject"
-                ></div>
-
-                <div
-                    id="sessionTopic"
-                    class="muted small"
-                ></div>
-
-            </div>
+        <div class="flashcard card">
 
             <div
+                class="subject-chip"
+                data-subject
+            >
+                Subject
+            </div>
+
+
+            <div
+                class="muted small"
                 id="counter"
-                class="session-counter"
             ></div>
 
-        </div>
-
-
-        <div class="session-progress">
 
             <div
-                id="sessionProgress"
-                class="session-progress-bar"
-            ></div>
-
-        </div>
-
-
-        <div class="question-card">
-
-            <div class="question-label">
-                Active Recall
-            </div>
-
-            <div
-                id="questionTopic"
-                class="question-topic"
-            ></div>
-
-            <div
-                id="question"
                 class="question"
+                id="q"
+            ></div>
+
+
+            <div
+                class="answer"
+                id="a"
             ></div>
 
 
             <button
-                id="showAnswer"
                 class="btn"
+                id="reveal"
+                type="button"
             >
-                Show Answer
+                Reveal answer
             </button>
 
 
+            <!-- Rating buttons -->
+
             <div
-                id="answer"
-                class="answer"
+                class="rating"
+                id="rating"
             >
 
-                <div class="answer-label">
-                    Answer
-                </div>
-
-                <div
-                    id="answerText"
-                    class="answer-text"
-                ></div>
-
-
-                <div
-                    id="ratingButtons"
-                    class="rating-buttons"
+                <button
+                    class="btn ghost"
+                    id="againBtn"
+                    type="button"
                 >
+                    🔴 Again
+                </button>
 
-                    <button
-                        class="flash-rating wrong"
-                        data-rating="wrong"
-                    >
-                        ❌ Got it wrong
-                    </button>
 
-                    <button
-                        class="flash-rating almost"
-                        data-rating="almost"
-                    >
-                        😐 Almost
-                    </button>
+                <button
+                    class="btn gold"
+                    id="hardBtn"
+                    type="button"
+                >
+                    🟠 Difficult
+                </button>
 
-                    <button
-                        class="flash-rating correct"
-                        data-rating="correct"
-                    >
-                        😄 Got it
-                    </button>
 
-                </div>
+                <button
+                    class="btn success"
+                    id="goodBtn"
+                    type="button"
+                >
+                    🟢 Good
+                </button>
+
+
+                <button
+                    class="btn"
+                    id="easyBtn"
+                    type="button"
+                >
+                    🔵 Easy
+                </button>
 
             </div>
 
         </div>
 
+
+        <!-- =====================================
+             DASHBOARD BUTTON
+             ===================================== -->
 
         <div
-            id="xpEarned"
-            class="xp-earned"
-        ></div>
+            class="center"
+            style="text-align:center"
+        >
 
-    </section>
-
-
-    <!-- RESULTS -->
-
-    <section id="results" class="results">
-
-        <div class="card">
-
-            <div class="results-icon">
-                🎉
-            </div>
-
-            <h1>
-                Session complete!
-            </h1>
-
-            <p>
-                Here's how you performed.
-            </p>
-
-
-            <div
-                id="score"
-                class="results-score"
+            <a
+                class="btn ghost"
+                href="dashboard.html"
             >
-                0%
-            </div>
-
-
-            <div class="result-grid">
-
-                <div class="result-stat">
-                    Cards
-                    <strong id="resultCards">
-                        0
-                    </strong>
-                </div>
-
-                <div class="result-stat">
-                    Correct
-                    <strong id="resultCorrect">
-                        0
-                    </strong>
-                </div>
-
-                <div class="result-stat">
-                    Almost
-                    <strong id="resultAlmost">
-                        0
-                    </strong>
-                </div>
-
-                <div class="result-stat">
-                    XP
-                    <strong id="resultXP">
-                        0 ⭐
-                    </strong>
-                </div>
-
-            </div>
-
-
-            <div class="results-actions">
-
-                <button
-                    id="againButton"
-                    class="btn"
-                >
-                    Revise Again
-                </button>
-
-                <a
-                    href="mindmap.html"
-                    class="btn secondary"
-                >
-                    Mind Maps
-                </a>
-
-                <a
-                    href="dashboard.html"
-                    class="btn secondary"
-                >
-                    Dashboard
-                </a>
-
-            </div>
+                ← Dashboard
+            </a>
 
         </div>
 
-    </section>
+    </main>
 
-</main>
+</div>
 
 
-<script src="js/flashcard-data.js"></script>
-<script src="js/specification-data.js"></script>
-<script src="js/flashcards.js"></script>
+<!-- =========================================
+     GCSE HUB APP
+     ========================================= -->
+
+<script src="js/app.js"></script>
+
+
+<script>
+
+/* =========================================
+   FLASHCARD DATA
+   ========================================= */
+
+const qs = {
+
+    maths: [
+
+        [
+            "What is the gradient of a straight line written as y=3x+2?",
+            "The gradient is 3."
+        ],
+
+        [
+            "What is the nth term of 3, 6, 9, 12...?",
+            "3n."
+        ]
+
+    ],
+
+
+    history: [
+
+        [
+            "What was one major change in medical treatment during the Renaissance?",
+            "An increased emphasis on observation and anatomy helped challenge some traditional ideas."
+        ]
+
+    ],
+
+
+    biology: [
+
+        [
+            "What is the function of the mitochondria?",
+            "They are the site of aerobic respiration and release energy for the cell."
+        ]
+
+    ],
+
+
+    chemistry: [
+
+        [
+            "What is oxidation in terms of oxygen?",
+            "Oxidation is gain of oxygen."
+        ]
+
+    ],
+
+
+    physics: [
+
+        [
+            "What is the equation linking force, mass and acceleration?",
+            "F = ma."
+        ]
+
+    ],
+
+
+    english: [
+
+        [
+            "What is a key theme in Macbeth?",
+            "Ambition is a central theme, explored through Macbeth and Lady Macbeth."
+        ]
+
+    ]
+
+};
+
+
+/* =========================================
+   LOAD GCSE HUB DATA
+   ========================================= */
+
+let d = load();
+
+
+/*
+    Get the student's selected subject.
+*/
+
+let subject =
+    d.subject ||
+    "biology";
+
+
+/*
+    Get the relevant cards.
+*/
+
+let list =
+    qs[subject] ||
+    [
+
+        [
+            "What is an important fact from this subject?",
+
+            "This is a starter card. More specification-aligned cards can be added to the content bank."
+
+        ]
+
+    ];
+
+
+/* =========================================
+   CURRENT CARD
+   ========================================= */
+
+let i = 0;
+
+
+/* =========================================
+   ELEMENTS
+   ========================================= */
+
+const questionElement =
+    document.getElementById("q");
+
+const answerElement =
+    document.getElementById("a");
+
+const counterElement =
+    document.getElementById("counter");
+
+const revealButton =
+    document.getElementById("reveal");
+
+const ratingElement =
+    document.getElementById("rating");
+
+const subjectElement =
+    document.querySelector("[data-subject]");
+
+const wojtekElement =
+    document.getElementById("flashWojtek");
+
+const wojtekMessage =
+    document.getElementById("flashWojtekMessage");
+
+
+/* =========================================
+   WOJTEK IMAGES
+   ========================================= */
+
+const wojtekImages = {
+
+    happy:
+        "assets/wojtek/happy.png",
+
+    wave:
+        "assets/wojtek/waving.png",
+
+    thinking:
+        "assets/wojtek/thinking.png",
+
+    studying:
+        "assets/wojtek/studying.png",
+
+    celebrate:
+        "assets/wojtek/celebrate.png"
+
+};
+
+
+/* =========================================
+   WOJTEK CONTROLLER
+   ========================================= */
+
+function flashWojtek(
+    animation,
+    message
+) {
+
+    /*
+        Make sure the requested image exists.
+    */
+
+    const image =
+        wojtekImages[animation] ||
+        wojtekImages.happy;
+
+
+    /*
+        Change image.
+    */
+
+    wojtekElement.style.backgroundImage =
+        `url("${image}")`;
+
+
+    /*
+        Restart the little transition animation.
+    */
+
+    wojtekElement.classList.remove(
+        "change"
+    );
+
+
+    /*
+        Force browser to restart animation.
+    */
+
+    void wojtekElement.offsetWidth;
+
+
+    wojtekElement.classList.add(
+        "change"
+    );
+
+
+    /*
+        Change speech.
+    */
+
+    if (message) {
+
+        wojtekMessage.innerHTML =
+            message;
+
+    }
+
+}
+
+
+/* =========================================
+   SHOW CURRENT CARD
+   ========================================= */
+
+function show() {
+
+    /*
+        Put question on screen.
+    */
+
+    questionElement.textContent =
+        list[i][0];
+
+
+    /*
+        Put answer in hidden answer box.
+    */
+
+    answerElement.textContent =
+        list[i][1];
+
+
+    /*
+        Hide answer.
+    */
+
+    answerElement.classList.remove(
+        "show"
+    );
+
+
+    /*
+        Hide rating buttons.
+    */
+
+    ratingElement.classList.remove(
+        "show"
+    );
+
+
+    /*
+        Show reveal button.
+    */
+
+    revealButton.style.display =
+        "inline-block";
+
+
+    /*
+        Update counter.
+    */
+
+    counterElement.textContent =
+        `Card ${i + 1} of ${list.length}`;
+
+
+    /*
+        Update subject.
+    */
+
+    subjectElement.textContent =
+        subject.charAt(0).toUpperCase() +
+        subject.slice(1);
+
+
+    /*
+        Wojtek thinks about the question.
+    */
+
+    flashWojtek(
+
+        "thinking",
+
+        "<strong>Think carefully!</strong><br>" +
+        "Take your time before revealing the answer."
+
+    );
+
+}
+
+
+/* =========================================
+   REVEAL ANSWER
+   ========================================= */
+
+function revealAnswer() {
+
+    /*
+        Show answer.
+    */
+
+    answerElement.classList.add(
+        "show"
+    );
+
+
+    /*
+        Show rating buttons.
+    */
+
+    ratingElement.classList.add(
+        "show"
+    );
+
+
+    /*
+        Hide reveal button.
+    */
+
+    revealButton.style.display =
+        "none";
+
+
+    /*
+        Wojtek changes to studying.
+    */
+
+    flashWojtek(
+
+        "studying",
+
+        "<strong>Here's the answer!</strong><br>" +
+        "How did you do?"
+
+    );
+
+}
+
+
+/* =========================================
+   RATE CARD
+   ========================================= */
+
+function rate(result) {
+
+    /*
+        Reward the student.
+
+        Keep using GCSE Hub's existing
+        award() system.
+    */
+
+    if (result === "easy") {
+
+        award(
+            10,
+            2
+        );
+
+    } else {
+
+        award(
+            5,
+            1
+        );
+
+    }
+
+
+    /*
+        Wojtek reacts to the rating.
+    */
+
+    if (result === "good") {
+
+        flashWojtek(
+
+            "happy",
+
+            "<strong>Excellent! ⭐</strong><br>" +
+            "You got it right!"
+
+        );
+
+    }
+
+
+    else if (result === "easy") {
+
+        flashWojtek(
+
+            "happy",
+
+            "<strong>Fantastic! 🌟</strong><br>" +
+            "That one looked easy for you!"
+
+        );
+
+    }
+
+
+    else if (result === "hard") {
+
+        flashWojtek(
+
+            "studying",
+
+            "<strong>Nearly there!</strong><br>" +
+            "Keep working on this one."
+
+        );
+
+    }
+
+
+    else if (result === "again") {
+
+        flashWojtek(
+
+            "thinking",
+
+            "<strong>That's okay!</strong><br>" +
+            "We'll keep practising this one."
+
+        );
+
+    }
+
+
+    /*
+        Check whether this was the final card.
+    */
+
+    const finished =
+        i === list.length - 1;
+
+
+    if (finished) {
+
+        /*
+            Give the celebration a moment
+            before moving back around.
+        */
+
+        flashWojtek(
+
+            "celebrate",
+
+            "<strong>Session complete! 🎉</strong><br>" +
+            "Fantastic work — keep it up!"
+
+        );
+
+    }
+
+
+    /*
+        Move to next card.
+
+        The modulo means the flashcard
+        session can continue repeatedly.
+    */
+
+    i =
+        (i + 1) %
+        list.length;
+
+
+    /*
+        Give the celebration a moment
+        before showing the next card.
+    */
+
+    if (finished) {
+
+        setTimeout(
+
+            show,
+
+            1000
+
+        );
+
+    } else {
+
+        show();
+
+    }
+
+}
+
+
+/* =========================================
+   BUTTON EVENTS
+   ========================================= */
+
+revealButton.addEventListener(
+
+    "click",
+
+    revealAnswer
+
+);
+
+
+document
+    .getElementById("againBtn")
+    .addEventListener(
+
+        "click",
+
+        () => rate("again")
+
+    );
+
+
+document
+    .getElementById("hardBtn")
+    .addEventListener(
+
+        "click",
+
+        () => rate("hard")
+
+    );
+
+
+document
+    .getElementById("goodBtn")
+    .addEventListener(
+
+        "click",
+
+        () => rate("good")
+
+    );
+
+
+document
+    .getElementById("easyBtn")
+    .addEventListener(
+
+        "click",
+
+        () => rate("easy")
+
+    );
+
+
+/* =========================================
+   START FLASHCARD SESSION
+   ========================================= */
+
+show();
+
+</script>
 
 </body>
+
 </html>
