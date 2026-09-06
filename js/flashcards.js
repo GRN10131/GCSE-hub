@@ -1156,6 +1156,65 @@ document
    INITIALISE
 --------------------------------------------------------- */
 
+/* ---------------------------------------------------------
+   URL PARAMETERS
+--------------------------------------------------------- */
+
+const flashcardParams =
+    new URLSearchParams(
+        window.location.search
+    );
+
+
+const urlSubject =
+    flashcardParams.get("subject");
+
+
+const urlTopic =
+    flashcardParams.get("topic");
+
+
+const urlSubtopic =
+    flashcardParams.get("subtopic");
+
+
+if (urlSubject) {
+
+    selectedSubject =
+        urlSubject;
+
+}
+
+
 renderSubjects();
+
+
+if (urlTopic) {
+
+    selectedTopic =
+        urlTopic;
+
+
+    const topicSelect =
+        document.getElementById(
+            "topic"
+        );
+
+
+    if (
+        [...topicSelect.options]
+            .some(
+                option =>
+                    option.value === urlTopic
+            )
+    ) {
+
+        topicSelect.value =
+            urlTopic;
+
+    }
+
+}
+
 
 updateStats();
