@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Choose Level — GCSE Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<main class="main center">
+
+    <div class="setup-title">
+
+        <h1>
+            Choose your level
+        </h1>
+
+        <p>
+            We'll use this to tailor your revision.
+        </p>
+
+    </div>
+
+
+    <div class="option-grid two">
+
+        <button
+            class="option"
+            onclick="chooseLevel('Higher', this)"
+        >
+
+            <span class="big">
+                🚀
+            </span>
+
+            <strong>
+                Higher
+            </strong>
+
+            <small>
+                Higher-tier GCSE content.
+            </small>
+
+        </button>
+
+
+        <button
+            class="option"
+            onclick="chooseLevel('Foundation', this)"
+        >
+
+            <span class="big">
+                🌱
+            </span>
+
+            <strong>
+                Foundation
+            </strong>
+
+            <small>
+                Foundation-tier GCSE content.
+            </small>
+
+        </button>
+
+    </div>
+
+
+    <div class="footer-actions">
+
+        <a href="setup-subject.html"
+           class="btn ghost">
+
+            ← Back
+
+        </a>
+
+
+        <button
+            id="continueButton"
+            class="btn"
+            disabled
+            onclick="finishSetup()"
+        >
+
+            Finish setup →
+
+        </button>
+
+    </div>
+
+</main>
+
+
+<script src="js/app.js"></script>
+
+
+<script>
+
+let selectedLevel = null;
+
+
+function chooseLevel(level, button) {
+
+    selectedLevel = level;
+
+
+    document
+        .querySelectorAll(".option")
+        .forEach(option =>
+            option.classList.remove("selected")
+        );
+
+
+    button.classList.add("selected");
+
+
+    document.getElementById("continueButton")
+        .disabled = false;
+}
+
+
+function finishSetup() {
+
+    const data = load();
+
+    data.level = selectedLevel;
+
+    save(data);
+
+    window.location.href =
+        "dashboard.html";
+}
+
+</script>
+
+</body>
+</html>
