@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Dashboard — GCSE Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+injectHeader();
+</script>
+
+
+<main class="main">
+
+    <div class="hero">
+
+        <div>
+
+            <div class="subject-chip">
+
+                <span data-subject>
+                    Subject
+                </span>
+
+                •
+
+                <span id="level">
+                    Higher
+                </span>
+
+            </div>
+
+
+            <h1>
+
+                Welcome back,
+                <span data-name>
+                    Student
+                </span>!
+
+                👋
+
+            </h1>
+
+
+            <p>
+                Keep your revision streak alive.
+            </p>
+
+        </div>
+
+
+        <div class="mascot">
+            🧠
+        </div>
+
+    </div>
+
+
+    <!-- DAILY PROGRESS -->
+
+    <div class="card progress-card">
+
+        <div class="progress-head">
+
+            <span>
+                🎯 Daily progress
+            </span>
+
+            <span>
+
+                <b data-today>
+                    0
+                </b>
+
+                /
+
+                <span data-goal>
+                    500
+                </span>
+
+                points
+
+            </span>
+
+        </div>
+
+
+        <div class="bar">
+
+            <div
+                data-progress
+                style="width:0%"
+            ></div>
+
+        </div>
+
+
+        <p class="small muted">
+
+            Complete activities anywhere in
+            GCSE Hub — your progress follows
+            you across every page.
+
+        </p>
+
+    </div>
+
+
+    <!-- MAIN ACTIVITIES -->
+
+    <div class="grid grid3">
+
+
+        <a
+            href="flashcards.html"
+            class="card action"
+        >
+
+            <span class="icon">
+                🗂️
+            </span>
+
+            <h3>
+                Flashcards
+            </h3>
+
+            <p>
+                Practise specific GCSE questions
+                instead of simply memorising topic names.
+            </p>
+
+        </a>
+
+
+        <a
+            href="tests.html"
+            class="card action"
+        >
+
+            <span class="icon">
+                📝
+            </span>
+
+            <h3>
+                Test
+            </h3>
+
+            <p>
+                Challenge yourself with
+                exam-style questions.
+            </p>
+
+        </a>
+
+
+        <a
+            href="knowledge.html"
+            class="card action"
+        >
+
+            <span class="icon">
+                📚
+            </span>
+
+            <h3>
+                Knowledge Bank
+            </h3>
+
+            <p>
+                Explore key facts,
+                explanations and examples.
+            </p>
+
+        </a>
+
+
+        <a
+            href="mindmaps.html"
+            class="card action"
+        >
+
+            <span class="icon">
+                🧠
+            </span>
+
+            <h3>
+                Mind Maps
+            </h3>
+
+            <p>
+                See how ideas connect
+                inside each topic.
+            </p>
+
+        </a>
+
+
+        <a
+            href="mixed.html"
+            class="card action"
+        >
+
+            <span class="icon">
+                🎲
+            </span>
+
+            <h3>
+                Bit of Everything
+            </h3>
+
+            <p>
+                Get a mixed revision session.
+            </p>
+
+        </a>
+
+
+        <a
+            href="settings.html"
+            class="card action"
+        >
+
+            <span class="icon">
+                ⚙️
+            </span>
+
+            <h3>
+                Settings
+            </h3>
+
+            <p>
+                Manage your GCSE Hub profile
+                and revision goals.
+            </p>
+
+        </a>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="section-title">
+
+        <h2>
+            Your revision stats
+        </h2>
+
+    </div>
+
+
+    <div class="grid grid3">
+
+
+        <div class="card statbox">
+
+            <span class="muted">
+                Total points
+            </span>
+
+            <strong>
+                ⭐
+                <span data-points>
+                    0
+                </span>
+            </strong>
+
+        </div>
+
+
+        <div class="card statbox">
+
+            <span class="muted">
+                Gems
+            </span>
+
+            <strong>
+                💎
+                <span data-gems>
+                    0
+                </span>
+            </strong>
+
+        </div>
+
+
+        <div class="card statbox">
+
+            <span class="muted">
+                Streak
+            </span>
+
+            <strong>
+                🔥
+                <span data-streak>
+                    0
+                </span>
+                days
+            </strong>
+
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>
