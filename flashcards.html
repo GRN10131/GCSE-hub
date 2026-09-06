@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Flashcards — GCSE Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =================================================
+           FLASHCARD PAGE
+           ================================================= */
+
+        .flashcards-page {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+
+        /* =================================================
+           BACK BUTTON
+           ================================================= */
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+
+        /* =================================================
+           SETUP
+           ================================================= */
+
+        .flashcard-setup {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+
+
+        .setup-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+
+        .setup-heading .big-icon {
+            font-size: 55px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+
+        .subject-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(180px, 1fr)
+                );
+
+            gap: 12px;
+        }
+
+
+        .subject-select {
+            border: 2px solid #e3e5ec;
+            background: white;
+            border-radius: 15px;
+            padding: 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.15s;
+        }
+
+
+        .subject-select:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .subject-select.selected {
+            border-color: #5b5ce2;
+            background: #f3f3ff;
+        }
+
+
+        .subject-select-icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+
+        .subject-select-name {
+            font-weight: 800;
+            display: block;
+        }
+
+
+        .subject-select-info {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+
+        /* =================================================
+           FORM
+           ================================================= */
+
+        .flash-form {
+            margin-top: 25px;
+        }
+
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+
+        .form-group label {
+            display: block;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+
+        .flash-select {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #e1e3ea;
+            border-radius: 12px;
+            background: white;
+            font-size: 15px;
+        }
+
+
+        /* =================================================
+           TOPIC BUTTONS
+           ================================================= */
+
+        .topic-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(150px, 1fr)
+                );
+
+            gap: 10px;
+        }
+
+
+        .topic-button {
+            padding: 13px;
+            border-radius: 12px;
+            border: 2px solid #e2e4eb;
+            background: white;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+
+        .topic-button.selected {
+            border-color: #5b5ce2;
+            background: #f3f3ff;
+            color: #5b5ce2;
+        }
+
+
+        /* =================================================
+           SESSION
+           ================================================= */
+
+        .session {
+            display: none;
+        }
+
+
+        .session.active {
+            display: block;
+        }
+
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+
+        .session-subject {
+            font-weight: 800;
+        }
+
+
+        .session-counter {
+            font-weight: 800;
+        }
+
+
+        .session-progress {
+            height: 9px;
+            background: #e9ebf1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+
+        .session-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #5b5ce2;
+            transition: width 0.3s;
+        }
+
+
+        /* =================================================
+           QUESTION CARD
+           ================================================= */
+
+        .question-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px 35px;
+            text-align: center;
+            box-shadow:
+                0 12px 35px
+                rgba(0,0,0,0.08);
+
+            min-height: 360px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+
+        .question-label {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+
+        .question {
+            font-size: 27px;
+            font-weight: 850;
+            line-height: 1.35;
+            margin-bottom: 30px;
+        }
+
+
+        .answer {
+            display: none;
+            border-top: 1px solid #e7e8ed;
+            padding-top: 25px;
+            margin-top: 5px;
+        }
+
+
+        .answer.visible {
+            display: block;
+        }
+
+
+        .answer-label {
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+
+        .answer-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+
+        /* =================================================
+           ANSWER BUTTONS
+           ================================================= */
+
+        .show-answer {
+            margin: auto;
+        }
+
+
+        .rating-buttons {
+            display: none;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+
+        .rating-buttons.visible {
+            display: flex;
+        }
+
+
+        .rating {
+            min-width: 130px;
+            padding: 14px 18px;
+            border-radius: 13px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+
+        .rating:hover {
+            transform: translateY(-1px);
+        }
+
+
+        .rating.wrong {
+            border-color: #e57373;
+        }
+
+
+        .rating.almost {
+            border-color: #e0b64d;
+        }
+
+
+        .rating.correct {
+            border-color: #62b879;
+        }
+
+
+        /* =================================================
+           XP
+           ================================================= */
+
+        .xp-earned {
+            text-align: center;
+            margin-top: 20px;
+            font-weight: 800;
+            min-height: 25px;
+        }
+
+
+        /* =================================================
+           RESULTS
+           ================================================= */
+
+        .results {
+            display: none;
+            max-width: 700px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+
+        .results.active {
+            display: block;
+        }
+
+
+        .results-icon {
+            font-size: 70px;
+            margin-bottom: 10px;
+        }
+
+
+        .results-score {
+            font-size: 50px;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+
+        .result-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    1fr
+                );
+
+            gap: 12px;
+
+            margin: 30px 0;
+        }
+
+
+        .result-stat {
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            border: 1px solid #e4e6ec;
+        }
+
+
+        .result-stat strong {
+            display: block;
+            font-size: 25px;
+            margin-top: 5px;
+        }
+
+
+        .results-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+
+        @media (max-width: 600px) {
+
+            .question-card {
+                padding: 30px 20px;
+            }
+
+            .question {
+                font-size: 22px;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<script src="js/app.js"></script>
+
+
+<script>
+    injectHeader();
+</script>
+
+
+<main class="main flashcards-page">
+
+
+    <a
+        href="dashboard.html"
+        class="back-link"
+    >
+
+        ← Dashboard
+
+    </a>
+
+
+    <!-- =================================================
+         SETUP
+         ================================================= -->
+
+    <section
+        id="setup"
+        class="flashcard-setup"
+    >
+
+
+        <div class="setup-heading">
+
+            <span class="big-icon">
+                🗂️
+            </span>
+
+            <h1>
+                Flashcards
+            </h1>
+
+            <p>
+                Test your knowledge with specific GCSE questions.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+
+            <h2>
+                1. Choose a subject
+            </h2>
+
+
+            <div
+                id="subjectGrid"
+                class="subject-grid"
+            ></div>
+
+
+            <div
+                id="subjectWarning"
+                class="error"
+                style="display:none;margin-top:15px"
+            >
+
+                Please choose a subject.
+
+            </div>
+
+
+            <div class="flash-form">
+
+
+                <div class="form-group">
+
+                    <label for="topic">
+                        2. What would you like to revise?
+                    </label>
+
+
+                    <select
+                        id="topic"
+                        class="flash-select"
+                    >
+
+                        <option value="all">
+                            All available topics
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        3. Number of cards
+                    </label>
+
+
+                    <div
+                        class="topic-grid"
+                        id="numberGrid"
+                    >
+
+                        <button
+                            type="button"
+                            class="topic-button selected"
+                            data-number="10"
+                        >
+                            10 cards
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="topic-button"
+                            data-number="20"
+                        >
+                            20 cards
+                        </button>
+
+
+                        <button
+                            type="button"
+                            class="topic-button"
+                            data-number="30"
+                        >
+                            30 cards
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="startButton"
+                    class="btn"
+                    style="width:100%;margin-top:10px"
+                >
+
+                    Start Flashcards 🚀
+
+                </button>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         SESSION
+         ================================================= -->
+
+    <section
+        id="session"
+        class="session"
+    >
+
+
+        <div class="session-header">
+
+            <div>
+
+                <div
+                    id="sessionSubject"
+                    class="session-subject"
+                ></div>
+
+                <div
+                    id="sessionTopic"
+                    class="muted small"
+                ></div>
+
+            </div>
+
+
+            <div
+                id="counter"
+                class="session-counter"
+            >
+                1 / 10
+            </div>
+
+        </div>
+
+
+        <div class="session-progress">
+
+            <div
+                id="sessionProgress"
+                class="session-progress-bar"
+            ></div>
+
+        </div>
+
+
+        <div class="question-card">
+
+
+            <div class="question-label">
+                GCSE Question
+            </div>
+
+
+            <div
+                id="question"
+                class="question"
+            ></div>
+
+
+            <button
+                id="showAnswer"
+                class="btn show-answer"
+            >
+
+                Show Answer
+
+            </button>
+
+
+            <div
+                id="answer"
+                class="answer"
+            >
+
+                <div class="answer-label">
+                    Answer
+                </div>
+
+
+                <div
+                    id="answerText"
+                    class="answer-text"
+                ></div>
+
+
+                <div
+                    id="ratingButtons"
+                    class="rating-buttons"
+                >
+
+                    <button
+                        class="rating wrong"
+                        data-rating="wrong"
+                    >
+
+                        ❌ Got it wrong
+
+                    </button>
+
+
+                    <button
+                        class="rating almost"
+                        data-rating="almost"
+                    >
+
+                        😐 Almost
+
+                    </button>
+
+
+                    <button
+                        class="rating correct"
+                        data-rating="correct"
+                    >
+
+                        😄 Got it
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="xpEarned"
+            class="xp-earned"
+        ></div>
+
+
+    </section>
+
+
+    <!-- =================================================
+         RESULTS
+         ================================================= -->
+
+    <section
+        id="results"
+        class="results"
+    >
+
+
+        <div class="card">
+
+
+            <div class="results-icon">
+                🎉
+            </div>
+
+
+            <h1>
+                Session complete!
+            </h1>
+
+
+            <p>
+                Great work. Here's how you did:
+            </p>
+
+
+            <div
+                id="score"
+                class="results-score"
+            >
+                0%
+            </div>
+
+
+            <div class="result-grid">
+
+
+                <div class="result-stat">
+
+                    Cards
+
+                    <strong
+                        id="resultCards"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    Correct
+
+                    <strong
+                        id="resultCorrect"
+                    >
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="result-stat">
+
+                    XP earned
+
+                    <strong
+                        id="resultXP"
+                    >
+                        0 ⭐
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="results-actions">
+
+
+                <button
+                    id="againButton"
+                    class="btn"
+                >
+
+                    Revise Again
+
+                </button>
+
+
+                <a
+                    href="dashboard.html"
+                    class="btn secondary"
+                >
+
+                    Dashboard
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+
+/* =========================================================
+   DEMO CONTENT
+   =========================================================
+
+   These are placeholder questions for Version 1.
+
+   Later we will replace this database with the
+   actual GCSE Hub specification content.
+
+   Every question has:
+   - subject
+   - board
+   - level
+   - topic
+   - question
+   - answer
+   ========================================================= */
+
+
+const FLASHCARDS = [
+
+    /* =====================================================
+       MATHS
+       ===================================================== */
+
+    {
+        subject: "maths",
+        board: "Pearson",
+        level: "Higher",
+        topic: "Algebra",
+        question:
+            "What is the gradient of the line y = 3x + 5?",
+        answer:
+            "The gradient is 3."
+    },
+
+    {
+        subject: "maths",
+        board: "Pearson",
+        level: "Higher",
+        topic: "Algebra",
+        question:
+            "Expand (x + 4)(x + 2).",
+        answer:
+            "x² + 6x + 8."
+    },
+
+    {
+        subject: "maths",
+        board: "Pearson",
+        level: "Higher",
+        topic: "Number",
+        question:
+            "What is the reciprocal of 5?",
+        answer:
+            "The reciprocal is 1/5."
+    },
+
+    {
+        subject: "maths",
+        board: "Pearson",
+        level: "Higher",
+        topic: "Geometry",
+        question:
+            "What is the sum of the interior angles of a triangle?",
+        answer:
+            "180°."
+    },
+
+
+    /* =====================================================
+       BIOLOGY
+       ===================================================== */
+
+    {
+        subject: "biology",
+        board: "AQA",
+        topic: "Bioenergetics",
+        question:
+            "What is the role of chlorophyll in photosynthesis?",
+        answer:
+            "Chlorophyll absorbs light energy, which provides the energy needed for photosynthesis."
+    },
+
+    {
+        subject: "biology",
+        board: "AQA",
+        topic: "Cells",
+        question:
+            "What is the function of the nucleus?",
+        answer:
+            "The nucleus contains genetic material and controls the activities of the cell."
+    },
+
+    {
+        subject: "biology",
+        board: "AQA",
+        topic: "Cells",
+        question:
+            "What is the function of the mitochondria?",
+        answer:
+            "Mitochondria are the site of aerobic respiration, where energy is released."
+    },
+
+
+    /* =====================================================
+       CHEMISTRY
+       ===================================================== */
+
+    {
+        subject: "chemistry",
+        board: "AQA",
+        topic: "Atomic Structure",
+        question:
+            "What is the relative charge of an electron?",
+        answer:
+            "−1."
+    },
+
+    {
+        subject: "chemistry",
+        board: "AQA",
+        topic: "Atomic Structure",
+        question:
+            "Where are protons found?",
+        answer:
+            "Protons are found in the nucleus of an atom."
+    },
+
+
+    /* =====================================================
+       PHYSICS
+       ===================================================== */
+
+    {
+        subject: "physics",
+        board: "AQA",
+        topic: "Energy",
+        question:
+            "What is the equation for kinetic energy?",
+        answer:
+            "Kinetic energy = ½ × mass × velocity²."
+    },
+
+    {
+        subject: "physics",
+        board: "AQA",
+        topic: "Forces",
+        question:
+            "What is the unit of force?",
+        answer:
+            "The newton (N)."
+    },
+
+
+    /* =====================================================
+       HISTORY
+       ===================================================== */
+
+    {
+        subject: "history",
+        board: "Pearson",
+        topic: "Medicine",
+        question:
+            "What was one major belief about the cause of illness in medieval England?",
+        answer:
+            "Many people believed illness could be caused by an imbalance of the four humours."
+    },
+
+    {
+        subject: "history",
+        board: "Pearson",
+        topic: "Medicine",
+        question:
+            "Who developed the theory of evolution by natural selection?",
+        answer:
+            "Charles Darwin."
+    },
+
+
+    /* =====================================================
+       SPANISH
+       ===================================================== */
+
+    {
+        subject: "spanish",
+        board: "Pearson",
+        level: "Higher",
+        topic: "Identity and Culture",
+        question:
+            "How would you say 'I get on well with my friends' in Spanish?",
+        answer:
+            "Me llevo bien con mis amigos."
+    },
+
+    {
+        subject: "spanish",
+        board: "Pearson",
+        level: "Higher",
+        topic: "Local Area",
+        question:
+            "How would you say 'I would like to visit Spain'?",
+        answer:
+            "Me gustaría visitar España."
+    },
+
+
+    /* =====================================================
+       SYSTEMS PROGRAMMABLE ENGINEERING
+       ===================================================== */
+
+    {
+        subject: "systems",
+        board: "OCR",
+        topic: "Digital Systems",
+        question:
+            "What is the purpose of a microcontroller in an embedded system?",
+        answer:
+            "A microcontroller processes inputs and controls outputs according to programmed instructions."
+    },
+
+    {
+        subject: "systems",
+        board: "OCR",
+        topic: "Digital Systems",
+        question:
+            "What is a digital signal?",
+        answer:
+            "A digital signal represents information using discrete values, commonly binary 0s and 1s."
+    }
+
+];
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let selectedSubject = null;
+
+let selectedTopic = "all";
+
+let selectedNumber = 10;
+
+let cards = [];
+
+let currentCard = 0;
+
+let correct = 0;
+
+let almost = 0;
+
+let wrong = 0;
+
+let sessionXP = 0;
+
+
+/* =========================================================
+   LOAD SUBJECTS
+   ========================================================= */
+
+function renderFlashSubjects() {
+
+    const data =
+        load();
+
+
+    const grid =
+        document.getElementById(
+            "subjectGrid"
+        );
+
+
+    grid.innerHTML = "";
+
+
+    data.subjects.forEach(
+        id => {
+
+            const subject =
+                SUBJECTS[id];
+
+
+            if (!subject) {
+                return;
+            }
+
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+
+            button.type =
+                "button";
+
+
+            button.className =
+                "subject-select";
+
+
+            if (
+                id ===
+                data.currentSubject
+            ) {
+
+                button.classList.add(
+                    "selected"
+                );
+
+                selectedSubject =
+                    id;
+
+            }
+
+
+            const board =
+                data.boards[id] ||
+                subject.boards[0];
+
+
+            const level =
+                subject.levels.length
+                    ? data.levels[id]
+                    : "";
+
+
+            button.innerHTML = `
+
+                <span class="subject-select-icon">
+                    ${subject.icon}
+                </span>
+
+                <span class="subject-select-name">
+                    ${subject.name}
+                </span>
+
+                <span class="subject-select-info">
+
+                    ${board}
+
+                    ${
+                        level
+                            ? ` • ${level}`
+                            : ""
+                    }
+
+                </span>
+
+            `;
+
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectedSubject =
+                        id;
+
+
+                    grid
+                        .querySelectorAll(
+                            ".subject-select"
+                        )
+                        .forEach(
+                            item =>
+                                item.classList
+                                    .remove(
+                                        "selected"
+                                    )
+                        );
+
+
+                    button.classList.add(
+                        "selected"
+                    );
+
+
+                    loadTopics();
+
+                }
+            );
+
+
+            grid.appendChild(
+                button
+            );
+
+        }
+    );
+
+
+    loadTopics();
+
+}
+
+
+/* =========================================================
+   LOAD TOPICS
+   ========================================================= */
+
+function loadTopics() {
+
+    const topicSelect =
+        document.getElementById(
+            "topic"
+        );
+
+
+    topicSelect.innerHTML = `
+
+        <option value="all">
+            All available topics
+        </option>
+
+    `;
+
+
+    if (!selectedSubject) {
+        return;
+    }
+
+
+    const data =
+        load();
+
+
+    const board =
+        data.boards[
+            selectedSubject
+        ];
+
+
+    const level =
+        data.levels[
+            selectedSubject
+        ];
+
+
+    const matching =
+        FLASHCARDS.filter(
+            card =>
+
+                card.subject ===
+                selectedSubject
+
+                &&
+
+                card.board ===
+                board
+
+                &&
+
+                (
+                    !card.level ||
+                    card.level === level
+                )
+        );
+
+
+    const topics =
+        [
+            ...new Set(
+                matching.map(
+                    card =>
+                        card.topic
+                )
+            )
+        ];
+
+
+    topics.forEach(
+        topic => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+
+            option.value =
+                topic;
+
+
+            option.textContent =
+                topic;
+
+
+            topicSelect.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   NUMBER BUTTONS
+   ========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-number]"
+    )
+    .forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    selectedNumber =
+                        Number(
+                            button.dataset.number
+                        );
+
+
+                    document
+                        .querySelectorAll(
+                            "[data-number]"
+                        )
+                        .forEach(
+                            other =>
+                                other.classList
+                                    .remove(
+                                        "selected"
+                                    )
+                        );
+
+
+                    button.classList.add(
+                        "selected"
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+/* =========================================================
+   START SESSION
+   ========================================================= */
+
+document
+    .getElementById(
+        "startButton"
+    )
+    .addEventListener(
+        "click",
+        startSession
+    );
+
+
+function startSession() {
+
+    const warning =
+        document.getElementById(
+            "subjectWarning"
+        );
+
+
+    if (!selectedSubject) {
+
+        warning.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    warning.style.display =
+        "none";
+
+
+    const data =
+        load();
+
+
+    const board =
+        data.boards[
+            selectedSubject
+        ];
+
+
+    const level =
+        data.levels[
+            selectedSubject
+        ];
+
+
+    selectedTopic =
+        document.getElementById(
+            "topic"
+        ).value;
+
+
+    cards =
+        FLASHCARDS.filter(
+            card =>
+
+                card.subject ===
+                selectedSubject
+
+                &&
+
+                card.board ===
+                board
+
+                &&
+
+                (
+                    !card.level ||
+                    card.level === level
+                )
+
+                &&
+
+                (
+                    selectedTopic ===
+                    "all"
+
+                    ||
+
+                    card.topic ===
+                    selectedTopic
+                )
+        );
+
+
+    if (!cards.length) {
+
+        alert(
+            "There aren't any flashcards for this selection yet. We'll add the full GCSE content next!"
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Shuffle cards.
+    */
+
+    cards =
+        [...cards]
+            .sort(
+                () =>
+                    Math.random() - 0.5
+            )
+            .slice(
+                0,
+                selectedNumber
+            );
+
+
+    currentCard = 0;
+
+    correct = 0;
+
+    almost = 0;
+
+    wrong = 0;
+
+    sessionXP = 0;
+
+
+    document
+        .getElementById("setup")
+        .style.display =
+        "none";
+
+
+    document
+        .getElementById("results")
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById("session")
+        .classList
+        .add("active");
+
+
+    const subject =
+        SUBJECTS[
+            selectedSubject
+        ];
+
+
+    document
+        .getElementById(
+            "sessionSubject"
+        )
+        .textContent =
+        `${subject.icon} ${subject.name}`;
+
+
+    document
+        .getElementById(
+            "sessionTopic"
+        )
+        .textContent =
+        selectedTopic === "all"
+            ? "Mixed topics"
+            : selectedTopic;
+
+
+    showCard();
+
+}
+
+
+/* =========================================================
+   SHOW CARD
+   ========================================================= */
+
+function showCard() {
+
+    const card =
+        cards[currentCard];
+
+
+    document
+        .getElementById(
+            "counter"
+        )
+        .textContent =
+
+        `${currentCard + 1} / ${cards.length}`;
+
+
+    const percentage =
+        (
+            currentCard /
+            cards.length
+        ) * 100;
+
+
+    document
+        .getElementById(
+            "sessionProgress"
+        )
+        .style.width =
+        percentage + "%";
+
+
+    document
+        .getElementById(
+            "question"
+        )
+        .textContent =
+        card.question;
+
+
+    document
+        .getElementById(
+            "answerText"
+        )
+        .textContent =
+        card.answer;
+
+
+    document
+        .getElementById(
+            "answer"
+        )
+        .classList
+        .remove("visible");
+
+
+    document
+        .getElementById(
+            "ratingButtons"
+        )
+        .classList
+        .remove("visible");
+
+
+    document
+        .getElementById(
+            "showAnswer"
+        )
+        .style.display =
+        "block";
+
+
+    document
+        .getElementById(
+            "xpEarned"
+        )
+        .textContent =
+        "";
+
+}
+
+
+/* =========================================================
+   SHOW ANSWER
+   ========================================================= */
+
+document
+    .getElementById(
+        "showAnswer"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById(
+                    "answer"
+                )
+                .classList
+                .add("visible");
+
+
+            document
+                .getElementById(
+                    "ratingButtons"
+                )
+                .classList
+                .add("visible");
+
+
+            document
+                .getElementById(
+                    "showAnswer"
+                )
+                .style.display =
+                "none";
+
+        }
+    );
+
+
+/* =========================================================
+   RATE CARD
+   ========================================================= */
+
+document
+    .querySelectorAll(
+        "[data-rating]"
+    )
+    .forEach(
+        button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    rateCard(
+                        button.dataset.rating
+                    );
+
+                }
+            );
+
+        }
+    );
+
+
+function rateCard(rating) {
+
+    let points = 5;
+
+
+    if (
+        rating === "correct"
+    ) {
+
+        correct++;
+
+        points = 10;
+
+    }
+
+
+    if (
+        rating === "almost"
+    ) {
+
+        almost++;
+
+        points = 7;
+
+    }
+
+
+    if (
+        rating === "wrong"
+    ) {
+
+        wrong++;
+
+        points = 3;
+
+    }
+
+
+    sessionXP += points;
+
+
+    /*
+       Use the GLOBAL GCSE Hub
+       points system.
+    */
+
+    award(points);
+
+
+    document
+        .getElementById(
+            "xpEarned"
+        )
+        .textContent =
+        `+${points} ⭐`;
+
+
+    currentCard++;
+
+
+    if (
+        currentCard >=
+        cards.length
+    ) {
+
+        setTimeout(
+            finishSession,
+            400
+        );
+
+        return;
+
+    }
+
+
+    setTimeout(
+        showCard,
+        500
+    );
+
+}
+
+
+/* =========================================================
+   FINISH
+   ========================================================= */
+
+function finishSession() {
+
+    document
+        .getElementById(
+            "session"
+        )
+        .classList
+        .remove("active");
+
+
+    document
+        .getElementById(
+            "results"
+        )
+        .classList
+        .add("active");
+
+
+    const total =
+        cards.length;
+
+
+    const percentage =
+        Math.round(
+            (
+                correct /
+                total
+            ) * 100
+        );
+
+
+    document
+        .getElementById(
+            "score"
+        )
+        .textContent =
+        `${percentage}%`;
+
+
+    document
+        .getElementById(
+            "resultCards"
+        )
+        .textContent =
+        total;
+
+
+    document
+        .getElementById(
+            "resultCorrect"
+        )
+        .textContent =
+        correct;
+
+
+    document
+        .getElementById(
+            "resultXP"
+        )
+        .textContent =
+        `${sessionXP} ⭐`;
+
+
+    /*
+       Complete progress bar.
+    */
+
+    document
+        .getElementById(
+            "sessionProgress"
+        )
+        .style.width =
+        "100%";
+
+}
+
+
+/* =========================================================
+   REVISE AGAIN
+   ========================================================= */
+
+document
+    .getElementById(
+        "againButton"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            document
+                .getElementById(
+                    "results"
+                )
+                .classList
+                .remove("active");
+
+
+            document
+                .getElementById(
+                    "setup"
+                )
+                .style.display =
+                "block";
+
+        }
+    );
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+renderFlashSubjects();
+
+
+</script>
+
+
+</body>
+
+</html>
