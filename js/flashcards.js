@@ -1,9 +1,6 @@
 /* =========================================================
-   GCSE HUB — FLASHCARDS VERSION 5
-   Stable subject system + desktop/mobile safe controls
+   GCSE HUB — FLASHCARDS
    ========================================================= */
-
-const FLASHCARD_STORAGE_KEY = "gcseHubFlashcardProgress";
 
 let selectedSubject = null;
 let selectedTopic = "all";
@@ -18,40 +15,443 @@ let almost = 0;
 let wrong = 0;
 let sessionXP = 0;
 
-let flashcardsInitialised = false;
 let ratingLocked = false;
 
 
 /* =========================================================
-   STORAGE
+   GENERAL HELPERS
    ========================================================= */
+
+function normalise(value) {
+    return String(value ?? "")
+        .trim()
+        .toLowerCase();
+}
+
+
+/* =========================================================
+   APP DATA
+   ========================================================= */
+
+function getAppData() {
+
+    try {
+
+        if (typeof load === "function") {
+            return load();
+        }
+
+    } catch (error) {
+
+        console.error(
+            "GCSE Hub: Could not load app data.",
+            error
+        );
+
+    }
+
+    return null;
+}
+
+
+/* =========================================================
+   FLASHCARD DATA
+   ========================================================= */
+
+function getFlashcardData() {
+
+    if (
+        typeof FLASHCARDS === "undefined"
+    ) {
+
+        console.error(
+            "GCSE Hub: FLASHCARDS is not defined."
+        );
+
+        return [];
+
+    }
+
+    if (
+        !Array.isArray(FLASHCARDS)
+    ) {
+
+        console.error(
+            "GCSE Hub: FLASHCARDS is not an array."
+        );
+
+        return [];
+
+    }
+
+    console.log(
+        "GCSE Hub: Flashcards loaded:",
+        FLASHCARDS.length
+    );
+
+    return FLASHCARDS;
+
+}
+
+
+/* =========================================================
+   GET STUDENT BOARD
+   ========================================================= */
+
+function getStudentBoard(subject) {
+
+    const data = getAppData();
+
+    if (!data) {
+        return null;
+    }
+
+    /*
+       Try the normal boards object.
+    */
+
+    if (
+        data.boards &&
+        typeof data.boards === "object"
+    ) {
+
+        const subjectKey =
+            Object.keys(data.boards)
+                .find(
+                    key =>
+                        normalise(key) ===
+                        normalise(subject)
+                );
+
+        if (subjectKey) {
+
+            return data.boards[subjectKey];
+
+        }
+
+    }
+
+    /*
+       Some versions of GCSE Hub may store
+       board information differently.
+    */
+
+    if (
+        data.board &&
+        typeof data.board === "object"
+    ) {
+
+        const subjectKey =
+            Object.keys(data.board)
+                .find(
+                    key =>
+                        normalise(key) ===
+                        normalise(subject)
+                );
+
+        if (subjectKey) {
+
+            return data.board[subjectKey];
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   GET STUDENT LEVEL
+   ========================================================= */
+
+function getStudentLevel(subject) {
+
+    const data = getAppData();
+
+    if (!data) {
+        return null;
+    }
+
+    if (
+        data.levels &&
+        typeof data.levels === "object"
+    ) {
+
+        const subjectKey =
+            Object.keys(data.levels)
+                .find(
+                    key =>
+                        normalise(key) ===
+                        normalise(subject)
+                );
+
+        if (subjectKey) {
+
+            return data.levels[subjectKey];
+
+        }
+
+    }
+
+    if (
+        data.level &&
+        typeof data.level === "object"
+    ) {
+
+        const subjectKey =
+            Object.keys(data.level)
+                .find(
+                    key =>
+                        normalise(key) ===
+                        normalise(subject)
+                );
+
+        if (subjectKey) {
+
+            return data.level[subjectKey];
+
+        }
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   CHECK WHETHER CARD BELONGS TO STUDENT
+   ========================================================= */
+
+function cardMatchesStudent(card) {
+
+    if (!card) {
+        return false;
+    }
+
+
+    /* -----------------------------------------------------
+       SUBJECT
+       ----------------------------------------------------- */
+
+    const cardSubject =
+        normalise(card.subject);
+
+    const studentSubject =
+        normalise(selectedSubject);
+
+
+    if (
+        cardSubject !==
+        studentSubject
+    ) {
+
+        return false;
+
+    }
+
+
+    /* -----------------------------------------------------
+       BOARD
+       ----------------------------------------------------- */
+
+    const studentBoard =
+        getStudentBoard(selectedSubject);
+
+
+    /*
+       IMPORTANT:
+
+       If the student's board cannot be determined,
+       DO NOT reject the card.
+
+       This prevents the entire subject disappearing
+       because the board information is stored slightly
+       differently elsewhere in the website.
+    */
+
+    if (
+        studentBoard &&
+        card.board
+    ) {
+
+        if (
+            normalise(card.board) !==
+            normalise(studentBoard)
+        ) {
+
+            return false;
+
+        }
+
+    }
+
+
+    /* -----------------------------------------------------
+       LEVEL
+       ----------------------------------------------------- */
+
+    const studentLevel =
+        getStudentLevel(selectedSubject);
+
+
+    if (
+        studentLevel &&
+        card.level
+    ) {
+
+        const cardLevel =
+            normalise(card.level);
+
+        const level =
+            normalise(studentLevel);
+
+
+        /*
+           Higher students can use:
+
+           - Higher cards
+           - Foundation cards
+        */
+
+        if (
+            level === "higher"
+        ) {
+
+            if (
+                cardLevel !== "higher" &&
+                cardLevel !== "foundation"
+            ) {
+
+                /*
+                   If the card has an unusual level
+                   value, don't accidentally hide it.
+                */
+
+                if (
+                    cardLevel !== ""
+                ) {
+
+                    return false;
+
+                }
+
+            }
+
+        }
+
+
+        /*
+           Foundation students can only use
+           Foundation cards.
+        */
+
+        else if (
+            level === "foundation"
+        ) {
+
+            if (
+                cardLevel === "higher"
+            ) {
+
+                return false;
+
+            }
+
+        }
+
+    }
+
+
+    /* -----------------------------------------------------
+       TOPIC
+       ----------------------------------------------------- */
+
+    if (
+        selectedTopic !== "all"
+    ) {
+
+        const cardTopic =
+            normalise(card.topic);
+
+        const wantedTopic =
+            normalise(selectedTopic);
+
+        if (
+            cardTopic !==
+            wantedTopic
+        ) {
+
+            return false;
+
+        }
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =========================================================
+   GET ALL STUDENT CARDS
+   ========================================================= */
+
+function getStudentCards() {
+
+    const allCards =
+        getFlashcardData();
+
+    const result =
+        allCards.filter(
+            card =>
+                cardMatchesStudent(card)
+        );
+
+
+    console.log(
+        "GCSE Hub: Cards available for",
+        selectedSubject,
+        ":",
+        result.length
+    );
+
+
+    return result;
+
+}
+
+
+/* =========================================================
+   PROGRESS STORAGE
+   ========================================================= */
+
+const FLASHCARD_STORAGE_KEY =
+    "gcseHubFlashcardProgress";
+
 
 function getFlashcardProgress() {
 
     try {
 
-        const stored =
+        const saved =
             localStorage.getItem(
                 FLASHCARD_STORAGE_KEY
             );
 
-        if (!stored) {
+        if (!saved) {
             return {};
         }
 
-        const data = JSON.parse(stored);
-
-        return (
-            data &&
-            typeof data === "object"
-        )
-            ? data
-            : {};
+        return JSON.parse(saved);
 
     } catch (error) {
 
-        console.warn(
-            "Could not read flashcard progress:",
+        console.error(
+            "Could not load flashcard progress.",
             error
         );
 
@@ -73,8 +473,8 @@ function saveFlashcardProgress(data) {
 
     } catch (error) {
 
-        console.warn(
-            "Could not save flashcard progress:",
+        console.error(
+            "Could not save flashcard progress.",
             error
         );
 
@@ -84,41 +484,7 @@ function saveFlashcardProgress(data) {
 
 
 /* =========================================================
-   DATES
-   ========================================================= */
-
-function today() {
-
-    const date = new Date();
-
-    return [
-        date.getFullYear(),
-        String(date.getMonth() + 1).padStart(2, "0"),
-        String(date.getDate()).padStart(2, "0")
-    ].join("-");
-
-}
-
-
-function futureDate(days) {
-
-    const date = new Date();
-
-    date.setDate(
-        date.getDate() + days
-    );
-
-    return [
-        date.getFullYear(),
-        String(date.getMonth() + 1).padStart(2, "0"),
-        String(date.getDate()).padStart(2, "0")
-    ].join("-");
-
-}
-
-
-/* =========================================================
-   CARD PROGRESS
+   DEFAULT CARD PROGRESS
    ========================================================= */
 
 function defaultCardProgress() {
@@ -144,13 +510,13 @@ function defaultCardProgress() {
 
 function getCardProgress(id) {
 
-    const all =
+    const progress =
         getFlashcardProgress();
 
-    return all[id]
+    return progress[id]
         ? {
             ...defaultCardProgress(),
-            ...all[id]
+            ...progress[id]
         }
         : defaultCardProgress();
 
@@ -158,19 +524,78 @@ function getCardProgress(id) {
 
 
 /* =========================================================
-   SPACED REPETITION
+   DATES
+   ========================================================= */
+
+function today() {
+
+    const date =
+        new Date();
+
+    return [
+
+        date.getFullYear(),
+
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0"),
+
+        String(
+            date.getDate()
+        ).padStart(2, "0")
+
+    ].join("-");
+
+}
+
+
+function futureDate(days) {
+
+    const date =
+        new Date();
+
+    date.setDate(
+        date.getDate() + days
+    );
+
+    return [
+
+        date.getFullYear(),
+
+        String(
+            date.getMonth() + 1
+        ).padStart(2, "0"),
+
+        String(
+            date.getDate()
+        ).padStart(2, "0")
+
+    ].join("-");
+
+}
+
+
+/* =========================================================
+   UPDATE PROGRESS
    ========================================================= */
 
 function updateProgress(card, rating) {
 
-    if (!card || !card.id) {
+    if (
+        !card ||
+        !card.id
+    ) {
+
         return;
+
     }
+
 
     const all =
         getFlashcardProgress();
 
-    const p = {
+
+    const progress = {
 
         ...defaultCardProgress(),
 
@@ -178,397 +603,93 @@ function updateProgress(card, rating) {
 
     };
 
-    p.attempts++;
 
-    p.lastReviewed =
+    progress.attempts++;
+
+    progress.lastReviewed =
         today();
 
 
-    if (rating === "correct") {
+    if (
+        rating === "correct"
+    ) {
 
-        p.correct++;
+        progress.correct++;
 
-        p.streak++;
+        progress.streak++;
 
 
         const intervals = [
+
             1,
             3,
             7,
             14,
             30
+
         ];
 
 
         const interval =
             intervals[
                 Math.min(
-                    p.streak - 1,
+                    progress.streak - 1,
                     intervals.length - 1
                 )
             ];
 
 
-        p.nextReview =
+        progress.nextReview =
             futureDate(interval);
 
 
-        if (p.streak >= 4) {
+        if (
+            progress.streak >= 4
+        ) {
 
-            p.mastered = true;
+            progress.mastered =
+                true;
 
         }
 
     }
 
 
-    else if (rating === "almost") {
+    else if (
+        rating === "almost"
+    ) {
 
-        p.almost++;
+        progress.almost++;
 
-        p.nextReview =
+        progress.nextReview =
             futureDate(1);
 
     }
 
 
-    else if (rating === "wrong") {
+    else if (
+        rating === "wrong"
+    ) {
 
-        p.wrong++;
+        progress.wrong++;
 
-        p.streak = 0;
+        progress.streak =
+            0;
 
-        p.mastered = false;
+        progress.mastered =
+            false;
 
-        p.nextReview =
+        progress.nextReview =
             today();
 
     }
 
 
-    all[card.id] = p;
+    all[card.id] =
+        progress;
+
 
     saveFlashcardProgress(all);
-
-}
-
-
-/* =========================================================
-   APP DATA
-   ========================================================= */
-
-function getAppData() {
-
-    if (typeof load !== "function") {
-
-        console.error(
-            "GCSE Hub load() is unavailable."
-        );
-
-        return null;
-
-    }
-
-
-    try {
-
-        const data = load();
-
-        if (!data) {
-            return null;
-        }
-
-        return data;
-
-    } catch (error) {
-
-        console.error(
-            "Could not load GCSE Hub data:",
-            error
-        );
-
-        return null;
-
-    }
-
-}
-
-
-/* =========================================================
-   FLASHCARD DATA CHECK
-   ========================================================= */
-
-function getFlashcardData() {
-
-    if (
-        typeof FLASHCARDS === "undefined"
-    ) {
-
-        console.error(
-            "FLASHCARDS is not defined."
-        );
-
-        return [];
-
-    }
-
-
-    if (
-        !Array.isArray(FLASHCARDS)
-    ) {
-
-        console.error(
-            "FLASHCARDS exists but is not an array."
-        );
-
-        return [];
-
-    }
-
-
-    return FLASHCARDS;
-
-}
-
-
-/* =========================================================
-   SUBJECT CARD FILTER
-   ========================================================= */
-function cardMatchesStudent(card) {
-
-    if (!card) {
-        return false;
-    }
-
-    /*
-     * SUBJECT
-     */
-
-    const cardSubject =
-        String(card.subject || "")
-            .trim()
-            .toLowerCase();
-
-    const studentSubject =
-        String(selectedSubject || "")
-            .trim()
-            .toLowerCase();
-
-    if (
-        !studentSubject ||
-        cardSubject !== studentSubject
-    ) {
-        return false;
-    }
-
-
-    /*
-     * If no board/level information is
-     * available from the Hub, don't reject
-     * the cards.
-     */
-
-    let board = null;
-    let level = null;
-
-    try {
-
-        const data =
-            getAppData();
-
-        if (data) {
-
-            function getSubjectSetting(settings) {
-
-                if (
-                    !settings ||
-                    typeof settings !== "object"
-                ) {
-                    return null;
-                }
-
-                /*
-                 * Exact match
-                 */
-
-                if (
-                    settings[selectedSubject]
-                ) {
-                    return settings[selectedSubject];
-                }
-
-                /*
-                 * Case-insensitive match
-                 */
-
-                const key =
-                    Object.keys(settings).find(
-                        k =>
-                            String(k)
-                                .trim()
-                                .toLowerCase() ===
-                            studentSubject
-                    );
-
-                return key
-                    ? settings[key]
-                    : null;
-            }
-
-            board =
-                getSubjectSetting(
-                    data.boards
-                );
-
-            level =
-                getSubjectSetting(
-                    data.levels
-                );
-        }
-
-    } catch (error) {
-
-        console.warn(
-            "Could not read student board/level. Using subject only.",
-            error
-        );
-
-    }
-
-
-    /*
-     * BOARD
-     *
-     * Only filter by board when BOTH
-     * the student's board and the card's
-     * board are known.
-     */
-
-    if (
-        board &&
-        card.board
-    ) {
-
-        const cardBoard =
-            String(card.board)
-                .trim()
-                .toLowerCase();
-
-        const studentBoard =
-            String(board)
-                .trim()
-                .toLowerCase();
-
-        if (
-            cardBoard !==
-            studentBoard
-        ) {
-            return false;
-        }
-    }
-
-
-    /*
-     * LEVEL
-     *
-     * Foundation cards:
-     * available to Foundation AND Higher.
-     *
-     * Higher cards:
-     * available only to Higher.
-     *
-     * If the student's level cannot be
-     * determined, don't reject the card.
-     */
-
-    if (
-        level &&
-        card.level
-    ) {
-
-        const cardLevel =
-            String(card.level)
-                .trim()
-                .toLowerCase();
-
-        const studentLevel =
-            String(level)
-                .trim()
-                .toLowerCase();
-
-        /*
-         * Higher
-         */
-
-        if (
-            cardLevel === "higher" &&
-            studentLevel !== "higher"
-        ) {
-            return false;
-        }
-
-        /*
-         * Foundation
-         */
-
-        if (
-            cardLevel === "foundation" &&
-            studentLevel !== "foundation" &&
-            studentLevel !== "higher"
-        ) {
-            return false;
-        }
-    }
-
-
-    /*
-     * TOPIC
-     */
-
-    if (
-        selectedTopic !== "all" &&
-        card.topic !== selectedTopic
-    ) {
-        return false;
-    }
-
-
-    /*
-     * CARD PASSES
-     */
-
-    return true;
-}    
-
-/* =========================================================
-   STUDENT CARDS
-   ========================================================= */
-
-function getStudentCards() {
-
-    if (!selectedSubject) {
-        return [];
-    }
-
-
-    const data =
-        getFlashcardData();
-
-
-    if (!data.length) {
-
-        console.error(
-            "No flashcard data is available."
-        );
-
-        return [];
-
-    }
-
-
-    return data.filter(
-        cardMatchesStudent
-    );
 
 }
 
@@ -587,7 +708,7 @@ function getWeakCards() {
 
 
             if (
-                progress.attempts === 0
+                !progress.attempts
             ) {
 
                 return false;
@@ -595,22 +716,16 @@ function getWeakCards() {
             }
 
 
-            const accuracy =
-                progress.correct /
-                progress.attempts;
-
-
             return (
 
-                progress.wrong > 0
+                progress.wrong > 0 ||
 
-                ||
+                progress.almost > 0 ||
 
-                progress.almost > 0
-
-                ||
-
-                accuracy < 0.75
+                (
+                    progress.correct /
+                    progress.attempts
+                ) < 0.75
 
             );
 
@@ -639,7 +754,9 @@ function getDueCards() {
             return (
 
                 progress.nextReview &&
-                progress.nextReview <= currentDate
+
+                progress.nextReview <=
+                currentDate
 
             );
 
@@ -649,7 +766,27 @@ function getDueCards() {
 
 
 /* =========================================================
-   SUBJECTS
+   SUBJECT INFORMATION
+   ========================================================= */
+
+function getSubjectInfo(id) {
+
+    if (
+        typeof SUBJECTS !== "undefined" &&
+        SUBJECTS[id]
+    ) {
+
+        return SUBJECTS[id];
+
+    }
+
+    return null;
+
+}
+
+
+/* =========================================================
+   RENDER SUBJECTS
    ========================================================= */
 
 function renderSubjects() {
@@ -661,13 +798,7 @@ function renderSubjects() {
 
 
     if (!grid) {
-
-        console.error(
-            "subjectGrid was not found."
-        );
-
         return;
-
     }
 
 
@@ -675,30 +806,13 @@ function renderSubjects() {
         getAppData();
 
 
-    if (!data) {
-
-        grid.innerHTML = `
-            <p>
-                Unable to load your GCSE Hub data.
-                Please refresh the page.
-            </p>
-        `;
-
-        return;
-
-    }
-
-
     if (
+        !data ||
         !Array.isArray(data.subjects)
     ) {
 
-        grid.innerHTML = `
-            <p>
-                No subjects have been selected yet.
-                Please return to the dashboard.
-            </p>
-        `;
+        grid.innerHTML =
+            "<p>Please return to the dashboard and choose your subjects.</p>";
 
         return;
 
@@ -709,33 +823,49 @@ function renderSubjects() {
 
 
     /*
-     * Only keep selectedSubject if it is
-     * actually one of the student's subjects.
-     */
+       Allow subject to be passed through URL.
+       Example:
 
-    if (
-        selectedSubject &&
-        !data.subjects.includes(
-            selectedSubject
-        )
-    ) {
+       flashcards.html?subject=biology
+    */
 
-        selectedSubject = null;
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const urlSubject =
+        params.get("subject");
+
+
+    if (urlSubject) {
+
+        const found =
+            data.subjects.find(
+                subject =>
+                    normalise(subject) ===
+                    normalise(urlSubject)
+            );
+
+
+        if (found) {
+
+            selectedSubject =
+                found;
+
+        }
 
     }
 
 
     /*
-     * If there is no URL-selected subject,
-     * use the student's current subject.
-     */
+       Otherwise use current subject.
+    */
 
     if (
         !selectedSubject &&
-        data.currentSubject &&
-        data.subjects.includes(
-            data.currentSubject
-        )
+        data.currentSubject
     ) {
 
         selectedSubject =
@@ -744,140 +874,113 @@ function renderSubjects() {
     }
 
 
-    /*
-     * Create every subject button.
-     */
+    data.subjects.forEach(
+        id => {
 
-    data.subjects.forEach(id => {
-
-        const subject =
-            typeof SUBJECTS !== "undefined"
-                ? SUBJECTS[id]
-                : null;
+            const subject =
+                getSubjectInfo(id);
 
 
-        if (!subject) {
-
-            console.warn(
-                "Subject exists in student data but not SUBJECTS:",
-                id
-            );
-
-            return;
-
-        }
+            if (!subject) {
+                return;
+            }
 
 
-        const button =
-            document.createElement(
-                "button"
-            );
-
-
-        button.type =
-            "button";
-
-
-        button.className =
-            "subject-select";
-
-
-        const board =
-            data.boards &&
-            data.boards[id]
-                ? data.boards[id]
-                : (
-                    Array.isArray(
-                        subject.boards
-                    ) &&
-                    subject.boards.length
-                        ? subject.boards[0]
-                        : ""
+            const button =
+                document.createElement(
+                    "button"
                 );
 
 
-        const level =
-            Array.isArray(
-                subject.levels
-            ) &&
-            subject.levels.length &&
-            data.levels &&
-            data.levels[id]
-                ? data.levels[id]
-                : "";
+            button.type =
+                "button";
 
 
-        button.innerHTML = `
-
-            <span class="subject-select-icon">
-                ${subject.icon || "📚"}
-            </span>
-
-            <span class="subject-select-name">
-                ${subject.name}
-            </span>
-
-            <span class="subject-select-info">
-                ${board || ""}
-                ${level ? ` • ${level}` : ""}
-            </span>
-
-        `;
+            button.className =
+                "subject-select";
 
 
-        if (
-            id === selectedSubject
-        ) {
-
-            button.classList.add(
-                "selected"
-            );
-
-        }
+            const board =
+                getStudentBoard(id);
 
 
-        button.addEventListener(
-            "click",
-            () => {
-
-                selectedSubject =
-                    id;
-
-                selectedTopic =
-                    "all";
+            const level =
+                getStudentLevel(id);
 
 
-                grid
-                    .querySelectorAll(
-                        ".subject-select"
-                    )
-                    .forEach(other => {
+            button.innerHTML = `
 
-                        other.classList.remove(
-                            "selected"
-                        );
+                <span class="subject-select-icon">
+                    ${subject.icon || "📚"}
+                </span>
 
-                    });
+                <span class="subject-select-name">
+                    ${subject.name}
+                </span>
 
+                <span class="subject-select-info">
+                    ${board || ""}
+                    ${board && level ? " • " : ""}
+                    ${level || ""}
+                </span>
+
+            `;
+
+
+            if (
+                normalise(id) ===
+                normalise(selectedSubject)
+            ) {
 
                 button.classList.add(
                     "selected"
                 );
 
-
-                loadTopics();
-
-                updateStats();
-
             }
-        );
 
 
-        grid.appendChild(
-            button
-        );
+            button.addEventListener(
+                "click",
+                () => {
 
-    });
+                    selectedSubject =
+                        id;
+
+                    selectedTopic =
+                        "all";
+
+
+                    grid
+                        .querySelectorAll(
+                            ".subject-select"
+                        )
+                        .forEach(
+                            other =>
+                                other.classList.remove(
+                                    "selected"
+                                )
+                        );
+
+
+                    button.classList.add(
+                        "selected"
+                    );
+
+
+                    loadTopics();
+
+                    updateStats();
+
+                }
+            );
+
+
+            grid.appendChild(
+                button
+            );
+
+        }
+    );
 
 
     loadTopics();
@@ -886,7 +989,7 @@ function renderSubjects() {
 
 
 /* =========================================================
-   TOPICS
+   LOAD TOPICS
    ========================================================= */
 
 function loadTopics() {
@@ -916,19 +1019,9 @@ function loadTopics() {
     }
 
 
-    const data =
-        getFlashcardData();
-
-
-    if (!data.length) {
-        return;
-    }
-
-
     /*
-     * Temporarily ignore selectedTopic
-     * while finding available topics.
-     */
+       Temporarily use all topics.
+    */
 
     const previousTopic =
         selectedTopic;
@@ -938,61 +1031,69 @@ function loadTopics() {
         "all";
 
 
-    const availableCards =
-        data.filter(
-            cardMatchesStudent
-        );
+    const topics = [
+
+        ...new Set(
+
+            getStudentCards()
+                .map(
+                    card =>
+                        card.topic
+                )
+                .filter(Boolean)
+
+        )
+
+    ];
 
 
     selectedTopic =
         previousTopic;
 
 
-    const topics = [
-        ...new Set(
-            availableCards
-                .map(card => card.topic)
-                .filter(Boolean)
-        )
-    ];
+    topics.forEach(
+        topic => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
 
 
-    topics.forEach(topic => {
+            option.value =
+                topic;
 
-        const option =
-            document.createElement(
-                "option"
+
+            option.textContent =
+                topic;
+
+
+            select.appendChild(
+                option
             );
 
+        }
+    );
 
-        option.value =
-            topic;
-
-
-        option.textContent =
-            topic;
-
-
-        select.appendChild(
-            option
-        );
-
-    });
-
-
-    /*
-     * Restore the selected topic
-     * if it is still available.
-     */
 
     if (
-        topics.includes(
-            selectedTopic
+        topics.some(
+            topic =>
+                normalise(topic) ===
+                normalise(selectedTopic)
         )
     ) {
 
+        const matchingTopic =
+            topics.find(
+                topic =>
+                    normalise(topic) ===
+                    normalise(selectedTopic)
+            );
+
+
         select.value =
-            selectedTopic;
+            matchingTopic;
 
     }
 
@@ -1019,59 +1120,68 @@ function updateStats() {
         getFlashcardProgress();
 
 
-    let reviewed = 0;
-    let mastered = 0;
-    let attempts = 0;
-    let correctAnswers = 0;
+    let reviewed =
+        0;
+
+    let mastered =
+        0;
+
+    let attempts =
+        0;
+
+    let correctAnswers =
+        0;
 
 
     Object.values(progress)
-        .forEach(p => {
+        .forEach(
+            p => {
 
-            const cardAttempts =
-                Number(p.attempts) || 0;
-
-            const cardCorrect =
-                Number(p.correct) || 0;
-
-
-            attempts +=
-                cardAttempts;
+                const a =
+                    Number(
+                        p.attempts
+                    ) || 0;
 
 
-            correctAnswers +=
-                cardCorrect;
+                const c =
+                    Number(
+                        p.correct
+                    ) || 0;
 
 
-            if (
-                cardAttempts > 0
-            ) {
+                attempts +=
+                    a;
 
-                reviewed++;
+
+                correctAnswers +=
+                    c;
+
+
+                if (
+                    a > 0
+                ) {
+
+                    reviewed++;
+
+                }
+
+
+                if (
+                    p.mastered
+                ) {
+
+                    mastered++;
+
+                }
 
             }
+        );
 
 
-            if (
-                p.mastered
-            ) {
-
-                mastered++;
-
-            }
-
-        });
-
-
-    let due = 0;
-
-
-    if (selectedSubject) {
-
-        due =
-            getDueCards().length;
-
-    }
+    const due =
+        selectedSubject
+            ? getDueCards().length
+            : 0;
 
 
     const reviewedElement =
@@ -1098,7 +1208,9 @@ function updateStats() {
         );
 
 
-    if (reviewedElement) {
+    if (
+        reviewedElement
+    ) {
 
         reviewedElement.textContent =
             reviewed;
@@ -1106,7 +1218,9 @@ function updateStats() {
     }
 
 
-    if (masteredElement) {
+    if (
+        masteredElement
+    ) {
 
         masteredElement.textContent =
             mastered;
@@ -1114,24 +1228,31 @@ function updateStats() {
     }
 
 
-    if (accuracyElement) {
+    if (
+        accuracyElement
+    ) {
 
         accuracyElement.textContent =
 
             (
                 attempts
+
                     ? Math.round(
                         correctAnswers /
                         attempts *
                         100
                     )
+
                     : 0
+
             ) + "%";
 
     }
 
 
-    if (dueElement) {
+    if (
+        dueElement
+    ) {
 
         dueElement.textContent =
             due;
@@ -1154,7 +1275,19 @@ function showSetupMessage(message) {
 
 
     if (!element) {
+
+        /*
+           Also log the problem so we can
+           diagnose it if necessary.
+        */
+
+        console.warn(
+            "GCSE Hub:",
+            message
+        );
+
         return;
+
     }
 
 
@@ -1192,7 +1325,7 @@ function hideSetupMessage() {
 
 
 /* =========================================================
-   START SESSION
+   START REVISION
    ========================================================= */
 
 function startSession() {
@@ -1222,7 +1355,8 @@ function startSession() {
     if (topicSelect) {
 
         selectedTopic =
-            topicSelect.value;
+            topicSelect.value ||
+            "all";
 
     }
 
@@ -1239,6 +1373,7 @@ function startSession() {
 
     }
 
+
     else if (
         selectedMode === "due"
     ) {
@@ -1248,6 +1383,7 @@ function startSession() {
 
     }
 
+
     else {
 
         pool =
@@ -1256,7 +1392,27 @@ function startSession() {
     }
 
 
-    if (!pool.length) {
+    console.log(
+        "GCSE Hub: Selected subject:",
+        selectedSubject
+    );
+
+
+    console.log(
+        "GCSE Hub: Selected topic:",
+        selectedTopic
+    );
+
+
+    console.log(
+        "GCSE Hub: Matching cards:",
+        pool.length
+    );
+
+
+    if (
+        !pool.length
+    ) {
 
         if (
             selectedMode === "weak"
@@ -1286,6 +1442,7 @@ function startSession() {
 
         }
 
+
         return;
 
     }
@@ -1294,17 +1451,11 @@ function startSession() {
     hideSetupMessage();
 
 
-    /*
-     * Make a copy before shuffling.
-     * This NEVER modifies FLASHCARDS.
-     */
-
     cards =
         [...pool]
             .sort(
                 () =>
-                    Math.random() -
-                    0.5
+                    Math.random() - 0.5
             )
             .slice(
                 0,
@@ -1312,14 +1463,28 @@ function startSession() {
             );
 
 
-    currentCard = 0;
+    currentCard =
+        0;
 
-    correct = 0;
-    almost = 0;
-    wrong = 0;
-    sessionXP = 0;
 
-    ratingLocked = false;
+    correct =
+        0;
+
+
+    almost =
+        0;
+
+
+    wrong =
+        0;
+
+
+    sessionXP =
+        0;
+
+
+    ratingLocked =
+        false;
 
 
     const setup =
@@ -1346,10 +1511,6 @@ function startSession() {
         !results
     ) {
 
-        console.error(
-            "Required flashcard sections were not found."
-        );
-
         showSetupMessage(
             "The revision session could not be opened. Please refresh the page."
         );
@@ -1374,9 +1535,9 @@ function startSession() {
 
 
     const subject =
-        typeof SUBJECTS !== "undefined"
-            ? SUBJECTS[selectedSubject]
-            : null;
+        getSubjectInfo(
+            selectedSubject
+        );
 
 
     const sessionSubject =
@@ -1385,12 +1546,15 @@ function startSession() {
         );
 
 
-    if (sessionSubject) {
+    if (
+        sessionSubject
+    ) {
 
         sessionSubject.textContent =
-
             subject
+
                 ? `${subject.icon || "📚"} ${subject.name}`
+
                 : selectedSubject;
 
     }
@@ -1402,7 +1566,9 @@ function startSession() {
         );
 
 
-    if (sessionTopic) {
+    if (
+        sessionTopic
+    ) {
 
         sessionTopic.textContent =
 
@@ -1476,6 +1642,7 @@ function showCard() {
                 currentCard /
                 cards.length *
                 100
+
             ) + "%";
 
     }
@@ -1487,12 +1654,16 @@ function showCard() {
         );
 
 
-    if (questionTopic) {
+    if (
+        questionTopic
+    ) {
 
         questionTopic.textContent =
 
             card.subtopic
+
                 ? `${card.topic} • ${card.subtopic}`
+
                 : card.topic || "";
 
     }
@@ -1512,23 +1683,27 @@ function showCard() {
     }
 
 
+    const answer =
+        document.getElementById(
+            "answer"
+        );
+
+
     const answerText =
         document.getElementById(
             "answerText"
         );
 
 
-    if (answerText) {
-
-        answerText.textContent =
-            card.answer || "";
-
-    }
-
-
-    const answer =
+    const ratings =
         document.getElementById(
-            "answer"
+            "ratingButtons"
+        );
+
+
+    const showAnswerButton =
+        document.getElementById(
+            "showAnswer"
         );
 
 
@@ -1541,48 +1716,29 @@ function showCard() {
     }
 
 
-    const ratingButtons =
-        document.getElementById(
-            "ratingButtons"
-        );
+    if (ratings) {
 
-
-    if (ratingButtons) {
-
-        ratingButtons.classList.remove(
+        ratings.classList.remove(
             "visible"
         );
 
     }
 
 
-    const showAnswerButton =
-        document.getElementById(
-            "showAnswer"
-        );
+    if (answerText) {
 
-
-    if (showAnswerButton) {
-
-        showAnswerButton.style.display =
-            "inline-block";
-
-        showAnswerButton.disabled =
-            false;
+        answerText.textContent =
+            card.answer || "";
 
     }
 
 
-    const xpEarned =
-        document.getElementById(
-            "xpEarned"
-        );
+    if (
+        showAnswerButton
+    ) {
 
-
-    if (xpEarned) {
-
-        xpEarned.textContent =
-            "";
+        showAnswerButton.style.display =
+            "inline-block";
 
     }
 
@@ -1590,26 +1746,14 @@ function showCard() {
     ratingLocked =
         false;
 
-
-    document
-        .querySelectorAll(
-            "[data-rating]"
-        )
-        .forEach(button => {
-
-            button.disabled =
-                false;
-
-        });
-
 }
 
 
 /* =========================================================
-   SHOW ANSWER
+   REVEAL ANSWER
    ========================================================= */
 
-function revealFlashcardAnswer() {
+function revealAnswer() {
 
     const answer =
         document.getElementById(
@@ -1617,13 +1761,13 @@ function revealFlashcardAnswer() {
         );
 
 
-    const ratingButtons =
+    const ratings =
         document.getElementById(
             "ratingButtons"
         );
 
 
-    const showAnswerButton =
+    const button =
         document.getElementById(
             "showAnswer"
         );
@@ -1638,18 +1782,18 @@ function revealFlashcardAnswer() {
     }
 
 
-    if (ratingButtons) {
+    if (ratings) {
 
-        ratingButtons.classList.add(
+        ratings.classList.add(
             "visible"
         );
 
     }
 
 
-    if (showAnswerButton) {
+    if (button) {
 
-        showAnswerButton.style.display =
+        button.style.display =
             "none";
 
     }
@@ -1663,30 +1807,9 @@ function revealFlashcardAnswer() {
 
 function rateCard(rating) {
 
-    /*
-     * Prevent double clicks,
-     * especially on mobile.
-     */
-
-    if (ratingLocked) {
-        return;
-    }
-
-
     if (
-        !cards.length ||
+        ratingLocked ||
         !cards[currentCard]
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        rating !== "correct" &&
-        rating !== "almost" &&
-        rating !== "wrong"
     ) {
 
         return;
@@ -1708,16 +1831,9 @@ function rateCard(rating) {
     );
 
 
-    let points =
-        0;
-
-
     if (
         rating === "correct"
     ) {
-
-        points =
-            10;
 
         correct++;
 
@@ -1727,104 +1843,86 @@ function rateCard(rating) {
         rating === "almost"
     ) {
 
-        points =
-            7;
-
         almost++;
 
     }
 
-    else {
-
-        points =
-            3;
+    else if (
+        rating === "wrong"
+    ) {
 
         wrong++;
 
     }
 
 
+    const xp =
+
+        rating === "correct"
+
+            ? 20
+
+            : rating === "almost"
+
+                ? 10
+
+                : 5;
+
+
     sessionXP +=
-        points;
+        xp;
 
 
-    /*
-     * Global GCSE Hub XP.
-     */
+    if (
+        typeof award === "function"
+    ) {
 
-    try {
-
-        if (
-            typeof award === "function"
-        ) {
-
-            award(points);
-
-        }
-
-    } catch (error) {
-
-        console.warn(
-            "Could not award XP:",
-            error
+        award(
+            xp,
+            rating === "correct"
+                ? 1
+                : 0
         );
 
     }
 
 
-    const xpEarned =
+    const xpElement =
         document.getElementById(
             "xpEarned"
         );
 
 
-    if (xpEarned) {
+    if (
+        xpElement
+    ) {
 
-        xpEarned.textContent =
-            `+${points} ⭐`;
+        xpElement.textContent =
+            `+${xp} XP ⭐`;
 
     }
 
 
-    /*
-     * Disable all rating buttons
-     * immediately.
-     */
-
-    document
-        .querySelectorAll(
-            "[data-rating]"
-        )
-        .forEach(button => {
-
-            button.disabled =
-                true;
-
-        });
-
-
-    currentCard++;
-
-
-    updateStats();
-
-
-    window.setTimeout(
+    setTimeout(
         () => {
+
+            currentCard++;
+
 
             if (
                 currentCard >=
                 cards.length
             ) {
 
-                finish();
-
-                return;
+                finishSession();
 
             }
 
+            else {
 
-            showCard();
+                showCard();
+
+            }
 
         },
         350
@@ -1837,7 +1935,7 @@ function rateCard(rating) {
    FINISH SESSION
    ========================================================= */
 
-function finish() {
+function finishSession() {
 
     const session =
         document.getElementById(
@@ -1887,18 +1985,36 @@ function finish() {
         );
 
 
-    if (score) {
-
-        score.textContent =
-            percentage + "%";
-
-    }
-
-
     const resultCards =
         document.getElementById(
             "resultCards"
         );
+
+
+    const resultCorrect =
+        document.getElementById(
+            "resultCorrect"
+        );
+
+
+    const resultAlmost =
+        document.getElementById(
+            "resultAlmost"
+        );
+
+
+    const resultXP =
+        document.getElementById(
+            "resultXP"
+        );
+
+
+    if (score) {
+
+        score.textContent =
+            `${percentage}%`;
+
+    }
 
 
     if (resultCards) {
@@ -1909,24 +2025,12 @@ function finish() {
     }
 
 
-    const resultCorrect =
-        document.getElementById(
-            "resultCorrect"
-        );
-
-
     if (resultCorrect) {
 
         resultCorrect.textContent =
             correct;
 
     }
-
-
-    const resultAlmost =
-        document.getElementById(
-            "resultAlmost"
-        );
 
 
     if (resultAlmost) {
@@ -1937,36 +2041,12 @@ function finish() {
     }
 
 
-    const resultXP =
-        document.getElementById(
-            "resultXP"
-        );
-
-
     if (resultXP) {
 
         resultXP.textContent =
-            sessionXP + " ⭐";
+            `${sessionXP} ⭐`;
 
     }
-
-
-    const progressBar =
-        document.getElementById(
-            "sessionProgress"
-        );
-
-
-    if (progressBar) {
-
-        progressBar.style.width =
-            "100%";
-
-    }
-
-
-    ratingLocked =
-        false;
 
 
     updateStats();
@@ -1975,16 +2055,10 @@ function finish() {
 
 
 /* =========================================================
-   RETURN TO SETUP
+   RESET SESSION
    ========================================================= */
 
-function reviseAgain() {
-
-    const results =
-        document.getElementById(
-            "results"
-        );
-
+function resetSession() {
 
     const setup =
         document.getElementById(
@@ -1995,6 +2069,12 @@ function reviseAgain() {
     const session =
         document.getElementById(
             "session"
+        );
+
+
+    const results =
+        document.getElementById(
+            "results"
         );
 
 
@@ -2024,14 +2104,6 @@ function reviseAgain() {
     }
 
 
-    cards = [];
-
-    currentCard = 0;
-
-    ratingLocked =
-        false;
-
-
     updateStats();
 
 }
@@ -2043,85 +2115,121 @@ function reviseAgain() {
 
 function initialiseFlashcards() {
 
-    /*
-     * Prevent accidental double initialisation.
-     */
-
-    if (flashcardsInitialised) {
-        return;
-    }
-
-
-    flashcardsInitialised =
-        true;
-
-
     console.log(
         "GCSE Hub: Initialising flashcards..."
     );
 
 
     /*
-     * -------------------------------------------------------
-     * URL PARAMETERS
-     * -------------------------------------------------------
-     */
+       MODE BUTTONS
+    */
 
-    const params =
-        new URLSearchParams(
-            window.location.search
+    document
+        .querySelectorAll(
+            "[data-mode]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        selectedMode =
+                            button.dataset.mode ||
+                            "normal";
+
+
+                        document
+                            .querySelectorAll(
+                                "[data-mode]"
+                            )
+                            .forEach(
+                                other =>
+                                    other.classList.remove(
+                                        "selected"
+                                    )
+                            );
+
+
+                        button.classList.add(
+                            "selected"
+                        );
+
+
+                        hideSetupMessage();
+
+                    }
+                );
+
+            }
         );
-
-
-    const urlSubject =
-        params.get(
-            "subject"
-        );
-
-
-    const urlTopic =
-        params.get(
-            "topic"
-        );
-
-
-    if (urlSubject) {
-
-        selectedSubject =
-            urlSubject;
-
-    }
 
 
     /*
-     * -------------------------------------------------------
-     * SUBJECTS
-     * -------------------------------------------------------
-     */
+       NUMBER BUTTONS
+    */
 
-    renderSubjects();
+    document
+        .querySelectorAll(
+            "[data-number]"
+        )
+        .forEach(
+            button => {
+
+                button.addEventListener(
+                    "click",
+                    () => {
+
+                        selectedNumber =
+                            Number(
+                                button.dataset.number
+                            ) || 10;
+
+
+                        document
+                            .querySelectorAll(
+                                "[data-number]"
+                            )
+                            .forEach(
+                                other =>
+                                    other.classList.remove(
+                                        "selected"
+                                    )
+                            );
+
+
+                        button.classList.add(
+                            "selected"
+                        );
+
+                    }
+                );
+
+            }
+        );
 
 
     /*
-     * -------------------------------------------------------
-     * TOPIC SELECT
-     * -------------------------------------------------------
-     */
+       TOPIC SELECT
+    */
 
-    const topicSelect =
+    const topic =
         document.getElementById(
             "topic"
         );
 
 
-    if (topicSelect) {
+    if (topic) {
 
-        topicSelect.addEventListener(
+        topic.addEventListener(
             "change",
-            function () {
+            () => {
 
                 selectedTopic =
-                    this.value;
+                    topic.value ||
+                    "all";
+
 
                 updateStats();
 
@@ -2132,148 +2240,8 @@ function initialiseFlashcards() {
 
 
     /*
-     * Restore URL topic AFTER topics
-     * have been generated.
-     */
-
-    if (urlTopic) {
-
-        if (topicSelect) {
-
-            const topicExists =
-                Array.from(
-                    topicSelect.options
-                )
-                .some(
-                    option =>
-                        option.value ===
-                        urlTopic
-                );
-
-
-            if (topicExists) {
-
-                selectedTopic =
-                    urlTopic;
-
-                topicSelect.value =
-                    urlTopic;
-
-            }
-
-        }
-
-    }
-
-
-    /*
-     * -------------------------------------------------------
-     * SPECIAL MODES
-     * -------------------------------------------------------
-     */
-
-    document
-        .querySelectorAll(
-            ".special-mode"
-        )
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    selectedMode =
-                        this.dataset.mode ||
-                        "normal";
-
-
-                    document
-                        .querySelectorAll(
-                            ".special-mode"
-                        )
-                        .forEach(other => {
-
-                            other.classList.remove(
-                                "selected"
-                            );
-
-                        });
-
-
-                    this.classList.add(
-                        "selected"
-                    );
-
-
-                    updateStats();
-
-                }
-            );
-
-        });
-
-
-    /*
-     * -------------------------------------------------------
-     * CARD COUNT
-     * -------------------------------------------------------
-     */
-
-    document
-        .querySelectorAll(
-            "[data-number]"
-        )
-        .forEach(button => {
-
-            button.addEventListener(
-                "click",
-                function () {
-
-                    const number =
-                        Number(
-                            this.dataset.number
-                        );
-
-
-                    if (
-                        Number.isFinite(number) &&
-                        number > 0
-                    ) {
-
-                        selectedNumber =
-                            number;
-
-                    }
-
-
-                    document
-                        .querySelectorAll(
-                            "[data-number]"
-                        )
-                        .forEach(other => {
-
-                            other.classList.remove(
-                                "selected"
-                            );
-
-                        });
-
-
-                    this.classList.add(
-                        "selected"
-                    );
-
-                }
-            );
-
-        });
-
-
-    /*
-     * -------------------------------------------------------
-     * START REVISION
-     * -------------------------------------------------------
-     */
+       START BUTTON
+    */
 
     const startButton =
         document.getElementById(
@@ -2285,23 +2253,15 @@ function initialiseFlashcards() {
 
         startButton.addEventListener(
             "click",
-            function (event) {
-
-                event.preventDefault();
-
-                startSession();
-
-            }
+            startSession
         );
 
     }
 
 
     /*
-     * -------------------------------------------------------
-     * SHOW ANSWER
-     * -------------------------------------------------------
-     */
+       SHOW ANSWER
+    */
 
     const showAnswerButton =
         document.getElementById(
@@ -2309,55 +2269,47 @@ function initialiseFlashcards() {
         );
 
 
-    if (showAnswerButton) {
+    if (
+        showAnswerButton
+    ) {
 
         showAnswerButton.addEventListener(
             "click",
-            function (event) {
-
-                event.preventDefault();
-
-                revealFlashcardAnswer();
-
-            }
+            revealAnswer
         );
 
     }
 
 
     /*
-     * -------------------------------------------------------
-     * RATING BUTTONS
-     * -------------------------------------------------------
-     */
+       RATING BUTTONS
+    */
 
     document
         .querySelectorAll(
             "[data-rating]"
         )
-        .forEach(button => {
+        .forEach(
+            button => {
 
-            button.addEventListener(
-                "click",
-                function (event) {
+                button.addEventListener(
+                    "click",
+                    () => {
 
-                    event.preventDefault();
+                        rateCard(
+                            button.dataset.rating
+                        );
 
-                    rateCard(
-                        this.dataset.rating
-                    );
+                    }
+                );
 
-                }
-            );
-
-        });
+            }
+        );
 
 
     /*
-     * -------------------------------------------------------
-     * AGAIN
-     * -------------------------------------------------------
-     */
+       AGAIN BUTTON
+    */
 
     const againButton =
         document.getElementById(
@@ -2369,36 +2321,35 @@ function initialiseFlashcards() {
 
         againButton.addEventListener(
             "click",
-            function (event) {
-
-                event.preventDefault();
-
-                reviseAgain();
-
-            }
+            resetSession
         );
 
     }
 
 
     /*
-     * -------------------------------------------------------
-     * INITIAL STATS
-     * -------------------------------------------------------
-     */
+       SUBJECTS
+    */
+
+    renderSubjects();
+
+
+    /*
+       STATS
+    */
 
     updateStats();
 
 
     console.log(
-        "GCSE Hub: Flashcards ready."
+        "GCSE Hub: Flashcards initialised."
     );
 
 }
 
 
 /* =========================================================
-   PAGE LOAD
+   DOM READY
    ========================================================= */
 
 if (
@@ -2408,10 +2359,7 @@ if (
 
     document.addEventListener(
         "DOMContentLoaded",
-        initialiseFlashcards,
-        {
-            once: true
-        }
+        initialiseFlashcards
     );
 
 }
