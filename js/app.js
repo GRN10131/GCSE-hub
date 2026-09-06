@@ -1,11 +1,6 @@
 /* =========================================================
-   GCSE HUB 2.0
-   CENTRAL DATA + GAMIFICATION SYSTEM
-   ========================================================= */
-
-
-/* =========================================================
-   SUBJECTS
+   GCSE HUB
+   GLOBAL DATA SYSTEM
    ========================================================= */
 
 const SUBJECTS = {
@@ -13,249 +8,126 @@ const SUBJECTS = {
     maths: {
         name: "Maths",
         icon: "➗",
-        boards: ["AQA", "Pearson"]
+        boards: ["Pearson", "AQA"],
+        levels: ["Foundation", "Higher"]
     },
 
     english: {
         name: "English",
         icon: "📖",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     },
 
     biology: {
         name: "Biology",
         icon: "🧬",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     },
 
     chemistry: {
         name: "Chemistry",
         icon: "⚗️",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     },
 
     physics: {
         name: "Physics",
         icon: "⚛️",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     },
 
     combined: {
         name: "Combined Science",
         icon: "🔬",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     },
 
     ethics: {
         name: "Ethics & Philosophy",
         icon: "⚖️",
-        boards: ["AQA"]
+        boards: ["AQA"],
+        levels: []
     },
 
     history: {
         name: "History",
         icon: "🏰",
-        boards: ["Pearson"]
+        boards: ["Pearson"],
+        levels: []
     },
 
     geography: {
         name: "Geography",
         icon: "🌍",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     },
 
     spanish: {
         name: "Spanish",
         icon: "🇪🇸",
-        boards: ["Pearson", "AQA"]
+        boards: ["Pearson", "AQA"],
+        levels: ["Foundation", "Higher"]
     },
 
     french: {
         name: "French",
         icon: "🇫🇷",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: ["Foundation", "Higher"]
     },
 
     systems: {
         name: "Systems Programmable Engineering",
         icon: "⚙️",
-        boards: ["School specification"]
+        boards: ["OCR"],
+        levels: []
     },
 
     engineering: {
         name: "Engineering Design",
         icon: "🔧",
-        boards: ["Pearson", "OCR"]
+        boards: ["Pearson", "OCR"],
+        levels: []
     },
 
     imedia: {
         name: "Creative i-Media",
         icon: "🎬",
-        boards: ["OCR"]
+        boards: ["OCR"],
+        levels: []
     },
 
     business: {
         name: "Business",
         icon: "💼",
-        boards: ["AQA", "Pearson"]
+        boards: ["AQA", "Pearson"],
+        levels: []
     }
 
 };
 
 
 /* =========================================================
-   STARTER TOPICS
-   ========================================================= */
-
-const TOPICS = {
-
-    maths: [
-        "Number",
-        "Algebra",
-        "Ratio & Proportion",
-        "Geometry",
-        "Statistics",
-        "Probability"
-    ],
-
-    english: [
-        "Macbeth",
-        "A Christmas Carol",
-        "An Inspector Calls",
-        "Language Paper 1",
-        "Language Paper 2"
-    ],
-
-    biology: [
-        "Cell Biology",
-        "Organisation",
-        "Infection & Response",
-        "Bioenergetics",
-        "Homeostasis",
-        "Ecology"
-    ],
-
-    chemistry: [
-        "Atomic Structure",
-        "Bonding",
-        "Quantitative Chemistry",
-        "Chemical Changes",
-        "Energy Changes",
-        "Organic Chemistry"
-    ],
-
-    physics: [
-        "Energy",
-        "Electricity",
-        "Particle Model",
-        "Atomic Structure",
-        "Forces",
-        "Waves"
-    ],
-
-    combined: [
-        "Biology",
-        "Chemistry",
-        "Physics",
-        "Required Practicals"
-    ],
-
-    ethics: [
-        "Christianity",
-        "Islam",
-        "Relationships",
-        "Crime & Punishment",
-        "Peace & Conflict"
-    ],
-
-    history: [
-        "Medicine Through Time",
-        "The Renaissance",
-        "The Great Plague",
-        "Modern Medicine"
-    ],
-
-    geography: [
-        "Natural Hazards",
-        "Living World",
-        "Physical Landscapes",
-        "Urban Issues",
-        "Resource Management"
-    ],
-
-    spanish: [
-        "Identity & Culture",
-        "Local Area",
-        "School",
-        "Future Aspirations",
-        "International & Global Dimension"
-    ],
-
-    french: [
-        "Identity & Culture",
-        "Local Area",
-        "School",
-        "Future Aspirations",
-        "International & Global Dimension"
-    ],
-
-    systems: [
-        "Programming",
-        "Digital Systems",
-        "Microcontrollers",
-        "Sensors",
-        "Data & Logic"
-    ],
-
-    engineering: [
-        "Materials",
-        "Manufacturing",
-        "Design Processes",
-        "Mechanical Systems",
-        "Electronics"
-    ],
-
-    imedia: [
-        "Pre-production",
-        "Creative Media",
-        "Digital Graphics",
-        "Animation",
-        "Interactive Media"
-    ],
-
-    business: [
-        "Business in the Real World",
-        "Influences on Business",
-        "Business Operations",
-        "Human Resources",
-        "Marketing",
-        "Finance"
-    ]
-
-};
-
-
-/* =========================================================
-   DEFAULT USER DATA
+   DEFAULT DATA
    ========================================================= */
 
 const DEFAULT_DATA = {
 
     name: "",
 
-    /* ALL SUBJECTS THE STUDENT STUDIES */
     subjects: [],
 
-    /* CURRENTLY SELECTED SUBJECT */
     currentSubject: null,
 
-    /* EXAM BOARD FOR EACH SUBJECT */
     boards: {},
 
-    /* LEVEL FOR EACH SUBJECT */
     levels: {},
-
-    /* GAMIFICATION */
 
     points: 0,
 
@@ -265,8 +137,6 @@ const DEFAULT_DATA = {
 
     streakFreezes: 2,
 
-    /* DAILY GOAL */
-
     dailyGoal: 500,
 
     pointsToday: 0,
@@ -275,11 +145,7 @@ const DEFAULT_DATA = {
 
     lastStreakDate: null,
 
-    /* HISTORY */
-
     history: {},
-
-    /* REVISION */
 
     completedTopics: {},
 
@@ -289,7 +155,7 @@ const DEFAULT_DATA = {
 
 
 /* =========================================================
-   LOAD DATA
+   LOAD
    ========================================================= */
 
 function load() {
@@ -298,92 +164,53 @@ function load() {
 
         const stored =
             JSON.parse(
-                localStorage.getItem("GCSE_HUB_DATA") || "{}"
+                localStorage.getItem(
+                    "GCSE_HUB_DATA"
+                ) || "{}"
             );
-
 
         const data = {
             ...DEFAULT_DATA,
             ...stored
         };
 
-
-        /* ---------------------------------------------
-           MIGRATION FROM OLD VERSION
-           --------------------------------------------- */
-
-        /*
-           The previous version stored:
-
-           subject: "maths"
-
-           This converts it into:
-
-           subjects: ["maths"]
-        */
-
-        if (
-            (!Array.isArray(data.subjects) ||
-            data.subjects.length === 0) &&
-            stored.subject
-        ) {
-
-            data.subjects = [stored.subject];
-
+        if (!Array.isArray(data.subjects)) {
+            data.subjects = [];
         }
 
-
-        if (
-            !data.currentSubject &&
-            data.subjects &&
-            data.subjects.length > 0
-        ) {
-
-            data.currentSubject =
-                data.subjects[0];
-
+        if (!data.boards || typeof data.boards !== "object") {
+            data.boards = {};
         }
 
-
-        /* Old single level/board system */
-
-        if (
-            data.currentSubject &&
-            !data.levels[data.currentSubject] &&
-            stored.level
-        ) {
-
-            data.levels[data.currentSubject] =
-                stored.level;
-
+        if (!data.levels || typeof data.levels !== "object") {
+            data.levels = {};
         }
 
-
-        if (
-            data.currentSubject &&
-            !data.boards[data.currentSubject] &&
-            stored.board
-        ) {
-
-            data.boards[data.currentSubject] =
-                stored.board;
-
+        if (!data.history || typeof data.history !== "object") {
+            data.history = {};
         }
 
+        if (!data.completedTopics || typeof data.completedTopics !== "object") {
+            data.completedTopics = {};
+        }
+
+        if (!data.ratings || typeof data.ratings !== "object") {
+            data.ratings = {};
+        }
 
         return data;
 
-    }
+    } catch (error) {
 
-    catch (error) {
-
-        console.error(
-            "Could not load GCSE Hub data:",
-            error
-        );
+        console.error(error);
 
         return {
-            ...DEFAULT_DATA
+            ...DEFAULT_DATA,
+            boards: {},
+            levels: {},
+            history: {},
+            completedTopics: {},
+            ratings: {}
         };
 
     }
@@ -392,7 +219,7 @@ function load() {
 
 
 /* =========================================================
-   SAVE DATA
+   SAVE
    ========================================================= */
 
 function save(data) {
@@ -406,20 +233,18 @@ function save(data) {
 
 
 /* =========================================================
-   TODAY'S DATE
+   TODAY
    ========================================================= */
 
 function getToday() {
 
-    const now = new Date();
+    const date = new Date();
 
-    return (
-        now.getFullYear() +
-        "-" +
-        String(now.getMonth() + 1).padStart(2, "0") +
-        "-" +
-        String(now.getDate()).padStart(2, "0")
-    );
+    return [
+        date.getFullYear(),
+        String(date.getMonth() + 1).padStart(2, "0"),
+        String(date.getDate()).padStart(2, "0")
+    ].join("-");
 
 }
 
@@ -428,51 +253,35 @@ function getToday() {
    DATE DIFFERENCE
    ========================================================= */
 
-function daysBetween(firstDate, secondDate) {
+function daysBetween(first, second) {
 
-    const first =
-        new Date(firstDate);
-
-    const second =
-        new Date(secondDate);
-
+    const a = new Date(first);
+    const b = new Date(second);
 
     return Math.round(
-        (second - first) /
-        (1000 * 60 * 60 * 24)
+        (b - a) / 86400000
     );
 
 }
 
 
 /* =========================================================
-   DAILY DATA
+   KEEP DAILY PROGRESS CORRECT
    ========================================================= */
 
 function updateDay(data) {
 
-    const today =
-        getToday();
+    const today = getToday();
 
-
-    /*
-       Only reset today's points when
-       the actual calendar day changes.
-
-       This is the important fix.
-    */
-
-    if (
-        data.pointsTodayDate !== today
-    ) {
+    if (data.pointsTodayDate !== today) {
 
         data.pointsToday = 0;
 
-        data.pointsTodayDate =
-            today;
+        data.pointsTodayDate = today;
+
+        save(data);
 
     }
-
 
     return data;
 
@@ -480,43 +289,28 @@ function updateDay(data) {
 
 
 /* =========================================================
-   AWARD POINTS + GEMS
+   AWARD POINTS
    ========================================================= */
 
-function award(
-    points = 0,
-    gems = 0
-) {
+function award(points = 0, gems = 0) {
 
-    let data =
-        load();
+    let data = load();
 
+    data = updateDay(data);
 
-    data =
-        updateDay(data);
+    const today = getToday();
 
-
-    const today =
-        getToday();
-
-
-    /*
+    /* -----------------------------------------
        STREAK
-    */
+       ----------------------------------------- */
 
-    if (
-        data.lastStreakDate !== today
-    ) {
+    if (data.lastStreakDate !== today) {
 
-        if (
-            !data.lastStreakDate
-        ) {
+        if (!data.lastStreakDate) {
 
             data.streak = 1;
 
-        }
-
-        else {
+        } else {
 
             const gap =
                 daysBetween(
@@ -524,29 +318,17 @@ function award(
                     today
                 );
 
-
             if (gap === 1) {
 
                 data.streak++;
 
-            }
+            } else if (gap > 1) {
 
-            else if (gap > 1) {
-
-                /*
-                   Use a streak freeze
-                   if one is available.
-                */
-
-                if (
-                    data.streakFreezes > 0
-                ) {
+                if (data.streakFreezes > 0) {
 
                     data.streakFreezes--;
 
-                }
-
-                else {
+                } else {
 
                     data.streak = 1;
 
@@ -556,50 +338,39 @@ function award(
 
         }
 
-
-        data.lastStreakDate =
-            today;
+        data.lastStreakDate = today;
 
     }
 
 
-    /*
+    /* -----------------------------------------
        POINTS
-    */
+       ----------------------------------------- */
 
     data.points += points;
 
     data.pointsToday += points;
 
 
-    /*
+    /* -----------------------------------------
        GEMS
-    */
+       ----------------------------------------- */
 
     data.gems += gems;
 
 
-    /*
+    /* -----------------------------------------
        HISTORY
-    */
+       ----------------------------------------- */
 
     data.history[today] = {
-
-        points:
-            data.pointsToday
-
+        points: data.pointsToday
     };
 
 
     save(data);
 
-
-    /*
-       Immediately update the page.
-    */
-
     renderStats();
-
 
     return data;
 
@@ -607,30 +378,20 @@ function award(
 
 
 /* =========================================================
-   SET CURRENT SUBJECT
+   CURRENT SUBJECT
    ========================================================= */
 
-function setCurrentSubject(subjectId) {
+function setCurrentSubject(id) {
 
-    const data =
-        load();
+    const data = load();
 
-
-    if (
-        !data.subjects.includes(subjectId)
-    ) {
-
+    if (!data.subjects.includes(id)) {
         return;
-
     }
 
-
-    data.currentSubject =
-        subjectId;
-
+    data.currentSubject = id;
 
     save(data);
-
 
     renderStats();
 
@@ -638,36 +399,16 @@ function setCurrentSubject(subjectId) {
 
 
 /* =========================================================
-   GET CURRENT SUBJECT
-   ========================================================= */
-
-function getCurrentSubject() {
-
-    const data =
-        load();
-
-
-    return data.currentSubject;
-
-}
-
-
-/* =========================================================
-   GET SUBJECT NAME
+   SUBJECT NAME
    ========================================================= */
 
 function getSubjectName(id) {
 
-    if (
-        SUBJECTS[id]
-    ) {
-
+    if (SUBJECTS[id]) {
         return SUBJECTS[id].name;
-
     }
 
-
-    return "Unknown subject";
+    return "";
 
 }
 
@@ -683,45 +424,27 @@ function headerHTML() {
         <header class="topbar">
 
             <a
-                class="logo"
                 href="dashboard.html"
+                class="logo"
             >
                 GCSE<span>Hub</span>
             </a>
 
-
             <div class="stats">
 
                 <span class="pill">
-
                     ⭐
-
-                    <b data-points>
-                        0
-                    </b>
-
+                    <b data-points>0</b>
                 </span>
-
 
                 <span class="pill gems">
-
                     💎
-
-                    <b data-gems>
-                        0
-                    </b>
-
+                    <b data-gems>0</b>
                 </span>
 
-
                 <span class="pill streak">
-
                     🔥
-
-                    <b data-streak>
-                        0
-                    </b>
-
+                    <b data-streak>0</b>
                 </span>
 
             </div>
@@ -744,7 +467,6 @@ function injectHeader() {
         headerHTML()
     );
 
-
     renderStats();
 
 }
@@ -756,20 +478,9 @@ function injectHeader() {
 
 function renderStats() {
 
-    let data =
-        load();
+    let data = load();
 
-
-    /*
-       Update date without
-       destroying today's progress.
-    */
-
-    data =
-        updateDay(data);
-
-
-    save(data);
+    data = updateDay(data);
 
 
     /* POINTS */
@@ -808,7 +519,7 @@ function renderStats() {
         });
 
 
-    /* TODAY'S POINTS */
+    /* TODAY */
 
     document
         .querySelectorAll("[data-today]")
@@ -820,7 +531,7 @@ function renderStats() {
         });
 
 
-    /* DAILY GOAL */
+    /* GOAL */
 
     document
         .querySelectorAll("[data-goal]")
@@ -832,15 +543,7 @@ function renderStats() {
         });
 
 
-    /*
-       DAILY PROGRESS BAR
-
-       This now updates whenever:
-       - the page loads
-       - points are awarded
-       - the daily goal changes
-       - another browser tab changes the data
-    */
+    /* PROGRESS */
 
     document
         .querySelectorAll("[data-progress]")
@@ -858,7 +561,6 @@ function renderStats() {
                     ) * 100
                 );
 
-
             element.style.width =
                 percentage + "%";
 
@@ -872,15 +574,12 @@ function renderStats() {
         .forEach(element => {
 
             element.textContent =
-                data.name ||
-                "Student";
+                data.name || "";
 
         });
 
 
-    /*
-       CURRENT SUBJECT
-    */
+    /* CURRENT SUBJECT */
 
     document
         .querySelectorAll("[data-subject]")
@@ -891,18 +590,15 @@ function renderStats() {
                     data.currentSubject
                 ];
 
-
             element.textContent =
                 subject
-                ? subject.name
-                : "Select a subject";
+                    ? subject.name
+                    : "";
 
         });
 
 
-    /*
-       LEVEL
-    */
+    /* LEVEL */
 
     document
         .querySelectorAll("[data-level]")
@@ -913,10 +609,8 @@ function renderStats() {
                     data.currentSubject
                 ];
 
-
             element.textContent =
-                level ||
-                "Not set";
+                level || "";
 
         });
 
@@ -931,35 +625,30 @@ function resetData() {
 
     const confirmed =
         confirm(
-            "Are you sure you want to reset all GCSE Hub data?"
+            "This will delete all GCSE Hub data on this device. Continue?"
         );
 
-
     if (!confirmed) {
-
         return;
-
     }
-
 
     localStorage.removeItem(
         "GCSE_HUB_DATA"
     );
 
-
     window.location.href =
-        "index.html";
+        "setup-name.html";
 
 }
 
 
 /* =========================================================
-   MULTI-TAB SYNCHRONISATION
+   CROSS-PAGE / CROSS-TAB UPDATE
    ========================================================= */
 
 window.addEventListener(
     "storage",
-    function(event) {
+    event => {
 
         if (
             event.key ===
