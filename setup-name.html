@@ -2,96 +2,199 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Your Name — GCSE Hub</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
 </head>
+
 
 <body>
 
-<main class="main center">
+
+<main class="main">
+
 
     <div class="setup-title">
 
         <h1>
-            What should we call you?
+            Welcome to GCSE Hub! 👋
         </h1>
 
         <p>
-            Your name will appear on your GCSE Hub dashboard.
+            First, what should we call you?
         </p>
 
     </div>
 
 
-    <div class="card form">
+    <div class="card setup-card">
 
-        <label>
-            <strong>Your name</strong>
 
-            <input
-                id="name"
-                type="text"
-                maxlength="30"
-                placeholder="e.g. Alex"
-            >
+        <label for="name">
+
+            Your name
+
         </label>
 
 
-        <div class="footer-actions">
+        <input
 
-            <a href="index.html" class="btn ghost">
-                ← Back
-            </a>
+            id="name"
 
-            <button class="btn" onclick="nextPage()">
-                Continue →
-            </button>
+            type="text"
 
-        </div>
+            placeholder="e.g. Grzegorz"
+
+            maxlength="30"
+
+            autocomplete="name"
+
+        >
+
+
+        <button
+            id="continueButton"
+            class="btn"
+            style="margin-top:20px"
+        >
+
+            Continue →
+
+        </button>
+
+
+        <p
+            id="error"
+            class="error"
+            style="display:none"
+        >
+
+            Please enter your name.
+
+        </p>
+
 
     </div>
+
 
 </main>
 
 
 <script src="js/app.js"></script>
 
+
 <script>
+
+
+const input =
+    document.getElementById(
+        "name"
+    );
+
+
+const button =
+    document.getElementById(
+        "continueButton"
+    );
+
+
+const error =
+    document.getElementById(
+        "error"
+    );
+
+
+/*
+   If a name already exists,
+   show it.
+*/
 
 const data = load();
 
-if (data.name !== "Student") {
-    document.getElementById("name").value = data.name;
+if (data.name) {
+
+    input.value =
+        data.name;
+
 }
 
 
-function nextPage() {
+/* =========================================================
+   SAVE NAME
+   ========================================================= */
+
+function continueSetup() {
 
     const name =
-        document.getElementById("name").value.trim();
+        input.value.trim();
+
 
     if (!name) {
 
-        alert("Please enter your name.");
+        error.style.display =
+            "block";
+
+        input.focus();
 
         return;
+
     }
 
 
-    const data = load();
+    const data =
+        load();
 
-    data.name = name;
+
+    data.name =
+        name;
+
 
     save(data);
 
-    window.location.href = "setup-subject.html";
+
+    window.location.href =
+        "setup-subject.html";
+
 }
+
+
+button.addEventListener(
+    "click",
+    continueSetup
+);
+
+
+input.addEventListener(
+    "keydown",
+    event => {
+
+        if (
+            event.key ===
+            "Enter"
+        ) {
+
+            continueSetup();
+
+        }
+
+    }
+);
 
 </script>
 
+
 </body>
+
 </html>
