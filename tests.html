@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tests — GCSE Hub</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+injectHeader();
+</script>
+
+
+<main class="main">
+
+    <div class="setup-title">
+
+        <h1>
+            Test 📝
+        </h1>
+
+        <p>
+            Choose a topic to begin.
+        </p>
+
+    </div>
+
+
+    <div id="topics"></div>
+
+
+    <div style="margin-top:24px">
+
+        <a
+            href="dashboard.html"
+            class="btn ghost"
+        >
+            ← Dashboard
+        </a>
+
+    </div>
+
+</main>
+
+
+<script>
+
+const data = load();
+
+const topics =
+    TOPICS[data.subject] || [];
+
+
+document.getElementById("topics")
+    .innerHTML =
+
+    topics.map(topic => `
+
+        <div class="topic">
+
+            <div>
+
+                <h3>
+                    ${topic}
+                </h3>
+
+                <p>
+                    5 questions •
+                    ${data.level}
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn"
+                onclick="startTest('${topic}')"
+            >
+                Start
+            </button>
+
+        </div>
+
+    `).join("");
+
+
+function startTest(topic) {
+
+    award(10, 1);
+
+    alert(
+        `Starting ${topic} test!\\n\\n`
+        +
+        `The full exam-style question engine `
+        +
+        `will be connected to this topic next.`
+    );
+
+}
+
+</script>
+
+</body>
+</html>
