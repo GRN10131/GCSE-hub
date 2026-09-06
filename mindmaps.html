@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mind Maps — GCSE Hub</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+injectHeader();
+</script>
+
+
+<main class="main">
+
+    <div class="setup-title">
+
+        <h1>
+            Mind Maps 🧠
+        </h1>
+
+        <p>
+            Explore how ideas connect.
+        </p>
+
+    </div>
+
+
+    <div id="topics"
+         class="option-grid">
+    </div>
+
+
+    <div style="margin-top:24px">
+
+        <a
+            href="dashboard.html"
+            class="btn ghost"
+        >
+            ← Dashboard
+        </a>
+
+    </div>
+
+</main>
+
+
+<script>
+
+const data = load();
+
+const topics =
+    TOPICS[data.subject] || [];
+
+
+document.getElementById("topics")
+    .innerHTML =
+
+    topics.map(topic => `
+
+        <button
+            class="option"
+            onclick="openMindMap('${topic}')"
+        >
+
+            <span class="big">
+                🧠
+            </span>
+
+            <strong>
+                ${topic}
+            </strong>
+
+            <small>
+                View connected knowledge
+            </small>
+
+        </button>
+
+    `).join("");
+
+
+function openMindMap(topic) {
+
+    award(5, 1);
+
+
+    alert(
+
+        `${topic} Mind Map\\n\\n`
+
+        +
+
+        `CENTRE\\n`
+        +
+
+        `↓\\n`
+
+        +
+
+        `Key knowledge\\n`
+        +
+
+        `↓\\n`
+
+        +
+
+        `Examples\\n`
+        +
+
+        `↓\\n`
+
+        +
+
+        `Exam questions`
+
+    );
+
+}
+
+</script>
+
+</body>
+</html>
