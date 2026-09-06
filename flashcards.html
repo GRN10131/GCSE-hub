@@ -1,1503 +1,820 @@
-/* =========================================================
-   GCSE HUB
-   AQA GCSE BIOLOGY 8461
-   FLASHCARD DATABASE — BATCH 1
-   100 CARDS
-
-   Topics:
-   1. Cell Biology        30
-   2. Organisation        25
-   3. Infection & Response 25
-   4. Bioenergetics       20
-
-   level:
-   "Foundation" = available to Foundation and Higher
-   "Higher"     = Higher Tier only
-
-========================================================= */
-
-const FLASHCARDS = [
-
-/* =========================================================
-   1. CELL BIOLOGY — 30 CARDS
-========================================================= */
-
-
-/* ---------- Cell structure ---------- */
-
-{
-    id: "bio-cell-001",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell structure",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of the nucleus?",
-    answer: "The nucleus contains the genetic material and controls the activities of the cell."
-},
-
-{
-    id: "bio-cell-002",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell structure",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of the cytoplasm?",
-    answer: "The cytoplasm is where many of the chemical reactions needed to keep the cell alive take place."
-},
-
-{
-    id: "bio-cell-003",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell structure",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of the cell membrane?",
-    answer: "It controls the movement of substances into and out of the cell."
-},
-
-{
-    id: "bio-cell-004",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell structure",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of mitochondria?",
-    answer: "Mitochondria are the site of aerobic respiration, where energy is released for the cell."
-},
-
-{
-    id: "bio-cell-005",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell structure",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of ribosomes?",
-    answer: "Ribosomes are the site of protein synthesis."
-},
-
-{
-    id: "bio-cell-006",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Plant cells",
-    type: "Recall",
-    difficulty: 1,
-    question: "Which structures are found in plant cells but not normally in animal cells?",
-    answer: "Plant cells have chloroplasts, a permanent vacuole and a cellulose cell wall."
-},
-
-{
-    id: "bio-cell-007",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Plant cells",
-    type: "Explain",
-    difficulty: 2,
-    question: "What is the function of the cellulose cell wall in a plant cell?",
-    answer: "It strengthens the cell and helps it maintain its shape."
-},
-
-{
-    id: "bio-cell-008",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Plant cells",
-    type: "Explain",
-    difficulty: 2,
-    question: "What is the function of the permanent vacuole?",
-    answer: "It contains cell sap and helps maintain pressure inside the plant cell, helping to keep the cell rigid."
-},
-
-{
-    id: "bio-cell-009",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Plant cells",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of chloroplasts?",
-    answer: "Chloroplasts contain chlorophyll and are the site of photosynthesis."
-},
-
-
-/* ---------- Prokaryotes ---------- */
-
-{
-    id: "bio-cell-010",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Prokaryotes",
-    type: "Compare",
-    difficulty: 2,
-    question: "What is the main difference between the genetic material of a bacterial cell and an animal cell?",
-    answer: "Animal cells have DNA enclosed inside a nucleus, whereas bacteria do not have a nucleus and have a circular DNA loop in the cytoplasm."
-},
-
-{
-    id: "bio-cell-011",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Prokaryotes",
-    type: "Recall",
-    difficulty: 1,
-    question: "What are plasmids?",
-    answer: "Plasmids are small rings of DNA found in bacterial cells."
-},
-
-{
-    id: "bio-cell-012",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Prokaryotes",
-    type: "Compare",
-    difficulty: 2,
-    question: "Why are bacterial cells described as prokaryotic?",
-    answer: "They are prokaryotic because their genetic material is not enclosed inside a nucleus."
-},
-
-
-/* ---------- Cell specialisation ---------- */
-
-{
-    id: "bio-cell-013",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell specialisation",
-    type: "Application",
-    difficulty: 2,
-    question: "How is a sperm cell adapted for its function?",
-    answer: "It has a flagellum for movement, many mitochondria to provide energy and an acrosome containing enzymes to help it penetrate the egg."
-},
-
-{
-    id: "bio-cell-014",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell specialisation",
-    type: "Application",
-    difficulty: 2,
-    question: "How is a root hair cell adapted to absorb water and mineral ions?",
-    answer: "It has a long extension that gives it a large surface area for absorption."
-},
-
-{
-    id: "bio-cell-015",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell specialisation",
-    type: "Application",
-    difficulty: 2,
-    question: "How is a nerve cell adapted to its function?",
-    answer: "It has a long axon to carry electrical impulses over long distances and branched connections to communicate with other cells."
-},
-
-
-/* ---------- Differentiation ---------- */
-
-{
-    id: "bio-cell-016",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell differentiation",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is cell differentiation?",
-    answer: "Cell differentiation is the process by which a cell changes to become specialised for a particular function."
-},
-
-{
-    id: "bio-cell-017",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Cell differentiation",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why is cell differentiation important in multicellular organisms?",
-    answer: "It allows cells to become specialised so that different cells can perform different functions efficiently."
-},
-
-
-/* ---------- Microscopy ---------- */
-
-{
-    id: "bio-cell-018",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Microscopy",
-    type: "Compare",
-    difficulty: 2,
-    question: "What is the difference between magnification and resolution?",
-    answer: "Magnification is how much larger an image appears, while resolution is the ability to distinguish between two points that are close together."
-},
-
-{
-    id: "bio-cell-019",
-    subject: "biology",
-    board: "AQA",
-    level: "Higher",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Microscopy",
-    type: "Calculation",
-    difficulty: 3,
-    question: "What is the equation used to calculate magnification?",
-    answer: "Magnification = image size ÷ actual size."
-},
-
-{
-    id: "bio-cell-020",
-    subject: "biology",
-    board: "AQA",
-    level: "Higher",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Microscopy",
-    type: "Calculation",
-    difficulty: 3,
-    question: "An image of a cell is 20 mm wide and the real cell is 0.1 mm wide. What is the magnification?",
-    answer: "Magnification = 20 ÷ 0.1 = ×200."
-},
-
-{
-    id: "bio-cell-021",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Microscopy",
-    type: "Compare",
-    difficulty: 2,
-    question: "Why can an electron microscope show more detail than a light microscope?",
-    answer: "Electron microscopes have a much higher resolving power and magnification, allowing much smaller structures to be distinguished."
-},
-
-
-/* ---------- Cell division ---------- */
-
-{
-    id: "bio-cell-022",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Mitosis",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is mitosis?",
-    answer: "Mitosis is cell division that produces two genetically identical cells."
-},
-
-{
-    id: "bio-cell-023",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Mitosis",
-    type: "Process",
-    difficulty: 2,
-    question: "What happens to the DNA before a cell divides by mitosis?",
-    answer: "The DNA replicates so that there are two copies of each chromosome."
-},
-
-{
-    id: "bio-cell-024",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Mitosis",
-    type: "Application",
-    difficulty: 2,
-    question: "Why is mitosis important for growth?",
-    answer: "Mitosis produces genetically identical cells, increasing the number of cells in an organism."
-},
-
-
-/* ---------- Stem cells ---------- */
-
-{
-    id: "bio-cell-025",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Stem cells",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is a stem cell?",
-    answer: "A stem cell is an undifferentiated cell that can divide and produce other cell types."
-},
-
-{
-    id: "bio-cell-026",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Stem cells",
-    type: "Application",
-    difficulty: 2,
-    question: "Why could stem cells be useful in medicine?",
-    answer: "They can potentially produce specialised cells to replace damaged or diseased cells."
-},
-
-{
-    id: "bio-cell-027",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Stem cells",
-    type: "Evaluate",
-    difficulty: 3,
-    question: "Give one potential benefit and one potential risk or concern associated with using embryonic stem cells.",
-    answer: "A benefit is that they can differentiate into many types of cell and could be used to treat disease. Concerns include ethical objections and potential risks such as transmission of infection."
-},
-
-
-/* ---------- Transport ---------- */
-
-{
-    id: "bio-cell-028",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Diffusion",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is diffusion?",
-    answer: "Diffusion is the net movement of particles from an area of higher concentration to an area of lower concentration."
-},
-
-{
-    id: "bio-cell-029",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Osmosis",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is osmosis?",
-    answer: "Osmosis is the net movement of water molecules from a dilute solution to a more concentrated solution through a partially permeable membrane."
-},
-
-{
-    id: "bio-cell-030",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Cell Biology",
-    subtopic: "Active transport",
-    type: "Compare",
-    difficulty: 2,
-    question: "How does active transport differ from diffusion?",
-    answer: "Active transport moves substances against the concentration gradient and requires energy from respiration, whereas diffusion moves substances down a concentration gradient and does not directly require energy."
-},
-
-
-/* =========================================================
-   2. ORGANISATION — 25 CARDS
-========================================================= */
-
-
-/* ---------- Levels of organisation ---------- */
-
-{
-    id: "bio-org-001",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Levels of organisation",
-    type: "Recall",
-    difficulty: 1,
-    question: "Put these in order from simplest to most complex: organ, cell, organ system, tissue.",
-    answer: "Cell → tissue → organ → organ system."
-},
-
-{
-    id: "bio-org-002",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Levels of organisation",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is a tissue?",
-    answer: "A tissue is a group of similar cells working together to perform a particular function."
-},
-
-{
-    id: "bio-org-003",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Levels of organisation",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is an organ?",
-    answer: "An organ is a group of different tissues working together to perform a particular function."
-},
-
-{
-    id: "bio-org-004",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Levels of organisation",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is an organ system?",
-    answer: "An organ system is a group of organs working together to perform a particular function."
-},
-
-
-/* ---------- Digestive system ---------- */
-
-{
-    id: "bio-org-005",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive system",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the role of the digestive system?",
-    answer: "It breaks large insoluble food molecules into smaller soluble molecules that can be absorbed into the blood."
-},
-
-{
-    id: "bio-org-006",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive system",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of the stomach?",
-    answer: "The stomach contains acid and enzymes that help digest food."
-},
-
-{
-    id: "bio-org-007",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive system",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of the small intestine?",
-    answer: "It is where digested food molecules are absorbed into the blood."
-},
-
-{
-    id: "bio-org-008",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive system",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of the large intestine?",
-    answer: "It absorbs water from the remaining material in the digestive system."
-},
-
-
-/* ---------- Enzymes ---------- */
-
-{
-    id: "bio-org-009",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Enzymes",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is an enzyme?",
-    answer: "An enzyme is a biological catalyst that speeds up chemical reactions without being used up."
-},
-
-{
-    id: "bio-org-010",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Enzymes",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why are enzymes described as biological catalysts?",
-    answer: "They are biological molecules that speed up reactions without being used up in the reaction."
-},
-
-{
-    id: "bio-org-011",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Enzymes",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the active site of an enzyme?",
-    answer: "It is the part of an enzyme where the substrate binds and the reaction takes place."
-},
-
-{
-    id: "bio-org-012",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Enzymes",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why does an enzyme usually only work with a particular substrate?",
-    answer: "The active site has a specific shape that is complementary to the substrate."
-},
-
-{
-    id: "bio-org-013",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Enzymes",
-    type: "Explain",
-    difficulty: 2,
-    question: "What happens to an enzyme when it becomes denatured?",
-    answer: "Its active site changes shape so the substrate can no longer bind effectively."
-},
-
-{
-    id: "bio-org-014",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Enzymes",
-    type: "Application",
-    difficulty: 2,
-    question: "Why does increasing temperature initially increase the rate of an enzyme-controlled reaction?",
-    answer: "Particles gain kinetic energy and move faster, increasing the frequency of successful collisions between enzymes and substrates."
-},
-
-
-/* ---------- Digestive enzymes ---------- */
-
-{
-    id: "bio-org-015",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive enzymes",
-    type: "Recall",
-    difficulty: 1,
-    question: "What do carbohydrases break down?",
-    answer: "Carbohydrases break carbohydrates into simple sugars."
-},
-
-{
-    id: "bio-org-016",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive enzymes",
-    type: "Recall",
-    difficulty: 1,
-    question: "What do proteases break down?",
-    answer: "Proteases break proteins down into amino acids."
-},
-
-{
-    id: "bio-org-017",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Digestive enzymes",
-    type: "Recall",
-    difficulty: 1,
-    question: "What do lipases break down?",
-    answer: "Lipases break lipids down into fatty acids and glycerol."
-},
-
-{
-    id: "bio-org-018",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Bile",
-    type: "Explain",
-    difficulty: 2,
-    question: "What are the two main functions of bile?",
-    answer: "Bile neutralises stomach acid and emulsifies fats into smaller droplets, increasing the surface area for lipase to act on."
-},
-
-
-/* ---------- Heart ---------- */
-
-{
-    id: "bio-org-019",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Heart",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the main function of the heart?",
-    answer: "The heart pumps blood around the body."
-},
-
-{
-    id: "bio-org-020",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Heart",
-    type: "Application",
-    difficulty: 2,
-    question: "Why is the wall of the left ventricle thicker than the wall of the right ventricle?",
-    answer: "The left ventricle must pump blood around the whole body, so it needs to generate a higher pressure."
-},
-
-{
-    id: "bio-org-021",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Blood vessels",
-    type: "Compare",
-    difficulty: 2,
-    question: "What is the main difference between an artery and a vein?",
-    answer: "Arteries carry blood away from the heart, while veins carry blood towards the heart."
-},
-
-{
-    id: "bio-org-022",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Blood vessels",
-    type: "Application",
-    difficulty: 2,
-    question: "Why do arteries have thick muscular walls?",
-    answer: "They carry blood at high pressure from the heart, so their walls need to withstand and maintain this pressure."
-},
-
-{
-    id: "bio-org-023",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Blood",
-    type: "Recall",
-    difficulty: 1,
-    question: "What are the four main components of blood?",
-    answer: "Red blood cells, white blood cells, platelets and plasma."
-},
-
-{
-    id: "bio-org-024",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Blood",
-    type: "Application",
-    difficulty: 2,
-    question: "How are red blood cells adapted to transport oxygen?",
-    answer: "They contain haemoglobin, have a biconcave shape giving a large surface area, and have no nucleus so there is more room for haemoglobin."
-},
-
-{
-    id: "bio-org-025",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Organisation",
-    subtopic: "Blood",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the function of platelets?",
-    answer: "Platelets help the blood to clot, preventing excessive blood loss and reducing the entry of microorganisms."
-},
-
-
-/* =========================================================
-   3. INFECTION AND RESPONSE — 25 CARDS
-========================================================= */
-
-
-/* ---------- Pathogens ---------- */
-
-{
-    id: "bio-inf-001",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Pathogens",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is a pathogen?",
-    answer: "A pathogen is a microorganism that causes disease."
-},
-
-{
-    id: "bio-inf-002",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Pathogens",
-    type: "Recall",
-    difficulty: 1,
-    question: "What are the four main types of pathogen studied in GCSE Biology?",
-    answer: "Bacteria, viruses, fungi and protists."
-},
-
-{
-    id: "bio-inf-003",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Bacteria",
-    type: "Explain",
-    difficulty: 2,
-    question: "How can bacteria cause disease?",
-    answer: "Bacteria can reproduce inside the body and may produce toxins that damage cells and tissues."
-},
-
-{
-    id: "bio-inf-004",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Viruses",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why do viruses reproduce inside living cells?",
-    answer: "Viruses enter cells and use the cell's machinery to make copies of themselves."
-},
-
-
-/* ---------- Diseases ---------- */
-
-{
-    id: "bio-inf-005",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Bacterial disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "Which pathogen causes salmonella?",
-    answer: "Salmonella is caused by bacteria."
-},
-
-{
-    id: "bio-inf-006",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Bacterial disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is one way salmonella can be prevented?",
-    answer: "Food should be cooked thoroughly and good food hygiene should be followed."
-},
-
-{
-    id: "bio-inf-007",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Bacterial disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "Which bacterium causes gonorrhoea?",
-    answer: "Neisseria gonorrhoeae."
-},
-
-{
-    id: "bio-inf-008",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Viral disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "Which pathogen causes measles?",
-    answer: "A virus."
-},
-
-{
-    id: "bio-inf-009",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Viral disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "How can measles be prevented?",
-    answer: "Vaccination can provide protection against measles."
-},
-
-{
-    id: "bio-inf-010",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Viral disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is HIV?",
-    answer: "HIV is a virus that attacks the immune system."
-},
-
-{
-    id: "bio-inf-011",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Viral disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "What disease can HIV cause if it is not controlled?",
-    answer: "HIV can lead to AIDS, where the immune system becomes severely weakened."
-},
-
-{
-    id: "bio-inf-012",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Fungal disease",
-    type: "Recall",
-    difficulty: 1,
-    question: "What type of pathogen causes rose black spot?",
-    answer: "A fungus."
-},
-
-{
-    id: "bio-inf-013",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Plant disease",
-    type: "Application",
-    difficulty: 2,
-    question: "How can a gardener identify that a plant may have a disease?",
-    answer: "Possible signs include stunted growth, discolouration, spots on leaves and abnormal growth."
-},
-
-
-/* ---------- Human defence ---------- */
-
-{
-    id: "bio-inf-014",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Human defence",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the role of the skin in defending the body?",
-    answer: "The skin acts as a physical barrier that prevents pathogens entering the body."
-},
-
-{
-    id: "bio-inf-015",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Human defence",
-    type: "Recall",
-    difficulty: 1,
-    question: "How does mucus help defend the respiratory system?",
-    answer: "Mucus traps pathogens and particles so they can be removed."
-},
-
-{
-    id: "bio-inf-016",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Human defence",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the role of cilia in the respiratory system?",
-    answer: "Cilia move mucus containing trapped pathogens towards the throat."
-},
-
-{
-    id: "bio-inf-017",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Immune system",
-    type: "Recall",
-    difficulty: 1,
-    question: "What do white blood cells do when a pathogen enters the body?",
-    answer: "They help defend the body by engulfing pathogens and producing antibodies and antitoxins."
-},
-
-{
-    id: "bio-inf-018",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Antibodies",
-    type: "Explain",
-    difficulty: 2,
-    question: "What is the function of antibodies?",
-    answer: "Antibodies bind to specific antigens on pathogens and help the immune system destroy them."
-},
-
-
-/* ---------- Vaccination ---------- */
-
-{
-    id: "bio-inf-019",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Vaccination",
-    type: "Explain",
-    difficulty: 2,
-    question: "How does vaccination protect a person from a disease?",
-    answer: "A vaccine introduces harmless forms or parts of a pathogen, stimulating the production of antibodies and memory cells."
-},
-
-{
-    id: "bio-inf-020",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Vaccination",
-    type: "Application",
-    difficulty: 2,
-    question: "Why is the secondary immune response faster than the first response?",
-    answer: "Memory cells remain after the first exposure and allow antibodies to be produced much more quickly if the pathogen is encountered again."
-},
-
-
-/* ---------- Antibiotics ---------- */
-
-{
-    id: "bio-inf-021",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Antibiotics",
-    type: "Recall",
-    difficulty: 1,
-    question: "What do antibiotics treat?",
-    answer: "Antibiotics treat bacterial infections."
-},
-
-{
-    id: "bio-inf-022",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Antibiotics",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why do antibiotics not work against viruses?",
-    answer: "Viruses reproduce inside cells and do not have the structures targeted by antibiotics."
-},
-
-{
-    id: "bio-inf-023",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Antibiotic resistance",
-    type: "Explain",
-    difficulty: 3,
-    question: "How can antibiotic resistance develop in a population of bacteria?",
-    answer: "A mutation may give a bacterium resistance. The antibiotic kills susceptible bacteria, while resistant bacteria survive and reproduce, increasing the frequency of resistance."
-},
-
-{
-    id: "bio-inf-024",
-    subject: "biology",
-    board: "AQA",
-    level: "Higher",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Antibiotic resistance",
-    type: "Application",
-    difficulty: 3,
-    question: "Why does natural selection cause antibiotic-resistant bacteria to become more common?",
-    answer: "Resistant bacteria survive antibiotic treatment and reproduce, passing the resistance gene to their offspring. Over generations, resistant bacteria become a larger proportion of the population."
-},
-
-{
-    id: "bio-inf-025",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Infection and Response",
-    subtopic: "Drug development",
-    type: "Evaluate",
-    difficulty: 3,
-    question: "Why must new drugs be tested before they are widely used?",
-    answer: "They must be tested for safety, effectiveness and suitable dosage. Clinical trials help determine whether the benefits outweigh the risks."
-},
-
-
-/* =========================================================
-   4. BIOENERGETICS — 20 CARDS
-========================================================= */
-
-
-/* ---------- Photosynthesis ---------- */
-
-{
-    id: "bio-energy-001",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Photosynthesis",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is photosynthesis?",
-    answer: "Photosynthesis is the process in which plants and algae use light energy to make glucose from carbon dioxide and water."
-},
-
-{
-    id: "bio-energy-002",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Photosynthesis",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the word equation for photosynthesis?",
-    answer: "Carbon dioxide + water → glucose + oxygen."
-},
-
-{
-    id: "bio-energy-003",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Photosynthesis",
-    type: "Recall",
-    difficulty: 1,
-    question: "Where does the energy for photosynthesis come from?",
-    answer: "Light from the Sun."
-},
-
-{
-    id: "bio-energy-004",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Photosynthesis",
-    type: "Recall",
-    difficulty: 1,
-    question: "Which substance absorbs light energy for photosynthesis?",
-    answer: "Chlorophyll."
-},
-
-{
-    id: "bio-energy-005",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Photosynthesis",
-    type: "Application",
-    difficulty: 2,
-    question: "Why is glucose produced during photosynthesis useful to a plant?",
-    answer: "Glucose can be used in respiration, converted into starch for storage, used to make cellulose for cell walls, or used to make other biological molecules."
-},
-
-
-/* ---------- Limiting factors ---------- */
-
-{
-    id: "bio-energy-006",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Limiting factors",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is a limiting factor?",
-    answer: "A limiting factor is something that prevents a process from happening at a faster rate."
-},
-
-{
-    id: "bio-energy-007",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Limiting factors",
-    type: "Recall",
-    difficulty: 1,
-    question: "What are the three main limiting factors of photosynthesis?",
-    answer: "Light intensity, carbon dioxide concentration and temperature."
-},
-
-{
-    id: "bio-energy-008",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Light intensity",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why does increasing light intensity usually increase the rate of photosynthesis at low light intensities?",
-    answer: "More light provides more energy for photosynthesis, increasing the rate until another factor becomes limiting."
-},
-
-{
-    id: "bio-energy-009",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Temperature",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why does a very high temperature reduce the rate of photosynthesis?",
-    answer: "High temperatures can denature enzymes involved in photosynthesis, changing their active sites."
-},
-
-{
-    id: "bio-energy-010",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Limiting factors",
-    type: "Application",
-    difficulty: 3,
-    question: "If increasing carbon dioxide concentration no longer increases the rate of photosynthesis, what does this suggest?",
-    answer: "Carbon dioxide is no longer the limiting factor, so another factor such as light intensity or temperature is limiting the rate."
-},
-
-
-/* ---------- Respiration ---------- */
-
-{
-    id: "bio-energy-011",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Aerobic respiration",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is aerobic respiration?",
-    answer: "Aerobic respiration is the chemical process that releases energy from glucose using oxygen."
-},
-
-{
-    id: "bio-energy-012",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Aerobic respiration",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is the word equation for aerobic respiration?",
-    answer: "Glucose + oxygen → carbon dioxide + water."
-},
-
-{
-    id: "bio-energy-013",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Aerobic respiration",
-    type: "Explain",
-    difficulty: 2,
-    question: "Why do cells need energy from respiration?",
-    answer: "Energy is needed for processes such as active transport, movement, growth, repair and maintaining body temperature."
-},
-
-{
-    id: "bio-energy-014",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Anaerobic respiration",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is anaerobic respiration?",
-    answer: "Anaerobic respiration is respiration without oxygen."
-},
-
-{
-    id: "bio-energy-015",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Anaerobic respiration",
-    type: "Recall",
-    difficulty: 1,
-    question: "What is produced by anaerobic respiration in human muscle cells?",
-    answer: "Lactic acid."
-},
-
-{
-    id: "bio-energy-016",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Anaerobic respiration",
-    type: "Compare",
-    difficulty: 2,
-    question: "Why does anaerobic respiration release less energy than aerobic respiration?",
-    answer: "Glucose is only partially broken down during anaerobic respiration, so less energy is released."
-},
-
-{
-    id: "bio-energy-017",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Exercise",
-    type: "Application",
-    difficulty: 2,
-    question: "Why does a person's breathing rate remain high after intense exercise?",
-    answer: "Extra oxygen is needed to help break down lactic acid produced during anaerobic respiration."
-},
-
-{
-    id: "bio-energy-018",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Metabolism",
-    type: "Recall",
-    difficulty: 2,
-    question: "What is metabolism?",
-    answer: "Metabolism is the sum of all the chemical reactions happening in a cell or organism."
-},
-
-{
-    id: "bio-energy-019",
-    subject: "biology",
-    board: "AQA",
-    level: "Higher",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Exercise",
-    type: "Explain",
-    difficulty: 3,
-    question: "Why does anaerobic respiration cause a build-up of lactic acid during intense exercise?",
-    answer: "The muscles may not receive enough oxygen for aerobic respiration, so they use anaerobic respiration, which produces lactic acid."
-},
-
-{
-    id: "bio-energy-020",
-    subject: "biology",
-    board: "AQA",
-    level: "Foundation",
-    paper: 1,
-    topic: "Bioenergetics",
-    subtopic: "Photosynthesis and respiration",
-    type: "Compare",
-    difficulty: 2,
-    question: "How are photosynthesis and respiration linked?",
-    answer: "Photosynthesis produces glucose and oxygen, which can be used in aerobic respiration. Respiration produces carbon dioxide and water, which can be used in photosynthesis."
-}
-
-];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flashcards — GCSE Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .flashcards-page {
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        .flash-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .flash-header-icon {
+            font-size: 55px;
+        }
+
+        .flash-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .flash-stat {
+            background: white;
+            border: 1px solid #e5e7ee;
+            border-radius: 16px;
+            padding: 18px;
+            text-align: center;
+        }
+
+        .flash-stat-icon {
+            font-size: 25px;
+        }
+
+        .flash-stat-value {
+            font-size: 25px;
+            font-weight: 900;
+            margin-top: 5px;
+        }
+
+        .flash-stat-label {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .flashcard-setup {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .setup-heading {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .subject-grid,
+        .topic-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+        }
+
+        .subject-select,
+        .topic-button,
+        .special-mode {
+            border: 2px solid #e3e5ec;
+            background: white;
+            border-radius: 15px;
+            padding: 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: 0.15s;
+        }
+
+        .subject-select:hover,
+        .topic-button:hover,
+        .special-mode:hover {
+            transform: translateY(-2px);
+        }
+
+        .subject-select.selected,
+        .topic-button.selected,
+        .special-mode.selected {
+            border-color: #5b5ce2;
+            background: #f3f3ff;
+        }
+
+        .subject-select-icon {
+            font-size: 28px;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .subject-select-name {
+            font-weight: 800;
+            display: block;
+        }
+
+        .subject-select-info {
+            font-size: 12px;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        .flash-select {
+            width: 100%;
+            padding: 13px;
+            border: 2px solid #e1e3ea;
+            border-radius: 12px;
+            background: white;
+            font-size: 15px;
+        }
+
+        .special-modes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .special-mode strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .special-mode small {
+            color: #777;
+        }
+
+        .session {
+            display: none;
+        }
+
+        .session.active {
+            display: block;
+        }
+
+        .session-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .session-subject {
+            font-weight: 800;
+        }
+
+        .session-counter {
+            font-weight: 800;
+        }
+
+        .session-progress {
+            height: 9px;
+            background: #e9ebf1;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .session-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: #5b5ce2;
+            transition: width 0.3s;
+        }
+
+        .question-card {
+            background: white;
+            border-radius: 25px;
+            padding: 45px 35px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+            min-height: 370px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .question-label {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .question-topic {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .question {
+            font-size: 27px;
+            font-weight: 850;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+
+        .answer {
+            display: none;
+            border-top: 1px solid #e7e8ed;
+            padding-top: 25px;
+        }
+
+        .answer.visible {
+            display: block;
+        }
+
+        .answer-label {
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .answer-text {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .rating-buttons {
+            display: none;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+
+        .rating-buttons.visible {
+            display: flex;
+        }
+
+        .flash-rating {
+            min-width: 130px;
+            padding: 14px 18px;
+            border-radius: 13px;
+            border: 2px solid #ddd;
+            background: white;
+            cursor: pointer;
+            font-weight: 800;
+        }
+
+        .flash-rating.wrong {
+            border-color: #e57373;
+        }
+
+        .flash-rating.almost {
+            border-color: #e0b64d;
+        }
+
+        .flash-rating.correct {
+            border-color: #62b879;
+        }
+
+        .xp-earned {
+            text-align: center;
+            margin-top: 20px;
+            min-height: 25px;
+            font-weight: 800;
+        }
+
+        .results {
+            display: none;
+            max-width: 750px;
+            margin: 30px auto;
+            text-align: center;
+        }
+
+        .results.active {
+            display: block;
+        }
+
+        .results-icon {
+            font-size: 70px;
+        }
+
+        .results-score {
+            font-size: 50px;
+            font-weight: 900;
+            margin: 20px 0;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin: 30px 0;
+        }
+
+        .result-stat {
+            padding: 20px;
+            border-radius: 15px;
+            background: white;
+            border: 1px solid #e4e6ec;
+        }
+
+        .result-stat strong {
+            display: block;
+            font-size: 25px;
+            margin-top: 5px;
+        }
+
+        .v3-links {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+
+        @media(max-width:700px) {
+
+            .flash-stats {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .special-modes {
+                grid-template-columns: 1fr;
+            }
+
+            .result-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .question {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+    injectHeader();
+</script>
+
+<main class="main flashcards-page">
+
+    <a href="dashboard.html" class="back-link">
+        ← Dashboard
+    </a>
+
+    <div class="flash-header">
+
+        <div class="flash-header-icon">
+            🧠
+        </div>
+
+        <h1>Flashcards</h1>
+
+        <p>
+            Active recall, spaced repetition and
+            specification-focused revision.
+        </p>
+
+    </div>
+
+    <div class="v3-links">
+
+        <a class="btn secondary" href="mindmap.html">
+            🗺️ Explore Mind Maps
+        </a>
+
+    </div>
+
+
+    <!-- STATISTICS -->
+
+    <div class="flash-stats">
+
+        <div class="flash-stat">
+            <div class="flash-stat-icon">🧠</div>
+            <div id="statReviewed" class="flash-stat-value">
+                0
+            </div>
+            <div class="flash-stat-label">
+                Cards reviewed
+            </div>
+        </div>
+
+        <div class="flash-stat">
+            <div class="flash-stat-icon">🏆</div>
+            <div id="statMastered" class="flash-stat-value">
+                0
+            </div>
+            <div class="flash-stat-label">
+                Cards mastered
+            </div>
+        </div>
+
+        <div class="flash-stat">
+            <div class="flash-stat-icon">🎯</div>
+            <div id="statAccuracy" class="flash-stat-value">
+                0%
+            </div>
+            <div class="flash-stat-label">
+                Accuracy
+            </div>
+        </div>
+
+        <div class="flash-stat">
+            <div class="flash-stat-icon">🔄</div>
+            <div id="statDue" class="flash-stat-value">
+                0
+            </div>
+            <div class="flash-stat-label">
+                Due for review
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- SETUP -->
+
+    <section id="setup" class="flashcard-setup">
+
+        <div class="card">
+
+            <div class="setup-heading">
+
+                <h2>
+                    Choose your revision mode
+                </h2>
+
+                <p>
+                    Your progress is remembered on this device.
+                </p>
+
+            </div>
+
+
+            <div class="special-modes">
+
+                <button
+                    class="special-mode selected"
+                    data-mode="normal"
+                    type="button"
+                >
+
+                    <strong>
+                        📚 All Cards
+                    </strong>
+
+                    <small>
+                        Revise your available specification content.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="special-mode"
+                    data-mode="weak"
+                    type="button"
+                >
+
+                    <strong>
+                        🎯 Weak Cards
+                    </strong>
+
+                    <small>
+                        Focus on knowledge you need to practise.
+                    </small>
+
+                </button>
+
+
+                <button
+                    class="special-mode"
+                    data-mode="due"
+                    type="button"
+                >
+
+                    <strong>
+                        🔄 Due for Review
+                    </strong>
+
+                    <small>
+                        Review cards according to spaced repetition.
+                    </small>
+
+                </button>
+
+            </div>
+
+
+            <h2>
+                Choose a subject
+            </h2>
+
+            <div id="subjectGrid" class="subject-grid"></div>
+
+
+            <div style="margin-top:25px">
+
+                <label>
+                    <strong>Topic</strong>
+                </label>
+
+                <select
+                    id="topic"
+                    class="flash-select"
+                    style="margin-top:8px"
+                >
+
+                    <option value="all">
+                        All available topics
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div style="margin-top:25px">
+
+                <strong>
+                    Number of cards
+                </strong>
+
+                <div
+                    class="topic-grid"
+                    style="margin-top:10px"
+                >
+
+                    <button
+                        type="button"
+                        class="topic-button selected"
+                        data-number="10"
+                    >
+                        10 cards
+                    </button>
+
+                    <button
+                        type="button"
+                        class="topic-button"
+                        data-number="20"
+                    >
+                        20 cards
+                    </button>
+
+                    <button
+                        type="button"
+                        class="topic-button"
+                        data-number="30"
+                    >
+                        30 cards
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                id="setupMessage"
+                style="
+                    display:none;
+                    margin-top:15px;
+                    padding:12px;
+                    border-radius:12px;
+                    background:#fff4e5;
+                "
+            ></div>
+
+
+            <button
+                id="startButton"
+                class="btn"
+                style="width:100%;margin-top:25px"
+            >
+                Start Revision 🚀
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SESSION -->
+
+    <section id="session" class="session">
+
+        <div class="session-header">
+
+            <div>
+
+                <div
+                    id="sessionSubject"
+                    class="session-subject"
+                ></div>
+
+                <div
+                    id="sessionTopic"
+                    class="muted small"
+                ></div>
+
+            </div>
+
+            <div
+                id="counter"
+                class="session-counter"
+            ></div>
+
+        </div>
+
+
+        <div class="session-progress">
+
+            <div
+                id="sessionProgress"
+                class="session-progress-bar"
+            ></div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div class="question-label">
+                Active Recall
+            </div>
+
+            <div
+                id="questionTopic"
+                class="question-topic"
+            ></div>
+
+            <div
+                id="question"
+                class="question"
+            ></div>
+
+
+            <button
+                id="showAnswer"
+                class="btn"
+            >
+                Show Answer
+            </button>
+
+
+            <div
+                id="answer"
+                class="answer"
+            >
+
+                <div class="answer-label">
+                    Answer
+                </div>
+
+                <div
+                    id="answerText"
+                    class="answer-text"
+                ></div>
+
+
+                <div
+                    id="ratingButtons"
+                    class="rating-buttons"
+                >
+
+                    <button
+                        class="flash-rating wrong"
+                        data-rating="wrong"
+                    >
+                        ❌ Got it wrong
+                    </button>
+
+                    <button
+                        class="flash-rating almost"
+                        data-rating="almost"
+                    >
+                        😐 Almost
+                    </button>
+
+                    <button
+                        class="flash-rating correct"
+                        data-rating="correct"
+                    >
+                        😄 Got it
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="xpEarned"
+            class="xp-earned"
+        ></div>
+
+    </section>
+
+
+    <!-- RESULTS -->
+
+    <section id="results" class="results">
+
+        <div class="card">
+
+            <div class="results-icon">
+                🎉
+            </div>
+
+            <h1>
+                Session complete!
+            </h1>
+
+            <p>
+                Here's how you performed.
+            </p>
+
+
+            <div
+                id="score"
+                class="results-score"
+            >
+                0%
+            </div>
+
+
+            <div class="result-grid">
+
+                <div class="result-stat">
+                    Cards
+                    <strong id="resultCards">
+                        0
+                    </strong>
+                </div>
+
+                <div class="result-stat">
+                    Correct
+                    <strong id="resultCorrect">
+                        0
+                    </strong>
+                </div>
+
+                <div class="result-stat">
+                    Almost
+                    <strong id="resultAlmost">
+                        0
+                    </strong>
+                </div>
+
+                <div class="result-stat">
+                    XP
+                    <strong id="resultXP">
+                        0 ⭐
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <div class="results-actions">
+
+                <button
+                    id="againButton"
+                    class="btn"
+                >
+                    Revise Again
+                </button>
+
+                <a
+                    href="mindmap.html"
+                    class="btn secondary"
+                >
+                    Mind Maps
+                </a>
+
+                <a
+                    href="dashboard.html"
+                    class="btn secondary"
+                >
+                    Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="js/flashcard-data.js"></script>
+<script src="js/specification-data.js"></script>
+<script src="js/flashcards.js"></script>
+
+</body>
+</html>
