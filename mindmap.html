@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mind Maps — GCSE Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+
+    <style>
+
+        .map-wrap {
+
+            max-width: 1100px;
+            margin: auto;
+
+        }
+
+
+        .map-head {
+
+            text-align: center;
+            margin-bottom: 25px;
+
+        }
+
+
+        .map-head-icon {
+
+            font-size: 60px;
+
+        }
+
+
+        .subject-picker {
+
+            max-width: 400px;
+            margin: 0 auto 30px;
+
+        }
+
+
+        .subject-picker select {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: 2px solid #e1e3ea;
+
+            border-radius: 12px;
+
+            background: white;
+
+            font-size: 16px;
+
+        }
+
+
+        .subject-map {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(210px, 1fr)
+                );
+
+            gap: 15px;
+
+        }
+
+
+        .map-topic {
+
+            background: white;
+
+            border: 1px solid #e4e7ef;
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            box-shadow:
+                0 10px 25px
+                rgba(29,39,70,.06);
+
+        }
+
+
+        .map-topic h3 {
+
+            margin:
+                0 0 12px;
+
+        }
+
+
+        .subtopic {
+
+            width: 100%;
+
+            text-align: left;
+
+            background: #f6f7fb;
+
+            border: 0;
+
+            border-radius: 10px;
+
+            padding: 11px;
+
+            margin: 4px 0;
+
+            cursor: pointer;
+
+            transition: .15s;
+
+        }
+
+
+        .subtopic:hover {
+
+            background: #eef0ff;
+
+            transform:
+                translateX(3px);
+
+        }
+
+
+        .map-note {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #777;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+    injectHeader();
+</script>
+
+
+<main class="main map-wrap">
+
+    <a
+        href="flashcards.html"
+        class="back-link"
+    >
+        ← Flashcards
+    </a>
+
+
+    <div class="map-head">
+
+        <div class="map-head-icon">
+            🗺️
+        </div>
+
+        <h1>
+            Specification Mind Maps
+        </h1>
+
+        <p>
+            Explore your subjects by topic
+            and specific areas of knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="subject-picker">
+
+        <select id="subjectPicker"></select>
+
+    </div>
+
+
+    <div
+        id="map"
+        class="subject-map"
+    ></div>
+
+
+    <p class="map-note">
+        Select a specific knowledge area to
+        start a focused flashcard session.
+    </p>
+
+</main>
+
+
+<script src="js/specification-data.js"></script>
+
+<script src="js/mindmap.js"></script>
+
+</body>
+
+</html>
