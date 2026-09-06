@@ -12,20 +12,128 @@
 
     <title>Dashboard — GCSE Hub</title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        .subjects-section {
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .subject-list {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+        }
+
+
+        .subject-button {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 11px 15px;
+
+            border-radius: 14px;
+
+            border: 2px solid #e4e7ef;
+
+            background: white;
+
+            cursor: pointer;
+
+            font-weight: 800;
+
+            transition: .15s;
+
+        }
+
+
+        .subject-button:hover {
+
+            transform:
+                translateY(-2px);
+
+            border-color:
+                #b9bbff;
+
+        }
+
+
+        .subject-button.active {
+
+            border-color:
+                #5b5ce2;
+
+            background:
+                #f4f4ff;
+
+            color:
+                #5b5ce2;
+
+        }
+
+
+        .subject-icon {
+
+            font-size: 21px;
+
+        }
+
+
+        .current-subject {
+
+            margin-top: 5px;
+
+            color: #6d7688;
+
+        }
+
+
+        .goal-complete {
+
+            margin-top: 12px;
+
+            font-weight: 800;
+
+            color: #26a269;
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
+
 
 <script src="js/app.js"></script>
 
 <script>
+
 injectHeader();
+
 </script>
 
 
 <main class="main">
+
+
+    <!-- HERO -->
 
     <div class="hero">
 
@@ -33,13 +141,15 @@ injectHeader();
 
             <div class="subject-chip">
 
-                <span data-subject>
-                    Subject
+                <span
+                    id="currentSubjectName"
+                >
+                    Select a subject
                 </span>
 
                 •
 
-                <span id="level">
+                <span data-level>
                     Higher
                 </span>
 
@@ -59,7 +169,7 @@ injectHeader();
 
 
             <p>
-                Keep your revision streak alive.
+                Ready to make some progress?
             </p>
 
         </div>
@@ -68,6 +178,42 @@ injectHeader();
         <div class="mascot">
             🧠
         </div>
+
+    </div>
+
+
+    <!-- SUBJECTS -->
+
+    <div class="subjects-section">
+
+        <div class="section-title">
+
+            <h2>
+                Your subjects
+            </h2>
+
+            <a
+                href="setup-subject.html"
+                class="btn secondary"
+            >
+                Edit
+            </a>
+
+        </div>
+
+
+        <div
+            id="subjectList"
+            class="subject-list"
+        ></div>
+
+
+        <p class="current-subject">
+
+            Click a subject to make it your
+            current revision subject.
+
+        </p>
 
     </div>
 
@@ -81,6 +227,7 @@ injectHeader();
             <span>
                 🎯 Daily progress
             </span>
+
 
             <span>
 
@@ -111,18 +258,20 @@ injectHeader();
         </div>
 
 
-        <p class="small muted">
+        <p
+            id="goalMessage"
+            class="small muted"
+        >
 
-            Complete activities anywhere in
-            GCSE Hub — your progress follows
-            you across every page.
+            Earn points from any revision activity.
+            Your progress is shared across GCSE Hub.
 
         </p>
 
     </div>
 
 
-    <!-- MAIN ACTIVITIES -->
+    <!-- ACTIVITIES -->
 
     <div class="grid grid3">
 
@@ -141,8 +290,8 @@ injectHeader();
             </h3>
 
             <p>
-                Practise specific GCSE questions
-                instead of simply memorising topic names.
+                Answer specific questions
+                about your GCSE content.
             </p>
 
         </a>
@@ -158,7 +307,7 @@ injectHeader();
             </span>
 
             <h3>
-                Test
+                Tests
             </h3>
 
             <p>
@@ -183,8 +332,8 @@ injectHeader();
             </h3>
 
             <p>
-                Explore key facts,
-                explanations and examples.
+                Explore key knowledge,
+                facts and explanations.
             </p>
 
         </a>
@@ -204,8 +353,8 @@ injectHeader();
             </h3>
 
             <p>
-                See how ideas connect
-                inside each topic.
+                Connect ideas and
+                see the bigger picture.
             </p>
 
         </a>
@@ -245,8 +394,8 @@ injectHeader();
             </h3>
 
             <p>
-                Manage your GCSE Hub profile
-                and revision goals.
+                Manage your profile,
+                subjects and goals.
             </p>
 
         </a>
@@ -275,10 +424,13 @@ injectHeader();
             </span>
 
             <strong>
+
                 ⭐
+
                 <span data-points>
                     0
                 </span>
+
             </strong>
 
         </div>
@@ -291,10 +443,13 @@ injectHeader();
             </span>
 
             <strong>
+
                 💎
+
                 <span data-gems>
                     0
                 </span>
+
             </strong>
 
         </div>
@@ -307,11 +462,15 @@ injectHeader();
             </span>
 
             <strong>
+
                 🔥
+
                 <span data-streak>
                     0
                 </span>
+
                 days
+
             </strong>
 
         </div>
@@ -320,5 +479,246 @@ injectHeader();
 
 </main>
 
+
+<script>
+
+
+/* =========================================================
+   RENDER SUBJECTS
+   ========================================================= */
+
+function renderSubjects() {
+
+    const data =
+        load();
+
+
+    const container =
+        document.getElementById(
+            "subjectList"
+        );
+
+
+    if (
+        !data.subjects ||
+        data.subjects.length === 0
+    ) {
+
+        container.innerHTML = `
+
+            <p class="muted">
+
+                No subjects selected yet.
+
+            </p>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML =
+
+        data.subjects
+
+            .map(
+                id => {
+
+                    const subject =
+                        SUBJECTS[id];
+
+
+                    if (!subject) {
+                        return "";
+                    }
+
+
+                    const active =
+                        id ===
+                        data.currentSubject
+                            ? "active"
+                            : "";
+
+
+                    return `
+
+                        <button
+
+                            class="
+                                subject-button
+                                ${active}
+                            "
+
+                            onclick="
+                                selectCurrentSubject(
+                                    '${id}'
+                                )
+                            "
+                        >
+
+                            <span
+                                class="subject-icon"
+                            >
+
+                                ${subject.icon}
+
+                            </span>
+
+
+                            <span>
+
+                                ${subject.name}
+
+                            </span>
+
+                        </button>
+
+                    `;
+
+                }
+            )
+
+            .join("");
+
+}
+
+
+/* =========================================================
+   SELECT CURRENT SUBJECT
+   ========================================================= */
+
+function selectCurrentSubject(
+    id
+) {
+
+    setCurrentSubject(id);
+
+
+    renderSubjects();
+
+
+    renderStats();
+
+
+    updateCurrentSubjectName();
+
+}
+
+
+/* =========================================================
+   CURRENT SUBJECT LABEL
+   ========================================================= */
+
+function updateCurrentSubjectName() {
+
+    const data =
+        load();
+
+
+    const subject =
+        SUBJECTS[
+            data.currentSubject
+        ];
+
+
+    document.getElementById(
+        "currentSubjectName"
+    ).textContent =
+
+        subject
+            ? subject.name
+            : "Select a subject";
+
+}
+
+
+/* =========================================================
+   GOAL MESSAGE
+   ========================================================= */
+
+function updateGoalMessage() {
+
+    const data =
+        load();
+
+
+    const message =
+        document.getElementById(
+            "goalMessage"
+        );
+
+
+    if (
+        data.pointsToday >=
+        data.dailyGoal
+    ) {
+
+        message.className =
+            "goal-complete";
+
+
+        message.textContent =
+            "🎉 Daily goal complete! Amazing work!";
+
+    }
+
+    else {
+
+        message.className =
+            "small muted";
+
+
+        const remaining =
+            data.dailyGoal -
+            data.pointsToday;
+
+
+        message.textContent =
+
+            `${remaining} points to go today. ` +
+            `You can earn them from any activity.`;
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+renderSubjects();
+
+updateCurrentSubjectName();
+
+updateGoalMessage();
+
+
+/*
+   Re-render when another page/tab
+   changes the stored data.
+*/
+
+window.addEventListener(
+    "storage",
+    function() {
+
+        renderSubjects();
+
+        updateCurrentSubjectName();
+
+        updateGoalMessage();
+
+        renderStats();
+
+    }
+);
+
+</script>
+
+
 </body>
+
 </html>
