@@ -1023,15 +1023,28 @@ hr {
 /* The four frames of each animation */
 
 @keyframes wojtek-animation {
-    from {
+
+    0% {
         background-position-x: 0%;
     }
 
-    to {
+    25% {
+        background-position-x: 33.333%;
+    }
+
+    50% {
+        background-position-x: 66.666%;
+    }
+
+    75% {
         background-position-x: 100%;
     }
-}
 
+    100% {
+        background-position-x: 0%;
+    }
+
+}
 
 /* =========================================
    ANIMATION ROWS
