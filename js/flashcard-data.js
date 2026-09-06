@@ -4369,6 +4369,2830 @@ const FLASHCARDS = [
     difficulty: "Higher",
     question: "How is carbon dioxide returned to the atmosphere during the carbon cycle?",
     answer: "Respiration by plants, animals and microorganisms releases carbon dioxide. Combustion of fuels and wood also releases carbon dioxide."
+},
+   /* =========================================================
+   BATCH 301–400
+   AQA GCSE BIOLOGY 8461
+   PAPER 2 — ECOLOGY, INHERITANCE & EVOLUTION
+========================================================= */
+
+
+/* =========================================================
+   3. ECOLOGY — CARDS 301–325
+========================================================= */
+
+{
+    id: "bio-eco-301",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Communities",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a community?",
+    answer: "A community is all the populations of different species living and interacting in an area."
+},
+
+{
+    id: "bio-eco-302",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Ecosystems",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an ecosystem?",
+    answer: "An ecosystem is the interaction between a community of living organisms and the non-living parts of their environment."
+},
+
+{
+    id: "bio-eco-303",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Abiotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an abiotic factor?",
+    answer: "An abiotic factor is a non-living factor that affects organisms in an ecosystem."
+},
+
+{
+    id: "bio-eco-304",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Abiotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "Give four examples of abiotic factors.",
+    answer: "Examples include temperature, light intensity, moisture level and soil pH."
+},
+
+{
+    id: "bio-eco-305",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a biotic factor?",
+    answer: "A biotic factor is a living factor that affects organisms in an ecosystem."
+},
+
+{
+    id: "bio-eco-306",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "Give three examples of biotic factors.",
+    answer: "Examples include competition, predation and disease."
+},
+
+{
+    id: "bio-eco-307",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Explain",
+    difficulty: 2,
+    question: "What do plants compete with each other for?",
+    answer: "Plants compete for light, water, mineral ions and space."
+},
+
+{
+    id: "bio-eco-308",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Explain",
+    difficulty: 2,
+    question: "What do animals compete with each other for?",
+    answer: "Animals compete for food, mates and territory."
+},
+
+{
+    id: "bio-eco-309",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Adaptations",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an adaptation?",
+    answer: "An adaptation is a feature that helps an organism survive and reproduce in its environment."
+},
+
+{
+    id: "bio-eco-310",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Adaptations",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why are extremophiles adapted to extreme environments?",
+    answer: "They have features that allow them to survive environmental conditions that would be unsuitable for most organisms."
+},
+
+{
+    id: "bio-eco-311",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does an arrow in a food chain represent?",
+    answer: "It represents the transfer of biomass and energy from one organism to the next."
+},
+
+{
+    id: "bio-eco-312",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a producer?",
+    answer: "A producer is an organism, usually a green plant or alga, that makes its own food using photosynthesis."
+},
+
+{
+    id: "bio-eco-313",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why is there usually less biomass at higher trophic levels?",
+    answer: "Biomass is lost between trophic levels because not all parts of organisms are eaten or digested, and energy is transferred to the surroundings through respiration and other processes."
+},
+
+{
+    id: "bio-eco-314",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Pyramids of biomass",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does a pyramid of biomass show?",
+    answer: "It shows the total biomass at each trophic level in a food chain."
+},
+
+{
+    id: "bio-eco-315",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Efficiency",
+    type: "Calculation",
+    difficulty: 3,
+    question: "How can the efficiency of biomass transfer between trophic levels be calculated?",
+    answer: "Efficiency = biomass transferred to the next trophic level ÷ biomass available at the previous trophic level × 100."
+},
+
+{
+    id: "bio-eco-316",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Decomposition",
+    type: "Recall",
+    difficulty: 1,
+    question: "What organisms are mainly responsible for decomposition?",
+    answer: "Microorganisms such as bacteria and fungi are mainly responsible for decomposition."
+},
+
+{
+    id: "bio-eco-317",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Decomposition",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why does decomposition happen faster in warm, moist conditions?",
+    answer: "Warm, moist conditions provide favourable conditions for microorganisms and their enzymes, increasing the rate of decomposition."
+},
+
+{
+    id: "bio-eco-318",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Decay",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does decomposition return mineral ions to the soil?",
+    answer: "Microorganisms break down dead material and waste, releasing mineral ions into the soil."
+},
+
+{
+    id: "bio-eco-319",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Carbon cycle",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which process removes carbon dioxide from the atmosphere?",
+    answer: "Photosynthesis removes carbon dioxide from the atmosphere."
+},
+
+{
+    id: "bio-eco-320",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Carbon cycle",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which processes release carbon dioxide into the atmosphere?",
+    answer: "Respiration and combustion release carbon dioxide. Decomposition also releases carbon dioxide as microorganisms respire."
+},
+
+{
+    id: "bio-eco-321",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Deforestation",
+    type: "Explain",
+    difficulty: 2,
+    question: "How can deforestation increase the concentration of carbon dioxide in the atmosphere?",
+    answer: "Fewer trees means less carbon dioxide is removed by photosynthesis, while burning trees releases carbon dioxide through combustion."
+},
+
+{
+    id: "bio-eco-322",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Global warming",
+    type: "Explain",
+    difficulty: 2,
+    question: "How can increased greenhouse gases contribute to global warming?",
+    answer: "Greenhouse gases absorb some infrared radiation emitted by Earth, reducing the amount of heat escaping into space and increasing global temperatures."
+},
+
+{
+    id: "bio-eco-323",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biodiversity",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is biodiversity?",
+    answer: "Biodiversity is the variety of different species of organisms in an area."
+},
+
+{
+    id: "bio-eco-324",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biodiversity",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why is maintaining biodiversity important?",
+    answer: "Maintaining biodiversity helps maintain stable ecosystems and provides useful resources such as food, medicines and materials."
+},
+
+{
+    id: "bio-eco-325",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Human impacts",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Give two ways humans can reduce the loss of biodiversity.",
+    answer: "Humans can protect habitats, reduce deforestation, control fishing, create breeding programmes, reduce pollution and maintain natural habitats."
+},
+
+
+/* =========================================================
+   4. INHERITANCE — CARDS 326–350
+========================================================= */
+
+{
+    id: "bio-inh-326",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "DNA",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is DNA?",
+    answer: "DNA is the genetic material that carries the instructions needed to make proteins."
+},
+
+{
+    id: "bio-inh-327",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a gene?",
+    answer: "A gene is a section of DNA that codes for a particular sequence of amino acids, usually resulting in a specific protein."
+},
+
+{
+    id: "bio-inh-328",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Chromosomes",
+    type: "Recall",
+    difficulty: 1,
+    question: "Where are chromosomes found in a human cell?",
+    answer: "Chromosomes are found in the nucleus."
+},
+
+{
+    id: "bio-inh-329",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Chromosomes",
+    type: "Recall",
+    difficulty: 1,
+    question: "How many pairs of chromosomes are normally found in a human body cell?",
+    answer: "Human body cells normally contain 23 pairs of chromosomes, giving 46 chromosomes in total."
+},
+
+{
+    id: "bio-inh-330",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Alleles",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an allele?",
+    answer: "An allele is a different version of a gene."
+},
+
+{
+    id: "bio-inh-331",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Dominant alleles",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a dominant allele?",
+    answer: "A dominant allele is an allele that is expressed when at least one copy is present."
+},
+
+{
+    id: "bio-inh-332",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Recessive alleles",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a recessive allele?",
+    answer: "A recessive allele is only expressed when there is no dominant allele present."
+},
+
+{
+    id: "bio-inh-333",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genotype",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a genotype?",
+    answer: "A genotype is the combination of alleles an organism has for a particular gene."
+},
+
+{
+    id: "bio-inh-334",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Phenotype",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a phenotype?",
+    answer: "A phenotype is the observable characteristics of an organism."
+},
+
+{
+    id: "bio-inh-335",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Homozygous",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does homozygous mean?",
+    answer: "Homozygous means having two identical alleles for a particular gene."
+},
+
+{
+    id: "bio-inh-336",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Heterozygous",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does heterozygous mean?",
+    answer: "Heterozygous means having two different alleles for a particular gene."
+},
+
+{
+    id: "bio-inh-337",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic crosses",
+    type: "Application",
+    difficulty: 2,
+    question: "What is a genetic cross used to predict?",
+    answer: "A genetic cross can be used to predict the possible genotypes and phenotypes of offspring."
+},
+
+{
+    id: "bio-inh-338",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic crosses",
+    type: "Application",
+    difficulty: 3,
+    question: "Two heterozygous organisms with genotype Aa reproduce. What proportion of their offspring would be expected to have genotype aa?",
+    answer: "One quarter, or 25%, would be expected to have genotype aa."
+},
+
+{
+    id: "bio-inh-339",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic crosses",
+    type: "Application",
+    difficulty: 3,
+    question: "Two heterozygous organisms with genotype Aa reproduce. What proportion of their offspring would be expected to show the dominant phenotype?",
+    answer: "Three quarters, or 75%, would be expected to show the dominant phenotype."
+},
+
+{
+    id: "bio-inh-340",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Sex determination",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which sex chromosomes does a typical human female have?",
+    answer: "XX."
+},
+
+{
+    id: "bio-inh-341",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Sex determination",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which sex chromosomes does a typical human male have?",
+    answer: "XY."
+},
+
+{
+    id: "bio-inh-342",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Sex determination",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why is there approximately a 50:50 chance of a baby being male or female?",
+    answer: "Egg cells carry an X chromosome, while sperm cells carry either an X or a Y chromosome in approximately equal numbers."
+},
+
+{
+    id: "bio-inh-343",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic disorders",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a genetic disorder?",
+    answer: "A genetic disorder is a condition caused by a change or mutation in genetic material."
+},
+
+{
+    id: "bio-inh-344",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic disorders",
+    type: "Recall",
+    difficulty: 1,
+    question: "What causes cystic fibrosis?",
+    answer: "Cystic fibrosis is caused by a recessive allele that affects the CFTR gene."
+},
+
+{
+    id: "bio-inh-345",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic disorders",
+    type: "Recall",
+    difficulty: 1,
+    question: "What causes sickle cell anaemia?",
+    answer: "Sickle cell anaemia is caused by a recessive allele that results in an abnormal form of haemoglobin."
+},
+
+{
+    id: "bio-inh-346",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Mutations",
+    type: "Recall",
+    difficulty: 2,
+    question: "What is a mutation?",
+    answer: "A mutation is a random change in the DNA sequence of an organism."
+},
+
+{
+    id: "bio-inh-347",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Mutations",
+    type: "Explain",
+    difficulty: 2,
+    question: "How can a mutation affect an organism?",
+    answer: "A mutation can change the DNA sequence of a gene and may alter the protein produced, potentially changing the organism's characteristics."
+},
+
+{
+    id: "bio-inh-348",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Variation",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is variation?",
+    answer: "Variation is the differences in characteristics between individuals of the same species."
+},
+
+{
+    id: "bio-inh-349",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Variation",
+    type: "Explain",
+    difficulty: 2,
+    question: "What are the two main causes of variation?",
+    answer: "Variation can be caused by genetic differences and environmental differences. Many characteristics are affected by both."
+},
+
+{
+    id: "bio-inh-350",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic diagrams",
+    type: "Application",
+    difficulty: 3,
+    question: "Why can two parents who do not show a recessive genetic disorder have a child who does?",
+    answer: "Both parents may be heterozygous carriers. Each can pass the recessive allele to the child, giving the child two copies of the recessive allele."
+},
+
+
+/* =========================================================
+   5. VARIATION & EVOLUTION — CARDS 351–375
+========================================================= */
+
+{
+    id: "bio-evo-351",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Natural selection",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is natural selection?",
+    answer: "Natural selection is the process in which organisms with advantageous inherited characteristics are more likely to survive and reproduce."
+},
+
+{
+    id: "bio-evo-352",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Natural selection",
+    type: "Process",
+    difficulty: 2,
+    question: "What are the main stages of natural selection?",
+    answer: "Variation exists within a population. Individuals with advantageous characteristics are more likely to survive and reproduce. They pass on the alleles responsible, making those alleles more common over generations."
+},
+
+{
+    id: "bio-evo-353",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Evolution",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is evolution?",
+    answer: "Evolution is the change in inherited characteristics of a population over successive generations."
+},
+
+{
+    id: "bio-evo-354",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Natural selection",
+    type: "Application",
+    difficulty: 3,
+    question: "Why might a population of bacteria become resistant to an antibiotic?",
+    answer: "A random mutation may give some bacteria resistance. The antibiotic kills susceptible bacteria, while resistant bacteria survive and reproduce, passing on the resistance allele."
+},
+
+{
+    id: "bio-evo-355",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Antibiotic resistance",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why should antibiotics not be used unnecessarily?",
+    answer: "Unnecessary use of antibiotics increases selection pressure and can increase the spread of antibiotic-resistant bacteria."
+},
+
+{
+    id: "bio-evo-356",
+    subject: "biology",
+    board: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Antibiotic resistance",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why do antibiotics not work against viruses?",
+    answer: "Viruses do not have the cellular structures and processes targeted by antibiotics."
+},
+
+{
+    id: "bio-evo-357",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Fossils",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a fossil?",
+    answer: "A fossil is the preserved remains or evidence of an organism that lived in the past."
+},
+
+{
+    id: "bio-evo-358",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Fossils",
+    type: "Explain",
+    difficulty: 2,
+    question: "How can fossils provide evidence for evolution?",
+    answer: "Fossils show that organisms have changed over time and can reveal transitional forms and extinct species."
+},
+
+{
+    id: "bio-evo-359",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Fossil evidence",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Why is the fossil record incomplete?",
+    answer: "Many organisms do not fossilise because fossilisation requires particular conditions, and fossils can be destroyed by geological processes."
+},
+
+{
+    id: "bio-evo-360",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Extinction",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does extinction mean?",
+    answer: "Extinction occurs when there are no remaining individuals of a species."
+},
+
+{
+    id: "bio-evo-361",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Extinction",
+    type: "Explain",
+    difficulty: 2,
+    question: "Give three possible causes of extinction.",
+    answer: "Causes include environmental change, new predators, new diseases, increased competition, catastrophic events and changes in food supply."
+},
+
+{
+    id: "bio-evo-362",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Speciation",
+    type: "Recall",
+    difficulty: 2,
+    question: "What is speciation?",
+    answer: "Speciation is the formation of a new species."
+},
+
+{
+    id: "bio-evo-363",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Speciation",
+    type: "Process",
+    difficulty: 3,
+    question: "How can geographical isolation lead to speciation?",
+    answer: "A population can become geographically separated. Different mutations and selection pressures cause the populations to evolve differently until they can no longer successfully interbreed to produce fertile offspring."
+},
+
+{
+    id: "bio-evo-364",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Darwin",
+    type: "Recall",
+    difficulty: 1,
+    question: "What was Charles Darwin's explanation for evolution?",
+    answer: "Darwin proposed that evolution occurs through natural selection, where organisms with advantageous inherited characteristics are more likely to survive and reproduce."
+},
+
+{
+    id: "bio-evo-365",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Darwin",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why was Darwin's theory of evolution initially controversial?",
+    answer: "There was insufficient evidence at the time, and the theory conflicted with some religious beliefs and existing ideas about how organisms changed."
+},
+
+{
+    id: "bio-evo-366",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Lamarck",
+    type: "Compare",
+    difficulty: 2,
+    question: "How did Lamarck's explanation of evolution differ from Darwin's?",
+    answer: "Lamarck proposed that organisms developed characteristics during their lifetime and passed these acquired characteristics to their offspring. Darwin proposed natural selection acting on inherited variation."
+},
+
+{
+    id: "bio-evo-367",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Selective breeding",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is selective breeding?",
+    answer: "Selective breeding is the process of choosing parents with desired characteristics and breeding them to produce offspring with those characteristics."
+},
+
+{
+    id: "bio-evo-368",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Selective breeding",
+    type: "Process",
+    difficulty: 2,
+    question: "What are the main steps involved in selective breeding?",
+    answer: "Choose parents with desired characteristics, breed them, select offspring with the desired characteristics and repeat the process over many generations."
+},
+
+{
+    id: "bio-evo-369",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Selective breeding",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "What is one disadvantage of selective breeding?",
+    answer: "It can reduce genetic variation and increase the risk of inherited genetic disorders because closely related individuals may be bred."
+},
+
+{
+    id: "bio-evo-370",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Genetic engineering",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is genetic engineering?",
+    answer: "Genetic engineering is the process of modifying an organism's genome by inserting a gene from another organism."
+},
+
+{
+    id: "bio-evo-371",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Genetic engineering",
+    type: "Process",
+    difficulty: 3,
+    question: "How can a human gene be inserted into a bacterial plasmid?",
+    answer: "The desired gene and bacterial plasmid are cut using enzymes, and the gene is inserted into the plasmid using a DNA ligase enzyme."
+},
+
+{
+    id: "bio-evo-372",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Genetic engineering",
+    type: "Application",
+    difficulty: 2,
+    question: "Why can genetically modified bacteria be useful for producing human insulin?",
+    answer: "Bacteria can be given the human insulin gene and then use it to produce human insulin, which can be collected and purified."
+},
+
+{
+    id: "bio-evo-373",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Genetic engineering",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Give one potential advantage and one concern about genetic engineering.",
+    answer: "An advantage is that useful proteins or crops can be produced. A concern is that there may be environmental or ethical issues associated with genetically modified organisms."
+},
+
+{
+    id: "bio-evo-374",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Evolution",
+    type: "Explain",
+    difficulty: 3,
+    question: "Why does natural selection change the frequency of alleles in a population?",
+    answer: "Individuals with advantageous alleles are more likely to survive and reproduce, so they pass these alleles to more offspring. The advantageous alleles therefore become more common."
+},
+
+{
+    id: "bio-evo-375",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Evolution",
+    type: "Application",
+    difficulty: 3,
+    question: "Why does evolution occur in populations rather than individual organisms?",
+    answer: "Evolution involves changes in inherited characteristics across generations, so it occurs as allele frequencies change within populations."
+},
+
+
+/* =========================================================
+   6. BIOLOGY PAPER 2 — APPLICATION & EXAM PRACTICE
+   CARDS 376–400
+========================================================= */
+
+{
+    id: "bio-app-376",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Population size",
+    type: "Application",
+    difficulty: 2,
+    question: "How can competition affect the size of an animal population?",
+    answer: "If resources such as food, water or territory become limited, competition increases and fewer individuals may survive and reproduce."
+},
+
+{
+    id: "bio-app-377",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Population size",
+    type: "Application",
+    difficulty: 3,
+    question: "A disease spreads through a population of rabbits. What effect might this have on the rabbit population?",
+    answer: "The population is likely to decrease because infected rabbits may die or reproduce less successfully."
+},
+
+{
+    id: "bio-app-378",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Predator-prey relationships",
+    type: "Application",
+    difficulty: 3,
+    question: "Why might the population of prey increase after the population of predators decreases?",
+    answer: "Fewer predators means fewer prey are eaten, so more prey survive and reproduce."
+},
+
+{
+    id: "bio-app-379",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Predator-prey relationships",
+    type: "Application",
+    difficulty: 3,
+    question: "Why might a predator population decrease after a prey population falls?",
+    answer: "There is less food available, so fewer predators survive and reproduce successfully."
+},
+
+{
+    id: "bio-app-380",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Transects",
+    type: "Application",
+    difficulty: 2,
+    question: "Why would a scientist use a transect to investigate how plant distribution changes across an area?",
+    answer: "A transect allows the scientist to record organisms at different positions and investigate how their distribution changes with an environmental gradient."
+},
+
+{
+    id: "bio-app-381",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Quadrats",
+    type: "Application",
+    difficulty: 2,
+    question: "Why are quadrats used when investigating plant populations?",
+    answer: "Quadrats provide a standard-sized area in which organisms can be counted or their abundance estimated."
+},
+
+{
+    id: "bio-app-382",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Sampling",
+    type: "Application",
+    difficulty: 3,
+    question: "Why should quadrats be placed randomly when estimating plant abundance?",
+    answer: "Random placement reduces sampling bias and makes the sample more representative of the area being studied."
+},
+
+{
+    id: "bio-app-383",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Population estimates",
+    type: "Calculation",
+    difficulty: 3,
+    question: "What is the basic method for estimating the population size of an organism using quadrat data?",
+    answer: "Calculate the mean number of organisms per quadrat and multiply it by the number of quadrats that would cover the whole area."
+},
+
+{
+    id: "bio-app-384",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food security",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is food security?",
+    answer: "Food security means having enough food to feed a population."
+},
+
+{
+    id: "bio-app-385",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food security",
+    type: "Recall",
+    difficulty: 2,
+    question: "Give three factors that can reduce food security.",
+    answer: "Factors include increasing population, changing diets, new pests and pathogens, environmental change, climate change and political instability."
+},
+
+{
+    id: "bio-app-386",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Food production",
+    type: "Explain",
+    difficulty: 2,
+    question: "How can farmers increase the efficiency of food production?",
+    answer: "Farmers can reduce losses from pests and disease, control environmental conditions and improve the use of resources."
+},
+
+{
+    id: "bio-app-387",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Fish stocks",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "How can fish stocks be maintained at sustainable levels?",
+    answer: "Fishing quotas, minimum net sizes and restrictions on fishing seasons can allow fish populations to reproduce and recover."
+},
+
+{
+    id: "bio-app-388",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Water resources",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why is potable water important?",
+    answer: "Potable water is water that is safe to drink and is essential for human health."
+},
+
+{
+    id: "bio-app-389",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Water treatment",
+    type: "Process",
+    difficulty: 2,
+    question: "What happens during filtration in water treatment?",
+    answer: "Large insoluble particles are removed by passing water through a filter."
+},
+
+{
+    id: "bio-app-390",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Water treatment",
+    type: "Process",
+    difficulty: 2,
+    question: "Why is chlorine added during drinking water treatment?",
+    answer: "Chlorine is used to kill harmful microorganisms."
+},
+
+{
+    id: "bio-app-391",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Waste management",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why can large human populations create waste management problems?",
+    answer: "Larger populations produce more waste, which requires collection, treatment and disposal."
+},
+
+{
+    id: "bio-app-392",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Pollution",
+    type: "Explain",
+    difficulty: 2,
+    question: "How can fertiliser pollution affect aquatic ecosystems?",
+    answer: "Nitrates and phosphates can cause excessive algal growth, which can reduce oxygen levels in the water and harm aquatic organisms."
+},
+
+{
+    id: "bio-app-393",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Eutrophication",
+    type: "Process",
+    difficulty: 3,
+    question: "What is the sequence of events in eutrophication?",
+    answer: "Mineral ions enter water, algae grow rapidly, light is blocked, plants die, microorganisms decompose the dead material, microorganisms respire and oxygen levels fall."
+},
+
+{
+    id: "bio-app-394",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Deforestation",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Why can deforestation reduce biodiversity?",
+    answer: "Destroying habitats removes resources and living spaces, causing populations to decline and potentially causing species to become extinct."
+},
+
+{
+    id: "bio-app-395",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Peat bogs",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Why should peat bogs be conserved?",
+    answer: "Peat bogs contain stored carbon and support biodiversity. Destroying them can release carbon dioxide and damage habitats."
+},
+
+{
+    id: "bio-app-396",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Genetic variation",
+    type: "Application",
+    difficulty: 3,
+    question: "Why does sexual reproduction produce genetic variation?",
+    answer: "Sexual reproduction combines genetic material from two parents, producing offspring with a unique combination of alleles."
+},
+
+{
+    id: "bio-app-397",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Inheritance",
+    subtopic: "Mutation and evolution",
+    type: "Application",
+    difficulty: 3,
+    question: "How can a mutation eventually lead to a characteristic becoming common in a population?",
+    answer: "If the mutation produces an advantageous characteristic, individuals carrying it may survive and reproduce more successfully, causing the allele to become more common over generations."
+},
+
+{
+    id: "bio-app-398",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Natural selection",
+    type: "Application",
+    difficulty: 3,
+    question: "A population of insects contains individuals with different levels of resistance to a pesticide. What is likely to happen if the pesticide is repeatedly used?",
+    answer: "Insects with greater resistance are more likely to survive and reproduce, so the resistance allele may become more common in the population."
+},
+
+{
+    id: "bio-app-399",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Scientific evidence",
+    type: "Evaluate",
+    difficulty: 3,
+    question: "Why is evidence from several different sources useful when studying evolution?",
+    answer: "Different sources of evidence, such as fossils, anatomical comparisons and DNA evidence, can support the same explanation and increase confidence in the theory."
+},
+
+{
+    id: "bio-app-400",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Variation and Evolution",
+    subtopic: "Exam application",
+    type: "Application",
+    difficulty: 3,
+    question: "A population becomes separated into two groups by a geographical barrier. Explain how the two groups could eventually become different species.",
+    answer: "The groups experience different mutations and selection pressures. Over many generations their allele frequencies become increasingly different. Eventually they may become unable to successfully interbreed and produce fertile offspring, meaning they have become separate species."
+},
+{
+    id: "bio-401",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The nervous system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the nervous system?",
+    answer: "It allows the body to detect and respond rapidly to changes in its internal and external environment."
+},
+
+{
+    id: "bio-402",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Receptors",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a receptor?",
+    answer: "A cell or group of cells that detects a stimulus."
+},
+
+{
+    id: "bio-403",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Stimuli",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a stimulus?",
+    answer: "A change in the environment that can be detected by receptors."
+},
+
+{
+    id: "bio-404",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Neurones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a neurone?",
+    answer: "A nerve cell that carries electrical impulses around the nervous system."
+},
+
+{
+    id: "bio-405",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Neurones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of a sensory neurone?",
+    answer: "It carries electrical impulses from receptors to the central nervous system."
+},
+
+{
+    id: "bio-406",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Neurones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of a relay neurone?",
+    answer: "It carries electrical impulses between neurones within the central nervous system."
+},
+
+{
+    id: "bio-407",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Neurones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of a motor neurone?",
+    answer: "It carries electrical impulses from the central nervous system to an effector."
+},
+
+{
+    id: "bio-408",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Synapses",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a synapse?",
+    answer: "A junction between two neurones."
+},
+
+{
+    id: "bio-409",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Synapses",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does a nerve impulse cross a synapse?",
+    answer: "The electrical impulse causes chemicals to be released from the first neurone. These chemicals diffuse across the synapse and bind to receptors on the next neurone, triggering a new electrical impulse."
+},
+
+{
+    id: "bio-410",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Synapses",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why does an impulse normally travel in only one direction across a synapse?",
+    answer: "The neurotransmitter chemicals are released from one side of the synapse and the receptors are located on the other side."
+},
+
+{
+    id: "bio-411",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Reflex actions",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a reflex action?",
+    answer: "A rapid, automatic response to a stimulus that does not require conscious thought."
+},
+
+{
+    id: "bio-412",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Reflex actions",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why are reflex actions useful?",
+    answer: "They provide rapid responses that can reduce the risk of injury."
+},
+
+{
+    id: "bio-413",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Reflex actions",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the pathway of a simple reflex arc?",
+    answer: "Receptor → sensory neurone → relay neurone → motor neurone → effector."
+},
+
+{
+    id: "bio-414",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Effectors",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an effector?",
+    answer: "A muscle or gland that produces a response to a stimulus."
+},
+
+{
+    id: "bio-415",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a hormone?",
+    answer: "A chemical messenger released by a gland and transported in the blood."
+},
+
+{
+    id: "bio-416",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Hormones",
+    type: "Compare",
+    difficulty: 2,
+    question: "How do hormonal responses differ from nervous responses?",
+    answer: "Hormonal responses are generally slower and longer-lasting, while nervous responses are usually faster and shorter-lasting."
+},
+
+{
+    id: "bio-417",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Endocrine system",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the endocrine system?",
+    answer: "A system of glands that produce and release hormones into the blood."
+},
+
+{
+    id: "bio-418",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Adrenaline",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which gland produces adrenaline?",
+    answer: "The adrenal glands."
+},
+
+{
+    id: "bio-419",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Adrenaline",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why is adrenaline released?",
+    answer: "It prepares the body for vigorous activity in stressful or threatening situations."
+},
+
+{
+    id: "bio-420",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Adrenaline",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does adrenaline increase the supply of glucose to muscles?",
+    answer: "Adrenaline causes glycogen in the liver to be converted into glucose, increasing blood glucose concentration."
+},
+
+{
+    id: "bio-421",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Adrenaline",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does adrenaline affect heart rate?",
+    answer: "It increases heart rate so that more blood and oxygen can be delivered to muscles."
+},
+
+{
+    id: "bio-422",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Adrenaline",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why does adrenaline increase breathing rate?",
+    answer: "It increases the supply of oxygen to muscles for increased aerobic respiration."
+},
+
+{
+    id: "bio-423",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Thyroxine",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which gland produces thyroxine?",
+    answer: "The thyroid gland."
+},
+
+{
+    id: "bio-424",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Thyroxine",
+    type: "Recall",
+    difficulty: 2,
+    question: "What does thyroxine control?",
+    answer: "Thyroxine controls the metabolic rate of the body."
+},
+
+{
+    id: "bio-425",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Thyroxine",
+    type: "Explain",
+    difficulty: 3,
+    question: "How is thyroxine involved in negative feedback?",
+    answer: "Low thyroxine levels stimulate the release of hormones that cause the thyroid gland to produce more thyroxine. As thyroxine levels rise, they reduce the release of these stimulating hormones."
+},
+
+{
+    id: "bio-426",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: 1,
+    question: "Why must blood glucose concentration be controlled?",
+    answer: "Cells need a stable supply of glucose for respiration, while excessively high or low concentrations can be harmful."
+},
+
+{
+    id: "bio-427",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Insulin",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which organ produces insulin?",
+    answer: "The pancreas."
+},
+
+{
+    id: "bio-428",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Insulin",
+    type: "Explain",
+    difficulty: 2,
+    question: "What does insulin do when blood glucose concentration is too high?",
+    answer: "Insulin causes glucose to move from the blood into cells and causes the liver to convert glucose into glycogen."
+},
+
+{
+    id: "bio-429",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Glucagon",
+    type: "Recall",
+    difficulty: 1,
+    question: "What does glucagon do?",
+    answer: "Glucagon causes glycogen to be converted into glucose, increasing blood glucose concentration."
+},
+
+{
+    id: "bio-430",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Blood glucose",
+    type: "Compare",
+    difficulty: 2,
+    question: "What are the opposing effects of insulin and glucagon?",
+    answer: "Insulin lowers blood glucose concentration, while glucagon increases it."
+},
+
+{
+    id: "bio-431",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is type 1 diabetes?",
+    answer: "A condition in which the pancreas produces little or no insulin."
+},
+
+{
+    id: "bio-432",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: 1,
+    question: "How is type 1 diabetes commonly treated?",
+    answer: "By injecting insulin and carefully controlling carbohydrate intake and blood glucose levels."
+},
+
+{
+    id: "bio-433",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is type 2 diabetes?",
+    answer: "A condition in which body cells become less responsive to insulin, often resulting in high blood glucose concentration."
+},
+
+{
+    id: "bio-434",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why can obesity increase the risk of developing type 2 diabetes?",
+    answer: "Being overweight can increase the risk of insulin resistance, making cells less responsive to insulin."
+},
+
+{
+    id: "bio-435",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Diabetes",
+    type: "Compare",
+    difficulty: 2,
+    question: "What is one major difference between type 1 and type 2 diabetes?",
+    answer: "Type 1 diabetes involves little or no insulin production, whereas type 2 diabetes involves reduced sensitivity to insulin."
+},
+
+{
+    id: "bio-436",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Kidneys",
+    type: "Recall",
+    difficulty: 1,
+    question: "What waste product is removed from the blood by the kidneys?",
+    answer: "Urea."
+},
+
+{
+    id: "bio-437",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Kidneys",
+    type: "Recall",
+    difficulty: 2,
+    question: "Where is urea produced?",
+    answer: "In the liver when excess amino acids are broken down."
+},
+
+{
+    id: "bio-438",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "ADH",
+    type: "Explain",
+    difficulty: 3,
+    question: "What happens when the water content of the blood becomes too low?",
+    answer: "More ADH is released, causing the kidneys to reabsorb more water. This produces a smaller volume of more concentrated urine."
+},
+
+{
+    id: "bio-439",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "ADH",
+    type: "Explain",
+    difficulty: 3,
+    question: "What happens when the water content of the blood becomes too high?",
+    answer: "Less ADH is released, so less water is reabsorbed by the kidneys. A larger volume of more dilute urine is produced."
+},
+
+{
+    id: "bio-440",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "ADH",
+    type: "Recall",
+    difficulty: 2,
+    question: "What does ADH stand for?",
+    answer: "Antidiuretic hormone."
+},
+
+{
+    id: "bio-441",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the normal human core body temperature?",
+    answer: "Approximately 37°C."
+},
+
+{
+    id: "bio-442",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why is maintaining a constant body temperature important?",
+    answer: "Enzymes work best within a narrow temperature range, so maintaining body temperature helps enzymes function effectively."
+},
+
+{
+    id: "bio-443",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What happens to blood vessels near the skin when the body is too hot?",
+    answer: "They widen through vasodilation, increasing blood flow near the skin."
+},
+
+{
+    id: "bio-444",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does vasodilation increase heat loss?",
+    answer: "More blood flows close to the skin surface, allowing more thermal energy to be transferred to the surroundings."
+},
+
+{
+    id: "bio-445",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What happens to blood vessels near the skin when the body is too cold?",
+    answer: "They constrict through vasoconstriction, reducing blood flow near the skin."
+},
+
+{
+    id: "bio-446",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does vasoconstriction reduce heat loss?",
+    answer: "Less blood flows near the skin surface, reducing the amount of thermal energy transferred to the surroundings."
+},
+
+{
+    id: "bio-447",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What happens to sweating when the body becomes too hot?",
+    answer: "Sweating increases."
+},
+
+{
+    id: "bio-448",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What happens to sweating when the body becomes too cold?",
+    answer: "Sweating decreases or stops."
+},
+
+{
+    id: "bio-449",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why does sweating cool the body?",
+    answer: "Sweat evaporates from the skin and transfers thermal energy away from the body."
+},
+
+{
+    id: "bio-450",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is shivering?",
+    answer: "Rapid involuntary muscle contractions."
+},
+
+{
+    id: "bio-451",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does shivering warm the body?",
+    answer: "Muscle contractions require respiration, which releases thermal energy and increases body temperature."
+},
+
+{
+    id: "bio-452",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What happens to hairs on the skin when the body is cold?",
+    answer: "The hairs stand upright."
+},
+
+{
+    id: "bio-453",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Explain",
+    difficulty: 2,
+    question: "How does raising hairs help reduce heat loss?",
+    answer: "It traps a layer of air close to the skin, which provides insulation."
+},
+
+{
+    id: "bio-454",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Temperature",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is negative feedback?",
+    answer: "A control mechanism in which a change triggers responses that reverse the original change."
+},
+
+{
+    id: "bio-455",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Negative feedback",
+    type: "Explain",
+    difficulty: 3,
+    question: "Why is negative feedback important in homeostasis?",
+    answer: "It keeps internal conditions close to their optimum by detecting changes and producing responses that return conditions towards the normal level."
+},
+
+{
+    id: "bio-456",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the iris?",
+    answer: "It controls the amount of light entering the eye by changing the size of the pupil."
+},
+
+{
+    id: "bio-457",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the pupil?",
+    answer: "It is the opening through which light enters the eye."
+},
+
+{
+    id: "bio-458",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the retina?",
+    answer: "It contains light-sensitive receptor cells that detect light."
+},
+
+{
+    id: "bio-459",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the optic nerve?",
+    answer: "It carries electrical impulses from the retina to the brain."
+},
+
+{
+    id: "bio-460",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is the function of the lens?",
+    answer: "It refracts light and focuses it onto the retina."
+},
+
+{
+    id: "bio-461",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Accommodation",
+    type: "Explain",
+    difficulty: 3,
+    question: "What happens to the lens when focusing on a nearby object?",
+    answer: "The ciliary muscles contract, the suspensory ligaments slacken and the lens becomes thicker and more curved."
+},
+
+{
+    id: "bio-462",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Accommodation",
+    type: "Explain",
+    difficulty: 3,
+    question: "What happens to the lens when focusing on a distant object?",
+    answer: "The ciliary muscles relax, the suspensory ligaments become taut and the lens becomes thinner and less curved."
+},
+
+{
+    id: "bio-463",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Pupil reflex",
+    type: "Explain",
+    difficulty: 2,
+    question: "What happens to the pupil in bright light?",
+    answer: "The pupil becomes smaller to reduce the amount of light entering the eye."
+},
+
+{
+    id: "bio-464",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Pupil reflex",
+    type: "Explain",
+    difficulty: 2,
+    question: "What happens to the pupil in dim light?",
+    answer: "The pupil becomes larger to allow more light to enter the eye."
+},
+
+{
+    id: "bio-465",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "The eye",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which cells in the retina are sensitive to light?",
+    answer: "Light-sensitive receptor cells, including rods and cones."
+},
+
+{
+    id: "bio-466",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Hormonal contraception",
+    type: "Recall",
+    difficulty: 1,
+    question: "How can hormonal contraceptives prevent pregnancy?",
+    answer: "They can prevent ovulation by changing hormone levels."
+},
+
+{
+    id: "bio-467",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Hormonal contraception",
+    type: "Recall",
+    difficulty: 1,
+    question: "Give one example of a hormonal contraceptive.",
+    answer: "The contraceptive pill, implant, injection or patch."
+},
+
+{
+    id: "bio-468",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Fertility treatment",
+    type: "Recall",
+    difficulty: 2,
+    question: "What are FSH and LH?",
+    answer: "FSH and LH are hormones involved in controlling the menstrual cycle and ovulation."
+},
+
+{
+    id: "bio-469",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Fertility treatment",
+    type: "Recall",
+    difficulty: 2,
+    question: "What does FSH stimulate?",
+    answer: "FSH stimulates the maturation of an egg in an ovary."
+},
+
+{
+    id: "bio-470",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Fertility treatment",
+    type: "Recall",
+    difficulty: 2,
+    question: "What does LH trigger?",
+    answer: "LH triggers ovulation."
+},
+
+{
+    id: "bio-471",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Menstrual cycle",
+    type: "Recall",
+    difficulty: 2,
+    question: "What hormone is produced by the developing follicle?",
+    answer: "Oestrogen."
+},
+
+{
+    id: "bio-472",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Menstrual cycle",
+    type: "Explain",
+    difficulty: 3,
+    question: "How does oestrogen affect FSH during the menstrual cycle?",
+    answer: "Oestrogen inhibits the production of FSH, preventing more eggs from maturing."
+},
+
+{
+    id: "bio-473",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Menstrual cycle",
+    type: "Recall",
+    difficulty: 2,
+    question: "Which hormone maintains the lining of the uterus after ovulation?",
+    answer: "Progesterone."
+},
+
+{
+    id: "bio-474",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Menstrual cycle",
+    type: "Explain",
+    difficulty: 3,
+    question: "What happens to progesterone levels if an egg is not fertilised?",
+    answer: "Progesterone levels fall, causing the lining of the uterus to break down."
+},
+
+{
+    id: "bio-475",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Menstrual cycle",
+    type: "Recall",
+    difficulty: 2,
+    question: "What happens to the uterine lining during menstruation?",
+    answer: "It breaks down and is released from the body."
+},
+
+{
+    id: "bio-476",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Menstrual cycle",
+    type: "Explain",
+    difficulty: 3,
+    question: "Why does the uterus need a thick lining?",
+    answer: "It provides a suitable environment and blood supply for an embryo if implantation occurs."
+},
+
+{
+    id: "bio-477",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Fertility treatment",
+    type: "Explain",
+    difficulty: 3,
+    question: "How can FSH be used in fertility treatment?",
+    answer: "FSH can be given to stimulate eggs to mature in the ovaries."
+},
+
+{
+    id: "bio-478",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Fertility treatment",
+    type: "Explain",
+    difficulty: 3,
+    question: "Why might fertility treatment increase the chance of multiple births?",
+    answer: "Treatment can stimulate several eggs to mature, so more than one egg may be fertilised."
+},
+
+{
+    id: "bio-479",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What are auxins?",
+    answer: "Plant hormones that control growth."
+},
+
+{
+    id: "bio-480",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is phototropism?",
+    answer: "The growth response of a plant shoot towards light."
+},
+
+{
+    id: "bio-481",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why do shoots grow towards light?",
+    answer: "Auxin accumulates on the shaded side of the shoot, causing those cells to elongate more and making the shoot bend towards the light."
+},
+
+{
+    id: "bio-482",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is gravitropism?",
+    answer: "The growth response of a plant to gravity."
+},
+
+{
+    id: "bio-483",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "How do roots respond to gravity?",
+    answer: "Roots show positive gravitropism and grow towards gravity."
+},
+
+{
+    id: "bio-484",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "How do shoots respond to gravity?",
+    answer: "Shoots show negative gravitropism and grow away from gravity."
+},
+
+{
+    id: "bio-485",
+    subject: "biology",
+    board: "AQA",
+    level: "Higher",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Auxins",
+    type: "Explain",
+    difficulty: 3,
+    question: "Why does auxin have different effects in roots and shoots?",
+    answer: "Roots are more sensitive to auxin than shoots, so a concentration that promotes growth in shoots can inhibit growth in roots."
+},
+
+{
+    id: "bio-486",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "Give one use of auxins in agriculture or horticulture.",
+    answer: "Auxins can be used as rooting powders, selective weedkillers or to promote fruit growth."
+},
+
+{
+    id: "bio-487",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Gibberellins",
+    type: "Recall",
+    difficulty: 1,
+    question: "What are gibberellins?",
+    answer: "Plant hormones involved in growth and seed germination."
+},
+
+{
+    id: "bio-488",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Ethene",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is ethene?",
+    answer: "A plant hormone involved in controlling fruit ripening."
+},
+
+{
+    id: "bio-489",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which plant hormone is used to promote seed germination?",
+    answer: "Gibberellins."
+},
+
+{
+    id: "bio-490",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Homeostasis and Response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: 1,
+    question: "Which plant hormone is associated with fruit ripening?",
+    answer: "Ethene."
+},
+
+{
+    id: "bio-491",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Communities",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a community?",
+    answer: "All the populations of different species living and interacting in an area."
+},
+
+{
+    id: "bio-492",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Ecosystems",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an ecosystem?",
+    answer: "The interaction between a community of organisms and the non-living parts of their environment."
+},
+
+{
+    id: "bio-493",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Interdependence",
+    type: "Explain",
+    difficulty: 2,
+    question: "What does interdependence mean?",
+    answer: "It means organisms depend on other organisms or environmental factors for survival."
+},
+
+{
+    id: "bio-494",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Abiotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is an abiotic factor?",
+    answer: "A non-living factor that affects organisms in an ecosystem."
+},
+
+{
+    id: "bio-495",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Abiotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "Give three examples of abiotic factors.",
+    answer: "Examples include temperature, light intensity, moisture level, soil pH, wind intensity and carbon dioxide concentration."
+},
+
+{
+    id: "bio-496",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "What is a biotic factor?",
+    answer: "A living factor that affects organisms in an ecosystem."
+},
+
+{
+    id: "bio-497",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Biotic factors",
+    type: "Recall",
+    difficulty: 1,
+    question: "Give three examples of biotic factors.",
+    answer: "Examples include competition, predation, disease and the availability of food."
+},
+
+{
+    id: "bio-498",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Explain",
+    difficulty: 2,
+    question: "What do plants compete with each other for?",
+    answer: "Plants compete for light, space, water and mineral ions."
+},
+
+{
+    id: "bio-499",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Explain",
+    difficulty: 2,
+    question: "What do animals compete with each other for?",
+    answer: "Animals compete for food, mates and territory."
+},
+
+{
+    id: "bio-500",
+    subject: "biology",
+    board: "AQA",
+    level: "Foundation",
+    paper: 2,
+    topic: "Ecology",
+    subtopic: "Interdependence",
+    type: "Explain",
+    difficulty: 2,
+    question: "Why can a change in one population affect other populations in a community?",
+    answer: "Organisms are interdependent, so a change in one population can alter food availability, predation, competition or other relationships."
 }
 
 ];
