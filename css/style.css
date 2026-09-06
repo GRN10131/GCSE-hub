@@ -993,3 +993,129 @@ hr {
     flex-wrap:
         wrap;
 }
+
+/* =========================================
+   WOJTEK THE BEAR - MASCOT
+   48-frame / 12-animation sprite
+   ========================================= */
+
+.wojtek {
+    width: 240px;
+    height: 85px;
+
+    background-image: url("../assets/wojtek/wojtek-sprite.png");
+    background-repeat: no-repeat;
+    background-size: 400% 1200%;
+
+    background-position-x: 0%;
+    background-position-y: 0%;
+
+    display: block;
+
+    --wojtek-speed: 0.8s;
+
+    animation-name: wojtek-animation;
+    animation-duration: var(--wojtek-speed);
+    animation-timing-function: steps(4);
+    animation-iteration-count: infinite;
+}
+
+/* The four frames of each animation */
+
+@keyframes wojtek-animation {
+    from {
+        background-position-x: 0%;
+    }
+
+    to {
+        background-position-x: 100%;
+    }
+}
+
+
+/* =========================================
+   ANIMATION ROWS
+   ========================================= */
+
+.wojtek.idle {
+    background-position-y: 0%;
+}
+
+.wojtek.wave {
+    background-position-y: 9.09%;
+}
+
+.wojtek.happy {
+    background-position-y: 18.18%;
+}
+
+.wojtek.celebrate {
+    background-position-y: 27.27%;
+}
+
+.wojtek.thinking {
+    background-position-y: 36.36%;
+}
+
+.wojtek.studying {
+    background-position-y: 45.45%;
+}
+
+.wojtek.encourage {
+    background-position-y: 54.54%;
+}
+
+.wojtek.surprised {
+    background-position-y: 63.63%;
+}
+
+.wojtek.achievement {
+    background-position-y: 72.72%;
+}
+
+.wojtek.sleep {
+    background-position-y: 81.81%;
+}
+
+.wojtek.keep-going {
+    background-position-y: 90.90%;
+}
+
+.wojtek.welcome {
+    background-position-y: 100%;
+}
+
+
+/* =========================================
+   SIZE VARIANTS
+   ========================================= */
+
+.wojtek.small {
+    width: 160px;
+    height: 57px;
+}
+
+.wojtek.large {
+    width: 320px;
+    height: 113px;
+}
+
+
+/* =========================================
+   SPEED VARIANTS
+   ========================================= */
+
+.wojtek.fast {
+    --wojtek-speed: 0.45s;
+}
+
+.wojtek.slow {
+    --wojtek-speed: 1.4s;
+}
+
+
+/* Stop animation when required */
+
+.wojtek.paused {
+    animation-play-state: paused;
+}
