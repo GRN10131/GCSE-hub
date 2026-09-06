@@ -1498,7 +1498,6 @@ const FLASHCARDS = [
     difficulty: 2,
     question: "How are photosynthesis and respiration linked?",
     answer: "Photosynthesis produces glucose and oxygen, which can be used in aerobic respiration. Respiration produces carbon dioxide and water, which can be used in photosynthesis."
-}
 
    },
    /* =========================================================
