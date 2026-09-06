@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Knowledge Bank — GCSE Hub</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+injectHeader();
+</script>
+
+
+<main class="main">
+
+    <div class="hero">
+
+        <div>
+
+            <h1>
+                Knowledge Bank 📚
+            </h1>
+
+            <p>
+                Explore the key knowledge
+                for your subject.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div id="topics"></div>
+
+
+    <div style="margin-top:24px">
+
+        <a
+            href="dashboard.html"
+            class="btn ghost"
+        >
+            ← Dashboard
+        </a>
+
+    </div>
+
+</main>
+
+
+<script>
+
+const data = load();
+
+const topics =
+    TOPICS[data.subject] || [];
+
+
+document.getElementById("topics")
+    .innerHTML =
+
+    topics.map(topic => `
+
+        <div class="topic">
+
+            <div>
+
+                <h3>
+                    ${topic}
+                </h3>
+
+                <p>
+                    Key facts, definitions,
+                    examples and exam tips.
+                </p>
+
+            </div>
+
+
+            <button
+                class="btn secondary"
+                onclick="studyTopic(this, '${topic}')"
+            >
+                Study +10
+            </button>
+
+        </div>
+
+    `).join("");
+
+
+function studyTopic(button, topic) {
+
+    award(10, 1);
+
+
+    button.textContent = "✓ Studied";
+
+    button.disabled = true;
+
+}
+
+</script>
+
+</body>
+</html>
