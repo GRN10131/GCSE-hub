@@ -228,12 +228,17 @@ function getStudentCards() {
 
             &&
 
-            (
-                !card.level
-                ||
-                card.level === level
-            )
-
+         (
+    !card.level
+    ||
+    card.level === "Foundation"
+    ||
+    (
+        level === "Higher"
+        &&
+        card.level === "Higher"
+    )
+)
             &&
 
             (
