@@ -2964,6 +2964,1411 @@ const FLASHCARDS = [
     difficulty: 3,
     question: "Why is maintaining biodiversity important?",
     answer: "Biodiversity supports stable ecosystems and provides resources and ecosystem services that humans depend on."
+},
+
+   // ============================================================
+// BIOLOGY FLASHCARDS 201–300
+// AQA GCSE Biology 8461
+// ============================================================
+
+{
+    id: 201,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Homeostasis",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is homeostasis?",
+    answer: "The regulation of the internal conditions of a cell or organism to maintain optimum conditions for function in response to internal and external changes."
+},
+
+{
+    id: 202,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Homeostasis",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "Why is homeostasis important for enzyme-controlled reactions?",
+    answer: "It maintains conditions such as temperature and pH within suitable limits so that enzymes can function effectively."
+},
+
+{
+    id: 203,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Control systems",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What three components are found in a homeostatic control system?",
+    answer: "Receptors, coordination centres and effectors."
+},
+
+{
+    id: 204,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Control systems",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "What is the role of a receptor in a control system?",
+    answer: "A receptor detects a stimulus or change in the environment."
+},
+
+{
+    id: 205,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Control systems",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "What is the role of an effector in a control system?",
+    answer: "An effector produces a response that helps restore the internal condition towards its optimum level."
+},
+
+{
+    id: 206,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which organ monitors and controls blood glucose concentration?",
+    answer: "The pancreas."
+},
+
+{
+    id: 207,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which hormone lowers blood glucose concentration?",
+    answer: "Insulin."
+},
+
+{
+    id: 208,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Blood glucose",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which hormone increases blood glucose concentration?",
+    answer: "Glucagon."
+},
+
+{
+    id: 209,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Blood glucose",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "What happens to excess glucose when blood glucose concentration is too high?",
+    answer: "Insulin causes glucose to be converted into glycogen and stored, mainly in the liver and muscles."
+},
+
+{
+    id: 210,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Blood glucose",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "How does glucagon increase blood glucose concentration?",
+    answer: "Glucagon causes glycogen stored in the liver to be converted into glucose, which is released into the blood."
+},
+
+{
+    id: 211,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is type 1 diabetes?",
+    answer: "A condition in which the pancreas does not produce enough insulin."
+},
+
+{
+    id: 212,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "How is type 1 diabetes commonly treated?",
+    answer: "With regular injections of insulin."
+},
+
+{
+    id: 213,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Diabetes",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is type 2 diabetes?",
+    answer: "A condition in which the body cells no longer respond effectively to insulin."
+},
+
+{
+    id: 214,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Diabetes",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "Give two ways type 2 diabetes may be controlled.",
+    answer: "A carbohydrate-controlled diet and regular exercise can help control type 2 diabetes."
+},
+
+{
+    id: 215,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Temperature control",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "Why must human body temperature be kept within a narrow range?",
+    answer: "Because enzymes work best within a narrow temperature range. Temperatures that are too high can denature enzymes."
+},
+
+{
+    id: 216,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Temperature control",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which part of the brain monitors body temperature?",
+    answer: "The thermoregulatory centre in the brain."
+},
+
+{
+    id: 217,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Temperature control",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "How does sweating help cool the body?",
+    answer: "Sweat evaporates from the skin, transferring thermal energy away from the body."
+},
+
+{
+    id: 218,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Temperature control",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "How does vasodilation help cool the body?",
+    answer: "Blood vessels near the skin widen, increasing blood flow near the surface and increasing heat loss."
+},
+
+{
+    id: 219,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Temperature control",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "How does vasoconstriction reduce heat loss?",
+    answer: "Blood vessels near the skin narrow, reducing blood flow near the surface and therefore reducing heat loss."
+},
+
+{
+    id: 220,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Temperature control",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What happens to the muscles attached to hair follicles when a person becomes cold?",
+    answer: "They contract, causing hairs to stand upright."
+},
+
+{
+    id: 221,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is the function of the nervous system?",
+    answer: "It enables the body to respond rapidly to changes in the internal and external environment."
+},
+
+{
+    id: 222,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a stimulus?",
+    answer: "A change in the environment that can be detected by receptors."
+},
+
+{
+    id: 223,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a sensory neurone?",
+    answer: "A neurone that carries electrical impulses from receptors to the central nervous system."
+},
+
+{
+    id: 224,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Nervous system",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a motor neurone?",
+    answer: "A neurone that carries electrical impulses from the central nervous system to an effector."
+},
+
+{
+    id: 225,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Reflexes",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a reflex action?",
+    answer: "A rapid, automatic response to a stimulus that does not require conscious thought."
+},
+
+{
+    id: 226,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Reflexes",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "Why are reflex actions useful?",
+    answer: "They provide rapid automatic responses that can reduce the chance of injury."
+},
+
+{
+    id: 227,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Synapses",
+    type: "Recall",
+    difficulty: "Higher",
+    question: "What is a synapse?",
+    answer: "A junction between two neurones."
+},
+
+{
+    id: 228,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Synapses",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "How is an impulse transmitted across a synapse?",
+    answer: "Chemicals are released from the first neurone, diffuse across the gap and bind to receptors on the next neurone, triggering a new electrical impulse."
+},
+
+{
+    id: 229,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Reaction time",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is reaction time?",
+    answer: "The time taken to respond to a stimulus."
+},
+
+{
+    id: 230,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Reaction time",
+    type: "Application",
+    difficulty: "Foundation",
+    question: "Why should a reaction-time investigation be repeated several times?",
+    answer: "To calculate a mean and reduce the effect of anomalous results."
+},
+
+{
+    id: 231,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Hormones",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Where are hormones released from?",
+    answer: "Glands."
+},
+
+{
+    id: 232,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Hormones",
+    type: "Compare",
+    difficulty: "Foundation",
+    question: "How does hormonal coordination differ from nervous coordination?",
+    answer: "Hormones are chemical messengers carried in the blood and usually produce slower but longer-lasting responses, whereas nervous responses are usually faster and shorter-lasting."
+},
+
+{
+    id: 233,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Menstrual cycle",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which hormone causes the release of an egg during ovulation?",
+    answer: "Luteinising hormone (LH)."
+},
+
+{
+    id: 234,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Menstrual cycle",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which hormone causes the lining of the uterus to thicken?",
+    answer: "Oestrogen."
+},
+
+{
+    id: 235,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Menstrual cycle",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which hormone maintains the lining of the uterus after ovulation?",
+    answer: "Progesterone."
+},
+
+{
+    id: 236,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Contraception",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "How can oral contraceptives prevent pregnancy?",
+    answer: "They contain hormones that prevent the release of an egg."
+},
+
+{
+    id: 237,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Fertility treatment",
+    type: "Recall",
+    difficulty: "Higher",
+    question: "Which hormones can be used in fertility treatment to stimulate egg maturation and ovulation?",
+    answer: "FSH and LH."
+},
+
+{
+    id: 238,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is the role of auxin in phototropism?",
+    answer: "Auxin causes cells on the shaded side of a shoot to elongate, causing the shoot to grow towards the light."
+},
+
+{
+    id: 239,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Plant hormones",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "Why does a plant shoot bend towards light?",
+    answer: "Auxin becomes concentrated on the shaded side, causing those cells to elongate more rapidly and making the shoot bend towards the light."
+},
+
+{
+    id: 240,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Homeostasis and response",
+    subtopic: "Plant hormones",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is gravitropism?",
+    answer: "The growth response of a plant to gravity."
+},
+
+{
+    id: 241,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Sexual reproduction",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Why does sexual reproduction produce genetically different offspring?",
+    answer: "Because genetic material from two parents combines during fertilisation."
+},
+
+{
+    id: 242,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Asexual reproduction",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Why are offspring produced by asexual reproduction genetically identical to the parent?",
+    answer: "Asexual reproduction involves only one parent and does not involve the fusion of gametes."
+},
+
+{
+    id: 243,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Asexual reproduction",
+    type: "Compare",
+    difficulty: "Foundation",
+    question: "Give one advantage of asexual reproduction.",
+    answer: "It is rapid and can produce many genetically identical offspring without requiring a mate."
+},
+
+{
+    id: 244,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Asexual reproduction",
+    type: "Compare",
+    difficulty: "Foundation",
+    question: "Give one disadvantage of asexual reproduction.",
+    answer: "There is little or no genetic variation, so a population may be vulnerable if environmental conditions change."
+},
+
+{
+    id: 245,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Meiosis",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is the purpose of meiosis?",
+    answer: "To produce gametes containing half the normal number of chromosomes."
+},
+
+{
+    id: 246,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Meiosis",
+    type: "Compare",
+    difficulty: "Foundation",
+    question: "How does the chromosome number in a gamete compare with that of a normal body cell?",
+    answer: "A gamete contains half the number of chromosomes."
+},
+
+{
+    id: 247,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "DNA",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a gene?",
+    answer: "A section of DNA that codes for a particular sequence of amino acids."
+},
+
+{
+    id: 248,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "DNA",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Where are genes located?",
+    answer: "Genes are sections of DNA found on chromosomes."
+},
+
+{
+    id: 249,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Alleles",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is an allele?",
+    answer: "A different version of a gene."
+},
+
+{
+    id: 250,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Dominant and recessive alleles",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a dominant allele?",
+    answer: "An allele that is expressed when at least one copy is present."
+},
+
+{
+    id: 251,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Dominant and recessive alleles",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a recessive allele?",
+    answer: "An allele that is only expressed when two copies are present."
+},
+
+{
+    id: 252,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Genotype and phenotype",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a genotype?",
+    answer: "The combination of alleles an organism has."
+},
+
+{
+    id: 253,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Genotype and phenotype",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a phenotype?",
+    answer: "The observable characteristics of an organism."
+},
+
+{
+    id: 254,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Genotype and phenotype",
+    type: "Compare",
+    difficulty: "Foundation",
+    question: "What is the difference between homozygous and heterozygous?",
+    answer: "A homozygous organism has two identical alleles for a gene, whereas a heterozygous organism has two different alleles."
+},
+
+{
+    id: 255,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Punnett squares",
+    type: "Application",
+    difficulty: "Foundation",
+    question: "A heterozygous black rabbit is crossed with another heterozygous black rabbit. If black fur is dominant, what proportion of offspring are expected to have white fur?",
+    answer: "25%."
+},
+
+{
+    id: 256,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Punnett squares",
+    type: "Application",
+    difficulty: "Higher",
+    question: "A homozygous dominant plant is crossed with a homozygous recessive plant. What proportion of the offspring will be heterozygous?",
+    answer: "100%."
+},
+
+{
+    id: 257,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Sex determination",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which sex chromosomes are normally found in a human female?",
+    answer: "XX."
+},
+
+{
+    id: 258,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Sex determination",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which sex chromosomes are normally found in a human male?",
+    answer: "XY."
+},
+
+{
+    id: 259,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Sex determination",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "Why is the probability of a child being male or female approximately 50%?",
+    answer: "Egg cells always contain an X chromosome, while sperm cells contain either X or Y. There is approximately an equal chance of an X or Y sperm fertilising the egg."
+},
+
+{
+    id: 260,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Genetic disorders",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What causes cystic fibrosis?",
+    answer: "A recessive allele that affects the CFTR gene."
+},
+
+{
+    id: 261,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Genetic disorders",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "Why must a person inherit two recessive cystic fibrosis alleles to have the disorder?",
+    answer: "The cystic fibrosis allele is recessive, so the disorder is only expressed when no dominant normal allele is present."
+},
+
+{
+    id: 262,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Genetic disorders",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What causes polydactyly?",
+    answer: "A dominant allele."
+},
+
+{
+    id: 263,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Variation",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is variation?",
+    answer: "Differences in characteristics between individuals of the same species."
+},
+
+{
+    id: 264,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Variation",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "What are the two main causes of variation?",
+    answer: "Genetic differences and environmental differences."
+},
+
+{
+    id: 265,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Mutation",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a mutation?",
+    answer: "A change in the genetic material."
+},
+
+{
+    id: 266,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Natural selection",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "How can natural selection cause a population to evolve?",
+    answer: "Individuals with advantageous inherited characteristics are more likely to survive and reproduce, passing their alleles to their offspring. Over generations these alleles become more common."
+},
+
+{
+    id: 267,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Natural selection",
+    type: "Application",
+    difficulty: "Higher",
+    question: "Why might a change in the environment cause a previously rare characteristic to become more common?",
+    answer: "The characteristic may provide a survival advantage in the changed environment, meaning individuals with it are more likely to survive and reproduce."
+},
+
+{
+    id: 268,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Selective breeding",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is selective breeding?",
+    answer: "Humans choosing organisms with desirable characteristics and breeding them so that those characteristics become more common."
+},
+
+{
+    id: 269,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Selective breeding",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "How can selective breeding increase milk production in cattle?",
+    answer: "Farmers select cattle that produce the most milk and breed them. Their offspring are then selected and bred over many generations."
+},
+
+{
+    id: 270,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Selective breeding",
+    type: "Evaluate",
+    difficulty: "Higher",
+    question: "What is one disadvantage of selective breeding?",
+    answer: "It reduces genetic variation and can increase the frequency of inherited disorders."
+},
+
+{
+    id: 271,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Evidence for evolution",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a fossil?",
+    answer: "The remains of organisms from millions of years ago that are found preserved in rocks."
+},
+
+{
+    id: 272,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Evidence for evolution",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "Why is the fossil record incomplete?",
+    answer: "Many organisms did not leave fossils, fossils can be destroyed by geological processes, and many fossils have not yet been discovered."
+},
+
+{
+    id: 273,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Speciation",
+    type: "Recall",
+    difficulty: "Higher",
+    question: "What is speciation?",
+    answer: "The formation of a new species."
+},
+
+{
+    id: 274,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Speciation",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "How can geographical isolation lead to speciation?",
+    answer: "A population becomes separated, so different mutations and selection pressures cause the populations to become genetically different. Eventually they may become unable to interbreed successfully."
+},
+
+{
+    id: 275,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Classification",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is the purpose of classification?",
+    answer: "To organise living organisms into groups based on their similarities and differences."
+},
+
+{
+    id: 276,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Inheritance variation and evolution",
+    subtopic: "Classification",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which three domains are used in modern classification?",
+    answer: "Archaea, bacteria and eukaryotes."
+},
+
+{
+    id: 277,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Communities",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a population?",
+    answer: "All the organisms of one species living in a particular area."
+},
+
+{
+    id: 278,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Communities",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a community?",
+    answer: "All the populations of different species living and interacting in an area."
+},
+
+{
+    id: 279,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Communities",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is an ecosystem?",
+    answer: "The interaction between a community of living organisms and the non-living parts of their environment."
+},
+
+{
+    id: 280,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Interdependence",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "What does interdependence mean in an ecosystem?",
+    answer: "Different species depend on each other for resources such as food, shelter and pollination."
+},
+
+{
+    id: 281,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What do plants compete with each other for?",
+    answer: "Light, space, water and mineral ions."
+},
+
+{
+    id: 282,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Competition",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What do animals compete with each other for?",
+    answer: "Food, mates and territory."
+},
+
+{
+    id: 283,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Abiotic factors",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is an abiotic factor?",
+    answer: "A non-living factor that affects organisms in an ecosystem."
+},
+
+{
+    id: 284,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Abiotic factors",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Give four examples of abiotic factors.",
+    answer: "Temperature, light intensity, moisture level and soil pH."
+},
+
+{
+    id: 285,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Biotic factors",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a biotic factor?",
+    answer: "A living factor that affects organisms in an ecosystem."
+},
+
+{
+    id: 286,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Biotic factors",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Give three examples of biotic factors.",
+    answer: "Predators, competition and availability of food."
+},
+
+{
+    id: 287,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a producer?",
+    answer: "An organism that produces its own food, usually through photosynthesis."
+},
+
+{
+    id: 288,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a primary consumer?",
+    answer: "An organism that feeds directly on a producer."
+},
+
+{
+    id: 289,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a secondary consumer?",
+    answer: "An organism that feeds on primary consumers."
+},
+
+{
+    id: 290,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Food chains",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "Why is less biomass available at each successive trophic level?",
+    answer: "Energy is lost through respiration, movement, heat, waste materials and uneaten parts, so less energy is available to the next trophic level."
+},
+
+{
+    id: 291,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Pyramids of biomass",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What does a pyramid of biomass show?",
+    answer: "The total mass of living material at each trophic level in a food chain."
+},
+
+{
+    id: 292,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Sampling",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is the purpose of using quadrats in ecology?",
+    answer: "To estimate the abundance or distribution of organisms in an area."
+},
+
+{
+    id: 293,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Sampling",
+    type: "Application",
+    difficulty: "Foundation",
+    question: "Why should quadrats be placed randomly when estimating the abundance of a plant?",
+    answer: "Random placement reduces bias and makes the sample more representative of the whole area."
+},
+
+{
+    id: 294,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Transects",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "What is a transect used for?",
+    answer: "To investigate how the distribution of organisms changes along an environmental gradient."
+},
+
+{
+    id: 295,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Predator-prey relationships",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "Why does the number of predators often increase after the number of prey increases?",
+    answer: "More prey provides more food, increasing survival and reproduction in the predator population."
+},
+
+{
+    id: 296,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Predator-prey relationships",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "Why does a predator population often decrease after a prey population decreases?",
+    answer: "There is less food available, causing increased competition and reduced survival and reproduction."
+},
+
+{
+    id: 297,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Decomposition",
+    type: "Recall",
+    difficulty: "Foundation",
+    question: "Which organisms are mainly responsible for decomposition?",
+    answer: "Microorganisms such as bacteria and fungi."
+},
+
+{
+    id: 298,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Decomposition",
+    type: "Explain",
+    difficulty: "Foundation",
+    question: "How do decomposers obtain nutrients from dead organisms?",
+    answer: "They secrete enzymes onto dead material. The enzymes digest large insoluble molecules into smaller soluble molecules that can be absorbed."
+},
+
+{
+    id: 299,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Decomposition",
+    type: "Application",
+    difficulty: "Higher",
+    question: "Why does decomposition usually happen faster in warm, moist conditions?",
+    answer: "Microorganisms are more active at suitable temperatures and need water for their biological reactions. Warm, moist conditions can therefore increase decomposition."
+},
+
+{
+    id: 300,
+    subject: "Biology",
+    board: "AQA",
+    level: "GCSE",
+    paper: "Paper 2",
+    topic: "Ecology",
+    subtopic: "Carbon cycle",
+    type: "Explain",
+    difficulty: "Higher",
+    question: "How is carbon dioxide returned to the atmosphere during the carbon cycle?",
+    answer: "Respiration by plants, animals and microorganisms releases carbon dioxide. Combustion of fuels and wood also releases carbon dioxide."
 }
 
 ];
