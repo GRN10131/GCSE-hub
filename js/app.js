@@ -641,6 +641,73 @@ function resetData() {
 
 }
 
+/* =========================================
+   WOJTEK MASCOT SYSTEM
+   ========================================= */
+
+function createWojtek(element, animation = "idle") {
+
+    if (!element) return;
+
+    element.className = "wojtek " + animation;
+}
+
+
+/* Change Wojtek's animation */
+
+function wojtekAnimation(animation) {
+
+    const wojteks = document.querySelectorAll(".wojtek");
+
+    wojteks.forEach(wojtek => {
+
+        wojtek.classList.remove(
+            "idle",
+            "wave",
+            "happy",
+            "celebrate",
+            "thinking",
+            "studying",
+            "encourage",
+            "surprised",
+            "achievement",
+            "sleep",
+            "keep-going",
+            "welcome"
+        );
+
+        wojtek.classList.add(animation);
+
+    });
+
+}
+
+
+/* Change Wojtek's speech */
+
+function wojtekSpeak(message) {
+
+    const messages = document.querySelectorAll(".wojtek-message");
+
+    messages.forEach(box => {
+
+        box.innerHTML = message;
+
+    });
+
+}
+
+
+/* Animation + speech together */
+
+function wojtekSay(animation, message) {
+
+    wojtekAnimation(animation);
+
+    wojtekSpeak(message);
+
+}
+
 
 /* =========================================================
    CROSS-PAGE / CROSS-TAB UPDATE
@@ -661,3 +728,5 @@ window.addEventListener(
 
     }
 );
+
+
