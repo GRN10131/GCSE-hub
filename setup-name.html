@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Name — GCSE Hub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<main class="main center">
+
+    <div class="setup-title">
+
+        <h1>
+            What should we call you?
+        </h1>
+
+        <p>
+            Your name will appear on your GCSE Hub dashboard.
+        </p>
+
+    </div>
+
+
+    <div class="card form">
+
+        <label>
+            <strong>Your name</strong>
+
+            <input
+                id="name"
+                type="text"
+                maxlength="30"
+                placeholder="e.g. Alex"
+            >
+        </label>
+
+
+        <div class="footer-actions">
+
+            <a href="index.html" class="btn ghost">
+                ← Back
+            </a>
+
+            <button class="btn" onclick="nextPage()">
+                Continue →
+            </button>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="js/app.js"></script>
+
+<script>
+
+const data = load();
+
+if (data.name !== "Student") {
+    document.getElementById("name").value = data.name;
+}
+
+
+function nextPage() {
+
+    const name =
+        document.getElementById("name").value.trim();
+
+    if (!name) {
+
+        alert("Please enter your name.");
+
+        return;
+    }
+
+
+    const data = load();
+
+    data.name = name;
+
+    save(data);
+
+    window.location.href = "setup-subject.html";
+}
+
+</script>
+
+</body>
+</html>
