@@ -19,97 +19,59 @@
 
     <style>
 
-        .subjects-section {
-
-            margin-bottom: 28px;
-
-        }
-
-
         .subject-list {
 
-            display: flex;
+            display:flex;
 
-            gap: 10px;
+            flex-wrap:wrap;
 
-            flex-wrap: wrap;
+            gap:10px;
+
+            margin-bottom:8px;
 
         }
 
 
         .subject-button {
 
-            display: flex;
+            padding:11px 15px;
 
-            align-items: center;
+            border:2px solid #e4e7ef;
 
-            gap: 8px;
+            background:white;
 
-            padding: 11px 15px;
+            border-radius:14px;
 
-            border-radius: 14px;
+            cursor:pointer;
 
-            border: 2px solid #e4e7ef;
-
-            background: white;
-
-            cursor: pointer;
-
-            font-weight: 800;
-
-            transition: .15s;
-
-        }
-
-
-        .subject-button:hover {
-
-            transform:
-                translateY(-2px);
-
-            border-color:
-                #b9bbff;
+            font-weight:800;
 
         }
 
 
         .subject-button.active {
 
-            border-color:
-                #5b5ce2;
+            border-color:#5b5ce2;
 
-            background:
-                #f4f4ff;
+            background:#f3f3ff;
 
-            color:
-                #5b5ce2;
+            color:#5b5ce2;
 
         }
 
 
         .subject-icon {
 
-            font-size: 21px;
+            margin-right:6px;
 
         }
 
 
-        .current-subject {
+        .empty-message {
 
-            margin-top: 5px;
+            padding:20px;
 
-            color: #6d7688;
-
-        }
-
-
-        .goal-complete {
-
-            margin-top: 12px;
-
-            font-weight: 800;
-
-            color: #26a269;
+            text-align:center;
 
         }
 
@@ -122,6 +84,7 @@
 
 
 <script src="js/app.js"></script>
+
 
 <script>
 
@@ -141,17 +104,15 @@ injectHeader();
 
             <div class="subject-chip">
 
+                <span data-subject></span>
+
                 <span
-                    id="currentSubjectName"
+                    id="subjectSeparator"
                 >
-                    Select a subject
+                    •
                 </span>
 
-                •
-
-                <span data-level>
-                    Higher
-                </span>
+                <span data-level></span>
 
             </div>
 
@@ -159,9 +120,7 @@ injectHeader();
             <h1>
 
                 Welcome back,
-                <span data-name>
-                    Student
-                </span>!
+                <span data-name></span>!
 
                 👋
 
@@ -184,43 +143,35 @@ injectHeader();
 
     <!-- SUBJECTS -->
 
-    <div class="subjects-section">
+    <div class="section-title">
 
-        <div class="section-title">
-
-            <h2>
-                Your subjects
-            </h2>
-
-            <a
-                href="setup-subject.html"
-                class="btn secondary"
-            >
-                Edit
-            </a>
-
-        </div>
+        <h2>
+            Your subjects
+        </h2>
 
 
-        <div
-            id="subjectList"
-            class="subject-list"
-        ></div>
-
-
-        <p class="current-subject">
-
-            Click a subject to make it your
-            current revision subject.
-
-        </p>
+        <a
+            href="setup-subject.html"
+            class="btn secondary"
+        >
+            Edit
+        </a>
 
     </div>
 
 
+    <div
+        id="subjectList"
+        class="subject-list"
+    ></div>
+
+
     <!-- DAILY PROGRESS -->
 
-    <div class="card progress-card">
+    <div
+        class="card progress-card"
+        style="margin-top:25px"
+    >
 
         <div class="progress-head">
 
@@ -231,15 +182,11 @@ injectHeader();
 
             <span>
 
-                <b data-today>
-                    0
-                </b>
+                <b data-today>0</b>
 
                 /
 
-                <span data-goal>
-                    500
-                </span>
+                <span data-goal>500</span>
 
                 points
 
@@ -259,14 +206,9 @@ injectHeader();
 
 
         <p
-            id="goalMessage"
+            id="goalText"
             class="small muted"
-        >
-
-            Earn points from any revision activity.
-            Your progress is shared across GCSE Hub.
-
-        </p>
+        ></p>
 
     </div>
 
@@ -290,8 +232,8 @@ injectHeader();
             </h3>
 
             <p>
-                Answer specific questions
-                about your GCSE content.
+                Test yourself with specific
+                GCSE questions.
             </p>
 
         </a>
@@ -311,8 +253,7 @@ injectHeader();
             </h3>
 
             <p>
-                Challenge yourself with
-                exam-style questions.
+                Take exam-style tests.
             </p>
 
         </a>
@@ -332,8 +273,7 @@ injectHeader();
             </h3>
 
             <p>
-                Explore key knowledge,
-                facts and explanations.
+                Learn key knowledge.
             </p>
 
         </a>
@@ -353,8 +293,7 @@ injectHeader();
             </h3>
 
             <p>
-                Connect ideas and
-                see the bigger picture.
+                Connect ideas together.
             </p>
 
         </a>
@@ -394,11 +333,11 @@ injectHeader();
             </h3>
 
             <p>
-                Manage your profile,
-                subjects and goals.
+                Manage GCSE Hub.
             </p>
 
         </a>
+
 
     </div>
 
@@ -408,7 +347,7 @@ injectHeader();
     <div class="section-title">
 
         <h2>
-            Your revision stats
+            Your stats
         </h2>
 
     </div>
@@ -424,13 +363,8 @@ injectHeader();
             </span>
 
             <strong>
-
                 ⭐
-
-                <span data-points>
-                    0
-                </span>
-
+                <span data-points>0</span>
             </strong>
 
         </div>
@@ -443,13 +377,8 @@ injectHeader();
             </span>
 
             <strong>
-
                 💎
-
-                <span data-gems>
-                    0
-                </span>
-
+                <span data-gems>0</span>
             </strong>
 
         </div>
@@ -462,20 +391,16 @@ injectHeader();
             </span>
 
             <strong>
-
                 🔥
-
-                <span data-streak>
-                    0
-                </span>
-
+                <span data-streak>0</span>
                 days
-
             </strong>
 
         </div>
 
+
     </div>
+
 
 </main>
 
@@ -484,7 +409,7 @@ injectHeader();
 
 
 /* =========================================================
-   RENDER SUBJECTS
+   SUBJECTS
    ========================================================= */
 
 function renderSubjects() {
@@ -500,17 +425,25 @@ function renderSubjects() {
 
 
     if (
-        !data.subjects ||
-        data.subjects.length === 0
+        !data.subjects.length
     ) {
 
         container.innerHTML = `
 
-            <p class="muted">
+            <div class="card empty-message">
 
-                No subjects selected yet.
+                <p>
+                    You haven't selected any subjects yet.
+                </p>
 
-            </p>
+                <a
+                    href="setup-subject.html"
+                    class="btn"
+                >
+                    Choose subjects
+                </a>
+
+            </div>
 
         `;
 
@@ -519,99 +452,80 @@ function renderSubjects() {
     }
 
 
-    container.innerHTML =
-
-        data.subjects
-
-            .map(
-                id => {
-
-                    const subject =
-                        SUBJECTS[id];
+    container.innerHTML = "";
 
 
-                    if (!subject) {
-                        return "";
-                    }
+    data.subjects.forEach(
+        id => {
+
+            const subject =
+                SUBJECTS[id];
 
 
-                    const active =
-                        id ===
-                        data.currentSubject
-                            ? "active"
-                            : "";
+            if (!subject) {
+                return;
+            }
 
 
-                    return `
-
-                        <button
-
-                            class="
-                                subject-button
-                                ${active}
-                            "
-
-                            onclick="
-                                selectCurrentSubject(
-                                    '${id}'
-                                )
-                            "
-                        >
-
-                            <span
-                                class="subject-icon"
-                            >
-
-                                ${subject.icon}
-
-                            </span>
+            const button =
+                document.createElement(
+                    "button"
+                );
 
 
-                            <span>
-
-                                ${subject.name}
-
-                            </span>
-
-                        </button>
-
-                    `;
-
-                }
-            )
-
-            .join("");
-
-}
+            button.className =
+                "subject-button";
 
 
-/* =========================================================
-   SELECT CURRENT SUBJECT
-   ========================================================= */
+            if (
+                id ===
+                data.currentSubject
+            ) {
 
-function selectCurrentSubject(
-    id
-) {
+                button.classList.add(
+                    "active"
+                );
 
-    setCurrentSubject(id);
-
-
-    renderSubjects();
+            }
 
 
-    renderStats();
+            button.innerHTML = `
+
+                <span class="subject-icon">
+                    ${subject.icon}
+                </span>
+
+                ${subject.name}
+
+            `;
 
 
-    updateCurrentSubjectName();
+            button.onclick = () => {
+
+                setCurrentSubject(id);
+
+                renderSubjects();
+
+                updateHero();
+
+            };
+
+
+            container.appendChild(
+                button
+            );
+
+        }
+    );
 
 }
 
 
 /* =========================================================
-   CURRENT SUBJECT LABEL
+   HERO
    ========================================================= */
 
-function updateCurrentSubjectName() {
+function updateHero() {
 
     const data =
         load();
@@ -623,30 +537,57 @@ function updateCurrentSubjectName() {
         ];
 
 
-    document.getElementById(
-        "currentSubjectName"
+    document.querySelector(
+        "[data-subject]"
     ).textContent =
-
         subject
             ? subject.name
-            : "Select a subject";
+            : "";
+
+
+    document.querySelector(
+        "[data-level]"
+    ).textContent =
+        subject &&
+        subject.levels.length
+            ? data.levels[
+                data.currentSubject
+            ]
+            : "";
+
+
+    document.getElementById(
+        "subjectSeparator"
+    ).style.display =
+        subject &&
+        subject.levels.length
+            ? "inline"
+            : "none";
 
 }
 
 
 /* =========================================================
-   GOAL MESSAGE
+   DAILY MESSAGE
    ========================================================= */
 
-function updateGoalMessage() {
+function updateGoalText() {
 
     const data =
         load();
 
 
-    const message =
+    const remaining =
+        Math.max(
+            0,
+            data.dailyGoal -
+            data.pointsToday
+        );
+
+
+    const element =
         document.getElementById(
-            "goalMessage"
+            "goalText"
         );
 
 
@@ -655,30 +596,19 @@ function updateGoalMessage() {
         data.dailyGoal
     ) {
 
-        message.className =
-            "goal-complete";
-
-
-        message.textContent =
+        element.textContent =
             "🎉 Daily goal complete! Amazing work!";
 
-    }
+        element.className =
+            "goal-complete";
 
-    else {
+    } else {
 
-        message.className =
+        element.textContent =
+            `${remaining} points remaining today.`;
+
+        element.className =
             "small muted";
-
-
-        const remaining =
-            data.dailyGoal -
-            data.pointsToday;
-
-
-        message.textContent =
-
-            `${remaining} points to go today. ` +
-            `You can earn them from any activity.`;
 
     }
 
@@ -686,34 +616,28 @@ function updateGoalMessage() {
 
 
 /* =========================================================
-   INITIALISE
+   UPDATE
    ========================================================= */
 
-renderSubjects();
+function updateDashboard() {
 
-updateCurrentSubjectName();
+    renderStats();
 
-updateGoalMessage();
+    renderSubjects();
+
+    updateHero();
+
+    updateGoalText();
+
+}
 
 
-/*
-   Re-render when another page/tab
-   changes the stored data.
-*/
+updateDashboard();
+
 
 window.addEventListener(
     "storage",
-    function() {
-
-        renderSubjects();
-
-        updateCurrentSubjectName();
-
-        updateGoalMessage();
-
-        renderStats();
-
-    }
+    updateDashboard
 );
 
 </script>
