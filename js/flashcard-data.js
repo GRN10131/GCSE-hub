@@ -10553,3 +10553,51 @@ const FLASHCARDS = [
     question: "What does Scrooge see happening after an unnamed wealthy man dies?",
     answer: "He sees people treating the man's death with indifference and even taking advantage of the situation."
 },
+
+   { id: 265, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why are the thieves important in the final stave?", answer: "They show that the dead man was disliked and that his possessions have more value to others than his life did. Dickens uses them to emphasise the emptiness of a life based on wealth." }, 
+
+{ id: 266, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Scrooge discover about the lonely grave?", answer: "He eventually realises that the neglected grave belongs to him." }, 
+
+{ id: 267, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is Scrooge's discovery of his grave the turning point?", answer: "He finally understands that his current behaviour could lead to a lonely and unloved death. He desperately promises to change." }, 
+
+{ id: 268, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Scrooge promise after seeing his grave?", answer: "He promises to change his behaviour, honour Christmas and live differently so that his future can be altered." }, 
+
+{ id: 269, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is the idea that the future can change important?", answer: "It presents Dickens's optimistic belief that people are capable of moral transformation and that society's future can improve through individual action." }, 
+
+{ id: 270, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What happens when Scrooge wakes up after the spirits have visited him?", answer: "He discovers that he is still alive and becomes delighted that he has another opportunity to change his life." }, 
+
+{ id: 271, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Scrooge behave when he wakes up?", answer: "He is joyful, energetic and grateful. His behaviour is completely different from his miserable attitude at the beginning." }, 
+
+{ id: 272, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Scrooge do with the prize turkey?", answer: "He buys a large turkey and secretly sends it to the Cratchit family." }, 
+
+{ id: 273, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is the turkey significant?", answer: "It provides a practical demonstration of Scrooge's new generosity and his desire to help the Cratchit family." }, 
+
+{ id: 274, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Scrooge treat the charity collectors after his transformation?", answer: "He secretly promises them a very large donation, demonstrating his complete reversal from his earlier refusal to help." }, 
+
+{ id: 275, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why does Dickens make Scrooge's donation anonymous?", answer: "It shows that Scrooge is no longer seeking praise or financial advantage. His generosity has become genuine." }, 
+
+{ id: 276, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Scrooge's behaviour towards Bob change?", answer: "He becomes generous, friendly and supportive rather than miserly and intimidating." }, 
+
+{ id: 277, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why does Scrooge initially frighten Bob after his transformation?", answer: "Bob has become accustomed to Scrooge being harsh and miserly, so Scrooge's sudden friendliness seems suspicious and unexpected." }, 
+
+{ id: 278, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Scrooge decide to do with Fred?", answer: "He decides to accept Fred's invitation and join his family for Christmas." }, 
+
+{ id: 279, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is Scrooge accepting Fred's invitation significant?", answer: "It shows that Scrooge is rebuilding his relationships and rejecting the isolation that characterised his earlier life." }, 
+
+{ id: 280, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Dickens present Scrooge at the beginning compared with the end?", answer: "At the beginning Scrooge is isolated, miserly and emotionally cold. At the end he is generous, joyful, sociable and compassionate." }, 
+
+{ id: 281, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What is the significance of Scrooge's transformation?", answer: "It demonstrates Dickens's belief that people can change and that individuals have the power to improve society through compassion and generosity." }, 
+
+{ id: 282, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is redemption an important theme in A Christmas Carol?", answer: "Dickens presents Scrooge as someone capable of changing despite his earlier selfishness. Redemption gives the novella its hopeful message." }, 
+
+{ id: 283, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Scrooge's transformation suggest about human nature?", answer: "It suggests that people are capable of recognising their mistakes and changing their behaviour." }, 
+
+{ id: 284, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Dickens present the importance of generosity?", answer: "He shows that generosity creates happiness, strengthens relationships and helps vulnerable people. Scrooge's transformation demonstrates its value." }, 
+
+{ id: 285, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Dickens present the importance of family?", answer: "Families such as the Cratchits and Fred's household are shown as sources of love, support and happiness. Scrooge's isolation demonstrates the consequences of rejecting relationships." }, 
+
+{ id: 286, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Dickens present loneliness?", answer: "Scrooge's loneliness is shown through his isolation from family and society. His childhood memories reveal that loneliness affected him before he became wealthy." }, 
+
+{ id: 287, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is isolation important to Scrooge's character?", answer: "His isolation demonstrates the emotional cost of his obsession with money and helps Dickens show why human relationships are essential to happiness." }, 
+
+{ id: 288, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does money affect Scrooge's relationships?", answer: "His obsession with money causes him to prioritise wealth over love, family and friendship, ultimately leaving him isolated." }, 
