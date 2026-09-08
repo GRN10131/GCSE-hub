@@ -1509,6 +1509,8 @@ function renderSubjects() {
                     );
 
 
+                   renderEnglishTextSelection();
+
                     loadTopics();
 
                     updateStats();
@@ -1525,7 +1527,10 @@ function renderSubjects() {
     );
 
 
+   renderEnglishTextSelection();
+
     loadTopics();
+
 
 }
 
@@ -1886,7 +1891,79 @@ function startSession() {
         return;
 
     }
+    /*
+     * ENGLISH LITERATURE CHECK
+     *
+     * Only require the four choices when
+     * the student is revising English.
+     */
 
+    if (isEnglishSubject()) {
+
+        const missingTexts = [];
+
+
+        if (
+            !selectedEnglishTexts.shakespeare
+        ) {
+
+            missingTexts.push(
+                "Shakespeare"
+            );
+
+        }
+
+
+        if (
+            !selectedEnglishTexts.novel
+        ) {
+
+            missingTexts.push(
+                "19th-century novel"
+            );
+
+        }
+
+
+        if (
+            !selectedEnglishTexts.modern
+        ) {
+
+            missingTexts.push(
+                "modern text"
+            );
+
+        }
+
+
+        if (
+            !selectedEnglishTexts.poetry
+        ) {
+
+            missingTexts.push(
+                "poetry anthology"
+            );
+
+        }
+
+
+        if (missingTexts.length) {
+
+            showSetupMessage(
+
+                "Choose your " +
+
+                missingTexts.join(", ") +
+
+                " before starting English Literature revision."
+
+            );
+
+            return;
+
+        }
+
+    }
 
     const topicSelect =
         document.getElementById(
