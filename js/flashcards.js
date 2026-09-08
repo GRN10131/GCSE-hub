@@ -7,6 +7,8 @@ let selectedTopic = "all";
 let selectedNumber = 10;
 let selectedMode = "normal";
 
+let selectedEnglishRevisionText = "all";
+
 let cards = [];
 let currentCard = 0;
 
@@ -268,42 +270,57 @@ function englishCardMatchesSelection(card) {
         return true;
     }
 
-
     const cardText =
         getEnglishCardText(card);
 
-
     /*
-     * No text field means this is probably
-     * English Language, unseen poetry or
-     * general English knowledge.
+     * Cards without a text field are allowed.
+     * This keeps English Language and general
+     * English cards working.
      */
-
     if (!cardText) {
         return true;
     }
 
-
     const choices =
         getSelectedEnglishTextList();
 
-
+    /*
+     * The student must have selected their
+     * Literature texts first.
+     */
     if (!choices.length) {
         return false;
     }
 
+    /*
+     * If "All my selected texts" is chosen,
+     * use the existing behaviour.
+     */
+    if (
+        selectedEnglishRevisionText ===
+        "all"
+    ) {
 
-    return choices.some(
+        return choices.some(
+            choice =>
+                normalise(choice) ===
+                normalise(cardText)
+        );
 
-        choice =>
+    }
 
-            normalise(choice) ===
-            normalise(cardText)
-
+    /*
+     * Otherwise only show cards for the
+     * specific text currently being revised.
+     */
+    return (
+        normalise(cardText) ===
+        normalise(
+            selectedEnglishRevisionText
+        )
     );
-
 }
-
 
 /* =========================================================
    ENGLISH TEXT SELECTION UI
@@ -526,6 +543,8 @@ function renderEnglishTextSelection() {
                     selectedTopic =
                         "all";
 
+                   renderEnglishRevisionTextSelector();
+
 
                     loadTopics();
 
@@ -550,6 +569,164 @@ function renderEnglishTextSelection() {
     );
 
 }
+
+/* =========================================================
+   ENGLISH LITERATURE — CURRENT REVISION TEXT
+   ========================================================= */
+
+function renderEnglishRevisionTextSelector() {
+
+    const oldSelector =
+        document.getElementById(
+            "englishRevisionTextSelector"
+        );
+
+    if (oldSelector) {
+        oldSelector.remove();
+    }
+
+    if (!isEnglishSubject()) {
+        return;
+    }
+
+    const topic =
+        document.getElementById(
+            "topic"
+        );
+
+    if (!topic) {
+        return;
+    }
+
+    const wrapper =
+        document.createElement(
+            "div"
+        );
+
+    wrapper.id =
+        "englishRevisionTextSelector";
+
+    wrapper.style.marginTop =
+        "25px";
+
+    wrapper.innerHTML = `
+        <label>
+            <strong>
+                📖 What would you like to revise right now?
+            </strong>
+        </label>
+
+        <select
+            id="englishRevisionText"
+            class="flash-select"
+            style="margin-top:8px"
+        >
+            <option value="all">
+                All my selected texts
+            </option>
+        </select>
+    `;
+
+    /*
+     * Put the new selector immediately
+     * before the existing Topic selector.
+     */
+    const topicContainer =
+        topic.parentElement;
+
+    if (topicContainer) {
+
+        topicContainer.parentNode.insertBefore(
+            wrapper,
+            topicContainer
+        );
+
+    }
+
+    const select =
+        document.getElementById(
+            "englishRevisionText"
+        );
+
+    if (!select) {
+        return;
+    }
+
+    /*
+     * Add only the texts the student
+     * has selected in the section above.
+     */
+    const selectedTexts =
+        getSelectedEnglishTextList();
+
+    selectedTexts.forEach(
+        text => {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value =
+                text;
+
+            option.textContent =
+                text;
+
+            select.appendChild(
+                option
+            );
+
+        }
+    );
+
+    /*
+     * If the previously selected text
+     * is no longer available, return to
+     * "All my selected texts".
+     */
+    const stillAvailable =
+        selectedTexts.some(
+            text =>
+                normalise(text) ===
+                normalise(
+                    selectedEnglishRevisionText
+                )
+        );
+
+    if (
+        selectedEnglishRevisionText !== "all" &&
+        !stillAvailable
+    ) {
+        selectedEnglishRevisionText =
+            "all";
+    }
+
+    select.value =
+        selectedEnglishRevisionText;
+
+    select.addEventListener(
+        "change",
+        () => {
+
+            selectedEnglishRevisionText =
+                select.value || "all";
+
+            /*
+             * Changing the text changes
+             * which topics are available.
+             */
+            selectedTopic =
+                "all";
+
+            loadTopics();
+            updateStats();
+            hideSetupMessage();
+
+        }
+    );
+}
+
 /* =========================================================
    GENERAL HELPERS
    ========================================================= */
@@ -1510,10 +1687,9 @@ function renderSubjects() {
 
 
                    renderEnglishTextSelection();
-
-                    loadTopics();
-
-                    updateStats();
+renderEnglishRevisionTextSelector();
+loadTopics();
+updateStats();
 
                 }
             );
@@ -1526,10 +1702,11 @@ function renderSubjects() {
         }
     );
 
+renderEnglishTextSelection();
 
-   renderEnglishTextSelection();
+renderEnglishRevisionTextSelector();
 
-    loadTopics();
+loadTopics();
 
 
 }
@@ -2185,27 +2362,36 @@ function startSession() {
         );
 
 
+   if (sessionTopic) {
+
+    let revisionLabel =
+        selectedTopic === "all"
+            ? "Mixed topics"
+            : selectedTopic;
+
     if (
-        sessionTopic
+        isEnglishSubject() &&
+        selectedEnglishRevisionText !== "all"
     ) {
 
-        sessionTopic.textContent =
-
-            selectedMode === "weak"
-
-                ? "🎯 Weak Cards"
-
-                : selectedMode === "due"
-
-                    ? "🔄 Due for Review"
-
-                    : selectedTopic === "all"
-
-                        ? "Mixed topics"
-
-                        : selectedTopic;
+        revisionLabel =
+            selectedEnglishRevisionText +
+            " • " +
+            revisionLabel;
 
     }
+
+    sessionTopic.textContent =
+        selectedMode === "weak"
+
+            ? "🎯 Weak Cards"
+
+            : selectedMode === "due"
+
+                ? "🔄 Due for Review"
+
+                : revisionLabel;
+}
 
 
     showCard();
