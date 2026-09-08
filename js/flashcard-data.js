@@ -7193,6 +7193,1219 @@ const FLASHCARDS = [
     difficulty: 2,
     question: "Why can a change in one population affect other populations in a community?",
     answer: "Organisms are interdependent, so a change in one population can alter food availability, predation, competition or other relationships."
+},
+
+   // ============================================================
+// A CHRISTMAS CAROL — BATCH 1
+// Cards 1–100 of 500
+// AQA GCSE English Literature
+// ============================================================
+
+{
+    id: 1001,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "Who is Ebenezer Scrooge?",
+    answer: "Scrooge is the central character of A Christmas Carol. He is a wealthy but miserly, isolated businessman who initially cares more about money than other people. Across the novella, he undergoes a dramatic transformation and becomes generous and compassionate."
+},
+
+{
+    id: 1002,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "Who is Jacob Marley?",
+    answer: "Jacob Marley is Scrooge's former business partner. He died seven years before the beginning of the story and returns as a ghost to warn Scrooge about the consequences of his selfish life."
+},
+
+{
+    id: 1003,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "How long has Jacob Marley been dead when the story begins?",
+    answer: "Jacob Marley has been dead for seven years."
+},
+
+{
+    id: 1004,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What is Scrooge's attitude towards Christmas at the beginning of the novella?",
+    answer: "Scrooge dislikes Christmas and sees it as a waste of time and money. He rejects the idea that Christmas should be a time for generosity, celebration and kindness."
+},
+
+{
+    id: 1005,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What does Scrooge say when Fred wishes him a Merry Christmas?",
+    answer: "Scrooge rejects Fred's greeting and responds negatively, showing his hostility towards Christmas and celebration."
+},
+
+{
+    id: 1006,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "Who is Fred?",
+    answer: "Fred is Scrooge's nephew. Unlike Scrooge, Fred is cheerful, sociable and enthusiastic about Christmas. He repeatedly invites Scrooge to his Christmas celebrations despite Scrooge's hostility."
+},
+
+{
+    id: 1007,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "Who works for Scrooge?",
+    answer: "Bob Cratchit works for Scrooge as his clerk."
+},
+
+{
+    id: 1008,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "How does Scrooge treat Bob Cratchit?",
+    answer: "Scrooge treats Bob harshly and pays him very little. He keeps the office cold and is reluctant to give Bob time off for Christmas."
+},
+
+{
+    id: 1009,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "Who are the charity collectors who visit Scrooge?",
+    answer: "They are two gentlemen collecting money to help poor and needy people during Christmas."
+},
+
+{
+    id: 1010,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "How does Scrooge respond when asked to donate to charity?",
+    answer: "He refuses to donate and argues that the poor institutions already exist. His response reveals his selfishness and lack of compassion."
+},
+
+{
+    id: 1011,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What does Scrooge mean when he refers to prisons and workhouses?",
+    answer: "He is referring to institutions intended to deal with poverty. Scrooge uses them as an excuse for refusing to help poor people personally."
+},
+
+{
+    id: 1012,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What happens to Scrooge's door knocker?",
+    answer: "Scrooge sees Marley's face appear on the door knocker, frightening him. When he looks again, it has returned to normal."
+},
+
+{
+    id: 1013,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What does Scrooge see when Marley first appears?",
+    answer: "Scrooge sees the ghost of Jacob Marley, who is carrying heavy chains and surrounded by supernatural imagery."
+},
+
+{
+    id: 1014,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What is Marley wearing when he appears as a ghost?",
+    answer: "Marley appears wearing the clothes and accessories associated with his former business life, but he is covered by a heavy chain."
+},
+
+{
+    id: 1015,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What does Marley's chain represent?",
+    answer: "The chain symbolises the consequences of Marley's selfish and greedy life. He has created it himself through his choices and must carry it after death."
+},
+
+{
+    id: 1016,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "Why does Marley visit Scrooge?",
+    answer: "Marley visits Scrooge to warn him that he is following the same selfish path that Marley followed. He wants Scrooge to change before it is too late."
+},
+
+{
+    id: 1017,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "What does Marley say was his real business in life?",
+    answer: "Marley explains that his true business should have been mankind and caring for other people, rather than business and making money."
+},
+
+{
+    id: 1018,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Story Recall",
+    question: "How many spirits visit Scrooge?",
+    answer: "Four supernatural visitors appear to Scrooge: Jacob Marley, the Ghost of Christmas Past, the Ghost of Christmas Present and the Ghost of Christmas Yet to Come."
+},
+
+{
+    id: 1019,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "Stave 1 — Story Recall",
+    question: "What warning does Marley give Scrooge about the three spirits?",
+    answer: "Marley warns Scrooge that three spirits will visit him and that he must listen to their lessons if he wants to avoid Marley's fate."
+},
+
+{
+    id: 1020,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "Stave 1 — Story Recall",
+    question: "What does Scrooge do after Marley leaves?",
+    answer: "Scrooge tries to convince himself that what happened was not real. Eventually he goes to bed, where he prepares to receive the first spirit."
+},
+
+{
+    id: 1021,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "Stave 1 — Character",
+    question: "How is Scrooge presented at the beginning of the novella?",
+    answer: "Scrooge is presented as miserly, cold, isolated, unpleasant and obsessed with money. Dickens establishes him as a character who has rejected human relationships and compassion."
+},
+
+{
+    id: 1022,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Character",
+    question: "What does the description 'solitary as an oyster' suggest about Scrooge?",
+    answer: "The simile presents Scrooge as isolated and closed off from others. However, an oyster can contain something valuable inside, which may foreshadow the goodness hidden within Scrooge that is eventually revealed."
+},
+
+{
+    id: 1023,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Character",
+    question: "Why is Scrooge's isolation important?",
+    answer: "His isolation shows the negative consequences of his selfishness. Dickens contrasts Scrooge's loneliness with the warmth of families and communities throughout the novella."
+},
+
+{
+    id: 1024,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Character",
+    question: "What does Scrooge value more than human relationships?",
+    answer: "Scrooge values money, wealth and financial security more than friendship, family or social responsibility."
+},
+
+{
+    id: 1025,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Character",
+    question: "Why does Fred continue to invite Scrooge to Christmas despite Scrooge's behaviour?",
+    answer: "Fred demonstrates patience, kindness and forgiveness. His behaviour provides a contrast to Scrooge and shows the value Dickens places on family relationships."
+},
+
+{
+    id: 1026,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Character",
+    question: "What does Bob Cratchit's behaviour towards Scrooge reveal?",
+    answer: "Bob is patient and respectful despite Scrooge's poor treatment of him. This helps establish Bob as a sympathetic character and contrasts with Scrooge's harshness."
+},
+
+{
+    id: 1027,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Character",
+    question: "Why is Marley an important warning for Scrooge?",
+    answer: "Marley represents the possible future consequences of Scrooge's current behaviour. His punishment demonstrates that wealth and business have no value if a person neglects humanity."
+},
+
+{
+    id: 1028,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Themes",
+    question: "How is greed presented in Stave 1?",
+    answer: "Greed is presented through Scrooge's obsession with money, his treatment of Bob and his refusal to help the poor. Dickens presents greed as something that damages both individuals and society."
+},
+
+{
+    id: 1029,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Themes",
+    question: "How is isolation presented in Stave 1?",
+    answer: "Scrooge deliberately isolates himself from other people. He rejects Fred's invitation, treats Bob coldly and refuses to participate in Christmas celebrations."
+},
+
+{
+    id: 1030,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Themes",
+    question: "How is poverty introduced in Stave 1?",
+    answer: "The charity collectors introduce the issue of poverty. Scrooge's refusal to help them exposes his lack of social responsibility."
+},
+
+{
+    id: 1031,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Themes",
+    question: "How is social responsibility presented through the charity collectors?",
+    answer: "The charity collectors argue that wealthy people should help those who are suffering. Their visit creates a contrast between charitable attitudes and Scrooge's selfishness."
+},
+
+{
+    id: 1032,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Themes",
+    question: "How does Dickens present Christmas as different from Scrooge's normal values?",
+    answer: "Christmas is associated with generosity, family, celebration and compassion, whereas Scrooge values money and isolation. The contrast helps Dickens challenge Scrooge's worldview."
+},
+
+{
+    id: 1033,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "Stave 1 — Language",
+    question: "What does the adjective 'solitary' suggest about Scrooge?",
+    answer: "It emphasises that Scrooge is alone and disconnected from society. The word suggests that his isolation has become a defining part of his identity."
+},
+
+{
+    id: 1034,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Language",
+    question: "What is the effect of Dickens describing Scrooge as 'hard and sharp as flint'?",
+    answer: "The simile suggests that Scrooge is emotionally cold, harsh and difficult to change. Flint is also associated with producing fire, which could suggest that warmth exists within him even though it is not initially visible."
+},
+
+{
+    id: 1035,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Language",
+    question: "What does the description 'covetous old sinner' suggest about Scrooge?",
+    answer: "It presents Scrooge as someone who selfishly desires wealth and has behaved immorally. The religious language also encourages the reader to judge his behaviour."
+},
+
+{
+    id: 1036,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Language",
+    question: "What does the phrase 'Bah! Humbug!' reveal about Scrooge?",
+    answer: "It shows his dismissive attitude towards Christmas and anything he considers sentimental or unnecessary. His repeated rejection of Christmas establishes him as cynical and emotionally closed."
+},
+
+{
+    id: 1037,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Structure",
+    question: "Why does Dickens begin the novella by establishing Scrooge as extremely unpleasant?",
+    answer: "It creates a strong starting point for his later transformation. The greater the contrast between the old Scrooge and the new Scrooge, the more significant his redemption becomes."
+},
+
+{
+    id: 1038,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Structure",
+    question: "Why is Marley introduced before the three spirits?",
+    answer: "Marley acts as a warning and establishes the supernatural framework of the novella. His fate shows Scrooge what could happen if he refuses to change."
+},
+
+{
+    id: 1039,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Structure",
+    question: "How does Dickens use contrast in Stave 1?",
+    answer: "Dickens contrasts Scrooge with characters such as Fred and Bob. Their warmth and generosity make Scrooge's coldness and selfishness more obvious."
+},
+
+{
+    id: 1040,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 1 — Analysis",
+    question: "How does Dickens present Scrooge as an outsider to society?",
+    answer: "Scrooge rejects social relationships, Christmas celebrations and charitable behaviour. His isolation is reinforced by the way other characters attempt to connect with him while he pushes them away."
+},
+
+// ------------------------------------------------------------
+// STAVE 2
+// ------------------------------------------------------------
+
+{
+    id: 1041,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "Which spirit visits Scrooge first?",
+    answer: "The Ghost of Christmas Past visits Scrooge first."
+},
+
+{
+    id: 1042,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "What does the Ghost of Christmas Past show Scrooge?",
+    answer: "The spirit takes Scrooge through important events from his past, including his lonely childhood, his time with Fezziwig, his relationship with Belle and the moment their relationship ended."
+},
+
+{
+    id: 1043,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "Where does Scrooge see himself as a child?",
+    answer: "He sees himself at school, where he is often left alone during the Christmas holidays."
+},
+
+{
+    id: 1044,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "Who was Fezziwig?",
+    answer: "Fezziwig was Scrooge's former employer. Scrooge remembers him as a generous and joyful man who created a warm Christmas celebration for his employees."
+},
+
+{
+    id: 1045,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "What happens at Fezziwig's Christmas party?",
+    answer: "Fezziwig hosts a lively celebration filled with food, music, dancing and happiness. Scrooge remembers the event fondly."
+},
+
+{
+    id: 1046,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "Who is Belle?",
+    answer: "Belle is Scrooge's former fiancée. Their relationship ends because Scrooge becomes increasingly obsessed with money."
+},
+
+{
+    id: 1047,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "Why does Belle end her relationship with Scrooge?",
+    answer: "Belle believes that money has replaced her in Scrooge's affections. She recognises that his increasing obsession with wealth has changed him."
+},
+
+{
+    id: 1048,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Story Recall",
+    question: "What does Belle show Scrooge about her later life?",
+    answer: "Belle is shown living happily with her husband and children. This reminds Scrooge of the family life he could have had."
+},
+
+{
+    id: 1049,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Character",
+    question: "What does Scrooge's childhood reveal about him?",
+    answer: "It reveals that Scrooge was once vulnerable and lonely. Dickens suggests that Scrooge's present behaviour may partly have developed from painful experiences in his past."
+},
+
+{
+    id: 1050,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Character",
+    question: "How does Scrooge react to seeing his younger self?",
+    answer: "He becomes emotional and shows sympathy for the lonely child he once was. This is an early sign that his emotional sensitivity is returning."
+},
+
+{
+    id: 1051,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Character",
+    question: "What does Fezziwig teach Scrooge about being an employer?",
+    answer: "Fezziwig shows Scrooge that an employer can create happiness and loyalty through kindness and generosity rather than simply focusing on money."
+},
+
+{
+    id: 1052,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Character",
+    question: "Why is Scrooge's reaction to Fezziwig important?",
+    answer: "Scrooge realises that Fezziwig's kindness had a powerful positive effect on him. This makes Scrooge consider the influence he has on Bob Cratchit."
+},
+
+{
+    id: 1053,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Themes",
+    question: "How is the theme of memory used in Stave 2?",
+    answer: "The Ghost of Christmas Past forces Scrooge to confront memories that he has tried to leave behind. These memories help him understand how his choices shaped the person he became."
+},
+
+{
+    id: 1054,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Themes",
+    question: "How is regret presented in Stave 2?",
+    answer: "Scrooge experiences regret when he remembers lost opportunities, particularly his relationship with Belle. His regret begins to weaken his attachment to his old way of life."
+},
+
+{
+    id: 1055,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Themes",
+    question: "How does Dickens contrast Fezziwig with Scrooge?",
+    answer: "Fezziwig is generous and creates happiness for others, while Scrooge is miserly and makes Bob work in uncomfortable conditions. The contrast highlights different approaches to wealth and power."
+},
+
+{
+    id: 1056,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Themes",
+    question: "What does Belle's story show about the dangers of valuing money above relationships?",
+    answer: "Belle's relationship with Scrooge ends because his obsession with wealth becomes stronger than his love for her. Dickens presents this as a destructive choice."
+},
+
+{
+    id: 1057,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Analysis",
+    question: "Why does Dickens show Scrooge's childhood before showing his transformation?",
+    answer: "The childhood memories help explain Scrooge's emotional development. They make him more sympathetic and show that he was not always the cold person he has become."
+},
+
+{
+    id: 1058,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Analysis",
+    question: "Why is Belle important to Scrooge's transformation?",
+    answer: "Belle shows Scrooge the personal cost of his obsession with money. Seeing her happy family life forces him to confront what he sacrificed for wealth."
+},
+
+{
+    id: 1059,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Structure",
+    question: "What is the structural purpose of showing Scrooge's past?",
+    answer: "The memories provide an explanation for Scrooge's present behaviour while also showing the choices that led him towards isolation and greed."
+},
+
+{
+    id: 1060,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 2 — Structure",
+    question: "Why is Stave 2 important to Scrooge's redemption?",
+    answer: "It begins to break down Scrooge's emotional barriers. By reconnecting him with his past, Dickens makes Scrooge recognise the human consequences of his choices."
+},
+
+// ------------------------------------------------------------
+// STAVE 3
+// ------------------------------------------------------------
+
+{
+    id: 1061,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "Which spirit visits Scrooge in Stave 3?",
+    answer: "The Ghost of Christmas Present visits Scrooge."
+},
+
+{
+    id: 1062,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "What does the Ghost of Christmas Present show Scrooge?",
+    answer: "The spirit shows Scrooge scenes of Christmas being celebrated by different groups of people, including the Cratchit family and Fred's household."
+},
+
+{
+    id: 1063,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "Who is Tiny Tim?",
+    answer: "Tiny Tim is Bob Cratchit's youngest son. He is physically disabled and seriously ill, but he remains cheerful, loving and optimistic."
+},
+
+{
+    id: 1064,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "How does Tiny Tim affect Scrooge?",
+    answer: "Scrooge becomes concerned about Tiny Tim and begins to recognise the human consequences of poverty and low wages."
+},
+
+{
+    id: 1065,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "What does Bob Cratchit say about Scrooge during Christmas dinner?",
+    answer: "Bob tries to maintain a positive attitude and offers a toast to Scrooge, despite Scrooge's poor treatment of him."
+},
+
+{
+    id: 1066,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "What is the Cratchit family like?",
+    answer: "The Cratchit family is loving, close and grateful despite being poor. Dickens uses them to show that happiness does not depend entirely on wealth."
+},
+
+{
+    id: 1067,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "What does the Ghost of Christmas Present reveal about Tiny Tim's future?",
+    answer: "The spirit suggests that Tiny Tim may die if circumstances remain unchanged."
+},
+
+{
+    id: 1068,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "Who are Ignorance and Want?",
+    answer: "Ignorance and Want are two children shown hiding beneath the Ghost of Christmas Present's robe. They symbolise serious social problems affecting society."
+},
+
+{
+    id: 1069,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "What do Ignorance and Want represent?",
+    answer: "They represent the social problems of ignorance, lack of education, poverty and deprivation."
+},
+
+{
+    id: 1070,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Story Recall",
+    question: "What does the Ghost of Christmas Present say about Ignorance?",
+    answer: "The spirit warns that Ignorance is particularly dangerous and tells Scrooge to beware of it."
+},
+
+{
+    id: 1071,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Character",
+    question: "How does the Cratchit family contrast with Scrooge?",
+    answer: "The Cratchits are poor but loving and generous towards one another, whereas Scrooge is wealthy but isolated and selfish."
+},
+
+{
+    id: 1072,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Character",
+    question: "What does Tiny Tim represent?",
+    answer: "Tiny Tim represents innocence, vulnerability and the human cost of poverty. He also helps Dickens encourage wealthy readers to feel compassion towards vulnerable people."
+},
+
+{
+    id: 1073,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Themes",
+    question: "How is family presented in Stave 3?",
+    answer: "Family is presented as a source of love, happiness and emotional support. The Cratchits and Fred's family contrast strongly with Scrooge's isolated existence."
+},
+
+{
+    id: 1074,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Themes",
+    question: "How does Dickens present poverty as a social responsibility?",
+    answer: "Dickens shows the suffering of poor families while wealthy characters have the ability to help. Scrooge is gradually forced to recognise that his choices affect other people's lives."
+},
+
+{
+    id: 1075,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Themes",
+    question: "How is generosity presented in Stave 3?",
+    answer: "Generosity is shown through the Cratchit family's willingness to share happiness despite having little money. Dickens suggests that generosity is about human kindness rather than wealth."
+},
+
+{
+    id: 1076,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Analysis",
+    question: "Why does Dickens make Tiny Tim vulnerable?",
+    answer: "Tiny Tim makes the consequences of poverty personal and emotionally powerful. His vulnerability encourages both Scrooge and the reader to think about the impact of social inequality."
+},
+
+{
+    id: 1077,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Analysis",
+    question: "Why are Ignorance and Want shown as children?",
+    answer: "Their presentation as children makes the problems they represent seem particularly vulnerable and urgent. Dickens suggests that society's neglect of children has serious consequences."
+},
+
+{
+    id: 1078,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Structure",
+    question: "Why does Dickens place the Cratchit family in the middle of Scrooge's supernatural journey?",
+    answer: "The Cratchits provide a powerful contrast with Scrooge's life and help him recognise the effects of his behaviour. They become an important part of his moral education."
+},
+
+{
+    id: 1079,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Analysis",
+    question: "How does Dickens use Tiny Tim to challenge Scrooge's attitude towards the poor?",
+    answer: "Tiny Tim gives poverty a human face. Scrooge can no longer treat poverty as an abstract problem because he sees the possible consequences for an innocent child."
+},
+
+{
+    id: 1080,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 3 — Analysis",
+    question: "How does Dickens contrast wealth and happiness in Stave 3?",
+    answer: "The wealthy Scrooge is miserable and isolated, while the poor Cratchits experience love and happiness together. Dickens therefore challenges the idea that wealth automatically produces a good life."
+},
+
+// ------------------------------------------------------------
+// STAVE 4
+// ------------------------------------------------------------
+
+{
+    id: 1081,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Story Recall",
+    question: "Which spirit visits Scrooge in Stave 4?",
+    answer: "The Ghost of Christmas Yet to Come visits Scrooge."
+},
+
+{
+    id: 1082,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Story Recall",
+    question: "What is unusual about the Ghost of Christmas Yet to Come?",
+    answer: "The spirit is silent and mysterious. It communicates mainly through gestures and by showing Scrooge scenes from a possible future."
+},
+
+{
+    id: 1083,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Story Recall",
+    question: "What does the final spirit show Scrooge about his future?",
+    answer: "It shows him a future in which people are pleased by the death of an unnamed wealthy man, his possessions are stolen and his death receives little sympathy."
+},
+
+{
+    id: 1084,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Story Recall",
+    question: "What does Scrooge eventually discover about the dead man?",
+    answer: "Scrooge discovers that the dead man is himself."
+},
+
+{
+    id: 1085,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Story Recall",
+    question: "What does Scrooge see at the graveyard?",
+    answer: "Scrooge sees his own grave and realises that the future shown by the spirit is a possible outcome of his current life."
+},
+
+{
+    id: 1086,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Story Recall",
+    question: "How does Scrooge react when he sees his grave?",
+    answer: "He becomes terrified and begs the spirit to give him a chance to change his future."
+},
+
+{
+    id: 1087,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Character",
+    question: "Why is Scrooge frightened by the future?",
+    answer: "He realises that his current behaviour could lead to a lonely and unloved death. He finally understands that wealth cannot give him a meaningful life."
+},
+
+{
+    id: 1088,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Themes",
+    question: "How is death used as a warning in Stave 4?",
+    answer: "Scrooge is forced to confront his own possible death and the lack of grief it would cause. Dickens uses this to make Scrooge recognise the consequences of his lifestyle."
+},
+
+{
+    id: 1089,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Themes",
+    question: "How is redemption presented in Stave 4?",
+    answer: "Scrooge is given the opportunity to change before the future becomes permanent. His fear of his possible fate motivates him to seek redemption."
+},
+
+{
+    id: 1090,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Structure",
+    question: "Why is the final spirit silent?",
+    answer: "The silence makes the spirit mysterious and frightening. It also forces Scrooge to interpret the scenes himself, making his realisation more personal."
+},
+
+{
+    id: 1091,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Analysis",
+    question: "Why does Dickens show people laughing about the dead man?",
+    answer: "Their lack of sympathy demonstrates the consequences of a life based on selfishness. Dickens shows that Scrooge's wealth has failed to earn him genuine love or respect."
+},
+
+{
+    id: 1092,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Analysis",
+    question: "What does Scrooge's reaction to his grave reveal?",
+    answer: "It reveals that he now values life, relationships and his moral character more than wealth. He desperately wants the opportunity to change."
+},
+
+{
+    id: 1093,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Structure",
+    question: "How does Stave 4 prepare the reader for Scrooge's transformation?",
+    answer: "It presents the worst possible consequence of Scrooge's behaviour and makes him desperate to change. This creates a strong transition into the final stave."
+},
+
+{
+    id: 1094,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Themes",
+    question: "What does Scrooge learn about the value of reputation?",
+    answer: "He learns that wealth cannot guarantee respect or affection. His future death is treated with indifference because he has failed to build meaningful relationships."
+},
+
+{
+    id: 1095,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Analysis",
+    question: "How does Dickens create fear in Stave 4?",
+    answer: "Dickens uses the silent spirit, dark settings, mysterious scenes and Scrooge's discovery of his own grave to create a frightening atmosphere."
+},
+
+{
+    id: 1096,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Themes",
+    question: "What does the future show about the consequences of isolation?",
+    answer: "It shows that Scrooge could die without anyone genuinely mourning him. Dickens presents isolation as a serious consequence of selfish behaviour."
+},
+
+{
+    id: 1097,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Analysis",
+    question: "Why is Scrooge's future presented as changeable?",
+    answer: "Dickens wants to communicate that people can change their behaviour and make better choices. The future acts as a warning rather than an unavoidable fate."
+},
+
+{
+    id: 1098,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Structure",
+    question: "How does Dickens use the three spirits to build towards Scrooge's transformation?",
+    answer: "The spirits progressively teach Scrooge about his past, his present impact on others and his possible future. Together they lead him towards recognising the need to change."
+},
+
+{
+    id: 1099,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 4 — Analysis",
+    question: "Why is seeing his own grave the final lesson Scrooge receives?",
+    answer: "It forces Scrooge to confront the ultimate consequence of his behaviour. Death makes him realise that he must change if he wants his life to have meaning."
+},
+
+{
+    id: 1100,
+    subject: "English",
+    board: "AQA",
+    level: "GCSE",
+    course: "English Literature",
+    text: "A Christmas Carol",
+    topic: "Stave 5 — Story Recall",
+    question: "What happens to Scrooge at the beginning of Stave 5?",
+    answer: "Scrooge wakes up on Christmas morning and realises that he has another chance to change his life."
 }
 
 ];
