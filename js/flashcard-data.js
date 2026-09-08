@@ -10601,3 +10601,76 @@ const FLASHCARDS = [
 { id: 287, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is isolation important to Scrooge's character?", answer: "His isolation demonstrates the emotional cost of his obsession with money and helps Dickens show why human relationships are essential to happiness." }, 
 
 { id: 288, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does money affect Scrooge's relationships?", answer: "His obsession with money causes him to prioritise wealth over love, family and friendship, ultimately leaving him isolated." }, 
+
+
+   { id: 289, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Dickens suggest about wealth?", answer: "Dickens suggests that wealth can become destructive when people value it above human relationships and social responsibility." }, 
+
+{ id: 290, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is Scrooge's wealth ironic?", answer: "Although Scrooge has money, he is miserable and isolated. The Cratchits have very little money but experience love and happiness." }, 
+
+{ id: 291, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Dickens use the Cratchits to criticise attitudes towards poverty?", answer: "The Cratchits are loving and hardworking despite being poor. Dickens challenges the idea that poor people are responsible for their own suffering or less deserving of respect." }, 
+
+{ id: 292, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does the Cratchit family teach Scrooge about happiness?", answer: "They teach him that happiness comes from love, family and gratitude rather than wealth." }, 
+
+{ id: 293, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why is Christmas important beyond the religious celebration in the novella?", answer: "Christmas represents generosity, forgiveness, community and compassion. Dickens uses it as a symbol of the values he wants society to embrace." }, 
+
+{ id: 294, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What does Christmas symbolise for Scrooge by the end?", answer: "It symbolises generosity, joy, community and his new commitment to living compassionately." }, 
+
+{ id: 295, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "How does Dickens use Christmas to unite different social classes?", answer: "Christmas celebrations bring wealthy and poor characters together through shared traditions, generosity and community." }, 
+
+{ id: 296, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why does Dickens use ghosts in A Christmas Carol?", answer: "The supernatural allows Dickens to force Scrooge to confront his past, present and future. The spirits make moral lessons dramatic and memorable." }, 
+
+{ id: 297, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What is the overall structure of Scrooge's transformation?", answer: "Scrooge is shown his past, confronted with the consequences of the present and warned about his possible future before choosing to change." }, 
+
+{ id: 298, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "Why does Dickens structure the novella around past, present and future?", answer: "The structure allows Scrooge to understand how his past shaped him, how his current behaviour affects others and what may happen if he refuses to change." }, 
+
+{ id: 299, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What is Dickens's main message about society?", answer: "Dickens argues that society has a responsibility to care for vulnerable people and that the wealthy should use their resources to help others." }, 
+
+{ id: 300, subject: "English Literature", board: "AQA", level: "GCSE", topic: "A Christmas Carol", question: "What is the central lesson Scrooge learns throughout A Christmas Carol?", answer: "He learns that money cannot replace human relationships and that generosity, compassion and responsibility towards others are essential for a meaningful and happy life." }, 
+
+// ============================================================ // A CHRISTMAS CAROL — FLASHCARDS 301–400 // ============================================================ 
+
+{ id: "christmas-carol-301", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "What does Scrooge's relationship with his nephew Fred reveal about Scrooge at the beginning of the novella?", answer: "It reveals Scrooge's rejection of family and companionship. Fred repeatedly tries to include him in his Christmas celebrations, but Scrooge responds with hostility and refuses to accept his invitations." }, 
+
+{ id: "christmas-carol-302", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Why is Fred important to Scrooge's transformation?", answer: "Fred represents generosity, family, forgiveness and Christmas spirit. Despite Scrooge's rejection, Fred continues to welcome him, showing the kind of compassionate behaviour Scrooge eventually adopts." }, 
+
+{ id: "christmas-carol-303", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "How does Fred respond when Scrooge refuses his invitation?", answer: "Fred remains cheerful and does not become bitter. He continues to invite Scrooge each Christmas, demonstrating his patience, forgiveness and generosity." }, 
+
+{ id: "christmas-carol-304", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "What does Fred's treatment of Scrooge suggest about the power of kindness?", answer: "It suggests that kindness can survive even when it is rejected. Fred's continued affection provides Scrooge with a positive example of how relationships can be based on generosity rather than money." }, 
+
+{ id: "christmas-carol-305", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Why does Scrooge initially dislike Christmas?", answer: "Scrooge associates Christmas with unnecessary expense, idleness and sentimentality. His obsession with money has caused him to reject the social and emotional values associated with Christmas." }, 
+
+{ id: "christmas-carol-306", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "How does Dickens present Fred as a contrast to Scrooge?", answer: "Fred is cheerful, generous, sociable and family-oriented, while Scrooge is miserly, isolated and hostile. Their contrast demonstrates the difference between a life centred on relationships and one centred on money." }, 
+
+{ id: "christmas-carol-307", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Who is Fezziwig?", answer: "Fezziwig is Scrooge's former employer who appears during the Ghost of Christmas Past's visit. He is presented as a generous and joyful employer who creates happiness for his employees and community." }, 
+
+{ id: "christmas-carol-308", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "What does Fezziwig's Christmas party demonstrate?", answer: "It demonstrates that generosity does not need to involve great expense. Fezziwig spends relatively little but creates enormous happiness for those around him." }, 
+
+{ id: "christmas-carol-309", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Themes", question: "How does Fezziwig challenge Scrooge's attitude towards money?", answer: "Fezziwig shows Scrooge that money can be used to create happiness and strengthen relationships rather than simply being accumulated." }, 
+
+{ id: "christmas-carol-310", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Why is Fezziwig important to Scrooge's transformation?", answer: "Seeing Fezziwig reminds Scrooge of the positive influence an employer can have on workers. Scrooge realises that his own treatment of Bob Cratchit is very different." }, 
+
+{ id: "christmas-carol-311", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "What does Scrooge remember about Fezziwig?", answer: "Scrooge remembers Fezziwig's generosity, enthusiasm and ability to make everyone at his Christmas party happy." }, 
+
+{ id: "christmas-carol-312", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "How does Dickens use Fezziwig to present good leadership?", answer: "Fezziwig treats his workers with warmth and respect. Dickens presents this as a model for employers, suggesting that kindness and consideration can create loyalty and happiness." }, 
+
+{ id: "christmas-carol-313", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Who is Belle?", answer: "Belle is Scrooge's former fiancée. The Ghost of Christmas Past shows Scrooge the moment when she ends their relationship because his obsession with wealth has replaced his love for her." }, 
+
+{ id: "christmas-carol-314", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Why does Belle leave Scrooge?", answer: "She believes that Scrooge's love of money has replaced his love for her. She recognises that wealth has become the central priority in his life." }, 
+
+{ id: "christmas-carol-315", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Themes", question: "What does Belle represent?", answer: "Belle represents love, relationships and the life Scrooge could have had if he had not prioritised wealth." }, 
+
+{ id: "christmas-carol-316", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Themes", question: "How does Belle's rejection demonstrate the dangers of greed?", answer: "Scrooge loses someone he loves because his pursuit of wealth has changed his priorities. Dickens suggests that excessive concern with money can destroy meaningful human relationships." }, 
+
+{ id: "christmas-carol-317", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "How does Scrooge react when he sees Belle's future life?", answer: "He becomes distressed and emotionally overwhelmed. Seeing Belle happily married while he remains alone forces him to confront the consequences of his choices." }, 
+
+{ id: "christmas-carol-318", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Themes", question: "Why is regret important in Scrooge's transformation?", answer: "Regret makes Scrooge recognise that his present misery is partly the result of his own choices. This motivates him to change before it is too late." }, 
+
+{ id: "christmas-carol-319", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "Who is the Ghost of Christmas Present?", answer: "The Ghost of Christmas Present is the second spirit who visits Scrooge. It shows him scenes of Christmas being celebrated in the present and reveals both happiness and suffering in Victorian society." }, 
+
+{ id: "christmas-carol-320", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "How is the Ghost of Christmas Present initially presented?", answer: "It is presented as a large, joyful and generous figure surrounded by imagery associated with abundance, warmth and Christmas celebration." }, 
+
+{ id: "christmas-carol-321", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Themes", question: "Why does Dickens make the Ghost of Christmas Present appear abundant?", answer: "The spirit represents generosity and the abundance that can be shared during Christmas. Its appearance contrasts with Scrooge's miserly behaviour." }, 
+
+{ id: "christmas-carol-322", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "What does the Ghost of Christmas Present show Scrooge about the Cratchit family?", answer: "It shows Scrooge that despite their poverty, the Cratchits celebrate Christmas with love, gratitude and affection." }, 
+
+{ id: "christmas-carol-323", subject: "english", board: "aqa", level: "gcse", text: "A Christmas Carol", topic: "Characters", question: "How does Bob Cratchit behave despite being poorly paid?", answer: "Bob remains hardworking, loyal and loving towards his family. He also tries to maintain a positive attitude despite his difficult circumstances." }, 
