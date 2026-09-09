@@ -977,9 +977,9 @@ function resetData() {
 
 const WOJTEK_IMAGES = {
 
-    happy: "assets/wojtek/happy.png",
-
-    wave: "assets/wojtek/waving.png",
+  wave: "assets/wojtek/waving.png",  
+   
+   happy: "assets/wojtek/happy.png",
 
     thinking: "assets/wojtek/thinking.png",
 
