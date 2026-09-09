@@ -18,6 +18,99 @@
     >
 
     <style>
+
+            /* =====================================================
+       KEYWORD OF THE DAY
+       ===================================================== */
+
+    .keyword-of-day-section {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+
+    .keyword-of-day-card {
+        text-align: center;
+        padding: 35px 25px;
+        position: relative;
+        overflow: hidden;
+    }
+
+
+    .keyword-day-label {
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 1.5px;
+        color: #777;
+        margin-bottom: 12px;
+    }
+
+
+    .keyword-day-word {
+        font-size: 38px;
+        font-weight: 950;
+        line-height: 1.2;
+        margin-bottom: 8px;
+    }
+
+
+    .keyword-day-subject {
+        display: inline-block;
+        padding: 7px 12px;
+        border-radius: 20px;
+        background: #f3f3ff;
+        color: #5b5ce2;
+        font-weight: 800;
+        font-size: 13px;
+        margin-bottom: 20px;
+    }
+
+
+    .keyword-day-definition {
+        max-width: 750px;
+        margin: 0 auto 20px;
+        font-size: 18px;
+        line-height: 1.6;
+    }
+
+
+    .keyword-day-tip {
+        display: none;
+        max-width: 700px;
+        margin: 0 auto 22px;
+        padding: 15px;
+        border-radius: 14px;
+        background: #f7f7fb;
+        line-height: 1.6;
+    }
+
+
+    .keyword-day-tip.visible {
+        display: block;
+    }
+
+
+    .keyword-day-actions {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 15px;
+    }
+
+
+    @media(max-width:600px) {
+
+        .keyword-day-word {
+            font-size: 30px;
+        }
+
+        .keyword-day-definition {
+            font-size: 16px;
+        }
+
+    }
+        
     /* =====================================================
        STREAK ENDED / FREEZE POPUPS
        ===================================================== */
@@ -439,7 +532,98 @@ injectHeader();
 
     </div>
 
+    <!-- =================================================
+         KEYWORD OF THE DAY
+         ================================================= -->
 
+    <section
+        class="keyword-of-day-section"
+        id="keywordOfDaySection"
+    >
+
+        <div class="section-title">
+
+            <h2>
+                🔑 Keyword of the Day
+            </h2>
+
+        </div>
+
+
+        <div
+            id="keywordOfDay"
+            class="card keyword-of-day-card"
+        >
+
+            <div class="keyword-day-label">
+                TODAY'S KEYWORD
+            </div>
+
+
+            <div
+                id="keywordDayKeyword"
+                class="keyword-day-word"
+            >
+                Loading...
+            </div>
+
+
+            <div
+                id="keywordDaySubject"
+                class="keyword-day-subject"
+            ></div>
+
+
+            <div
+                id="keywordDayDefinition"
+                class="keyword-day-definition"
+            ></div>
+
+
+            <div
+                id="keywordDayTip"
+                class="keyword-day-tip"
+            ></div>
+
+
+            <button
+                id="keywordRevealButton"
+                class="btn secondary"
+                type="button"
+            >
+                💡 Reveal Exam Tip
+            </button>
+
+
+            <div
+                id="keywordDayActions"
+                class="keyword-day-actions"
+                style="display:none"
+            >
+
+                <button
+                    id="keywordKnowButton"
+                    class="btn"
+                    type="button"
+                >
+                    ✅ I know this
+                </button>
+
+
+                <button
+                    id="keywordPractiseButton"
+                    class="btn secondary"
+                    type="button"
+                >
+                    🎯 Practise this
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+    
     <!-- ACTIVITIES -->
 
     <div class="grid grid3">
@@ -526,11 +710,24 @@ injectHeader();
         </a>
 
 
-        <a
-            href="mixed.html"
-            class="card action"
-        >
+     <a
+    href="keywords.html"
+    class="card action"
+>
 
+    <span class="icon">
+        🔑
+    </span>
+
+    <h3>
+        Tier 3 Keywords
+    </h3>
+
+    <p>
+        Build your subject-specific vocabulary.
+    </p>
+
+</a>
             <span class="icon">
                 🎲
             </span>
@@ -889,6 +1086,280 @@ window.addEventListener(
     "storage",
     updateDashboard
 );
+
+
+
+    <script src="js/keyword-data.js"></script>
+
+<script>
+
+    /* =====================================================
+       KEYWORD OF THE DAY
+       ===================================================== */
+
+    function getKeywordOfTheDay() {
+
+        if (
+            typeof KEYWORD_DATA === "undefined" ||
+            !KEYWORD_DATA.length
+        ) {
+            return null;
+        }
+
+
+        const today = new Date();
+
+        const dateNumber =
+            Math.floor(
+                Date.UTC(
+                    today.getFullYear(),
+                    today.getMonth(),
+                    today.getDate()
+                ) / 86400000
+            );
+
+
+        const index =
+            Math.abs(dateNumber) %
+            KEYWORD_DATA.length;
+
+
+        return KEYWORD_DATA[index];
+
+    }
+
+
+    function subjectDisplayName(subjectId) {
+
+        if (
+            typeof SUBJECTS !== "undefined" &&
+            SUBJECTS[subjectId]
+        ) {
+
+            return SUBJECTS[subjectId].name;
+
+        }
+
+        return subjectId;
+
+    }
+
+
+    function renderKeywordOfTheDay() {
+
+        const keyword =
+            getKeywordOfTheDay();
+
+
+        const word =
+            document.getElementById(
+                "keywordDayKeyword"
+            );
+
+        const subject =
+            document.getElementById(
+                "keywordDaySubject"
+            );
+
+        const definition =
+            document.getElementById(
+                "keywordDayDefinition"
+            );
+
+        const tip =
+            document.getElementById(
+                "keywordDayTip"
+            );
+
+        const revealButton =
+            document.getElementById(
+                "keywordRevealButton"
+            );
+
+        const actions =
+            document.getElementById(
+                "keywordDayActions"
+            );
+
+
+        if (!keyword) {
+
+            word.textContent =
+                "No keywords available";
+
+            definition.textContent =
+                "Add keywords to keyword-data.js.";
+
+            return;
+
+        }
+
+
+        word.textContent =
+            keyword.keyword;
+
+
+        subject.textContent =
+            subjectDisplayName(
+                keyword.subject
+            );
+
+
+        definition.textContent =
+            keyword.definition;
+
+
+        tip.textContent =
+            "💡 Exam tip: " +
+            keyword.tip;
+
+
+        tip.classList.remove(
+            "visible"
+        );
+
+
+        actions.style.display =
+            "none";
+
+
+        revealButton.textContent =
+            "💡 Reveal Exam Tip";
+
+
+        revealButton.onclick = () => {
+
+            const visible =
+                tip.classList.toggle(
+                    "visible"
+                );
+
+
+            actions.style.display =
+                visible
+                    ? "flex"
+                    : "none";
+
+
+            revealButton.textContent =
+                visible
+                    ? "Hide Exam Tip"
+                    : "💡 Reveal Exam Tip";
+
+        };
+
+
+        const knowButton =
+            document.getElementById(
+                "keywordKnowButton"
+            );
+
+
+        const practiseButton =
+            document.getElementById(
+                "keywordPractiseButton"
+            );
+
+
+        knowButton.onclick = () => {
+
+            markKeywordKnown(
+                keyword.id
+            );
+
+        };
+
+
+        practiseButton.onclick = () => {
+
+            alert(
+                `Practise "${keyword.keyword}" in the Tier 3 Keyword Bank.`
+            );
+
+        };
+
+    }
+
+
+    /* =====================================================
+       KEYWORD PROGRESS
+       ===================================================== */
+
+    function getKeywordProgress() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "GCSE_HUB_KEYWORD_PROGRESS"
+                ) || "{}"
+            );
+
+        } catch {
+
+            return {};
+
+        }
+
+    }
+
+
+    function saveKeywordProgress(progress) {
+
+        localStorage.setItem(
+            "GCSE_HUB_KEYWORD_PROGRESS",
+            JSON.stringify(progress)
+        );
+
+    }
+
+
+    function markKeywordKnown(keywordId) {
+
+        const progress =
+            getKeywordProgress();
+
+
+        progress[keywordId] = {
+
+            mastered: true,
+
+            date: new Date()
+                .toISOString()
+
+        };
+
+
+        saveKeywordProgress(
+            progress
+        );
+
+
+        const actions =
+            document.getElementById(
+                "keywordDayActions"
+            );
+
+
+        actions.innerHTML = `
+
+            <div
+                style="
+                    font-weight:800;
+                    padding:12px;
+                "
+            >
+                🎉 Keyword mastered!
+            </div>
+
+        `;
+
+    }
+
+
+    renderKeywordOfTheDay();
+
+</script>
 </script>
 
 
