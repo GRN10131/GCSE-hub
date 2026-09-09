@@ -121,6 +121,8 @@ const DEFAULT_DATA = {
 
     name: "",
 
+    agentId: null,
+
     subjects: [],
 
     currentSubject: null,
@@ -153,7 +155,6 @@ const DEFAULT_DATA = {
 
 };
 
-
 /* =========================================================
    LOAD
    ========================================================= */
@@ -173,7 +174,24 @@ function load() {
             ...DEFAULT_DATA,
             ...stored
         };
+/* -----------------------------------------
+   MISSION POSSIBLE AGENT ID
+   ----------------------------------------- */
 
+if (!data.agentId) {
+
+    data.agentId =
+        "AGENT-" +
+        Date.now().toString(36).toUpperCase() +
+        "-" +
+        Math.random()
+            .toString(36)
+            .substring(2, 7)
+            .toUpperCase();
+
+    save(data);
+
+}
         if (!Array.isArray(data.subjects)) {
             data.subjects = [];
         }
