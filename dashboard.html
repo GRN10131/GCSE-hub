@@ -18,7 +18,43 @@
     >
 
     <style>
+.mission-hq-button {
+    display: inline-block;
+    margin-top: 16px;
+    padding: 13px 22px;
 
+    background: linear-gradient(135deg, #630914, #8b1020);
+    color: white !important;
+
+    text-decoration: none !important;
+    font-weight: 900;
+    font-size: 15px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 6px 15px rgba(99, 9, 20, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+.mission-hq-button:hover {
+    background: linear-gradient(135deg, #7a0b19, #a51628);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 20px rgba(99, 9, 20, 0.35);
+}
+
+.mission-hq-button:active {
+    transform: translateY(0);
+}
+
+        
             /* =====================================================
        KEYWORD OF THE DAY
        ===================================================== */
@@ -743,9 +779,9 @@ injectHeader();
         the leaderboard.
     </p>
 
-    <span class="btn">
-        Enter Mission HQ →
-    </span>
+    <span class="btn mission-hq-button">
+    🕵️ Enter Mission HQ →
+</span>
 </a>
 
         <a
