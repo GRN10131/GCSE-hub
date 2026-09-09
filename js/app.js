@@ -375,7 +375,338 @@ function award(points = 0, gems = 0) {
     return data;
 
 }
+/* =========================================================
+   STREAK STATUS CHECK
+   Checks whether the student has missed a revision day.
+   This runs when the dashboard is opened.
+   ========================================================= */
 
+function checkStreakStatus() {
+
+    let data = load();
+
+    const today = getToday();
+
+    /* Nothing to check if the student has never started */
+    if (!data.lastStreakDate) {
+        return;
+    }
+
+    /* Already active today */
+    if (data.lastStreakDate === today) {
+        return;
+    }
+
+    const gap = daysBetween(
+        data.lastStreakDate,
+        today
+    );
+
+    /* Exactly one day since last revision:
+       this is still a valid consecutive streak. */
+    if (gap === 1) {
+        return;
+    }
+
+    /* -----------------------------------------------------
+       MORE THAN ONE DAY MISSED
+       ----------------------------------------------------- */
+
+    if (gap > 1) {
+
+        /* ---------------------------------------------
+           STREAK FREEZE AVAILABLE
+           --------------------------------------------- */
+
+        if (data.streakFreezes > 0) {
+
+            data.streakFreezes--;
+
+            /*
+               The freeze protects the streak and counts
+               today as the protected day.
+            */
+
+            data.lastStreakDate = today;
+
+            save(data);
+
+            renderStats();
+
+            showStreakFreezePopup();
+
+            return;
+        }
+
+
+        /* ---------------------------------------------
+           NO FREEZE — STREAK HAS ENDED
+           --------------------------------------------- */
+
+        const previousStreak =
+            data.streak;
+
+        data.streak = 0;
+
+        data.lastStreakDate = null;
+
+        /*
+           Remember that this particular streak break
+           has already been shown.
+        */
+
+        data.streakBreakNotice = today;
+
+        data.lastBrokenStreak = previousStreak;
+
+        save(data);
+
+        renderStats();
+
+        showStreakEndedPopup(previousStreak);
+
+    }
+
+}
+
+
+/* =========================================================
+   STREAK ENDED POPUP
+   ========================================================= */
+
+function showStreakEndedPopup(previousStreak = 0) {
+
+    /*
+       Do not show the same popup twice during the
+       same dashboard visit/day.
+    */
+
+    const today = getToday();
+
+    const data = load();
+
+    if (data.streakBreakNotice !== today) {
+        return;
+    }
+
+    /* Prevent duplicate popup elements */
+
+    if (
+        document.getElementById(
+            "streakEndedModal"
+        )
+    ) {
+        return;
+    }
+
+
+    const modal =
+        document.createElement("div");
+
+    modal.id =
+        "streakEndedModal";
+
+
+    modal.innerHTML = `
+
+        <div class="streak-ended-overlay">
+
+            <div class="streak-ended-card">
+
+                <button
+                    class="streak-ended-close"
+                    onclick="closeStreakEndedPopup()"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+
+                <img
+                    src="assets/wojtek/streak-ended.png"
+                    alt="Wojtek looking sad because the revision streak ended"
+                    class="streak-ended-image"
+                >
+
+
+                <div class="streak-ended-icon">
+                    💔
+                </div>
+
+
+                <h2>
+                    Your streak has ended
+                </h2>
+
+
+                <p class="streak-ended-main">
+                    Oh no! Wojtek is very disappointed.
+                </p>
+
+
+                <p class="streak-ended-secondary">
+
+                    Your
+                    <strong>${previousStreak}-day</strong>
+                    streak has ended.
+
+                    <br><br>
+
+                    But don't worry —
+                    <strong>you can start a new one today!</strong>
+
+                </p>
+
+
+                <button
+                    class="btn streak-ended-button"
+                    onclick="closeStreakEndedPopup()"
+                >
+                    Start New Streak 🚀
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(modal);
+
+}
+
+
+/* =========================================================
+   CLOSE STREAK ENDED POPUP
+   ========================================================= */
+
+function closeStreakEndedPopup() {
+
+    const modal =
+        document.getElementById(
+            "streakEndedModal"
+        );
+
+    if (modal) {
+
+        modal.remove();
+
+    }
+
+}
+
+
+/* =========================================================
+   STREAK FREEZE POPUP
+   ========================================================= */
+
+function showStreakFreezePopup() {
+
+    if (
+        document.getElementById(
+            "streakFreezeModal"
+        )
+    ) {
+        return;
+    }
+
+
+    const data = load();
+
+
+    const modal =
+        document.createElement("div");
+
+    modal.id =
+        "streakFreezeModal";
+
+
+    modal.innerHTML = `
+
+        <div class="streak-ended-overlay">
+
+            <div class="streak-ended-card freeze-card">
+
+                <button
+                    class="streak-ended-close"
+                    onclick="closeStreakFreezePopup()"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+
+                <div class="freeze-icon">
+                    🛡️
+                </div>
+
+
+                <h2>
+                    Streak Freeze Used!
+                </h2>
+
+
+                <p class="streak-ended-main">
+                    Wojtek is relieved!
+                </p>
+
+
+                <p class="streak-ended-secondary">
+
+                    You missed a revision day,
+                    but a Streak Freeze protected
+                    your streak.
+
+                    <br><br>
+
+                    You now have
+                    <strong>
+                        ${data.streakFreezes}
+                    </strong>
+                    freeze
+                    ${data.streakFreezes === 1 ? "remaining" : "remaining"}.
+
+                </p>
+
+
+                <button
+                    class="btn streak-ended-button"
+                    onclick="closeStreakFreezePopup()"
+                >
+                    Keep Revising 🔥
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(modal);
+
+}
+
+
+/* =========================================================
+   CLOSE STREAK FREEZE POPUP
+   ========================================================= */
+
+function closeStreakFreezePopup() {
+
+    const modal =
+        document.getElementById(
+            "streakFreezeModal"
+        );
+
+    if (modal) {
+
+        modal.remove();
+
+    }
+
+}
 
 /* =========================================================
    CURRENT SUBJECT
@@ -654,7 +985,9 @@ const WOJTEK_IMAGES = {
 
     studying: "assets/wojtek/studying.png",
 
-    celebrate: "assets/wojtek/celebrate.png"
+    celebrate: "assets/wojtek/celebrate.png",
+
+    streakEnded: "assets/wojtek/streak-ended.png"
 
 };
 
