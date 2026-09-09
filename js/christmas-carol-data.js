@@ -1,20 +1,4 @@
-/* =========================================================
-   GCSE HUB
-   AQA GCSE BIOLOGY 8461
-   FLASHCARD DATABASE — BATCH 1
-   100 CARDS
 
-   Topics:
-   1. Cell Biology        30
-   2. Organisation        25
-   3. Infection & Response 25
-   4. Bioenergetics       20
-
-   level:
-   "Foundation" = available to Foundation and Higher
-   "Higher"     = Higher Tier only
-
-========================================================= */
 
 const FLASHCARDS = [
 
