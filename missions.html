@@ -1760,68 +1760,57 @@
        CHOOSE RANDOM MISSION
        ================================================= */
 
-    async function chooseRandomMission() {
+  async function chooseRandomMission() {
 
-        /*
-           Test missions available in the
-           current Google Sheet.
+    if (!currentAgent) {
 
-           Change this list as you add missions.
-        */
+        return;
 
-        const missionList = [
-
-            "001",
-
-            "002",
-
-            "003",
-
-            "004",
-
-            "005"
-
-        ];
+    }
 
 
-        const randomIndex =
-            Math.floor(
-                Math.random() *
-                missionList.length
+    envelopeNote.textContent =
+        "📨 Wojtek HQ is selecting your assignment...";
+
+
+    try {
+
+        const response =
+            await fetch(
+
+                API_URL +
+                "?action=mission&agent=" +
+                encodeURIComponent(
+                    currentAgent
+                )
+
             );
 
 
-        const selectedMission =
-            missionList[randomIndex];
+        const data =
+            await response.json();
 
 
-        try {
-
-            const response =
-                await fetch(
-
-                    API_URL +
-                    "?action=mission&mission=" +
-                    encodeURIComponent(
-                        selectedMission
-                    )
-
-                );
-
-
-            const data =
-                await response.json();
-
+        if (!data.success) {
 
             if (
-                !data.success
+                data.error ===
+                "ALL_MISSIONS_COMPLETED"
             ) {
 
                 envelopeNote.textContent =
-                    "⚠️ Mission unavailable.";
+                    "🎖️ ALL MISSIONS COMPLETED";
 
-                envelope.classList.remove(
-                    "opened"
+                missionCard.classList.remove(
+                    "active"
+                );
+
+                verification.style.display =
+                    "none";
+
+                alert(
+                    "🎖️ ALL MISSIONS COMPLETED\n\n" +
+                    "You have completed every available Mission Possible operation!"
                 );
 
                 return;
@@ -1829,173 +1818,99 @@
             }
 
 
-            currentMission =
-                data.mission;
-
-
-            displayMission(
-                currentMission
-            );
-
-        }
-
-        catch (error) {
-
-            console.error(
-                error
-            );
-
-
             envelopeNote.textContent =
-                "⚠️ Wojtek HQ connection failed.";
+                "⚠️ " +
+                (
+                    data.error ||
+                    "Mission unavailable."
+                );
 
             envelope.classList.remove(
                 "opened"
             );
 
+            return;
+
         }
+
+
+        currentMission =
+            data.mission;
+
+
+        displayMission(
+            currentMission
+        );
 
     }
 
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+
+        envelopeNote.textContent =
+            "⚠️ Unable to contact Wojtek HQ.";
+
+        envelope.classList.remove(
+            "opened"
+        );
+
+    }
+
+}
 
     /* =================================================
        DISPLAY MISSION
        ================================================= */
 
-    function displayMission(
-        mission
-    ) {
+  function displayMission(
+    mission
+) {
 
-        missionNumber.textContent =
-            "MISSION #" +
-            normaliseMission(
-                mission.id
-            );
+    missionNumber.textContent =
+        "MISSION #" +
+        mission.id;
 
 
-        /*
-           The current Google Sheet backend
-           only contains mission ID, reward
-           and active status.
-
-           The mission description/title
-           will therefore be generated from
-           this temporary test data.
-        */
-
-        const testMissions = {
-
-            "001": {
-
-                title:
-                    "THE MEMORY TEST",
-
-                description:
-                    "Choose a GCSE topic you have recently revised. Without looking at your notes, write down everything you can remember. Then check your notes and identify three things you forgot. Show your work to an authorised teacher."
-
-            },
-
-            "002": {
-
-                title:
-                    "THE TEACHER'S CHALLENGE",
-
-                description:
-                    "Ask a teacher to give you one GCSE question from their subject. Answer it without using your notes, then show your answer to the teacher."
-
-            },
-
-            "003": {
-
-                title:
-                    "EXPLAIN IT",
-
-                description:
-                    "Choose one difficult GCSE concept and explain it to another person in 60 seconds without using your notes."
-
-            },
-
-            "004": {
-
-                title:
-                    "THE LANGUAGE AGENT",
-
-                description:
-                    "Have a short conversation with another student or teacher using the language you are studying."
-
-            },
-
-            "005": {
-
-                title:
-                    "THE 100-WORD OPERATION",
-
-                description:
-                    "Choose an English Literature theme and write a 100-word analytical paragraph without using the words 'shows', 'good', 'bad' or 'interesting'."
-
-            }
-
-        };
+    missionTitle.textContent =
+        mission.title;
 
 
-        const details =
-            testMissions[
-                normaliseMission(
-                    mission.id
-                )
-            ];
+    missionDescription.textContent =
+        mission.description;
 
 
-        if (details) {
-
-            missionTitle.textContent =
-                details.title;
-
-            missionDescription.textContent =
-                details.description;
-
-        }
-
-        else {
-
-            missionTitle.textContent =
-                "CLASSIFIED ASSIGNMENT";
-
-            missionDescription.textContent =
-                "Your mission details are classified.";
-
-        }
+    missionReward.textContent =
+        "💎 +" +
+        mission.reward +
+        " gems";
 
 
-        missionReward.textContent =
-            "💎 +" +
-            mission.reward +
-            " gems";
+    missionCard.classList.add(
+        "active"
+    );
 
 
-        missionCard.classList.add(
-            "active"
-        );
+    verification.style.display =
+        "block";
 
 
-        verification.style.display =
-            "block";
+    envelopeNote.textContent =
+        "🔓 Assignment revealed.";
 
 
-        envelopeNote.textContent =
-            "🔓 Assignment revealed.";
+    missionCard.scrollIntoView({
 
+        behavior: "smooth",
 
-        missionCard.scrollIntoView({
+        block: "center"
 
-            behavior: "smooth",
+    });
 
-            block: "center"
-
-        });
-
-    }
-
+}
 
     /* =================================================
        COMPLETE MISSION
