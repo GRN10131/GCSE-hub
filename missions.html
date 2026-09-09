@@ -1368,7 +1368,23 @@ let hubData = null;
        LOAD AGENT
        ================================================= */
 async function loadAgent() {
+console.log("MISSION POSSIBLE: loadAgent started");
 
+const storedData =
+    localStorage.getItem("GCSE_HUB_DATA");
+
+console.log(
+    "GCSE_HUB_DATA:",
+    storedData
+);
+
+const testHub =
+    JSON.parse(storedData);
+
+console.log(
+    "Mission Possible Agent:",
+    testHub.agentId
+);
     /*
        Read the GCSE Hub account.
     */
