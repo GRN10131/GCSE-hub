@@ -1,0 +1,2411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Mission Possible — GCSE Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =================================================
+           PAGE
+           ================================================= */
+
+        .missions-page {
+
+            max-width: 1050px;
+
+            margin: auto;
+
+        }
+
+
+        .back-link {
+
+            display: inline-block;
+
+            margin-bottom: 20px;
+
+            text-decoration: none;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =================================================
+           HERO
+           ================================================= */
+
+        .mission-hero {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #171717,
+                    #292929
+                );
+
+            color: white;
+
+            border-radius: 24px;
+
+            padding: 45px 35px;
+
+            text-align: center;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(0,0,0,0.15);
+
+        }
+
+
+        .mission-hero-icon {
+
+            font-size: 65px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .mission-hero h1 {
+
+            margin: 0;
+
+            font-size: 42px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .mission-hero p {
+
+            margin:
+                12px auto 0;
+
+            max-width: 650px;
+
+            opacity: 0.85;
+
+        }
+
+
+        .classified {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 7px 14px;
+
+            border: 1px solid
+                rgba(255,255,255,0.35);
+
+            border-radius: 6px;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        /* =================================================
+           AGENT BAR
+           ================================================= */
+
+        .agent-bar {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .agent-stat {
+
+            background: white;
+
+            border:
+                1px solid #e5e7ee;
+
+            border-radius: 16px;
+
+            padding: 18px;
+
+            text-align: center;
+
+        }
+
+
+        .agent-stat-icon {
+
+            font-size: 25px;
+
+        }
+
+
+        .agent-stat-value {
+
+            font-size: 25px;
+
+            font-weight: 900;
+
+            margin-top: 5px;
+
+        }
+
+
+        .agent-stat-label {
+
+            color: #777;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =================================================
+           SECTIONS
+           ================================================= */
+
+        .mission-section {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .mission-section h2 {
+
+            margin-bottom: 12px;
+
+        }
+
+
+        /* =================================================
+           REGISTRATION
+           ================================================= */
+
+        #registration {
+
+            display: none;
+
+        }
+
+
+        #registration.active {
+
+            display: block;
+
+        }
+
+
+        .registration-card {
+
+            background: white;
+
+            border:
+                1px solid #e5e7ee;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            text-align: center;
+
+        }
+
+
+        .agent-code {
+
+            font-size: 32px;
+
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
+            margin: 20px 0;
+
+        }
+
+
+        .agent-input {
+
+            width: 100%;
+
+            max-width: 350px;
+
+            padding: 14px;
+
+            border:
+                2px solid #ddd;
+
+            border-radius: 12px;
+
+            font-size: 17px;
+
+            text-align: center;
+
+            box-sizing: border-box;
+
+        }
+
+
+        /* =================================================
+           ENVELOPE
+           ================================================= */
+
+        .envelope-area {
+
+            text-align: center;
+
+            margin:
+                30px auto;
+
+        }
+
+
+        .envelope {
+
+            width: 280px;
+
+            height: 175px;
+
+            margin: auto;
+
+            position: relative;
+
+            cursor: pointer;
+
+            perspective: 800px;
+
+        }
+
+
+        .envelope-back {
+
+            position: absolute;
+
+            inset: 0;
+
+            background: #f1eee8;
+
+            border-radius: 8px;
+
+            border:
+                2px solid #c9c2b5;
+
+            box-shadow:
+                0 12px 25px
+                rgba(0,0,0,0.15);
+
+        }
+
+
+        .envelope-flap {
+
+            position: absolute;
+
+            top: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left:
+                140px solid transparent;
+
+            border-right:
+                140px solid transparent;
+
+            border-top:
+                90px solid #d7d0c4;
+
+            transform-origin: top;
+
+            transition:
+                transform 0.6s ease;
+
+            z-index: 3;
+
+        }
+
+
+        .envelope-front {
+
+            position: absolute;
+
+            bottom: 0;
+
+            left: 0;
+
+            width: 0;
+
+            height: 0;
+
+            border-left:
+                140px solid transparent;
+
+            border-right:
+                140px solid transparent;
+
+            border-bottom:
+                95px solid #e4ded4;
+
+            z-index: 4;
+
+        }
+
+
+        .envelope-label {
+
+            position: absolute;
+
+            z-index: 5;
+
+            top: 58px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%);
+
+            background: #630914;
+
+            color: white;
+
+            padding: 10px 16px;
+
+            border-radius: 5px;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .envelope.opened
+        .envelope-flap {
+
+            transform:
+                rotateX(180deg);
+
+        }
+
+
+        .envelope-note {
+
+            margin-top: 18px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =================================================
+           MISSION CARD
+           ================================================= */
+
+        #missionCard {
+
+            display: none;
+
+        }
+
+
+        #missionCard.active {
+
+            display: block;
+
+        }
+
+
+        .mission-card {
+
+            background: #fffdf7;
+
+            border:
+                1px solid #ded8cc;
+
+            border-radius: 20px;
+
+            padding: 35px;
+
+            box-shadow:
+                0 12px 30px
+                rgba(0,0,0,0.08);
+
+            position: relative;
+
+        }
+
+
+        .mission-stamp {
+
+            position: absolute;
+
+            right: 25px;
+
+            top: 25px;
+
+            color: #630914;
+
+            border:
+                3px solid #630914;
+
+            padding: 7px 12px;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            transform:
+                rotate(-7deg);
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .mission-number {
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            letter-spacing: 2px;
+
+            color: #777;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .mission-title {
+
+            font-size: 32px;
+
+            font-weight: 900;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .mission-description {
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+        }
+
+
+        .mission-reward {
+
+            display: inline-block;
+
+            margin-top: 20px;
+
+            padding: 10px 16px;
+
+            border-radius: 10px;
+
+            background: #f3f3ff;
+
+            font-weight: 900;
+
+        }
+
+
+        /* =================================================
+           PASSWORD
+           ================================================= */
+
+        .verification-card {
+
+            background: white;
+
+            border:
+                1px solid #e5e7ee;
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            text-align: center;
+
+        }
+
+
+        .password-input {
+
+            width: 100%;
+
+            max-width: 350px;
+
+            box-sizing: border-box;
+
+            padding: 14px;
+
+            border:
+                2px solid #ddd;
+
+            border-radius: 12px;
+
+            font-size: 17px;
+
+            text-align: center;
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            margin:
+                15px 0;
+
+        }
+
+
+        /* =================================================
+           LEADERBOARD
+           ================================================= */
+
+        .leaderboard {
+
+            background: white;
+
+            border:
+                1px solid #e5e7ee;
+
+            border-radius: 20px;
+
+            overflow: hidden;
+
+        }
+
+
+        .leader-row {
+
+            display: grid;
+
+            grid-template-columns:
+                70px 1fr 120px;
+
+            align-items: center;
+
+            padding: 15px 20px;
+
+            border-bottom:
+                1px solid #eee;
+
+        }
+
+
+        .leader-row:last-child {
+
+            border-bottom: none;
+
+        }
+
+
+        .leader-rank {
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+        }
+
+
+        .leader-agent {
+
+            font-weight: 800;
+
+        }
+
+
+        .leader-missions {
+
+            text-align: right;
+
+            font-weight: 900;
+
+        }
+
+
+        /* =================================================
+           MESSAGE
+           ================================================= */
+
+        .mission-message {
+
+            display: none;
+
+            margin:
+                15px 0;
+
+            padding: 14px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+            font-weight: 800;
+
+        }
+
+
+        .mission-message.visible {
+
+            display: block;
+
+        }
+
+
+        .mission-message.success {
+
+            background: #e9f8ed;
+
+        }
+
+
+        .mission-message.error {
+
+            background: #fff0f0;
+
+        }
+
+
+        /* =================================================
+           SUCCESS
+           ================================================= */
+
+        #successCard {
+
+            display: none;
+
+        }
+
+
+        #successCard.active {
+
+            display: block;
+
+        }
+
+
+        .success-card {
+
+            background: white;
+
+            border-radius: 22px;
+
+            padding: 40px;
+
+            text-align: center;
+
+            border:
+                1px solid #e5e7ee;
+
+        }
+
+
+        .success-icon {
+
+            font-size: 70px;
+
+        }
+
+
+        .success-reward {
+
+            font-size: 30px;
+
+            font-weight: 900;
+
+            margin: 20px 0;
+
+        }
+
+
+        /* =================================================
+           RESPONSIVE
+           ================================================= */
+
+        @media(max-width:700px) {
+
+            .agent-bar {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .mission-hero h1 {
+
+                font-size: 32px;
+
+            }
+
+
+            .mission-card {
+
+                padding: 25px;
+
+            }
+
+
+            .mission-stamp {
+
+                position: static;
+
+                display: inline-block;
+
+                margin-bottom: 15px;
+
+            }
+
+
+            .leader-row {
+
+                grid-template-columns:
+                    55px 1fr 90px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+    injectHeader();
+</script>
+
+
+<main class="main missions-page">
+
+
+    <a
+        href="dashboard.html"
+        class="back-link"
+    >
+        ← Dashboard
+    </a>
+
+
+    <!-- =================================================
+         HERO
+         ================================================= -->
+
+    <section class="mission-hero">
+
+        <div class="mission-hero-icon">
+            🕵️
+        </div>
+
+        <h1>
+            MISSION POSSIBLE
+        </h1>
+
+        <p>
+            Welcome to Wojtek HQ.
+            Your revision skills have been
+            requested for a classified operation.
+        </p>
+
+        <div class="classified">
+            CLASSIFIED — EYES ONLY
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         AGENT STATS
+         ================================================= -->
+
+    <section
+        id="agentStats"
+        class="agent-bar"
+    >
+
+        <div class="agent-stat">
+
+            <div class="agent-stat-icon">
+                🕵️
+            </div>
+
+            <div
+                id="agentDisplay"
+                class="agent-stat-value"
+            >
+                —
+            </div>
+
+            <div class="agent-stat-label">
+                Agent
+            </div>
+
+        </div>
+
+
+        <div class="agent-stat">
+
+            <div class="agent-stat-icon">
+                🎯
+            </div>
+
+            <div
+                id="missionsDisplay"
+                class="agent-stat-value"
+            >
+                0
+            </div>
+
+            <div class="agent-stat-label">
+                Missions completed
+            </div>
+
+        </div>
+
+
+        <div class="agent-stat">
+
+            <div class="agent-stat-icon">
+                💎
+            </div>
+
+            <div
+                id="gemsDisplay"
+                class="agent-stat-value"
+            >
+                0
+            </div>
+
+            <div class="agent-stat-label">
+                Mission gems
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         REGISTRATION
+         ================================================= -->
+
+    <section
+        id="registration"
+        class="mission-section"
+    >
+
+        <div class="registration-card">
+
+            <h2>
+                🕵️ Identify Yourself, Agent
+            </h2>
+
+            <p>
+                Mission Possible uses anonymous
+                Agent IDs. Do not use your real name.
+            </p>
+
+            <input
+                id="agentInput"
+                class="agent-input"
+                type="text"
+                maxlength="12"
+                placeholder="AGENT-001"
+            >
+
+            <br>
+
+            <button
+                id="registerButton"
+                class="btn"
+                style="margin-top:15px"
+            >
+                Register Agent
+            </button>
+
+            <div
+                id="registrationMessage"
+                class="mission-message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MAIN MISSION AREA
+         ================================================= -->
+
+    <section
+        id="missionArea"
+        class="mission-section"
+    >
+
+        <div class="card">
+
+            <div style="text-align:center">
+
+                <h2>
+                    📩 Your Classified Assignment
+                </h2>
+
+                <p>
+                    When you're ready,
+                    open the envelope.
+                </p>
+
+            </div>
+
+
+            <div class="envelope-area">
+
+                <div
+                    id="envelope"
+                    class="envelope"
+                    title="Open classified envelope"
+                >
+
+                    <div class="envelope-back"></div>
+
+                    <div class="envelope-flap"></div>
+
+                    <div class="envelope-front"></div>
+
+                    <div class="envelope-label">
+                        WOJTEK HQ
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="envelopeNote"
+                    class="envelope-note"
+                >
+                    🔒 Click the envelope to open
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         MISSION CARD
+         ================================================= -->
+
+    <section
+        id="missionCard"
+        class="mission-section"
+    >
+
+        <div class="mission-card">
+
+            <div class="mission-stamp">
+                TOP SECRET
+            </div>
+
+            <div
+                id="missionNumber"
+                class="mission-number"
+            >
+                MISSION #---
+            </div>
+
+            <div
+                id="missionTitle"
+                class="mission-title"
+            >
+                Classified Assignment
+            </div>
+
+            <div
+                id="missionDescription"
+                class="mission-description"
+            >
+                Your assignment will appear here.
+            </div>
+
+            <div
+                id="missionReward"
+                class="mission-reward"
+            >
+                💎 Reward
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         VERIFICATION
+         ================================================= -->
+
+    <section
+        id="verification"
+        class="mission-section"
+        style="display:none"
+    >
+
+        <div class="verification-card">
+
+            <h2>
+                🔐 Mission Verification
+            </h2>
+
+            <p>
+                You have completed your assignment.
+            </p>
+
+            <p>
+                Show your completed mission to
+                your teacher or authorised verifier.
+            </p>
+
+            <p>
+                They will provide your
+                <strong>Mission Password</strong>.
+            </p>
+
+            <input
+                id="passwordInput"
+                class="password-input"
+                type="text"
+                maxlength="50"
+                placeholder="MISSION PASSWORD"
+            >
+
+            <br>
+
+            <button
+                id="completeButton"
+                class="btn"
+            >
+                Submit Mission 🔐
+            </button>
+
+            <div
+                id="completionMessage"
+                class="mission-message"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         SUCCESS
+         ================================================= -->
+
+    <section
+        id="successCard"
+        class="mission-section"
+    >
+
+        <div class="success-card">
+
+            <div class="success-icon">
+                🎉
+            </div>
+
+            <h2>
+                MISSION ACCOMPLISHED
+            </h2>
+
+            <p>
+                Excellent work, Agent.
+                Wojtek HQ has confirmed your success.
+            </p>
+
+            <div
+                id="successReward"
+                class="success-reward"
+            >
+                +100 💎
+            </div>
+
+            <p>
+                Your mission has been recorded
+                on the official Mission Possible system.
+            </p>
+
+            <button
+                id="newMissionButton"
+                class="btn"
+            >
+                Request Another Mission 🕵️
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         LEADERBOARD
+         ================================================= -->
+
+    <section class="mission-section">
+
+        <h2>
+            🏆 Mission Possible Leaderboard
+        </h2>
+
+        <p>
+            Agents are ranked by verified missions completed.
+        </p>
+
+        <div
+            id="leaderboard"
+            class="leaderboard"
+        >
+
+            <div
+                style="
+                    padding:25px;
+                    text-align:center;
+                "
+            >
+                Loading leaderboard...
+            </div>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<script>
+
+    /* =================================================
+       CONFIGURATION
+       ================================================= */
+
+    /*
+       IMPORTANT:
+
+       Replace the URL below with the Web App URL
+       from your Google Apps Script deployment.
+    */
+
+    const API_URL =
+        "https://script.google.com/macros/s/AKfycbwAlZiQbF-nEkYkZCTWwsp1lltQDG9OacGdnGzGtixBga0f0cyue0LYyDqePqZzNiYF/exec";
+
+
+    /* =================================================
+       STATE
+       ================================================= */
+
+    let currentAgent =
+        localStorage.getItem(
+            "gcseHubMissionAgent"
+        );
+
+    let currentMission = null;
+
+
+    /* =================================================
+       ELEMENTS
+       ================================================= */
+
+    const registration =
+        document.getElementById(
+            "registration"
+        );
+
+    const agentInput =
+        document.getElementById(
+            "agentInput"
+        );
+
+    const registerButton =
+        document.getElementById(
+            "registerButton"
+        );
+
+    const registrationMessage =
+        document.getElementById(
+            "registrationMessage"
+        );
+
+    const agentDisplay =
+        document.getElementById(
+            "agentDisplay"
+        );
+
+    const missionsDisplay =
+        document.getElementById(
+            "missionsDisplay"
+        );
+
+    const gemsDisplay =
+        document.getElementById(
+            "gemsDisplay"
+        );
+
+    const envelope =
+        document.getElementById(
+            "envelope"
+        );
+
+    const envelopeNote =
+        document.getElementById(
+            "envelopeNote"
+        );
+
+    const missionCard =
+        document.getElementById(
+            "missionCard"
+        );
+
+    const missionNumber =
+        document.getElementById(
+            "missionNumber"
+        );
+
+    const missionTitle =
+        document.getElementById(
+            "missionTitle"
+        );
+
+    const missionDescription =
+        document.getElementById(
+            "missionDescription"
+        );
+
+    const missionReward =
+        document.getElementById(
+            "missionReward"
+        );
+
+    const verification =
+        document.getElementById(
+            "verification"
+        );
+
+    const passwordInput =
+        document.getElementById(
+            "passwordInput"
+        );
+
+    const completeButton =
+        document.getElementById(
+            "completeButton"
+        );
+
+    const completionMessage =
+        document.getElementById(
+            "completionMessage"
+        );
+
+    const successCard =
+        document.getElementById(
+            "successCard"
+        );
+
+    const successReward =
+        document.getElementById(
+            "successReward"
+        );
+
+    const newMissionButton =
+        document.getElementById(
+            "newMissionButton"
+        );
+
+    const leaderboard =
+        document.getElementById(
+            "leaderboard"
+        );
+
+
+    /* =================================================
+       MESSAGE HELPER
+       ================================================= */
+
+    function showMessage(
+        element,
+        text,
+        type
+    ) {
+
+        element.textContent = text;
+
+        element.className =
+            "mission-message visible " +
+            type;
+
+    }
+
+
+    /* =================================================
+       NORMALISE AGENT ID
+       ================================================= */
+
+    function normaliseAgent(
+        value
+    ) {
+
+        return String(value)
+            .trim()
+            .toUpperCase();
+
+    }
+
+
+    /* =================================================
+       NORMALISE MISSION
+       ================================================= */
+
+    function normaliseMission(
+        value
+    ) {
+
+        const text =
+            String(value)
+                .trim();
+
+        if (
+            /^\d+$/.test(text)
+        ) {
+
+            return text.padStart(
+                3,
+                "0"
+            );
+
+        }
+
+        return text.toUpperCase();
+
+    }
+
+
+    /* =================================================
+       LOAD AGENT
+       ================================================= */
+
+    async function loadAgent() {
+
+        if (!currentAgent) {
+
+            registration.classList.add(
+                "active"
+            );
+
+            return;
+
+        }
+
+
+        try {
+
+            const response =
+                await fetch(
+
+                    API_URL +
+                    "?action=agent&agent=" +
+                    encodeURIComponent(
+                        currentAgent
+                    )
+
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                data.success
+            ) {
+
+                updateAgentDisplay(
+                    data.agent
+                );
+
+                registration.classList.remove(
+                    "active"
+                );
+
+            }
+
+            else {
+
+                currentAgent = null;
+
+                localStorage.removeItem(
+                    "gcseHubMissionAgent"
+                );
+
+                registration.classList.add(
+                    "active"
+                );
+
+            }
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+            showMessage(
+
+                registrationMessage,
+
+                "Unable to connect to Wojtek HQ.",
+
+                "error"
+
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       UPDATE AGENT DISPLAY
+       ================================================= */
+
+    function updateAgentDisplay(
+        agent
+    ) {
+
+        agentDisplay.textContent =
+            agent.id;
+
+        missionsDisplay.textContent =
+            agent.missions;
+
+        gemsDisplay.textContent =
+            agent.gems;
+
+    }
+
+
+    /* =================================================
+       REGISTER AGENT
+       ================================================= */
+
+    registerButton.addEventListener(
+        "click",
+        async function() {
+
+            const id =
+                normaliseAgent(
+                    agentInput.value
+                );
+
+
+            if (!id) {
+
+                showMessage(
+
+                    registrationMessage,
+
+                    "Please enter an Agent ID.",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !/^AGENT-[A-Z0-9]{1,6}$/
+                    .test(id)
+            ) {
+
+                showMessage(
+
+                    registrationMessage,
+
+                    "Agent IDs must look like AGENT-001.",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                const response =
+                    await fetch(
+
+                        API_URL +
+                        "?action=agent&agent=" +
+                        encodeURIComponent(
+                            id
+                        )
+
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    data.success
+                ) {
+
+                    currentAgent =
+                        id;
+
+
+                    localStorage.setItem(
+
+                        "gcseHubMissionAgent",
+
+                        currentAgent
+
+                    );
+
+
+                    updateAgentDisplay(
+                        data.agent
+                    );
+
+
+                    registration.classList.remove(
+                        "active"
+                    );
+
+
+                    showMessage(
+
+                        registrationMessage,
+
+                        "Agent recognised. Welcome to Wojtek HQ.",
+
+                        "success"
+
+                    );
+
+                }
+
+                else {
+
+                    /*
+                       For this test version,
+                       an agent must already exist
+                       in the Google Sheet.
+
+                       Later we can add automatic
+                       agent registration.
+                    */
+
+                    showMessage(
+
+                        registrationMessage,
+
+                        "Agent not found. Ask the Mission Possible administrator to add your Agent ID.",
+
+                        "error"
+
+                    );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    error
+                );
+
+                showMessage(
+
+                    registrationMessage,
+
+                    "Unable to contact Wojtek HQ.",
+
+                    "error"
+
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =================================================
+       OPEN ENVELOPE
+       ================================================= */
+
+    envelope.addEventListener(
+        "click",
+        async function() {
+
+            if (!currentAgent) {
+
+                showMessage(
+
+                    registrationMessage,
+
+                    "Register an Agent ID first.",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+            if (
+                envelope.classList.contains(
+                    "opened"
+                )
+            ) {
+
+                return;
+
+            }
+
+
+            envelope.classList.add(
+                "opened"
+            );
+
+
+            envelopeNote.textContent =
+                "📨 Opening classified assignment...";
+
+
+            /*
+               For the first version,
+               missions are selected from
+               the test missions.
+
+               We will later add a dedicated
+               random mission endpoint.
+            */
+
+            await chooseRandomMission();
+
+        }
+    );
+
+
+    /* =================================================
+       CHOOSE RANDOM MISSION
+       ================================================= */
+
+    async function chooseRandomMission() {
+
+        /*
+           Test missions available in the
+           current Google Sheet.
+
+           Change this list as you add missions.
+        */
+
+        const missionList = [
+
+            "001",
+
+            "002",
+
+            "003",
+
+            "004",
+
+            "005"
+
+        ];
+
+
+        const randomIndex =
+            Math.floor(
+                Math.random() *
+                missionList.length
+            );
+
+
+        const selectedMission =
+            missionList[randomIndex];
+
+
+        try {
+
+            const response =
+                await fetch(
+
+                    API_URL +
+                    "?action=mission&mission=" +
+                    encodeURIComponent(
+                        selectedMission
+                    )
+
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !data.success
+            ) {
+
+                envelopeNote.textContent =
+                    "⚠️ Mission unavailable.";
+
+                envelope.classList.remove(
+                    "opened"
+                );
+
+                return;
+
+            }
+
+
+            currentMission =
+                data.mission;
+
+
+            displayMission(
+                currentMission
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            envelopeNote.textContent =
+                "⚠️ Wojtek HQ connection failed.";
+
+            envelope.classList.remove(
+                "opened"
+            );
+
+        }
+
+    }
+
+
+    /* =================================================
+       DISPLAY MISSION
+       ================================================= */
+
+    function displayMission(
+        mission
+    ) {
+
+        missionNumber.textContent =
+            "MISSION #" +
+            normaliseMission(
+                mission.id
+            );
+
+
+        /*
+           The current Google Sheet backend
+           only contains mission ID, reward
+           and active status.
+
+           The mission description/title
+           will therefore be generated from
+           this temporary test data.
+        */
+
+        const testMissions = {
+
+            "001": {
+
+                title:
+                    "THE MEMORY TEST",
+
+                description:
+                    "Choose a GCSE topic you have recently revised. Without looking at your notes, write down everything you can remember. Then check your notes and identify three things you forgot. Show your work to an authorised teacher."
+
+            },
+
+            "002": {
+
+                title:
+                    "THE TEACHER'S CHALLENGE",
+
+                description:
+                    "Ask a teacher to give you one GCSE question from their subject. Answer it without using your notes, then show your answer to the teacher."
+
+            },
+
+            "003": {
+
+                title:
+                    "EXPLAIN IT",
+
+                description:
+                    "Choose one difficult GCSE concept and explain it to another person in 60 seconds without using your notes."
+
+            },
+
+            "004": {
+
+                title:
+                    "THE LANGUAGE AGENT",
+
+                description:
+                    "Have a short conversation with another student or teacher using the language you are studying."
+
+            },
+
+            "005": {
+
+                title:
+                    "THE 100-WORD OPERATION",
+
+                description:
+                    "Choose an English Literature theme and write a 100-word analytical paragraph without using the words 'shows', 'good', 'bad' or 'interesting'."
+
+            }
+
+        };
+
+
+        const details =
+            testMissions[
+                normaliseMission(
+                    mission.id
+                )
+            ];
+
+
+        if (details) {
+
+            missionTitle.textContent =
+                details.title;
+
+            missionDescription.textContent =
+                details.description;
+
+        }
+
+        else {
+
+            missionTitle.textContent =
+                "CLASSIFIED ASSIGNMENT";
+
+            missionDescription.textContent =
+                "Your mission details are classified.";
+
+        }
+
+
+        missionReward.textContent =
+            "💎 +" +
+            mission.reward +
+            " gems";
+
+
+        missionCard.classList.add(
+            "active"
+        );
+
+
+        verification.style.display =
+            "block";
+
+
+        envelopeNote.textContent =
+            "🔓 Assignment revealed.";
+
+
+        missionCard.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "center"
+
+        });
+
+    }
+
+
+    /* =================================================
+       COMPLETE MISSION
+       ================================================= */
+
+    completeButton.addEventListener(
+        "click",
+        async function() {
+
+            if (
+                !currentAgent ||
+                !currentMission
+            ) {
+
+                return;
+
+            }
+
+
+            const password =
+                passwordInput.value
+                    .trim();
+
+
+            if (!password) {
+
+                showMessage(
+
+                    completionMessage,
+
+                    "Please enter the password given by your verifier.",
+
+                    "error"
+
+                );
+
+                return;
+
+            }
+
+
+            completeButton.disabled =
+                true;
+
+
+            completeButton.textContent =
+                "Contacting Wojtek HQ...";
+
+
+            try {
+
+                const url =
+
+                    API_URL +
+
+                    "?action=complete" +
+
+                    "&agent=" +
+
+                    encodeURIComponent(
+                        currentAgent
+                    ) +
+
+                    "&mission=" +
+
+                    encodeURIComponent(
+                        currentMission.id
+                    ) +
+
+                    "&password=" +
+
+                    encodeURIComponent(
+                        password
+                    );
+
+
+                const response =
+                    await fetch(
+                        url
+                    );
+
+
+                const data =
+                    await response.json();
+
+
+                if (
+                    data.success
+                ) {
+
+                    updateAgentDisplay(
+                        data.agent
+                    );
+
+
+                    successReward.textContent =
+                        "+" +
+                        data.mission.reward +
+                        " 💎";
+
+
+                    verification.style.display =
+                        "none";
+
+
+                    missionCard.classList.remove(
+                        "active"
+                    );
+
+
+                    successCard.classList.add(
+                        "active"
+                    );
+
+
+                    passwordInput.value =
+                        "";
+
+
+                    loadLeaderboard();
+
+                }
+
+                else {
+
+                    showMessage(
+
+                        completionMessage,
+
+                        data.error ||
+                        "Mission verification failed.",
+
+                        "error"
+
+                    );
+
+                }
+
+            }
+
+            catch (error) {
+
+                console.error(
+                    error
+                );
+
+
+                showMessage(
+
+                    completionMessage,
+
+                    "Unable to contact Wojtek HQ.",
+
+                    "error"
+
+                );
+
+            }
+
+
+            completeButton.disabled =
+                false;
+
+            completeButton.textContent =
+                "Submit Mission 🔐";
+
+        }
+    );
+
+
+    /* =================================================
+       NEW MISSION
+       ================================================= */
+
+    newMissionButton.addEventListener(
+        "click",
+        function() {
+
+            successCard.classList.remove(
+                "active"
+            );
+
+
+            missionCard.classList.remove(
+                "active"
+            );
+
+
+            verification.style.display =
+                "none";
+
+
+            envelope.classList.remove(
+                "opened"
+            );
+
+
+            envelopeNote.textContent =
+                "🔒 Click the envelope to open";
+
+
+            currentMission =
+                null;
+
+
+            loadAgent();
+
+        }
+    );
+
+
+    /* =================================================
+       LEADERBOARD
+       ================================================= */
+
+    async function loadLeaderboard() {
+
+        try {
+
+            const response =
+                await fetch(
+
+                    API_URL +
+                    "?action=leaderboard"
+
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (
+                !data.success
+            ) {
+
+                leaderboard.innerHTML =
+
+                    "<div style='padding:25px;text-align:center'>" +
+
+                    "Leaderboard unavailable." +
+
+                    "</div>";
+
+                return;
+
+            }
+
+
+            renderLeaderboard(
+                data.leaderboard
+            );
+
+        }
+
+        catch (error) {
+
+            console.error(
+                error
+            );
+
+
+            leaderboard.innerHTML =
+
+                "<div style='padding:25px;text-align:center'>" +
+
+                "Unable to contact Wojtek HQ." +
+
+                "</div>";
+
+        }
+
+    }
+
+
+    /* =================================================
+       RENDER LEADERBOARD
+       ================================================= */
+
+    function renderLeaderboard(
+        agents
+    ) {
+
+        if (
+            !agents ||
+            agents.length === 0
+        ) {
+
+            leaderboard.innerHTML =
+
+                "<div style='padding:25px;text-align:center'>" +
+
+                "No agents have completed missions yet." +
+
+                "</div>";
+
+            return;
+
+        }
+
+
+        leaderboard.innerHTML = "";
+
+
+        agents.forEach(
+            function(agent, index) {
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.className =
+                    "leader-row";
+
+
+                let rank =
+                    index + 1;
+
+
+                let rankDisplay =
+                    rank;
+
+
+                if (
+                    rank === 1
+                )
+                    rankDisplay = "🥇";
+
+                if (
+                    rank === 2
+                )
+                    rankDisplay = "🥈";
+
+                if (
+                    rank === 3
+                )
+                    rankDisplay = "🥉";
+
+
+                row.innerHTML =
+
+                    "<div class='leader-rank'>" +
+
+                    rankDisplay +
+
+                    "</div>" +
+
+                    "<div class='leader-agent'>" +
+
+                    escapeHTML(
+                        agent.id
+                    ) +
+
+                    "</div>" +
+
+                    "<div class='leader-missions'>" +
+
+                    agent.missions +
+
+                    " missions" +
+
+                    "</div>";
+
+
+                leaderboard.appendChild(
+                    row
+                );
+
+            }
+        );
+
+    }
+
+
+    /* =================================================
+       ESCAPE HTML
+       ================================================= */
+
+    function escapeHTML(
+        value
+    ) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            value;
+
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =================================================
+       INITIALISE
+       ================================================= */
+
+    loadAgent();
+
+    loadLeaderboard();
+
+</script>
+
+
+</body>
+
+</html>
