@@ -18,6 +18,218 @@
     >
 
     <style>
+    /* =====================================================
+       STREAK ENDED / FREEZE POPUPS
+       ===================================================== */
+
+    .streak-ended-overlay {
+
+        position: fixed;
+
+        inset: 0;
+
+        background: rgba(0, 0, 0, 0.72);
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        padding: 20px;
+
+        z-index: 99999;
+
+        backdrop-filter: blur(5px);
+
+    }
+
+
+    .streak-ended-card {
+
+        position: relative;
+
+        width: min(520px, 100%);
+
+        background: white;
+
+        border-radius: 28px;
+
+        padding: 30px;
+
+        text-align: center;
+
+        box-shadow:
+            0 25px 80px rgba(0,0,0,0.35);
+
+        animation:
+            streakPopupIn 0.25s ease-out;
+
+    }
+
+
+    @keyframes streakPopupIn {
+
+        from {
+
+            opacity: 0;
+
+            transform:
+                translateY(20px)
+                scale(0.96);
+
+        }
+
+        to {
+
+            opacity: 1;
+
+            transform:
+                translateY(0)
+                scale(1);
+
+        }
+
+    }
+
+
+    .streak-ended-close {
+
+        position: absolute;
+
+        top: 14px;
+
+        right: 17px;
+
+        width: 36px;
+
+        height: 36px;
+
+        border: none;
+
+        border-radius: 50%;
+
+        background: #f0f1f5;
+
+        font-size: 24px;
+
+        line-height: 1;
+
+        cursor: pointer;
+
+        z-index: 2;
+
+    }
+
+
+    .streak-ended-image {
+
+        width: 100%;
+
+        max-width: 480px;
+
+        height: auto;
+
+        display: block;
+
+        margin: 0 auto 15px;
+
+        border-radius: 18px;
+
+    }
+
+
+    .streak-ended-icon {
+
+        font-size: 38px;
+
+        margin: 5px 0;
+
+    }
+
+
+    .streak-ended-card h2 {
+
+        font-size: 30px;
+
+        margin: 5px 0 12px;
+
+    }
+
+
+    .streak-ended-main {
+
+        font-size: 18px;
+
+        font-weight: 700;
+
+        margin: 0 0 10px;
+
+    }
+
+
+    .streak-ended-secondary {
+
+        color: #666;
+
+        line-height: 1.6;
+
+        margin-bottom: 22px;
+
+    }
+
+
+    .streak-ended-button {
+
+        width: 100%;
+
+    }
+
+
+    /* FREEZE VERSION */
+
+    .freeze-card {
+
+        max-width: 430px;
+
+    }
+
+
+    .freeze-icon {
+
+        font-size: 70px;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    @media(max-width:600px) {
+
+        .streak-ended-card {
+
+            padding: 22px;
+
+            border-radius: 22px;
+
+        }
+
+
+        .streak-ended-card h2 {
+
+            font-size: 25px;
+
+        }
+
+
+        .streak-ended-main {
+
+            font-size: 16px;
+
+        }
+
+    }
+
 
         .subject-list {
 
@@ -645,6 +857,13 @@ function updateDashboard() {
     updateGoalText();
 
 }
+
+
+/* =========================================================
+   CHECK STREAK BEFORE DASHBOARD GREETING
+   ========================================================= */
+
+checkStreakStatus();
 
 
 updateDashboard();
