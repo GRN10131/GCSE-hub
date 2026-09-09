@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Tier 3 Keywords — GCSE Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <style>
+
+        /* =================================================
+           KEYWORD PAGE
+           ================================================= */
+
+        .keywords-page {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+        }
+
+
+        .keywords-header {
+
+            text-align: center;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .keywords-icon {
+
+            font-size: 58px;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        .keywords-header h1 {
+
+            margin: 0 0 8px;
+
+            font-size: clamp(
+                32px,
+                5vw,
+                46px
+            );
+
+        }
+
+
+        .keywords-header p {
+
+            color: var(--muted);
+
+            max-width: 650px;
+
+            margin: auto;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* SEARCH */
+
+        .keyword-controls {
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .keyword-search {
+
+            width: 100%;
+
+            padding: 16px 18px;
+
+            border:
+                2px solid
+                var(--border);
+
+            border-radius: 16px;
+
+            background: white;
+
+            outline: none;
+
+            font-size: 16px;
+
+        }
+
+
+        .keyword-search:focus {
+
+            border-color:
+                var(--primary);
+
+        }
+
+
+        .keyword-filters {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 12px;
+
+        }
+
+
+        .keyword-filter {
+
+            padding: 12px 14px;
+
+            border:
+                2px solid
+                var(--border);
+
+            border-radius: 13px;
+
+            background: white;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+        }
+
+
+        .keyword-filter:focus {
+
+            border-color:
+                var(--primary);
+
+            outline: none;
+
+        }
+
+
+        /* PROGRESS */
+
+        .keyword-progress {
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .keyword-progress-head {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            gap: 10px;
+
+            margin-bottom: 10px;
+
+            font-weight: 800;
+
+        }
+
+
+        .keyword-progress-bar {
+
+            height: 12px;
+
+            background: #edf0f5;
+
+            border-radius: 99px;
+
+            overflow: hidden;
+
+        }
+
+
+        .keyword-progress-fill {
+
+            height: 100%;
+
+            width: 0%;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--primary-light)
+                );
+
+            transition:
+                width .3s ease;
+
+        }
+
+
+        /* KEYWORD GRID */
+
+        .keyword-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(250px, 1fr)
+                );
+
+            gap: 16px;
+
+        }
+
+
+        .keyword-card {
+
+            background: white;
+
+            border:
+                2px solid
+                var(--border);
+
+            border-radius: 20px;
+
+            padding: 22px;
+
+            cursor: pointer;
+
+            transition:
+                .18s ease;
+
+        }
+
+
+        .keyword-card:hover {
+
+            transform:
+                translateY(-3px);
+
+            box-shadow:
+                var(--shadow);
+
+        }
+
+
+        .keyword-card.mastered {
+
+            border-color:
+                var(--green);
+
+        }
+
+
+        .keyword-card-subject {
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                .7px;
+
+            color:
+                var(--primary);
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .keyword-card-word {
+
+            font-size: 24px;
+
+            font-weight: 950;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .keyword-card-definition {
+
+            color:
+                var(--muted);
+
+            line-height:
+                1.5;
+
+            font-size:
+                14px;
+
+        }
+
+
+        .keyword-card-status {
+
+            margin-top: 18px;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* EMPTY */
+
+        .keyword-empty {
+
+            display: none;
+
+            text-align: center;
+
+            padding: 45px 20px;
+
+        }
+
+
+        .keyword-empty.visible {
+
+            display: block;
+
+        }
+
+
+        .keyword-empty-icon {
+
+            font-size: 50px;
+
+        }
+
+
+        /* MODAL */
+
+        .keyword-modal {
+
+            display: none;
+
+            position: fixed;
+
+            inset: 0;
+
+            background:
+                rgba(23,32,51,.45);
+
+            z-index: 100;
+
+            padding: 20px;
+
+            align-items: center;
+
+            justify-content: center;
+
+        }
+
+
+        .keyword-modal.visible {
+
+            display: flex;
+
+        }
+
+
+        .keyword-modal-card {
+
+            background: white;
+
+            border-radius: 24px;
+
+            padding: 30px;
+
+            max-width: 650px;
+
+            width: 100%;
+
+            max-height: 90vh;
+
+            overflow-y: auto;
+
+            box-shadow:
+                0 25px 70px
+                rgba(0,0,0,.2);
+
+        }
+
+
+        .keyword-modal-subject {
+
+            color:
+                var(--primary);
+
+            font-size: 13px;
+
+            font-weight: 900;
+
+            text-transform:
+                uppercase;
+
+            letter-spacing:
+                1px;
+
+        }
+
+
+        .keyword-modal-word {
+
+            font-size: 38px;
+
+            font-weight: 950;
+
+            margin:
+                8px 0 20px;
+
+        }
+
+
+        .keyword-modal-section {
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .keyword-modal-section strong {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .keyword-modal-section p {
+
+            margin: 0;
+
+            line-height: 1.6;
+
+        }
+
+
+        .keyword-exam-tip {
+
+            padding: 16px;
+
+            background:
+                #f4f4ff;
+
+            border-radius: 15px;
+
+        }
+
+
+        .keyword-modal-actions {
+
+            display: flex;
+
+            gap: 10px;
+
+            flex-wrap: wrap;
+
+            margin-top: 25px;
+
+        }
+
+
+        @media(max-width:600px) {
+
+            .keyword-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .keyword-modal-word {
+
+                font-size: 30px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<script src="js/app.js"></script>
+
+<script>
+
+    injectHeader();
+
+</script>
+
+
+<main class="main keywords-page">
+
+
+    <a
+        href="dashboard.html"
+        class="back-link"
+    >
+        ← Dashboard
+    </a>
+
+
+    <!-- HEADER -->
+
+    <header class="keywords-header">
+
+        <div class="keywords-icon">
+            🔑
+        </div>
+
+        <h1>
+            Tier 3 Keyword Bank
+        </h1>
+
+        <p>
+            Build the academic vocabulary you need
+            to explain ideas precisely and write
+            stronger GCSE answers.
+        </p>
+
+    </header>
+
+
+    <!-- CONTROLS -->
+
+    <section class="card keyword-controls">
+
+        <input
+            id="keywordSearch"
+            class="keyword-search"
+            type="search"
+            placeholder="🔍 Search keywords..."
+            autocomplete="off"
+        >
+
+
+        <div class="keyword-filters">
+
+            <select
+                id="subjectFilter"
+                class="keyword-filter"
+            >
+
+                <option value="all">
+                    All Subjects
+                </option>
+
+            </select>
+
+
+            <select
+                id="topicFilter"
+                class="keyword-filter"
+            >
+
+                <option value="all">
+                    All Topics
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROGRESS -->
+
+    <section class="card keyword-progress">
+
+        <div class="keyword-progress-head">
+
+            <span>
+                🎯 Your Keyword Progress
+            </span>
+
+            <span id="keywordProgressText">
+                0 / 0 mastered
+            </span>
+
+        </div>
+
+
+        <div class="keyword-progress-bar">
+
+            <div
+                id="keywordProgressFill"
+                class="keyword-progress-fill"
+            ></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- KEYWORDS -->
+
+    <section>
+
+        <div
+            id="keywordGrid"
+            class="keyword-grid"
+        ></div>
+
+
+        <div
+            id="keywordEmpty"
+            class="card keyword-empty"
+        >
+
+            <div class="keyword-empty-icon">
+                🔍
+            </div>
+
+            <h2>
+                No keywords found
+            </h2>
+
+            <p class="muted">
+                Try a different search or filter.
+            </p>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<!-- MODAL -->
+
+<div
+    id="keywordModal"
+    class="keyword-modal"
+>
+
+    <div class="keyword-modal-card">
+
+        <div
+            id="modalSubject"
+            class="keyword-modal-subject"
+        ></div>
+
+
+        <div
+            id="modalKeyword"
+            class="keyword-modal-word"
+        ></div>
+
+
+        <div class="keyword-modal-section">
+
+            <strong>
+                📖 Definition
+            </strong>
+
+            <p id="modalDefinition"></p>
+
+        </div>
+
+
+        <div
+            class="keyword-modal-section keyword-exam-tip"
+        >
+
+            <strong>
+                💡 Exam tip
+            </strong>
+
+            <p id="modalTip"></p>
+
+        </div>
+
+
+        <div class="keyword-modal-actions">
+
+            <button
+                id="modalMasterButton"
+                class="btn"
+                type="button"
+            >
+                ⭐ Mark as Mastered
+            </button>
+
+
+            <button
+                id="modalCloseButton"
+                class="btn secondary"
+                type="button"
+            >
+                Close
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="js/keyword-data.js"></script>
+
+
+<script>
+
+    /* =====================================================
+       KEYWORD BANK
+       ===================================================== */
+
+
+    const keywordSearch =
+        document.getElementById(
+            "keywordSearch"
+        );
+
+
+    const subjectFilter =
+        document.getElementById(
+            "subjectFilter"
+        );
+
+
+    const topicFilter =
+        document.getElementById(
+            "topicFilter"
+        );
+
+
+    const keywordGrid =
+        document.getElementById(
+            "keywordGrid"
+        );
+
+
+    const keywordEmpty =
+        document.getElementById(
+            "keywordEmpty"
+        );
+
+
+    const keywordProgressText =
+        document.getElementById(
+            "keywordProgressText"
+        );
+
+
+    const keywordProgressFill =
+        document.getElementById(
+            "keywordProgressFill"
+        );
+
+
+    const keywordModal =
+        document.getElementById(
+            "keywordModal"
+        );
+
+
+    let selectedKeyword = null;
+
+
+    /* =====================================================
+       PROGRESS
+       ===================================================== */
+
+
+    function getKeywordProgress() {
+
+        try {
+
+            return JSON.parse(
+                localStorage.getItem(
+                    "GCSE_HUB_KEYWORD_PROGRESS"
+                ) || "{}"
+            );
+
+        } catch {
+
+            return {};
+
+        }
+
+    }
+
+
+    function saveKeywordProgress(progress) {
+
+        localStorage.setItem(
+            "GCSE_HUB_KEYWORD_PROGRESS",
+            JSON.stringify(progress)
+        );
+
+    }
+
+
+    function isMastered(id) {
+
+        const progress =
+            getKeywordProgress();
+
+        return !!(
+            progress[id] &&
+            progress[id].mastered
+        );
+
+    }
+
+
+    /* =====================================================
+       SUBJECT NAMES
+       ===================================================== */
+
+
+    function prettySubject(subject) {
+
+        const names = {
+
+            biology:
+                "Biology",
+
+            chemistry:
+                "Chemistry",
+
+            physics:
+                "Physics",
+
+            english:
+                "English",
+
+            history:
+                "History",
+
+            geography:
+                "Geography",
+
+            spanish:
+                "Spanish",
+
+            systems:
+                "Systems Engineering"
+
+        };
+
+
+        return names[subject] ||
+            subject;
+
+    }
+
+
+    /* =====================================================
+       FILTERS
+       ===================================================== */
+
+
+    function populateFilters() {
+
+        const subjects =
+            new Set();
+
+        const topics =
+            new Set();
+
+
+        KEYWORD_DATA.forEach(
+            keyword => {
+
+                subjects.add(
+                    keyword.subject
+                );
+
+
+                keyword.topics.forEach(
+                    topic => {
+
+                        topics.add(topic);
+
+                    }
+                );
+
+            }
+        );
+
+
+        [...subjects]
+            .sort()
+            .forEach(subject => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    subject;
+
+                option.textContent =
+                    prettySubject(
+                        subject
+                    );
+
+                subjectFilter.appendChild(
+                    option
+                );
+
+            });
+
+
+        [...topics]
+            .sort()
+            .forEach(topic => {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+                option.value =
+                    topic;
+
+                option.textContent =
+                    topic;
+
+                topicFilter.appendChild(
+                    option
+                );
+
+            });
+
+    }
+
+
+    /* =====================================================
+       RENDER
+       ===================================================== */
+
+
+    function renderKeywords() {
+
+        const search =
+            keywordSearch.value
+                .trim()
+                .toLowerCase();
+
+
+        const subject =
+            subjectFilter.value;
+
+
+        const topic =
+            topicFilter.value;
+
+
+        const filtered =
+            KEYWORD_DATA.filter(
+                keyword => {
+
+                    const matchesSearch =
+                        !search ||
+                        keyword.keyword
+                            .toLowerCase()
+                            .includes(search) ||
+                        keyword.definition
+                            .toLowerCase()
+                            .includes(search);
+
+
+                    const matchesSubject =
+                        subject === "all" ||
+                        keyword.subject === subject;
+
+
+                    const matchesTopic =
+                        topic === "all" ||
+                        keyword.topics
+                            .includes(topic);
+
+
+                    return (
+                        matchesSearch &&
+                        matchesSubject &&
+                        matchesTopic
+                    );
+
+                }
+            );
+
+
+        keywordGrid.innerHTML = "";
+
+
+        keywordEmpty.classList.toggle(
+            "visible",
+            filtered.length === 0
+        );
+
+
+        filtered.forEach(
+            keyword => {
+
+                const mastered =
+                    isMastered(
+                        keyword.id
+                    );
+
+
+                const card =
+                    document.createElement(
+                        "article"
+                    );
+
+
+                card.className =
+                    "keyword-card" +
+                    (
+                        mastered
+                            ? " mastered"
+                            : ""
+                    );
+
+
+                card.innerHTML = `
+
+                    <div
+                        class="keyword-card-subject"
+                    >
+                        ${prettySubject(
+                            keyword.subject
+                        )}
+                    </div>
+
+
+                    <div
+                        class="keyword-card-word"
+                    >
+                        ${keyword.keyword}
+                    </div>
+
+
+                    <div
+                        class="keyword-card-definition"
+                    >
+                        ${keyword.definition}
+                    </div>
+
+
+                    <div
+                        class="keyword-card-status"
+                    >
+                        ${
+                            mastered
+                                ? "⭐ Mastered"
+                                : "🎯 Click to learn"
+                        }
+                    </div>
+
+                `;
+
+
+                card.addEventListener(
+                    "click",
+                    () => {
+
+                        openKeyword(
+                            keyword
+                        );
+
+                    }
+                );
+
+
+                keywordGrid.appendChild(
+                    card
+                );
+
+            }
+        );
+
+
+        updateProgress();
+
+    }
+
+
+    /* =====================================================
+       PROGRESS DISPLAY
+       ===================================================== */
+
+
+    function updateProgress() {
+
+        const total =
+            KEYWORD_DATA.length;
+
+
+        const mastered =
+            KEYWORD_DATA.filter(
+                keyword =>
+                    isMastered(
+                        keyword.id
+                    )
+            ).length;
+
+
+        keywordProgressText.textContent =
+            `${mastered} / ${total} mastered`;
+
+
+        const percentage =
+            total
+                ? (mastered / total) * 100
+                : 0;
+
+
+        keywordProgressFill.style.width =
+            percentage + "%";
+
+    }
+
+
+    /* =====================================================
+       MODAL
+       ===================================================== */
+
+
+    function openKeyword(keyword) {
+
+        selectedKeyword =
+            keyword;
+
+
+        document.getElementById(
+            "modalSubject"
+        ).textContent =
+            prettySubject(
+                keyword.subject
+            );
+
+
+        document.getElementById(
+            "modalKeyword"
+        ).textContent =
+            keyword.keyword;
+
+
+        document.getElementById(
+            "modalDefinition"
+        ).textContent =
+            keyword.definition;
+
+
+        document.getElementById(
+            "modalTip"
+        ).textContent =
+            keyword.tip;
+
+
+        updateModalButton();
+
+
+        keywordModal.classList.add(
+            "visible"
+        );
+
+    }
+
+
+    function closeKeyword() {
+
+        keywordModal.classList.remove(
+            "visible"
+        );
+
+        selectedKeyword =
+            null;
+
+    }
+
+
+    function updateModalButton() {
+
+        const button =
+            document.getElementById(
+                "modalMasterButton"
+            );
+
+
+        if (
+            selectedKeyword &&
+            isMastered(
+                selectedKeyword.id
+            )
+        ) {
+
+            button.textContent =
+                "⭐ Mastered";
+
+            button.disabled =
+                true;
+
+        } else {
+
+            button.textContent =
+                "⭐ Mark as Mastered";
+
+            button.disabled =
+                false;
+
+        }
+
+    }
+
+
+    /* =====================================================
+       MARK MASTERED
+       ===================================================== */
+
+
+    document.getElementById(
+        "modalMasterButton"
+    ).addEventListener(
+        "click",
+        () => {
+
+            if (!selectedKeyword)
+                return;
+
+
+            const progress =
+                getKeywordProgress();
+
+
+            progress[
+                selectedKeyword.id
+            ] = {
+
+                mastered: true,
+
+                date:
+                    new Date()
+                        .toISOString()
+
+            };
+
+
+            saveKeywordProgress(
+                progress
+            );
+
+
+            updateModalButton();
+
+            renderKeywords();
+
+        }
+    );
+
+
+    /* =====================================================
+       EVENTS
+       ===================================================== */
+
+
+    keywordSearch.addEventListener(
+        "input",
+        renderKeywords
+    );
+
+
+    subjectFilter.addEventListener(
+        "change",
+        renderKeywords
+    );
+
+
+    topicFilter.addEventListener(
+        "change",
+        renderKeywords
+    );
+
+
+    document.getElementById(
+        "modalCloseButton"
+    ).addEventListener(
+        "click",
+        closeKeyword
+    );
+
+
+    keywordModal.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target ===
+                keywordModal
+            ) {
+
+                closeKeyword();
+
+            }
+
+        }
+    );
+
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeKeyword();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       START
+       ===================================================== */
+
+
+    populateFilters();
+
+    renderKeywords();
+
+</script>
+
+
+</body>
+
+</html>
