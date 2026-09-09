@@ -208,32 +208,6 @@
         }
 
 
-        /* =================================================
-           REGISTRATION
-           ================================================= */
-
-        <section
-    id="registration"
-    class="mission-section"
->
-    <div class="registration-card">
-
-        <h2>
-            🕵️ Identifying Agent...
-        </h2>
-
-        <p id="registrationText">
-            Wojtek HQ is connecting to your GCSE Hub account.
-        </p>
-
-        <div
-            id="registrationMessage"
-            class="mission-message"
-        ></div>
-
-    </div>
-</section>
-
 
         /* =================================================
            ENVELOPE
@@ -1199,15 +1173,6 @@ let hubData = null;
             "registration"
         );
 
-    const agentInput =
-        document.getElementById(
-            "agentInput"
-        );
-
-    const registerButton =
-        document.getElementById(
-            "registerButton"
-        );
 
     const registrationMessage =
         document.getElementById(
@@ -1368,191 +1333,110 @@ let hubData = null;
        LOAD AGENT
        ================================================= */
 async function loadAgent() {
-console.log("MISSION POSSIBLE: loadAgent started");
 
-const storedData =
-    localStorage.getItem("GCSE_HUB_DATA");
-
-console.log(
-    "GCSE_HUB_DATA:",
-    storedData
-);
-
-const testHub =
-    JSON.parse(storedData);
-
-console.log(
-    "Mission Possible Agent:",
-    testHub.agentId
-);
-    /*
-       Read the GCSE Hub account.
-    */
+    console.log("MISSION POSSIBLE: identifying agent...");
 
     try {
 
         const storedData =
-            localStorage.getItem(
-                "GCSE_HUB_DATA"
-            );
+            localStorage.getItem("GCSE_HUB_DATA");
 
+        console.log("GCSE_HUB_DATA:", storedData);
 
         if (!storedData) {
 
-            registration.classList.add(
-                "active"
-            );
+            registration.classList.add("active");
 
             showMessage(
-
                 registrationMessage,
-
                 "Unable to identify your GCSE Hub account.",
-
                 "error"
-
             );
 
             return;
-
         }
 
+        hubData = JSON.parse(storedData);
 
-        hubData =
-            JSON.parse(
-                storedData
-            );
+        console.log(
+            "GCSE Hub Agent ID:",
+            hubData.agentId
+        );
 
+        if (!hubData.agentId) {
 
-        /*
-           GCSE Hub accounts should have
-           an automatically generated Agent ID.
-
-           Example:
-
-           AGENT-001
-        */
-
-        if (
-            !hubData.agentId
-        ) {
-
-            registration.classList.add(
-                "active"
-            );
+            registration.classList.add("active");
 
             showMessage(
-
                 registrationMessage,
-
                 "Your GCSE Hub Agent ID has not been created yet.",
-
                 "error"
-
             );
 
             return;
-
         }
-
 
         currentAgent =
             normaliseAgent(
                 hubData.agentId
             );
 
-
-        /*
-           Save it locally as a convenience,
-           but GCSE_HUB_DATA remains the
-           source of truth.
-        */
-
-        localStorage.setItem(
-
-            "gcseHubMissionAgent",
-
+        console.log(
+            "Mission Possible Agent:",
             currentAgent
-
         );
-
-
-        /*
-           Contact Wojtek HQ.
-        */
 
         const response =
             await fetch(
-
                 API_URL +
                 "?action=agent&agent=" +
-                encodeURIComponent(
-                    currentAgent
-                )
-
+                encodeURIComponent(currentAgent)
             );
-
 
         const data =
             await response.json();
 
+        console.log(
+            "Wojtek HQ response:",
+            data
+        );
 
-        if (
-            data.success
-        ) {
+        if (data.success) {
 
-            updateAgentDisplay(
-                data.agent
+            updateAgentDisplay(data.agent);
+
+            registration.classList.remove("active");
+
+            console.log(
+                "MISSION POSSIBLE: Agent identified successfully."
             );
 
+        } else {
 
-            registration.classList.remove(
-                "active"
-            );
-
-        }
-
-        else {
-
-            registration.classList.add(
-                "active"
-            );
+            registration.classList.add("active");
 
             showMessage(
-
                 registrationMessage,
-
                 data.error ||
                 "Wojtek HQ could not identify this agent.",
-
                 "error"
-
             );
 
         }
 
-    }
-
-    catch (error) {
+    } catch (error) {
 
         console.error(
+            "MISSION POSSIBLE ERROR:",
             error
         );
 
-
-        registration.classList.add(
-            "active"
-        );
-
+        registration.classList.add("active");
 
         showMessage(
-
             registrationMessage,
-
             "Unable to contact Wojtek HQ.",
-
             "error"
-
         );
 
     }
@@ -1579,159 +1463,6 @@ console.log(
     }
 
 
-    /* =================================================
-       REGISTER AGENT
-       ================================================= */
-
-    registerButton.addEventListener(
-        "click",
-        async function() {
-
-            const id =
-                normaliseAgent(
-                    agentInput.value
-                );
-
-
-            if (!id) {
-
-                showMessage(
-
-                    registrationMessage,
-
-                    "Please enter an Agent ID.",
-
-                    "error"
-
-                );
-
-                return;
-
-            }
-
-
-            if (
-                !/^AGENT-[A-Z0-9]{1,6}$/
-                    .test(id)
-            ) {
-
-                showMessage(
-
-                    registrationMessage,
-
-                    "Agent IDs must look like AGENT-001.",
-
-                    "error"
-
-                );
-
-                return;
-
-            }
-
-
-            try {
-
-                const response =
-                    await fetch(
-
-                        API_URL +
-                        "?action=agent&agent=" +
-                        encodeURIComponent(
-                            id
-                        )
-
-                    );
-
-
-                const data =
-                    await response.json();
-
-
-                if (
-                    data.success
-                ) {
-
-                    currentAgent =
-                        id;
-
-
-                    localStorage.setItem(
-
-                        "gcseHubMissionAgent",
-
-                        currentAgent
-
-                    );
-
-
-                    updateAgentDisplay(
-                        data.agent
-                    );
-
-
-                    registration.classList.remove(
-                        "active"
-                    );
-
-
-                    showMessage(
-
-                        registrationMessage,
-
-                        "Agent recognised. Welcome to Wojtek HQ.",
-
-                        "success"
-
-                    );
-
-                }
-
-                else {
-
-                    /*
-                       For this test version,
-                       an agent must already exist
-                       in the Google Sheet.
-
-                       Later we can add automatic
-                       agent registration.
-                    */
-
-                    showMessage(
-
-                        registrationMessage,
-
-                        "Agent not found. Ask the Mission Possible administrator to add your Agent ID.",
-
-                        "error"
-
-                    );
-
-                }
-
-            }
-
-            catch (error) {
-
-                console.error(
-                    error
-                );
-
-                showMessage(
-
-                    registrationMessage,
-
-                    "Unable to contact Wojtek HQ.",
-
-                    "error"
-
-                );
-
-            }
-
-        }
-    );
 
 
     /* =================================================
