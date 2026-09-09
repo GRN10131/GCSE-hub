@@ -769,37 +769,67 @@ function getAppData() {
 
 function getFlashcardData() {
 
+    let mainCards = [];
+
+    let christmasCarolCards = [];
+
+
+    /*
+       MAIN FLASHCARD DATA
+    */
+
     if (
-        typeof FLASHCARDS === "undefined"
+        typeof FLASHCARDS !== "undefined" &&
+        Array.isArray(FLASHCARDS)
     ) {
 
-        console.error(
-            "GCSE Hub: FLASHCARDS is not defined."
-        );
-
-        return [];
+        mainCards = FLASHCARDS;
 
     }
 
+
+    /*
+       A CHRISTMAS CAROL DATA
+    */
+
     if (
-        !Array.isArray(FLASHCARDS)
+        typeof CHRISTMAS_CAROL_FLASHCARDS !== "undefined" &&
+        Array.isArray(CHRISTMAS_CAROL_FLASHCARDS)
     ) {
 
-        console.error(
-            "GCSE Hub: FLASHCARDS is not an array."
-        );
-
-        return [];
+        christmasCarolCards =
+            CHRISTMAS_CAROL_FLASHCARDS;
 
     }
+
+
+    /*
+       COMBINE ALL FLASHCARDS
+    */
+
+    const allCards = [
+        ...mainCards,
+        ...christmasCarolCards
+    ];
+
 
     console.log(
-        "GCSE Hub: Flashcards loaded:",
-        FLASHCARDS.length
+        "GCSE Hub: Main flashcards:",
+        mainCards.length
     );
 
-    return FLASHCARDS;
+    console.log(
+        "GCSE Hub: A Christmas Carol flashcards:",
+        christmasCarolCards.length
+    );
 
+    console.log(
+        "GCSE Hub: Total flashcards:",
+        allCards.length
+    );
+
+
+    return allCards;
 }
 
 
