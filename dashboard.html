@@ -19,6 +19,33 @@
 
     <style>
 
+        /* =================================================
+   MISSION POSSIBLE DASHBOARD CARD
+   ================================================= */
+
+.mission-dashboard-card {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.mission-dashboard-card h3,
+.mission-dashboard-card p {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.mission-enter-button {
+    display: inline-block;
+    background: #333333 !important;
+    color: white !important;
+    text-decoration: none !important;
+    margin-top: 10px;
+}
+
+.mission-enter-button:hover {
+    background: #222222 !important;
+}
+
         .dashboard-card {
     text-decoration: none;
     color: inherit;
@@ -772,8 +799,8 @@ injectHeader();
         Build your subject-specific vocabulary.
     </p>
 
-</a>
-     <a href="missions.html" class="dashboard-card">
+<a href="missions.html" class="dashboard-card mission-dashboard-card">
+
     <div class="dashboard-card-icon">🕵️</div>
 
     <h3>Mission Possible</h3>
@@ -784,9 +811,10 @@ injectHeader();
         the leaderboard.
     </p>
 
-    <span class="btn mission-hq-button">
-    🕵️ Enter Mission HQ →
-</span>
+    <span class="btn mission-enter-button">
+        Enter Mission HQ →
+    </span>
+
 </a>
 
         <a
