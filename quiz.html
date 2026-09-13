@@ -73,11 +73,149 @@
     font-size: 15px;
 }
 
+/* MIXED SUBJECTS */
+
+.mixed-subjects {
+    display: none;
+    margin-top: -5px;
+    margin-bottom: 20px;
+    padding: 18px;
+    background: #f7f7f7;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+}
+
+.mixed-subjects.show {
+    display: block;
+}
+
+.mixed-subjects-title {
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.subject-checkboxes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+}
+
+.subject-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.subject-checkbox input {
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}
+
+.mixed-controls {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.mixed-control-btn {
+    border: 0;
+    background: #630914;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.mixed-control-btn:hover {
+    opacity: 0.9;
+}
+
+/* PROGRESS SUMMARY */
+
+.quiz-progress-summary {
+    background: #f7f7f7;
+    border-radius: 12px;
+    padding: 15px 17px;
+    margin-bottom: 20px;
+    border: 1px solid #e1e1e1;
+}
+
+.quiz-progress-summary-title {
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.quiz-progress-summary-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 14px;
+}
+
+.progress-stat {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.progress-dot.done {
+    background: #27813a;
+}
+
+.progress-dot.mistake {
+    background: #e58b19;
+}
+
+.progress-dot.not-done {
+    background: #bbb;
+}
+
 .quiz-start {
     width: 100%;
     margin-top: 5px;
     font-size: 17px;
     padding: 14px;
+}
+
+/* ALL DONE */
+
+.all-done-panel {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #edf8ef;
+    border-left: 5px solid #27813a;
+}
+
+.all-done-panel.show {
+    display: block;
+}
+
+.all-done-panel h3 {
+    margin: 0 0 7px;
+}
+
+.all-done-panel p {
+    margin: 0 0 15px;
+}
+
+.reset-quiz-button {
+    width: 100%;
 }
 
 /* QUIZ AREA */
@@ -140,6 +278,11 @@
     padding: 5px 11px;
     font-size: 12px;
     font-weight: 700;
+}
+
+.question-tag.mistake-tag {
+    background: #fff0dc;
+    color: #a95e00;
 }
 
 .question-card h2 {
@@ -343,6 +486,10 @@
         font-size: 48px;
     }
 
+    .subject-checkboxes {
+        grid-template-columns: 1fr;
+    }
+
 }
 
 </style>
@@ -362,298 +509,343 @@ injectHeader();
 
 <div class="quiz-page">
 
-    <!-- =====================================================
-         HERO
-         ===================================================== -->
+<section class="quiz-hero">
 
-    <section class="quiz-hero">
+    <h1>📝 Quick Quiz</h1>
 
-        <h1>📝 Quick Quiz</h1>
+    <p>
+        Test what you know with quick GCSE-style questions.
+        Get instant feedback and track your progress.
+    </p>
+
+</section>
+
+
+<section class="quiz-setup" id="quizSetup">
+
+    <h2>Set up your quiz</h2>
+
+    <p>
+        Choose what you want to practise.
+    </p>
+
+
+    <div class="quiz-field">
+
+        <label for="subjectSelect">
+            Subject
+        </label>
+
+        <select id="subjectSelect">
+        </select>
+
+    </div>
+
+
+    <div
+        class="mixed-subjects"
+        id="mixedSubjects"
+    >
+
+        <div class="mixed-subjects-title">
+            Subjects to include
+        </div>
+
+        <div
+            class="subject-checkboxes"
+            id="subjectCheckboxes"
+        ></div>
+
+        <div class="mixed-controls">
+
+            <button
+                type="button"
+                class="mixed-control-btn"
+                onclick="selectAllSubjects()"
+            >
+                Select all
+            </button>
+
+            <button
+                type="button"
+                class="mixed-control-btn"
+                onclick="clearAllSubjects()"
+            >
+                Clear all
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="quiz-field">
+
+        <label for="topicSelect">
+            Topic
+        </label>
+
+        <select id="topicSelect">
+        </select>
+
+    </div>
+
+
+    <div class="quiz-field">
+
+        <label for="difficultySelect">
+            Difficulty
+        </label>
+
+        <select id="difficultySelect">
+
+            <option value="all">
+                Any difficulty
+            </option>
+
+            <option value="Easy">
+                Easy
+            </option>
+
+            <option value="Medium">
+                Medium
+            </option>
+
+            <option value="Hard">
+                Hard
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="quiz-field">
+
+        <label for="questionCount">
+            Number of questions
+        </label>
+
+        <select id="questionCount">
+
+            <option value="5">
+                5 questions
+            </option>
+
+            <option value="10" selected>
+                10 questions
+            </option>
+
+            <option value="15">
+                15 questions
+            </option>
+
+            <option value="20">
+                20 questions
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        class="quiz-progress-summary"
+        id="quizProgressSummary"
+    ></div>
+
+
+    <button
+        class="btn quiz-start"
+        onclick="startQuiz()"
+    >
+        Start Quiz →
+    </button>
+
+
+    <div
+        class="all-done-panel"
+        id="allDonePanel"
+    >
+
+        <h3>🎉 You've completed these questions!</h3>
 
         <p>
-            Test what you know with quick GCSE-style questions.
-            Get instant feedback and track your progress.
+            Every question matching your current selection
+            has been marked as Done.
         </p>
 
-    </section>
+        <button
+            class="btn reset-quiz-button"
+            onclick="resetMatchingQuestions()"
+        >
+            Reset These Questions
+        </button>
+
+    </div>
+
+</section>
 
 
-    <!-- =====================================================
-         SETUP
-         ===================================================== -->
+<section
+    class="quiz-container"
+    id="quizContainer"
+>
 
-    <section class="quiz-setup" id="quizSetup">
+    <div class="quiz-top">
 
-        <h2>Set up your quiz</h2>
-
-        <p>
-            Choose what you want to practise.
-        </p>
-
-
-        <div class="quiz-field">
-
-            <label for="subjectSelect">
-                Subject
-            </label>
-
-            <select id="subjectSelect">
-            </select>
-
+        <div
+            class="quiz-progress-text"
+            id="progressText"
+        >
+            Question 1 of 10
         </div>
 
-
-        <div class="quiz-field">
-
-            <label for="topicSelect">
-                Topic
-            </label>
-
-            <select id="topicSelect">
-            </select>
-
+        <div
+            class="quiz-score"
+            id="scoreText"
+        >
+            Score: 0
         </div>
 
-
-        <div class="quiz-field">
-
-            <label for="difficultySelect">
-                Difficulty
-            </label>
-
-            <select id="difficultySelect">
-
-                <option value="all">
-                    Any difficulty
-                </option>
-
-                <option value="Easy">
-                    Easy
-                </option>
-
-                <option value="Medium">
-                    Medium
-                </option>
-
-                <option value="Hard">
-                    Hard
-                </option>
-
-            </select>
-
-        </div>
+    </div>
 
 
-        <div class="quiz-field">
+    <div class="quiz-progress">
 
-            <label for="questionCount">
+        <div
+            class="quiz-progress-bar"
+            id="progressBar"
+        ></div>
 
-                Number of questions
+    </div>
 
-            </label>
 
-            <select id="questionCount">
+    <div class="question-card">
 
-                <option value="5">
-                    5 questions
-                </option>
+        <div
+            class="question-meta"
+            id="questionMeta"
+        ></div>
 
-                <option value="10" selected>
-                    10 questions
-                </option>
 
-                <option value="15">
-                    15 questions
-                </option>
+        <h2 id="questionText">
+            Question
+        </h2>
 
-                <option value="20">
-                    20 questions
-                </option>
 
-            </select>
+        <div
+            class="quiz-options"
+            id="quizOptions"
+        ></div>
+
+
+        <div
+            class="quiz-feedback"
+            id="quizFeedback"
+        >
+
+            <div
+                class="quiz-feedback-title"
+                id="feedbackTitle"
+            ></div>
+
+            <p id="feedbackText"></p>
 
         </div>
 
 
         <button
-            class="btn quiz-start"
-            onclick="startQuiz()"
+            class="btn quiz-next"
+            id="nextButton"
+            onclick="nextQuestion()"
         >
-            Start Quiz →
+            Continue →
         </button>
 
-    </section>
+    </div>
+
+</section>
 
 
-    <!-- =====================================================
-         QUIZ
-         ===================================================== -->
+<section
+    class="quiz-results"
+    id="quizResults"
+>
 
-    <section
-        class="quiz-container"
-        id="quizContainer"
-    >
+    <div class="results-card">
 
-        <div class="quiz-top">
-
-            <div
-                class="quiz-progress-text"
-                id="progressText"
-            >
-                Question 1 of 10
-            </div>
-
-            <div
-                class="quiz-score"
-                id="scoreText"
-            >
-                Score: 0
-            </div>
-
-        </div>
-
-
-        <div class="quiz-progress">
-
-            <div
-                class="quiz-progress-bar"
-                id="progressBar"
-            ></div>
-
-        </div>
-
-
-        <div class="question-card">
-
-            <div
-                class="question-meta"
-                id="questionMeta"
-            ></div>
-
-
-            <h2 id="questionText">
-                Question
-            </h2>
-
-
-            <div
-                class="quiz-options"
-                id="quizOptions"
-            ></div>
-
-
-            <div
-                class="quiz-feedback"
-                id="quizFeedback"
-            >
-
-                <div
-                    class="quiz-feedback-title"
-                    id="feedbackTitle"
-                ></div>
-
-                <p
-                    id="feedbackText"
-                ></p>
-
-            </div>
-
-
-            <button
-                class="btn quiz-next"
-                id="nextButton"
-                onclick="nextQuestion()"
-            >
-                Continue →
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =====================================================
-         RESULTS
-         ===================================================== -->
-
-    <section
-        class="quiz-results"
-        id="quizResults"
-    >
-
-        <div class="results-card">
-
-            <h2>Quiz Complete 🎉</h2>
-
-            <div
-                class="results-score"
-                id="finalScore"
-            >
-                0 / 10
-            </div>
-
-            <div
-                class="results-percentage"
-                id="finalPercentage"
-            >
-                0%
-            </div>
-
-            <p
-                class="results-message"
-                id="resultsMessage"
-            ></p>
-
-
-            <div class="results-buttons">
-
-                <button
-                    class="btn"
-                    onclick="restartQuiz()"
-                >
-                    Try Again
-                </button>
-
-                <button
-                    class="btn ghost"
-                    onclick="toggleReview()"
-                >
-                    Review Answers
-                </button>
-
-                <a
-                    href="test.html"
-                    class="btn ghost"
-                >
-                    ← Test Centre
-                </a>
-
-                <a
-                    href="dashboard.html"
-                    class="btn ghost"
-                >
-                    ← Dashboard
-                </a>
-
-            </div>
-
-        </div>
-
+        <h2>Quiz Complete 🎉</h2>
 
         <div
-            class="quiz-review"
-            id="quizReview"
+            class="results-score"
+            id="finalScore"
         >
+            0 / 10
+        </div>
 
-            <h3>
-                Your Answers
-            </h3>
+        <div
+            class="results-percentage"
+            id="finalPercentage"
+        >
+            0%
+        </div>
 
-            <div id="reviewList"></div>
+        <p
+            class="results-message"
+            id="resultsMessage"
+        ></p>
+
+
+        <div class="results-buttons">
+
+            <button
+                class="btn"
+                onclick="restartQuiz()"
+            >
+                Try Again
+            </button>
+
+            <button
+                class="btn ghost"
+                onclick="toggleReview()"
+            >
+                Review Answers
+            </button>
+
+            <a
+                href="test.html"
+                class="btn ghost"
+            >
+                ← Test Centre
+            </a>
+
+            <a
+                href="dashboard.html"
+                class="btn ghost"
+            >
+                ← Dashboard
+            </a>
 
         </div>
 
-    </section>
+    </div>
+
+
+    <div
+        class="quiz-review"
+        id="quizReview"
+    >
+
+        <h3>
+            Your Answers
+        </h3>
+
+        <div id="reviewList"></div>
+
+    </div>
+
+</section>
 
 
 </div>
@@ -668,14 +860,90 @@ injectHeader();
    ========================================================= */
 
 let quizQuestions = [];
-
 let currentQuestionIndex = 0;
-
 let quizScore = 0;
-
 let quizAnswers = [];
-
 let currentQuestion = null;
+
+
+/* =========================================================
+   PERSISTENT PROGRESS
+   ========================================================= */
+
+const QUIZ_PROGRESS_KEY =
+    "GCSE_HUB_QUIZ_PROGRESS";
+
+let quizProgress = {};
+
+
+function loadQuizProgress() {
+
+    try {
+
+        const saved =
+            localStorage.getItem(QUIZ_PROGRESS_KEY);
+
+        if (!saved) {
+
+            quizProgress = {};
+            return;
+
+        }
+
+        const parsed =
+            JSON.parse(saved);
+
+        if (
+            parsed &&
+            typeof parsed === "object" &&
+            !Array.isArray(parsed)
+        ) {
+
+            quizProgress = parsed;
+
+        } else {
+
+            quizProgress = {};
+
+        }
+
+    } catch (error) {
+
+        quizProgress = {};
+
+    }
+
+}
+
+
+function saveQuizProgress() {
+
+    localStorage.setItem(
+        QUIZ_PROGRESS_KEY,
+        JSON.stringify(quizProgress)
+    );
+
+}
+
+
+function getQuestionStatus(questionId) {
+
+    return quizProgress[questionId] ||
+        "not-done";
+
+}
+
+
+function setQuestionStatus(
+    questionId,
+    status
+) {
+
+    quizProgress[questionId] = status;
+
+    saveQuizProgress();
+
+}
 
 
 /* =========================================================
@@ -684,48 +952,16 @@ let currentQuestion = null;
 
 function getAvailableSubjects() {
 
-    const subjects = [
+    return [
         ...new Set(
-            QUIZ_QUESTIONS.map(q => q.subject)
+            QUIZ_QUESTIONS
+                .map(q => q.subject)
+                .filter(Boolean)
         )
     ];
 
-    return subjects;
-
 }
 
-
-/* =========================================================
-   INITIALISE
-   ========================================================= */
-
-function initialiseQuiz() {
-
-    const subjectSelect =
-        document.getElementById("subjectSelect");
-
-    const subjects =
-        getAvailableSubjects();
-
-    subjectSelect.innerHTML =
-        subjects.map(subject => {
-
-            return `
-                <option value="${subject}">
-                    ${formatSubject(subject)}
-                </option>
-            `;
-
-        }).join("");
-
-    updateTopics();
-
-}
-
-
-/* =========================================================
-   SUBJECT NAME
-   ========================================================= */
 
 function formatSubject(subject) {
 
@@ -756,16 +992,220 @@ function formatSubject(subject) {
 
 
 /* =========================================================
+   INITIALISE
+   ========================================================= */
+
+function initialiseQuiz() {
+
+    const subjectSelect =
+        document.getElementById(
+            "subjectSelect"
+        );
+
+    const subjects =
+        getAvailableSubjects();
+
+    subjectSelect.innerHTML = `
+
+        <option value="mixed">
+            🔀 Mixed Subjects
+        </option>
+
+        ${subjects.map(subject => `
+
+            <option value="${escapeHtml(subject)}">
+                ${escapeHtml(
+                    formatSubject(subject)
+                )}
+            </option>
+
+        `).join("")}
+
+    `;
+
+    renderSubjectCheckboxes();
+
+    subjectSelect.addEventListener(
+        "change",
+        handleSubjectChange
+    );
+
+    document
+        .getElementById("topicSelect")
+        .addEventListener(
+            "change",
+            updateQuizProgressSummary
+        );
+
+    document
+        .getElementById("difficultySelect")
+        .addEventListener(
+            "change",
+            updateQuizProgressSummary
+        );
+
+    updateTopics();
+
+    updateQuizProgressSummary();
+
+}
+
+
+/* =========================================================
+   SUBJECT CHECKBOXES
+   ========================================================= */
+
+function renderSubjectCheckboxes() {
+
+    const container =
+        document.getElementById(
+            "subjectCheckboxes"
+        );
+
+    const subjects =
+        getAvailableSubjects();
+
+    container.innerHTML =
+        subjects.map(subject => `
+
+            <label class="subject-checkbox">
+
+                <input
+                    type="checkbox"
+                    value="${escapeHtml(subject)}"
+                    checked
+                    onchange="updateQuizProgressSummary()"
+                >
+
+                <span>
+                    ${escapeHtml(
+                        formatSubject(subject)
+                    )}
+                </span>
+
+            </label>
+
+        `).join("");
+
+}
+
+
+function getSelectedMixedSubjects() {
+
+    return [
+        ...document.querySelectorAll(
+            "#subjectCheckboxes input[type='checkbox']:checked"
+        )
+    ].map(input => input.value);
+
+}
+
+
+function selectAllSubjects() {
+
+    document
+        .querySelectorAll(
+            "#subjectCheckboxes input[type='checkbox']"
+        )
+        .forEach(input => {
+            input.checked = true;
+        });
+
+    updateQuizProgressSummary();
+
+}
+
+
+function clearAllSubjects() {
+
+    document
+        .querySelectorAll(
+            "#subjectCheckboxes input[type='checkbox']"
+        )
+        .forEach(input => {
+            input.checked = false;
+        });
+
+    updateQuizProgressSummary();
+
+}
+
+
+/* =========================================================
+   SUBJECT CHANGE
+   ========================================================= */
+
+function handleSubjectChange() {
+
+    const subject =
+        document.getElementById(
+            "subjectSelect"
+        ).value;
+
+    const mixedBox =
+        document.getElementById(
+            "mixedSubjects"
+        );
+
+    const topicSelect =
+        document.getElementById(
+            "topicSelect"
+        );
+
+    if (subject === "mixed") {
+
+        mixedBox.classList.add("show");
+
+        topicSelect.disabled = true;
+
+        topicSelect.innerHTML = `
+            <option value="all">
+                All topics across selected subjects
+            </option>
+        `;
+
+    } else {
+
+        mixedBox.classList.remove("show");
+
+        topicSelect.disabled = false;
+
+        updateTopics();
+
+    }
+
+    updateQuizProgressSummary();
+
+}
+
+
+/* =========================================================
    TOPICS
    ========================================================= */
 
 function updateTopics() {
 
     const subject =
-        document.getElementById("subjectSelect").value;
+        document.getElementById(
+            "subjectSelect"
+        ).value;
 
     const topicSelect =
-        document.getElementById("topicSelect");
+        document.getElementById(
+            "topicSelect"
+        );
+
+    if (subject === "mixed") {
+
+        topicSelect.innerHTML = `
+            <option value="all">
+                All topics across selected subjects
+            </option>
+        `;
+
+        return;
+
+    }
 
     const topics = [
         ...new Set(
@@ -778,20 +1218,258 @@ function updateTopics() {
 
                 .map(q => q.topic)
 
+                .filter(Boolean)
+
         )
     ];
 
     topicSelect.innerHTML = `
+
         <option value="all">
             All topics
         </option>
 
         ${topics.map(topic => `
-            <option value="${topic}">
-                ${topic}
+
+            <option value="${escapeHtml(topic)}">
+                ${escapeHtml(topic)}
             </option>
+
         `).join("")}
+
     `;
+
+}
+
+
+/* =========================================================
+   MATCHING QUESTIONS
+   ========================================================= */
+
+function getMatchingQuestions() {
+
+    const subject =
+        document.getElementById(
+            "subjectSelect"
+        ).value;
+
+    const topic =
+        document.getElementById(
+            "topicSelect"
+        ).value;
+
+    const difficulty =
+        document.getElementById(
+            "difficultySelect"
+        ).value;
+
+    let questions = [
+        ...QUIZ_QUESTIONS
+    ];
+
+
+    /* SUBJECT */
+
+    if (subject === "mixed") {
+
+        const selectedSubjects =
+            getSelectedMixedSubjects();
+
+        questions =
+            questions.filter(q =>
+                selectedSubjects.includes(
+                    q.subject
+                )
+            );
+
+    } else {
+
+        questions =
+            questions.filter(q =>
+                q.subject === subject
+            );
+
+    }
+
+
+    /* TOPIC */
+
+    if (
+        topic !== "all" &&
+        subject !== "mixed"
+    ) {
+
+        questions =
+            questions.filter(q =>
+                q.topic === topic
+            );
+
+    }
+
+
+    /* DIFFICULTY */
+
+    if (difficulty !== "all") {
+
+        questions =
+            questions.filter(q =>
+                q.difficulty === difficulty
+            );
+
+    }
+
+
+    return questions;
+
+}
+
+
+/* =========================================================
+   PROGRESS SUMMARY
+   ========================================================= */
+
+function updateQuizProgressSummary() {
+
+    const summary =
+        document.getElementById(
+            "quizProgressSummary"
+        );
+
+    if (!summary) return;
+
+    const matching =
+        getMatchingQuestions();
+
+    let done = 0;
+    let mistakes = 0;
+    let notDone = 0;
+
+    matching.forEach(question => {
+
+        const status =
+            getQuestionStatus(
+                question.id
+            );
+
+        if (status === "done") {
+
+            done++;
+
+        } else if (
+            status === "mistake"
+        ) {
+
+            mistakes++;
+
+        } else {
+
+            notDone++;
+
+        }
+
+    });
+
+
+    summary.innerHTML = `
+
+        <div class="quiz-progress-summary-title">
+            Your Quiz Progress
+        </div>
+
+        <div class="quiz-progress-summary-stats">
+
+            <span class="progress-stat">
+
+                <span class="progress-dot done"></span>
+
+                ${done} Done
+
+            </span>
+
+            <span class="progress-stat">
+
+                <span class="progress-dot mistake"></span>
+
+                ${mistakes} Past Mistakes
+
+            </span>
+
+            <span class="progress-stat">
+
+                <span class="progress-dot not-done"></span>
+
+                ${notDone} Not Done
+
+            </span>
+
+        </div>
+
+    `;
+
+
+    updateAllDonePanel(
+        matching,
+        notDone,
+        mistakes
+    );
+
+}
+
+
+/* =========================================================
+   ALL DONE PANEL
+   ========================================================= */
+
+function updateAllDonePanel(
+    matching,
+    notDone,
+    mistakes
+) {
+
+    const panel =
+        document.getElementById(
+            "allDonePanel"
+        );
+
+    if (!panel) return;
+
+    if (
+        matching.length > 0 &&
+        notDone === 0 &&
+        mistakes === 0
+    ) {
+
+        panel.classList.add("show");
+
+    } else {
+
+        panel.classList.remove("show");
+
+    }
+
+}
+
+
+/* =========================================================
+   RESET CURRENT SELECTION
+   ========================================================= */
+
+function resetMatchingQuestions() {
+
+    const matching =
+        getMatchingQuestions();
+
+    matching.forEach(question => {
+
+        delete quizProgress[
+            question.id
+        ];
+
+    });
+
+    saveQuizProgress();
+
+    updateQuizProgressSummary();
 
 }
 
@@ -802,51 +1480,14 @@ function updateTopics() {
 
 function startQuiz() {
 
-    const subject =
-        document.getElementById("subjectSelect").value;
-
-    const topic =
-        document.getElementById("topicSelect").value;
-
-    const difficulty =
-        document.getElementById("difficultySelect").value;
-
-    const count =
-        Number(
-            document.getElementById("questionCount").value
-        );
+    const matching =
+        getMatchingQuestions();
 
 
-    let available =
-        QUIZ_QUESTIONS.filter(q =>
-            q.subject === subject
-        );
-
-
-    if (topic !== "all") {
-
-        available =
-            available.filter(q =>
-                q.topic === topic
-            );
-
-    }
-
-
-    if (difficulty !== "all") {
-
-        available =
-            available.filter(q =>
-                q.difficulty === difficulty
-            );
-
-    }
-
-
-    if (available.length === 0) {
+    if (!matching.length) {
 
         alert(
-            "There are no quiz questions matching those choices yet."
+            "There are no quiz questions matching your current selection."
         );
 
         return;
@@ -854,75 +1495,86 @@ function startQuiz() {
     }
 
 
-    /* Shuffle */
-
-    available =
-        shuffleArray(available);
-
-
-    /* Take requested amount */
-
-    quizQuestions =
-        available.slice(
-            0,
-            Math.min(count, available.length)
+    const questionCount =
+        parseInt(
+            document.getElementById(
+                "questionCount"
+            ).value,
+            10
         );
 
 
-    currentQuestionIndex = 0;
+    /*
+       DONE QUESTIONS ARE NEVER INCLUDED.
 
-    quizScore = 0;
+       Past mistakes are deliberately placed
+       before new questions so students revisit
+       the things they previously got wrong.
+    */
 
-    quizAnswers = [];
+    const mistakes =
+        matching.filter(q =>
+            getQuestionStatus(q.id) ===
+            "mistake"
+        );
+
+    const newQuestions =
+        matching.filter(q =>
+            getQuestionStatus(q.id) !==
+            "done" &&
+            getQuestionStatus(q.id) !==
+            "mistake"
+        );
 
 
-    document.getElementById("quizSetup").style.display =
-        "none";
+    /*
+       Shuffle each group separately.
+    */
 
-    document.getElementById("quizResults").style.display =
-        "none";
+    shuffleArray(mistakes);
 
-    document.getElementById("quizContainer").style.display =
-        "block";
-
-
-    showQuestion();
-
-}
+    shuffleArray(newQuestions);
 
 
-/* =========================================================
-   SHUFFLE
-   ========================================================= */
+    quizQuestions =
+        mistakes
+            .concat(newQuestions)
+            .slice(0, questionCount);
 
-function shuffleArray(array) {
 
-    const copy =
-        [...array];
+    if (!quizQuestions.length) {
 
-    for (
-        let i = copy.length - 1;
-        i > 0;
-        i--
-    ) {
+        updateQuizProgressSummary();
 
-        const j =
-            Math.floor(
-                Math.random() * (i + 1)
-            );
-
-        [
-            copy[i],
-            copy[j]
-        ] =
-        [
-            copy[j],
-            copy[i]
-        ];
+        return;
 
     }
 
-    return copy;
+
+    currentQuestionIndex = 0;
+    quizScore = 0;
+    quizAnswers = [];
+    currentQuestion = null;
+
+
+    document.getElementById(
+        "quizSetup"
+    ).style.display = "none";
+
+    document.getElementById(
+        "quizResults"
+    ).style.display = "none";
+
+    document.getElementById(
+        "quizReview"
+    ).style.display = "none";
+
+    document.getElementById(
+        "quizContainer"
+    ).style.display = "block";
+
+
+    showQuestion();
 
 }
 
@@ -934,158 +1586,266 @@ function shuffleArray(array) {
 function showQuestion() {
 
     currentQuestion =
-        quizQuestions[currentQuestionIndex];
+        quizQuestions[
+            currentQuestionIndex
+        ];
+
+
+    if (!currentQuestion) {
+
+        finishQuiz();
+        return;
+
+    }
 
 
     const total =
         quizQuestions.length;
 
+    const number =
+        currentQuestionIndex + 1;
 
-    document.getElementById("progressText").textContent =
-        `Question ${currentQuestionIndex + 1} of ${total}`;
+
+    document.getElementById(
+        "progressText"
+    ).textContent =
+        `Question ${number} of ${total}`;
 
 
-    document.getElementById("scoreText").textContent =
+    document.getElementById(
+        "scoreText"
+    ).textContent =
         `Score: ${quizScore}`;
 
 
-    const progress =
-        (
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        `${(
             currentQuestionIndex /
             total
-        ) * 100;
+        ) * 100}%`;
 
 
-    document.getElementById("progressBar").style.width =
-        `${progress}%`;
+    /* META */
+
+    const meta =
+        document.getElementById(
+            "questionMeta"
+        );
 
 
-    /* Metadata */
+    const status =
+        getQuestionStatus(
+            currentQuestion.id
+        );
 
-    document.getElementById("questionMeta").innerHTML = `
+
+    let statusHTML = "";
+
+
+    if (status === "mistake") {
+
+        statusHTML = `
+            <span class="question-tag mistake-tag">
+                🟠 Past mistake
+            </span>
+        `;
+
+    }
+
+
+    meta.innerHTML = `
 
         <span class="question-tag">
-            ${formatSubject(currentQuestion.subject)}
+            ${escapeHtml(
+                formatSubject(
+                    currentQuestion.subject
+                )
+            )}
         </span>
 
-        <span class="question-tag">
-            ${currentQuestion.topic}
-        </span>
+        ${
+            currentQuestion.topic
+            ? `
+                <span class="question-tag">
+                    ${escapeHtml(
+                        currentQuestion.topic
+                    )}
+                </span>
+            `
+            : ""
+        }
 
-        <span class="question-tag">
-            ${currentQuestion.difficulty}
-        </span>
+        ${
+            currentQuestion.difficulty
+            ? `
+                <span class="question-tag">
+                    ${escapeHtml(
+                        currentQuestion.difficulty
+                    )}
+                </span>
+            `
+            : ""
+        }
+
+        ${statusHTML}
 
     `;
 
 
-    /* Question */
+    /* QUESTION */
 
-    document.getElementById("questionText").textContent =
+    document.getElementById(
+        "questionText"
+    ).textContent =
         currentQuestion.question;
 
 
-    /* Options */
+    /* OPTIONS */
 
     const optionsContainer =
-        document.getElementById("quizOptions");
+        document.getElementById(
+            "quizOptions"
+        );
+
+
+    let options =
+        Array.isArray(
+            currentQuestion.options
+        )
+            ? [
+                ...currentQuestion.options
+            ]
+            : [];
+
+
+    shuffleArray(options);
 
 
     optionsContainer.innerHTML =
-        currentQuestion.options
+        options.map(option => `
 
-            .map((option, index) => `
+            <button
+                class="quiz-option"
+                onclick="answerQuestion(this)"
+                data-answer="${escapeHtml(option)}"
+            >
+                ${escapeHtml(option)}
+            </button>
 
-                <button
-                    class="quiz-option"
-                    onclick="selectAnswer(${index})"
-                >
-                    ${option}
-                </button>
-
-            `)
-
-            .join("");
+        `).join("");
 
 
-    /* Reset feedback */
+    /* RESET FEEDBACK */
 
     const feedback =
-        document.getElementById("quizFeedback");
+        document.getElementById(
+            "quizFeedback"
+        );
 
-    feedback.style.display =
-        "none";
+    feedback.style.display = "none";
 
     feedback.className =
         "quiz-feedback";
 
 
-    document.getElementById("nextButton").style.display =
-        "none";
+    document.getElementById(
+        "feedbackTitle"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "feedbackText"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "nextButton"
+    ).style.display = "none";
 
 }
 
 
 /* =========================================================
-   ANSWER
+   ANSWER QUESTION
    ========================================================= */
 
-function selectAnswer(index) {
+function answerQuestion(button) {
 
-    const buttons =
-        document.querySelectorAll(
+    if (!currentQuestion) return;
+
+
+    const selectedAnswer =
+        button.dataset.answer;
+
+
+    const correctAnswer =
+        currentQuestion.answer;
+
+
+    const isCorrect =
+        selectedAnswer ===
+        correctAnswer;
+
+
+    /*
+       Disable every option.
+    */
+
+    document
+        .querySelectorAll(
             ".quiz-option"
-        );
+        )
+        .forEach(option => {
 
-
-    if (!currentQuestion) {
-        return;
-    }
-
-
-    buttons.forEach(button => {
-
-        button.disabled = true;
-
-    });
-
-
-    const selected =
-        currentQuestion.options[index];
-
-    const correct =
-        selected === currentQuestion.answer;
-
-
-    if (correct) {
-
-        quizScore++;
-
-        buttons[index].classList.add(
-            "correct"
-        );
-
-    } else {
-
-        buttons[index].classList.add(
-            "incorrect"
-        );
-
-
-        buttons.forEach((button, i) => {
+            option.disabled = true;
 
             if (
-                currentQuestion.options[i] ===
-                currentQuestion.answer
+                option.dataset.answer ===
+                correctAnswer
             ) {
 
-                button.classList.add(
+                option.classList.add(
                     "correct"
                 );
 
             }
 
         });
+
+
+    if (!isCorrect) {
+
+        button.classList.add(
+            "incorrect"
+        );
+
+    }
+
+
+    /*
+       SAVE STATUS IMMEDIATELY
+    */
+
+    if (isCorrect) {
+
+        setQuestionStatus(
+            currentQuestion.id,
+            "done"
+        );
+
+        quizScore +=
+            Number(
+                currentQuestion.points
+            ) || 1;
+
+    } else {
+
+        setQuestionStatus(
+            currentQuestion.id,
+            "mistake"
+        );
 
     }
 
@@ -1096,76 +1856,110 @@ function selectAnswer(index) {
             currentQuestion.question,
 
         selected:
-            selected,
+            selectedAnswer,
 
         correct:
-            currentQuestion.answer,
+            correctAnswer,
 
         isCorrect:
-            correct,
+            isCorrect,
 
         explanation:
-            currentQuestion.explanation
+            currentQuestion.explanation,
+
+        subject:
+            currentQuestion.subject,
+
+        topic:
+            currentQuestion.topic,
+
+        status:
+            isCorrect
+                ? "done"
+                : "mistake"
 
     });
 
 
-    showFeedback(correct);
-
-
-    document.getElementById("scoreText").textContent =
-        `Score: ${quizScore}`;
-
-}
-
-
-/* =========================================================
-   FEEDBACK
-   ========================================================= */
-
-function showFeedback(correct) {
+    /*
+       FEEDBACK
+    */
 
     const feedback =
-        document.getElementById("quizFeedback");
-
-    const title =
-        document.getElementById("feedbackTitle");
-
-    const text =
-        document.getElementById("feedbackText");
-
-
-    feedback.style.display =
-        "block";
-
-
-    if (correct) {
-
-        feedback.classList.add(
-            "correct-feedback"
+        document.getElementById(
+            "quizFeedback"
         );
 
-        title.textContent =
-            "✓ Correct!";
+
+    const feedbackTitle =
+        document.getElementById(
+            "feedbackTitle"
+        );
+
+
+    const feedbackText =
+        document.getElementById(
+            "feedbackText"
+        );
+
+
+    if (isCorrect) {
+
+        feedback.className =
+            "quiz-feedback correct-feedback";
+
+        feedbackTitle.textContent =
+            "Correct! ✓";
+
+        feedbackText.textContent =
+            currentQuestion.explanation ||
+            "Well done.";
 
     } else {
 
-        feedback.classList.add(
-            "incorrect-feedback"
-        );
+        feedback.className =
+            "quiz-feedback incorrect-feedback";
 
-        title.textContent =
-            "✗ Not quite";
+        feedbackTitle.textContent =
+            "Not quite.";
+
+        feedbackText.textContent =
+            `The correct answer is: ${correctAnswer}. ${
+                currentQuestion.explanation || ""
+            }`;
 
     }
 
 
-    text.textContent =
-        currentQuestion.explanation;
+    feedback.style.display = "block";
 
 
-    document.getElementById("nextButton").style.display =
-        "block";
+    document.getElementById(
+        "scoreText"
+    ).textContent =
+        `Score: ${quizScore}`;
+
+
+    document.getElementById(
+        "nextButton"
+    ).style.display = "block";
+
+
+    /*
+       Make the progress bar reach the
+       current completed question.
+    */
+
+    const total =
+        quizQuestions.length;
+
+    document.getElementById(
+        "progressBar"
+    ).style.width =
+        `${(
+            (currentQuestionIndex + 1) /
+            total
+        ) * 100}%`;
 
 }
 
@@ -1178,7 +1972,6 @@ function nextQuestion() {
 
     currentQuestionIndex++;
 
-
     if (
         currentQuestionIndex >=
         quizQuestions.length
@@ -1189,7 +1982,6 @@ function nextQuestion() {
         return;
 
     }
-
 
     showQuestion();
 
@@ -1202,29 +1994,52 @@ function nextQuestion() {
 
 function finishQuiz() {
 
-    document.getElementById("quizContainer").style.display =
-        "none";
+    document.getElementById(
+        "quizContainer"
+    ).style.display = "none";
 
-    document.getElementById("quizResults").style.display =
-        "block";
+
+    document.getElementById(
+        "quizResults"
+    ).style.display = "block";
 
 
     const total =
         quizQuestions.length;
 
 
+    const correct =
+        quizAnswers.filter(
+            answer =>
+                answer.isCorrect
+        ).length;
+
+
     const percentage =
-        Math.round(
-            (quizScore / total) * 100
-        );
+        total > 0
+            ? Math.round(
+                (correct / total) * 100
+            )
+            : 0;
 
 
-    document.getElementById("finalScore").textContent =
-        `${quizScore} / ${total}`;
+    document.getElementById(
+        "finalScore"
+    ).textContent =
+        `${correct} / ${total}`;
 
 
-    document.getElementById("finalPercentage").textContent =
+    document.getElementById(
+        "finalPercentage"
+    ).textContent =
         `${percentage}%`;
+
+
+    let mistakes =
+        quizAnswers.filter(
+            answer =>
+                !answer.isCorrect
+        ).length;
 
 
     let message;
@@ -1233,68 +2048,64 @@ function finishQuiz() {
     if (percentage === 100) {
 
         message =
-            "Perfect score! Excellent work.";
+            "Perfect score! 🎉 Every question you answered correctly is now marked Done.";
 
     } else if (percentage >= 80) {
 
         message =
-            "Great work! You have a strong understanding of this topic.";
+            "Excellent work! Keep going and revisit your Past Mistakes to make them stick.";
 
     } else if (percentage >= 60) {
 
         message =
-            "Good effort. A little more revision could push your score higher.";
-
-    } else if (percentage >= 40) {
-
-        message =
-            "You're making progress. Try revising the areas you found difficult.";
+            "Good progress. Your Past Mistakes have been saved so you can practise them again.";
 
     } else {
 
         message =
-            "This is a good opportunity to revise the topic and try again.";
+            "Keep practising. The questions you missed are now saved as Past Mistakes for another attempt.";
 
     }
 
 
-    document.getElementById("resultsMessage").textContent =
+    if (mistakes > 0) {
+
+        message +=
+            ` You have ${mistakes} Past Mistake${
+                mistakes === 1
+                    ? ""
+                    : "s"
+            } from this quiz.`;
+
+    }
+
+
+    document.getElementById(
+        "resultsMessage"
+    ).textContent =
         message;
 
 
+    /*
+       Award points for completing the quiz.
+    */
+
+    if (
+        typeof award === "function"
+    ) {
+
+        award(
+            quizScore,
+            Math.max(
+                1,
+                correct
+            )
+        );
+
+    }
+
+
     buildReview();
-
-
-    /* =====================================================
-       REWARD XP
-       ===================================================== */
-
-    let xp =
-        quizScore * 5;
-
-
-    let gems =
-        0;
-
-
-    if (percentage >= 80) {
-
-        gems = 2;
-
-    }
-
-    if (percentage === 100) {
-
-        gems = 5;
-
-    }
-
-
-    if (typeof award === "function") {
-
-        award(xp, gems);
-
-    }
 
 }
 
@@ -1305,56 +2116,82 @@ function finishQuiz() {
 
 function buildReview() {
 
-    const reviewList =
-        document.getElementById("reviewList");
+    const list =
+        document.getElementById(
+            "reviewList"
+        );
 
 
-    reviewList.innerHTML =
-        quizAnswers.map((answer, index) => `
+    list.innerHTML =
+        quizAnswers.map(
+            (answer, index) => `
 
-            <div class="
-                review-item
-                ${answer.isCorrect
-                    ? "review-correct"
-                    : "review-incorrect"}
-            ">
+                <div
+                    class="
+                        review-item
+                        ${
+                            answer.isCorrect
+                                ? "review-correct"
+                                : "review-incorrect"
+                        }
+                    "
+                >
 
-                <div class="review-question">
+                    <div class="review-question">
 
-                    ${index + 1}.
-                    ${escapeHTML(answer.question)}
+                        ${index + 1}.
+                        ${escapeHtml(
+                            answer.question
+                        )}
+
+                    </div>
+
+
+                    <div class="review-answer">
+
+                        <strong>
+                            Your answer:
+                        </strong>
+
+                        ${escapeHtml(
+                            answer.selected
+                        )}
+
+                    </div>
+
+
+                    ${
+                        !answer.isCorrect
+                            ? `
+                                <div class="review-answer">
+
+                                    <strong>
+                                        Correct answer:
+                                    </strong>
+
+                                    ${escapeHtml(
+                                        answer.correct
+                                    )}
+
+                                </div>
+                            `
+                            : ""
+                    }
+
+
+                    <div class="review-explanation">
+
+                        ${escapeHtml(
+                            answer.explanation ||
+                            ""
+                        )}
+
+                    </div>
 
                 </div>
 
-                <div class="review-answer">
-
-                    <strong>Your answer:</strong>
-                    ${escapeHTML(answer.selected)}
-
-                </div>
-
-                ${
-                    answer.isCorrect
-                    ? ""
-                    : `
-                        <div class="review-answer">
-
-                            <strong>Correct answer:</strong>
-                            ${escapeHTML(answer.correct)}
-
-                        </div>
-                    `
-                }
-
-                <div class="review-explanation">
-
-                    ${escapeHTML(answer.explanation)}
-
-                </div>
-
-            </div>
-
-        `).join("");
+            `
+        ).join("");
 
 }
 
@@ -1366,23 +2203,15 @@ function buildReview() {
 function toggleReview() {
 
     const review =
-        document.getElementById("quizReview");
+        document.getElementById(
+            "quizReview"
+        );
 
 
-    if (
-        review.style.display ===
-        "block"
-    ) {
-
-        review.style.display =
-            "none";
-
-    } else {
-
-        review.style.display =
-            "block";
-
-    }
+    review.style.display =
+        review.style.display === "block"
+            ? "none"
+            : "block";
 
 }
 
@@ -1393,14 +2222,53 @@ function toggleReview() {
 
 function restartQuiz() {
 
-    document.getElementById("quizResults").style.display =
-        "none";
+    document.getElementById(
+        "quizResults"
+    ).style.display = "none";
 
-    document.getElementById("quizSetup").style.display =
-        "block";
 
-    document.getElementById("quizReview").style.display =
-        "none";
+    document.getElementById(
+        "quizReview"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "quizSetup"
+    ).style.display = "block";
+
+
+    updateQuizProgressSummary();
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+   ========================================================= */
+
+function shuffleArray(array) {
+
+    for (
+        let i = array.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+
+        [
+            array[i],
+            array[j]
+        ] = [
+            array[j],
+            array[i]
+        ];
+
+    }
 
 }
 
@@ -1409,38 +2277,23 @@ function restartQuiz() {
    ESCAPE HTML
    ========================================================= */
 
-function escapeHTML(value) {
+function escapeHtml(value) {
 
     return String(value)
-
         .replace(/&/g, "&amp;")
-
         .replace(/</g, "&lt;")
-
         .replace(/>/g, "&gt;")
-
         .replace(/"/g, "&quot;")
-
         .replace(/'/g, "&#039;");
 
 }
 
 
 /* =========================================================
-   SUBJECT CHANGE
+   START
    ========================================================= */
 
-document
-    .getElementById("subjectSelect")
-    .addEventListener(
-        "change",
-        updateTopics
-    );
-
-
-/* =========================================================
-   STARTUP
-   ========================================================= */
+loadQuizProgress();
 
 initialiseQuiz();
 
