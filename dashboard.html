@@ -23,69 +23,18 @@
    MISSION POSSIBLE DASHBOARD CARD
    ================================================= */
 
-.mission-dashboard-card {
-    text-decoration: none !important;
-    color: inherit !important;
-}
-
-.mission-dashboard-card h3,
-.mission-dashboard-card p {
-    text-decoration: none !important;
-    color: inherit !important;
-}
-
-.mission-enter-button {
-    display: inline-block;
+.mission-card-dark {
     background: #333333 !important;
     color: white !important;
-    text-decoration: none !important;
-    margin-top: 10px;
 }
 
-.mission-enter-button:hover {
-    background: #222222 !important;
-}
-
-        .dashboard-card {
-    text-decoration: none;
-    color: inherit;
-}
-.mission-hq-button {
-    display: inline-block;
-    margin-top: 16px;
-    padding: 13px 22px;
-
-    background: linear-gradient(135deg, #630914, #8b1020);
+.mission-card-dark h3,
+.mission-card-dark p {
     color: white !important;
-
-    text-decoration: none !important;
-    font-weight: 900;
-    font-size: 15px;
-
-    border-radius: 12px;
-
-    box-shadow:
-        0 6px 15px rgba(99, 9, 20, 0.25);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease,
-        background 0.2s ease;
 }
-
-.mission-hq-button:hover {
-    background: linear-gradient(135deg, #7a0b19, #a51628);
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 9px 20px rgba(99, 9, 20, 0.35);
+        .mission-card-dark .icon {
+    filter: grayscale(0);
 }
-
-.mission-hq-button:active {
-    transform: translateY(0);
-}
-
         
             /* =====================================================
        KEYWORD OF THE DAY
@@ -801,7 +750,7 @@ injectHeader();
 
 <a
     href="missions.html"
-    class="card action"
+    class="card action mission-card-dark"
 >
 
     <span class="icon">
@@ -819,7 +768,6 @@ injectHeader();
     </p>
 
 </a>
-
         <a
             href="settings.html"
             class="card action"
