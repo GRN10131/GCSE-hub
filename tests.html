@@ -1,119 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Tests — GCSE Hub</title>
-
-    <link rel="stylesheet"
-          href="css/style.css">
-
-</head>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Test Centre — GCSE Hub</title>
+<link rel="stylesheet" href="css/style.css">
+<style>
+.test-centre{max-width:1050px;margin:auto;padding-bottom:50px}.test-hero{background:linear-gradient(135deg,#630914,#8b1524);color:#fff;border-radius:20px;padding:30px;margin-bottom:22px}.test-hero h1{margin:0 0 7px}.test-hero p{margin:0;opacity:.9}.controls,.modes{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}.controls{background:var(--card-bg,#fff);padding:18px;border-radius:16px}.controls label{font-size:.8rem;font-weight:bold;display:block;margin-bottom:5px}.controls select{width:100%;padding:10px;border-radius:9px;border:1px solid #ccc;background:inherit}.modes{grid-template-columns:repeat(3,1fr)}.mode{background:var(--card-bg,#fff);border:2px solid transparent;border-radius:17px;padding:20px;box-shadow:0 5px 18px #0000000d}.mode.active{border-color:#630914}.mode-icon{font-size:2rem}.mode h2{margin:8px 0 5px}.mode p{opacity:.72;min-height:48px}.panel{display:none;background:var(--card-bg,#fff);border-radius:18px;padding:24px;box-shadow:0 6px 20px #0000000d}.panel.active{display:block}.top{display:flex;justify-content:space-between;gap:15px;align-items:center}.track{height:8px;background:#e7e7e7;border-radius:99px;overflow:hidden;margin-top:7px;width:260px}.fill{height:100%;background:#630914;width:0}.q{font-size:1.35rem;line-height:1.45;margin:20px 0}.answers{display:grid;gap:10px}.answer{padding:15px;text-align:left;border:2px solid #ddd;border-radius:12px;background:transparent;cursor:pointer;font:inherit}.answer.correct{background:#eaf7ed;border-color:#238636}.answer.wrong{background:#fff0f0;border-color:#c62828}.feedback,.model,.marking{display:none;margin-top:16px;padding:16px;border-radius:12px;background:#f6f6f6}.feedback.show,.model.show,.marking.show{display:block}.exam-answer{width:100%;min-height:200px;padding:14px;border:1px solid #ccc;border-radius:12px;resize:vertical;font:inherit;background:transparent}.badge{background:#630914;color:#fff;padding:6px 10px;border-radius:99px;font-size:.8rem;font-weight:bold}.marks{display:flex;flex-wrap:wrap;gap:7px}.mark{padding:8px 11px;border:1px solid #bbb;border-radius:9px;background:transparent;cursor:pointer}.mark.selected{background:#630914;color:#fff}.flag{margin-top:18px;padding:16px;border:1px solid #e0b7b7;background:#fff8f8;border-radius:13px}.flag select{width:100%;padding:10px;margin:7px 0;border-radius:9px;border:1px solid #ccc}.flag-status{display:none;color:#26733a;font-weight:bold;margin-top:8px}.guides{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.guide{border:1px solid #ddd;border-radius:14px;padding:18px}.guide h3{margin:7px 0}.result{text-align:center}.big{font-size:3rem;font-weight:800;color:#630914}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.stat{text-align:center;padding:15px;background:#f5f5f5;border-radius:12px}.stat strong{display:block;font-size:1.5rem}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.empty{text-align:center;padding:30px;opacity:.7}@media(max-width:800px){.controls,.modes{grid-template-columns:1fr 1fr}.guides{grid-template-columns:1fr}}@media(max-width:520px){.controls,.modes,.stats{grid-template-columns:1fr}.track{width:170px}}
+</style></head>
 <body>
-
-<script src="js/app.js"></script>
-
+<script src="js/app.js"></script><script>injectHeader();</script>
+<main class="main"><div class="test-centre">
+<section class="test-hero"><h1>📝 Test Centre</h1><p>Test your knowledge, practise GCSE answers and learn how to earn marks.</p></section>
+<section class="controls"><div><label>Subject</label><select id="subject"></select></div><div><label>Topic</label><select id="topic"><option value="all">All topics</option></select></div><div><label>Difficulty</label><select id="difficulty"><option value="all">All</option><option>easy</option><option>medium</option><option>hard</option></select></div><div><label>Questions</label><select id="count"><option>5</option><option>10</option><option>15</option></select></div></section>
+<section class="modes"><div class="mode active"><div class="mode-icon">⚡</div><h2>Quick Quiz</h2><p>Multiple choice and True/False with instant feedback.</p><button class="btn" onclick="startQuiz()">Start Quiz →</button></div><div class="mode"><div class="mode-icon">✍️</div><h2>Exam Practice</h2><p>Write an answer, reveal an example and self-mark.</p><button class="btn" onclick="startExam()">Start Practice →</button></div><div class="mode"><div class="mode-icon">📚</div><h2>Answer Guides</h2><p>Learn what common GCSE command words are asking you to do.</p><button class="btn" onclick="showGuides()">View Guides →</button></div></section>
+<section id="quiz" class="panel active"><div class="top"><div><b id="counter">Question</b><div class="track"><div id="fill" class="fill"></div></div></div><b>Score: <span id="score">0</span></b></div><div id="quizTopic" class="q" style="font-size:.9rem;opacity:.65;margin-bottom:0"></div><div id="question" class="q"></div><div id="answers" class="answers"></div><div id="feedback" class="feedback"></div><div class="actions"><button id="next" class="btn" onclick="next()" style="display:none">Next →</button><button class="btn ghost" onclick="finishQuiz()">Finish</button></div></section>
+<section id="exam" class="panel"><div class="top"><b id="examCounter">Exam Practice</b><span id="examMarks" class="badge">marks</span></div><div id="examTopic" style="margin-top:12px;opacity:.65"></div><div id="examQuestion" class="q"></div><textarea id="examAnswer" class="exam-answer" placeholder="Write your answer here..."></textarea><div class="actions"><button class="btn" onclick="reveal()">Reveal Example Answer</button><button class="btn ghost" onclick="startExam()">New Question</button></div><div id="model" class="model"><b>Example answer</b><p id="modelText"></p><b>Key marking points</b><ul id="points"></ul></div><div id="marking" class="marking"><b>Self-mark</b><p>Select the score you think you earned.</p><div id="marks" class="marks"></div><div class="actions"><button class="btn" onclick="saveExam()">Save Result</button></div></div><div class="flag"><h3>🚩 Need a teacher's help?</h3><p>Save the question and your exact response so a teacher can go over it with you.</p><select id="reason"><option>I don't understand the question</option><option>I don't understand the topic</option><option>I'm unsure how many marks I should get</option><option>I want my answer reviewed</option><option>Other</option></select><button class="btn" onclick="flagQuestion()">🚩 Request Teacher Help</button><div id="flagStatus" class="flag-status">✓ Saved for teacher review.</div></div></section>
+<section id="guides" class="panel"><h2>📚 Answer Guides</h2><p>Use the command word to decide what the examiner wants from you.</p><div id="guideGrid" class="guides"></div></section>
+<section id="results" class="panel"><div class="result"><div id="percent" class="big">0%</div><h2 id="resultTitle">Quiz Complete</h2><p id="resultMessage"></p></div><div class="stats"><div class="stat"><strong id="correct">0</strong>Correct</div><div class="stat"><strong id="total">0</strong>Questions</div><div class="stat"><strong id="xp">0</strong>XP</div></div><div class="actions"><button class="btn" onclick="startQuiz()">Try Again</button><button class="btn ghost" onclick="showGuides()">Answer Guides</button><a class="btn ghost" href="dashboard.html">← Dashboard</a></div></section>
+<div style="margin-top:24px"><a class="btn ghost" href="dashboard.html">← Dashboard</a></div></div></main>
 <script>
-injectHeader();
-</script>
-
-
-<main class="main">
-
-    <div class="setup-title">
-
-        <h1>
-            Test 📝
-        </h1>
-
-        <p>
-            Choose a topic to begin.
-        </p>
-
-    </div>
-
-
-    <div id="topics"></div>
-
-
-    <div style="margin-top:24px">
-
-        <a
-            href="dashboard.html"
-            class="btn ghost"
-        >
-            ← Dashboard
-        </a>
-
-    </div>
-
-</main>
-
-
-<script>
-
-const data = load();
-
-const topics =
-    TOPICS[data.subject] || [];
-
-
-document.getElementById("topics")
-    .innerHTML =
-
-    topics.map(topic => `
-
-        <div class="topic">
-
-            <div>
-
-                <h3>
-                    ${topic}
-                </h3>
-
-                <p>
-                    5 questions •
-                    ${data.level}
-                </p>
-
-            </div>
-
-
-            <button
-                class="btn"
-                onclick="startTest('${topic}')"
-            >
-                Start
-            </button>
-
-        </div>
-
-    `).join("");
-
-
-function startTest(topic) {
-
-    award(10, 1);
-
-    alert(
-        `Starting ${topic} test!\\n\\n`
-        +
-        `The full exam-style question engine `
-        +
-        `will be connected to this topic next.`
-    );
-
-}
-
-</script>
-
-</body>
-</html>
+const Q=[
+{id:'b1',subject:'biology',board:'AQA',level:'Foundation',topic:'Cell Biology',type:'mc',difficulty:'easy',q:'Which structure controls the activities of a cell?',o:['Cell membrane','Nucleus','Cytoplasm','Cell wall'],a:1,e:'The nucleus contains genetic material and controls cell activities.'},
+{id:'b2',subject:'biology',board:'AQA',level:'Foundation',topic:'Cell Biology',type:'mc',difficulty:'easy',q:'Which organelle is the site of aerobic respiration?',o:['Ribosome','Nucleus','Mitochondrion','Chloroplast'],a:2,e:'Aerobic respiration takes place in mitochondria.'},
+{id:'b3',subject:'biology',board:'AQA',level:'Foundation',topic:'Cell Biology',type:'tf',difficulty:'easy',q:'Plant cells have a cell wall made mainly of cellulose.',o:['True','False'],a:0,e:'Plant cell walls are made mainly of cellulose and provide support.'},
+{id:'b4',subject:'biology',board:'AQA',level:'Higher',topic:'Cell Biology',type:'mc',difficulty:'medium',q:'What is the function of a ribosome?',o:['Protein synthesis','Aerobic respiration','Photosynthesis','Controlling osmosis'],a:0,e:'Ribosomes are the site of protein synthesis.'},
+{id:'b5',subject:'biology',board:'AQA',level:'Higher',topic:'Cell Biology',type:'mc',difficulty:'medium',q:'A cell has a magnification of ×500 and an image length of 20 mm. What is the actual length?',o:['0.004 mm','0.04 mm','0.4 mm','10 mm'],a:1,e:'Actual size = image size ÷ magnification = 20 ÷ 500 = 0.04 mm.'},
+{id:'b6',subject:'biology',board:'AQA',level:'Foundation',topic:'Organisation',type:'mc',difficulty:'easy',q:'Which tissue lines the airways and helps move mucus?',o:['Muscle tissue','Ciliated epithelial tissue','Nervous tissue','Glandular tissue'],a:1,e:'Ciliated epithelial cells move mucus and trapped particles away from the lungs.'},
+{id:'b7',subject:'biology',board:'AQA',level:'Foundation',topic:'Infection and Response',type:'tf',difficulty:'easy',q:'Antibiotics are effective against viruses.',o:['True','False'],a:1,e:'Antibiotics target bacteria and do not kill viruses.'},
+{id:'b8',subject:'biology',board:'AQA',level:'Higher',topic:'Infection and Response',type:'mc',difficulty:'medium',q:'What is the main role of antibodies?',o:['Digest food','Destroy red blood cells','Help identify and destroy pathogens','Transport oxygen'],a:2,e:'Antibodies bind to specific antigens and help the immune system destroy pathogens.'},
+{id:'m1',subject:'maths',board:'Pearson',level:'Foundation',topic:'Number',type:'mc',difficulty:'easy',q:'What is 25% of 80?',o:['10','20','25','40'],a:1,e:'25% is one quarter, so 80 ÷ 4 = 20.'},
+{id:'m2',subject:'maths',board:'Pearson',level:'Foundation',topic:'Number',type:'tf',difficulty:'easy',q:'0.6 is equal to 60%.',o:['True','False'],a:0,e:'0.6 × 100 = 60%.'},
+{id:'m3',subject:'maths',board:'Pearson',level:'Higher',topic:'Algebra',type:'mc',difficulty:'medium',q:'Solve 3x + 5 = 20.',o:['x = 3','x = 5','x = 7','x = 15'],a:1,e:'Subtract 5, giving 3x = 15, then divide by 3.'},
+{id:'m4',subject:'maths',board:'Pearson',level:'Higher',topic:'Geometry',type:'tf',difficulty:'easy',q:'The angles in a triangle add to 180°.',o:['True','False'],a:0,e:'The interior angles of every triangle sum to 180°.'},
+{id:'be1',subject:'biology',board:'AQA',level:'Higher',topic:'Cell Biology',type:'exam',difficulty:'medium',q:'Explain how the structure of a red blood cell allows it to transport oxygen efficiently.',marks:4,answer:'A red blood cell has a biconcave shape, giving it a large surface area for its volume. It has no nucleus, leaving more space for haemoglobin. Haemoglobin binds to oxygen, and the flexible cell can pass through narrow blood vessels.',points:['Biconcave shape gives a large surface area for its volume.','No nucleus leaves more room for haemoglobin.','Contains haemoglobin which binds to oxygen.','Flexible shape allows it to pass through narrow blood vessels.']},
+{id:'be2',subject:'biology',board:'AQA',level:'Foundation',topic:'Infection and Response',type:'exam',difficulty:'easy',q:'Describe how vaccination can protect a person from a disease.',marks:3,answer:'A vaccine contains harmless forms or parts of a pathogen. These contain antigens that stimulate the immune system to produce antibodies and memory cells. If the pathogen enters the body later, a faster immune response can prevent illness.',points:['Vaccine contains harmless forms or parts of a pathogen or its antigens.','Stimulates production of antibodies and/or memory cells.','Memory cells produce a faster response if the pathogen enters again.']},
+{id:'me1',subject:'maths',board:'Pearson',level:'Higher',topic:'Algebra',type:'exam',difficulty:'medium',q:'Solve the equation 2x² - 5x - 3 = 0. Show your working.',marks:4,answer:'Factorise: (2x + 1)(x - 3) = 0. Therefore 2x + 1 = 0 or x - 3 = 0. So x = -1/2 or x = 3.',points:['Correct factorisation.','Sets each factor equal to zero.','Finds x = 3.','Finds x = -1/2.']}
+];
+const guides={biology:[['Describe','📝','State what happens or what something is like.','Use precise vocabulary; do not explain unless asked.'],['Explain','💡','Make a point and link it to why or how it causes the result.','Use because, therefore, so and leads to.'],['Calculate','🧮','Show the method, substitute, calculate and give units.','Show working and check units/significant figures.'],['Extended response','🏆','Plan several linked scientific points in a logical sequence.','Cover the whole question and link ideas.']],maths:[['Show that / Prove','🔎','Show the important steps so the examiner can follow your reasoning.','Do not jump straight to the answer.'],['Calculate','🧮','Identify the method, substitute, show working and state the answer.','Include units where required.'],['Explain / Reason','💭','Use mathematical facts to justify the conclusion.','Refer to the information in the question.']],english:[['How does the writer present…?','📖','Make an argument, use evidence, analyse a method and explain its effect.','Zoom in on words and keep answering the exact question.'],['Theme / Character essay','🎭','Build analytical paragraphs using evidence and methods.','Use evidence from across the text and track development.']],history:[['Explain why','🏛️','Give a reason, explain how it caused the development and link back.','Use specific knowledge and develop each reason.'],['How far do you agree?','⚖️','Give arguments on both sides and reach a supported judgement.','Use precise evidence and make the judgement sustained.']]};
+let data=load(), subject=data.currentSubject||(data.subjects&&data.subjects[0])||'biology', quiz=[],qi=0,qs=0,answered=false,exam=null,selfMark=null;
+const $=id=>document.getElementById(id), norm=v=>String(v||'').toLowerCase().trim();
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));}
+function setup(){const s=$('subject');const subs=(data.subjects&&data.subjects.length?data.subjects:Object.keys(SUBJECTS||{}));s.innerHTML=subs.map(x=>`<option value="${x}">${esc(SUBJECTS[x]?.name||x)}</option>`).join('');if(subs.includes(subject))s.value=subject;s.onchange=()=>{subject=s.value;topics()};topics()}
+function topics(){const t=$('topic'),x=[...new Set(Q.filter(q=>norm(q.subject)===norm(subject)).map(q=>q.topic))].sort();t.innerHTML='<option value="all">All topics</option>'+x.map(v=>`<option>${esc(v)}</option>`).join('')}
+function pool(type){let p=Q.filter(q=>norm(q.subject)===norm(subject)&&q.type===type);const topic=$('topic').value,d=$('difficulty').value,board=data.boards?.[subject],level=data.levels?.[subject];if(board){const b=p.filter(q=>!q.board||norm(q.board)===norm(board));if(b.length)p=b}if(level){const l=p.filter(q=>!q.level||norm(q.level)===norm(level)||norm(q.level)==='foundation');if(l.length)p=l}if(topic!=='all')p=p.filter(q=>q.topic===topic);if(d!=='all')p=p.filter(q=>q.difficulty===d);return p}
+function shuffle(a){return [...a].sort(()=>Math.random()-.5)}
+function panels(id){['quiz','exam','guides','results'].forEach(x=>$(x).classList.toggle('active',x===id))}
+function startQuiz(){quiz=shuffle(pool('mc').concat(pool('tf'))).slice(0,Number($('count').value));qi=0;qs=0;$('score').textContent=0;if(!quiz.length){panels('quiz');$('question').innerHTML='<div class="empty">No quiz questions match this selection yet.</div>';return}panels('quiz');renderQuiz()}
+function renderQuiz(){answered=false;const q=quiz[qi];$('counter').textContent=`Question ${qi+1} of ${quiz.length}`;$('fill').style.width=`${qi/quiz.length*100}%`;$('quizTopic').textContent=`${q.topic} • ${q.difficulty}`;$('question').textContent=q.q;$('feedback').className='feedback';$('next').style.display='none';$('answers').innerHTML=q.o.map((x,i)=>`<button class="answer" onclick="answer(${i})">${esc(x)}</button>`).join('')}
+function answer(i){if(answered)return;answered=true;const q=quiz[qi],ok=i===q.a;document.querySelectorAll('.answer').forEach((b,n)=>{b.disabled=true;if(n===q.a)b.classList.add('correct');if(n===i&&!ok)b.classList.add('wrong')});if(ok)qs++;$('score').textContent=qs;$('feedback').className=`feedback show`;$('feedback').innerHTML=`<b>${ok?'✓ Correct!':'✗ Not quite.'}</b><p>${esc(q.e)}</p>`;$('fill').style.width=`${(qi+1)/quiz.length*100}%`;$('next').style.display='inline-block'}
+function next(){if(qi<quiz.length-1){qi++;renderQuiz()}else finishQuiz()}
+function finishQuiz(){if(!quiz.length)return;const pct=Math.round(qs/quiz.length*100),xp=qs*10;$('percent').textContent=pct+'%';$('correct').textContent=qs;$('total').textContent=quiz.length;$('xp').textContent=xp;$('resultTitle').textContent=pct>=80?'Excellent work!':pct>=60?'Good job!':'Keep practising!';$('resultMessage').textContent=`You scored ${qs} out of ${quiz.length}.`;if(typeof award==='function'&&xp)award(xp,Math.max(1,Math.floor(qs/5)));panels('results')}
+function startExam(){const p=shuffle(pool('exam'));panels('exam');if(!p.length){$('examQuestion').innerHTML='<div class="empty">No exam questions match this selection yet.</div>';exam=null;return}exam=p[0];selfMark=null;$('examMarks').textContent=`${exam.marks} marks`;$('examTopic').textContent=`${exam.topic} • ${exam.difficulty}`;$('examQuestion').textContent=exam.q;$('examAnswer').value='';$('model').className='model';$('marking').className='marking';$('flagStatus').style.display='none'}
+function reveal(){if(!exam)return;$('modelText').textContent=exam.answer;$('points').innerHTML=exam.points.map(x=>`<li>${esc(x)}</li>`).join('');$('marks').innerHTML=Array.from({length:exam.marks+1},(_,i)=>`<button class="mark" onclick="pickMark(${i})">${i}/${exam.marks}</button>`).join('');$('model').className='model show';$('marking').className='marking show'}
+function pickMark(n){selfMark=n;document.querySelectorAll('.mark').forEach((b,i)=>b.classList.toggle('selected',i===n))}
+function saveExam(){if(!exam||selfMark===null){alert('Choose your self-mark first.');return}const r=JSON.parse(localStorage.getItem('GCSE_HUB_TEST_RESULTS')||'[]');r.push({id:exam.id,subject:exam.subject,topic:exam.topic,question:exam.q,response:$('examAnswer').value,selfMark,marks:exam.marks,date:new Date().toISOString()});localStorage.setItem('GCSE_HUB_TEST_RESULTS',JSON.stringify(r));if(typeof award==='function')award(10+selfMark*5,1);alert(`Saved: ${selfMark}/${exam.marks}`)}
+function flagQuestion(){if(!exam)return;const response=$('examAnswer').value.trim();if(!response){alert('Write your answer before requesting teacher help.');return}const r=JSON.parse(localStorage.getItem('GCSE_HUB_TEACHER_REQUESTS')||'[]');r.push({id:'help-'+Date.now(),status:'awaiting-review',student:data.name||'Student',agentId:data.agentId||null,subject:exam.subject,board:exam.board,level:exam.level,topic:exam.topic,questionId:exam.id,question:exam.q,response,modelAnswer:exam.answer,markPoints:exam.points,selfMark,marks:exam.marks,reason:$('reason').value,date:new Date().toISOString()});localStorage.setItem('GCSE_HUB_TEACHER_REQUESTS',JSON.stringify(r));$('flagStatus').style.display='block'}
+function showGuides(){panels('guides');const gs=guides[subject]||[];$('guideGrid').innerHTML=gs.length?gs.map(g=>`<article class="guide"><div style="font-size:1.8rem">${g[1]}</div><h3>${esc(g[0])}</h3><p>${esc(g[2])}</p><b>Top tip</b><p>${esc(g[3])}</p></article>`).join(''):'<div class="empty">Answer guides for this subject are coming next.</div>'}
+setup();
+</script></body></html>
