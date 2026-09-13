@@ -1,0 +1,2492 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Exam Practice — GCSE Hub</title>
+
+<link
+    rel="stylesheet"
+    href="css/style.css"
+>
+
+
+<style>
+
+/* =========================================================
+   EXAM PRACTICE
+   ========================================================= */
+
+.exam-page {
+
+    max-width: 950px;
+
+    margin: 0 auto;
+
+    padding-bottom: 50px;
+
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.exam-hero {
+
+    background:
+        linear-gradient(
+            135deg,
+            #630914,
+            #8b1020
+        );
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 35px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.exam-hero h1 {
+
+    margin: 0 0 8px;
+
+    font-size: 34px;
+
+}
+
+
+.exam-hero p {
+
+    margin: 0;
+
+    opacity: 0.9;
+
+}
+
+
+/* =========================================================
+   SETUP
+   ========================================================= */
+
+.exam-setup {
+
+    background: white;
+
+    border-radius: 16px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.08);
+
+}
+
+
+.exam-field {
+
+    margin-bottom: 20px;
+
+}
+
+
+.exam-field label {
+
+    display: block;
+
+    font-weight: 700;
+
+    margin-bottom: 7px;
+
+}
+
+
+.exam-field select {
+
+    width: 100%;
+
+    padding: 12px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 9px;
+
+    background: white;
+
+    font-size: 15px;
+
+}
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+.exam-progress-summary {
+
+    background: #f7f7f7;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 12px;
+
+    padding: 16px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.exam-progress-title {
+
+    font-weight: 800;
+
+    margin-bottom: 8px;
+
+}
+
+
+.exam-progress-stats {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    font-size: 14px;
+
+}
+
+
+.exam-stat {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+}
+
+
+.exam-dot {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+}
+
+
+.exam-dot.done {
+
+    background: #27813a;
+
+}
+
+
+.exam-dot.mistake {
+
+    background: #e58b19;
+
+}
+
+
+.exam-dot.not-done {
+
+    background: #bbb;
+
+}
+
+
+/* =========================================================
+   QUESTION
+   ========================================================= */
+
+.exam-container {
+
+    display: none;
+
+}
+
+
+.exam-question-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 5px 22px
+        rgba(0,0,0,0.09);
+
+}
+
+
+.exam-question-top {
+
+    display: flex;
+
+    justify-content:
+        space-between;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.exam-question-number {
+
+    font-weight: 800;
+
+    color: #630914;
+
+}
+
+
+.exam-mark-count {
+
+    background: #630914;
+
+    color: white;
+
+    border-radius: 20px;
+
+    padding: 6px 12px;
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+}
+
+
+.exam-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.exam-tag {
+
+    background: #f0f0f0;
+
+    border-radius: 20px;
+
+    padding: 5px 10px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+}
+
+
+.exam-mistake-tag {
+
+    background: #fff0dc;
+
+    color: #a95e00;
+
+}
+
+
+.exam-question {
+
+    font-size: 21px;
+
+    line-height: 1.55;
+
+    white-space: pre-line;
+
+    margin-bottom: 25px;
+
+}
+
+
+/* =========================================================
+   ANSWER BOX
+   ========================================================= */
+
+.exam-answer {
+
+    width: 100%;
+
+    min-height: 220px;
+
+    resize: vertical;
+
+    padding: 16px;
+
+    border:
+        2px solid #ddd;
+
+    border-radius: 11px;
+
+    font-family:
+        inherit;
+
+    font-size: 16px;
+
+    line-height: 1.6;
+
+    box-sizing: border-box;
+
+}
+
+
+.exam-answer:focus {
+
+    outline: none;
+
+    border-color: #630914;
+
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.exam-actions {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 15px;
+
+}
+
+
+.exam-actions .btn {
+
+    padding: 13px;
+
+}
+
+
+/* =========================================================
+   MODEL ANSWER
+   ========================================================= */
+
+.model-answer {
+
+    display: none;
+
+    margin-top: 25px;
+
+}
+
+
+.model-answer-box {
+
+    background: #f7f7f7;
+
+    border:
+        1px solid #ddd;
+
+    border-radius: 13px;
+
+    padding: 20px;
+
+}
+
+
+.model-answer-box h3 {
+
+    margin-top: 0;
+
+}
+
+
+.model-answer-text {
+
+    line-height: 1.65;
+
+    white-space: pre-line;
+
+}
+
+
+/* =========================================================
+   MARK SCHEME
+   ========================================================= */
+
+.mark-scheme {
+
+    margin-top: 18px;
+
+}
+
+
+.mark-scheme ul {
+
+    padding-left: 22px;
+
+}
+
+
+.mark-scheme li {
+
+    margin-bottom: 7px;
+
+}
+
+
+/* =========================================================
+   SELF MARK
+   ========================================================= */
+
+.self-mark {
+
+    display: none;
+
+    margin-top: 22px;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+    background: #fff8ed;
+
+    border-left:
+        5px solid #e58b19;
+
+}
+
+
+.self-mark h3 {
+
+    margin-top: 0;
+
+}
+
+
+.mark-buttons {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 8px;
+
+    margin-top: 12px;
+
+}
+
+
+.mark-button {
+
+    border:
+        2px solid #ddd;
+
+    background: white;
+
+    padding: 11px;
+
+    border-radius: 9px;
+
+    cursor: pointer;
+
+    font-weight: 700;
+
+}
+
+
+.mark-button:hover {
+
+    border-color: #630914;
+
+}
+
+
+.mark-button.selected {
+
+    background: #630914;
+
+    color: white;
+
+    border-color: #630914;
+
+}
+
+
+/* =========================================================
+   TEACHER HELP
+   ========================================================= */
+
+.teacher-help {
+
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 20px;
+
+    border-radius: 13px;
+
+    background: #f3f3f3;
+
+    border:
+        1px solid #ddd;
+
+}
+
+
+.teacher-help h3 {
+
+    margin-top: 0;
+
+}
+
+
+.teacher-help textarea {
+
+    width: 100%;
+
+    min-height: 100px;
+
+    resize: vertical;
+
+    padding: 12px;
+
+    border:
+        1px solid #ccc;
+
+    border-radius: 9px;
+
+    box-sizing: border-box;
+
+    font-family: inherit;
+
+}
+
+
+.teacher-help-status {
+
+    margin-top: 12px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   COMPLETE
+   ========================================================= */
+
+.exam-results {
+
+    display: none;
+
+}
+
+
+.results-card {
+
+    background: white;
+
+    border-radius: 18px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    box-shadow:
+        0 5px 22px
+        rgba(0,0,0,0.09);
+
+}
+
+
+.results-card h2 {
+
+    margin-top: 0;
+
+}
+
+
+.results-score {
+
+    font-size: 48px;
+
+    font-weight: 900;
+
+    color: #630914;
+
+    margin: 15px 0;
+
+}
+
+
+.results-message {
+
+    color: #555;
+
+    margin-bottom: 25px;
+
+}
+
+
+.results-buttons {
+
+    display: grid;
+
+    gap: 10px;
+
+    max-width: 450px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .exam-hero {
+
+        padding: 25px;
+
+    }
+
+    .exam-hero h1 {
+
+        font-size: 28px;
+
+    }
+
+    .exam-question-card {
+
+        padding: 22px;
+
+    }
+
+    .exam-question {
+
+        font-size: 19px;
+
+    }
+
+    .exam-actions {
+
+        grid-template-columns: 1fr;
+
+    }
+
+    .mark-buttons {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<script src="js/app.js"></script>
+
+<script src="js/exam-practice-data.js"></script>
+
+<script>
+
+injectHeader();
+
+</script>
+
+
+<main class="main">
+
+
+<div class="exam-page">
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="exam-hero">
+
+    <h1>
+        📖 Exam Practice
+    </h1>
+
+    <p>
+        Practise answering real exam-style questions,
+        self-mark your answers and identify the areas
+        where you need help.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+     SETUP
+     ===================================================== -->
+
+<section
+    class="exam-setup"
+    id="examSetup"
+>
+
+
+    <h2>
+        Choose your practice
+    </h2>
+
+
+    <div class="exam-field">
+
+        <label for="subjectSelect">
+            Subject
+        </label>
+
+        <select id="subjectSelect">
+        </select>
+
+    </div>
+
+
+    <div class="exam-field">
+
+        <label for="topicSelect">
+            Topic
+        </label>
+
+        <select id="topicSelect">
+        </select>
+
+    </div>
+
+
+    <div class="exam-field">
+
+        <label for="difficultySelect">
+            Questions
+        </label>
+
+        <select id="difficultySelect">
+
+            <option value="all">
+                All questions
+            </option>
+
+            <option value="mistakes">
+                🟠 Past mistakes first
+            </option>
+
+            <option value="new">
+                ⚪ New questions only
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div class="exam-field">
+
+        <label for="questionCount">
+            Number of questions
+        </label>
+
+        <select id="questionCount">
+
+            <option value="1">
+                1 question
+            </option>
+
+            <option value="3" selected>
+                3 questions
+            </option>
+
+            <option value="5">
+                5 questions
+            </option>
+
+            <option value="10">
+                10 questions
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        class="exam-progress-summary"
+        id="examProgressSummary"
+    ></div>
+
+
+    <button
+        class="btn"
+        style="width:100%; padding:14px;"
+        onclick="startExamPractice()"
+    >
+        Start Exam Practice →
+    </button>
+
+
+</section>
+
+
+<!-- =====================================================
+     EXAM QUESTION
+     ===================================================== -->
+
+<section
+    class="exam-container"
+    id="examContainer"
+>
+
+
+    <div class="exam-question-card">
+
+
+        <div class="exam-question-top">
+
+            <div
+                class="exam-question-number"
+                id="questionNumber"
+            >
+                Question 1 of 3
+            </div>
+
+
+            <div
+                class="exam-mark-count"
+                id="markCount"
+            >
+                4 marks
+            </div>
+
+        </div>
+
+
+        <div
+            class="exam-meta"
+            id="examMeta"
+        ></div>
+
+
+        <div
+            class="exam-question"
+            id="examQuestion"
+        ></div>
+
+
+        <label
+            for="studentAnswer"
+            style="font-weight:800;"
+        >
+            Your answer
+        </label>
+
+
+        <textarea
+            id="studentAnswer"
+            class="exam-answer"
+            placeholder="Type your answer here..."
+        ></textarea>
+
+
+        <div class="exam-actions">
+
+
+            <button
+                class="btn"
+                onclick="showModelAnswer()"
+            >
+                Reveal Model Answer
+            </button>
+
+
+            <button
+                class="btn ghost"
+                onclick="openTeacherHelp()"
+            >
+                🧑‍🏫 Request Teacher Help
+            </button>
+
+
+        </div>
+
+
+        <!-- MODEL ANSWER -->
+
+        <div
+            class="model-answer"
+            id="modelAnswer"
+        >
+
+            <div class="model-answer-box">
+
+                <h3>
+                    Example Model Answer
+                </h3>
+
+
+                <div
+                    class="model-answer-text"
+                    id="modelAnswerText"
+                ></div>
+
+
+                <div class="mark-scheme">
+
+                    <h3>
+                        Mark Scheme
+                    </h3>
+
+
+                    <ul
+                        id="markSchemeList"
+                    ></ul>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELF MARK -->
+
+            <div
+                class="self-mark"
+                id="selfMark"
+            >
+
+                <h3>
+                    How many marks did you get?
+                </h3>
+
+
+                <p>
+                    Compare your answer with the
+                    model answer and mark scheme,
+                    then give yourself a mark.
+                </p>
+
+
+                <div
+                    class="mark-buttons"
+                    id="markButtons"
+                ></div>
+
+            </div>
+
+
+            <button
+                class="btn"
+                id="nextExamButton"
+                style="
+                    width:100%;
+                    margin-top:18px;
+                    display:none;
+                "
+                onclick="nextExamQuestion()"
+            >
+                Continue →
+            </button>
+
+        </div>
+
+
+        <!-- TEACHER HELP -->
+
+        <div
+            class="teacher-help"
+            id="teacherHelp"
+        >
+
+            <h3>
+                🧑‍🏫 Ask for Teacher Help
+            </h3>
+
+
+            <p>
+                Tell your teacher what you are
+                struggling with. Your question and
+                answer will be sent to the GCSE Hub
+                teacher system.
+            </p>
+
+
+            <textarea
+                id="teacherReason"
+                placeholder="What are you struggling with?"
+            ></textarea>
+
+
+            <button
+                class="btn"
+                style="
+                    width:100%;
+                    margin-top:10px;
+                "
+                onclick="submitTeacherHelp()"
+            >
+                Send Teacher Help Request
+            </button>
+
+
+            <div
+                class="teacher-help-status"
+                id="teacherHelpStatus"
+            ></div>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+<!-- =====================================================
+     RESULTS
+     ===================================================== -->
+
+<section
+    class="exam-results"
+    id="examResults"
+>
+
+
+    <div class="results-card">
+
+        <h2>
+            Exam Practice Complete 🎉
+        </h2>
+
+
+        <div
+            class="results-score"
+            id="finalMarks"
+        >
+            0 / 0
+        </div>
+
+
+        <p
+            class="results-message"
+            id="finalMessage"
+        ></p>
+
+
+        <div class="results-buttons">
+
+
+            <button
+                class="btn"
+                onclick="restartExamPractice()"
+            >
+                Practise Again
+            </button>
+
+
+            <a
+                href="test.html"
+                class="btn ghost"
+            >
+                ← Test Centre
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="btn ghost"
+            >
+                ← Dashboard
+            </a>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let examQuestions = [];
+
+let currentExamIndex = 0;
+
+let totalMarksAvailable = 0;
+
+let totalMarksAwarded = 0;
+
+let currentStudentAnswer = "";
+
+let currentSelfMark = null;
+
+
+/* =========================================================
+   PROGRESS
+   ========================================================= */
+
+const EXAM_PROGRESS_KEY =
+    "GCSE_HUB_EXAM_PROGRESS";
+
+
+let examProgress = {};
+
+
+function loadExamProgress() {
+
+    try {
+
+        const saved =
+            localStorage.getItem(
+                EXAM_PROGRESS_KEY
+            );
+
+        examProgress =
+            saved
+                ? JSON.parse(saved)
+                : {};
+
+        if (
+            !examProgress ||
+            typeof examProgress !== "object"
+        ) {
+
+            examProgress = {};
+
+        }
+
+    } catch {
+
+        examProgress = {};
+
+    }
+
+}
+
+
+function saveExamProgress() {
+
+    localStorage.setItem(
+        EXAM_PROGRESS_KEY,
+        JSON.stringify(examProgress)
+    );
+
+}
+
+
+function getExamStatus(id) {
+
+    return examProgress[id] ||
+        "not-done";
+
+}
+
+
+function setExamStatus(
+    id,
+    status
+) {
+
+    examProgress[id] = status;
+
+    saveExamProgress();
+
+}
+
+
+/* =========================================================
+   SUBJECTS
+   ========================================================= */
+
+function getExamSubjects() {
+
+    return [
+        ...new Set(
+            EXAM_PRACTICE_QUESTIONS
+                .map(q => q.subject)
+        )
+    ];
+
+}
+
+
+function formatExamSubject(subject) {
+
+    const names = {
+
+        biology: "Biology",
+        chemistry: "Chemistry",
+        physics: "Physics",
+        maths: "Maths",
+        english: "English",
+        history: "History",
+        geography: "Geography",
+        spanish: "Spanish",
+        french: "French",
+        systems:
+            "Systems Programmable Engineering",
+        engineering: "Engineering",
+        ethics:
+            "Ethics & Philosophy",
+        business: "Business",
+        imedia: "iMedia"
+
+    };
+
+    return names[subject] ||
+        subject;
+
+}
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+function initialiseExamPractice() {
+
+    const subjectSelect =
+        document.getElementById(
+            "subjectSelect"
+        );
+
+
+    const subjects =
+        getExamSubjects();
+
+
+    subjectSelect.innerHTML =
+        subjects.map(subject => `
+
+            <option value="${escapeHtml(subject)}">
+
+                ${escapeHtml(
+                    formatExamSubject(subject)
+                )}
+
+            </option>
+
+        `).join("");
+
+
+    subjectSelect.addEventListener(
+        "change",
+        updateExamTopics
+    );
+
+
+    document
+        .getElementById("topicSelect")
+        .addEventListener(
+            "change",
+            updateExamProgressSummary
+        );
+
+
+    document
+        .getElementById("difficultySelect")
+        .addEventListener(
+            "change",
+            updateExamProgressSummary
+        );
+
+
+    updateExamTopics();
+
+    updateExamProgressSummary();
+
+}
+
+
+/* =========================================================
+   TOPICS
+   ========================================================= */
+
+function updateExamTopics() {
+
+    const subject =
+        document.getElementById(
+            "subjectSelect"
+        ).value;
+
+
+    const topicSelect =
+        document.getElementById(
+            "topicSelect"
+        );
+
+
+    const topics = [
+        ...new Set(
+
+            EXAM_PRACTICE_QUESTIONS
+
+                .filter(q =>
+                    q.subject === subject
+                )
+
+                .map(q => q.topic)
+
+        )
+    ];
+
+
+    topicSelect.innerHTML = `
+
+        <option value="all">
+            All topics
+        </option>
+
+        ${topics.map(topic => `
+
+            <option value="${escapeHtml(topic)}">
+                ${escapeHtml(topic)}
+            </option>
+
+        `).join("")}
+
+    `;
+
+
+    updateExamProgressSummary();
+
+}
+
+
+/* =========================================================
+   MATCHING
+   ========================================================= */
+
+function getMatchingExamQuestions() {
+
+    const subject =
+        document.getElementById(
+            "subjectSelect"
+        ).value;
+
+
+    const topic =
+        document.getElementById(
+            "topicSelect"
+        ).value;
+
+
+    let questions =
+        EXAM_PRACTICE_QUESTIONS.filter(
+            q =>
+                q.subject === subject
+        );
+
+
+    if (topic !== "all") {
+
+        questions =
+            questions.filter(
+                q =>
+                    q.topic === topic
+            );
+
+    }
+
+
+    return questions;
+
+}
+
+
+/* =========================================================
+   PROGRESS SUMMARY
+   ========================================================= */
+
+function updateExamProgressSummary() {
+
+    const summary =
+        document.getElementById(
+            "examProgressSummary"
+        );
+
+
+    const matching =
+        getMatchingExamQuestions();
+
+
+    let done = 0;
+
+    let mistakes = 0;
+
+    let notDone = 0;
+
+
+    matching.forEach(question => {
+
+        const status =
+            getExamStatus(
+                question.id
+            );
+
+
+        if (status === "done") {
+
+            done++;
+
+        } else if (
+            status === "mistake"
+        ) {
+
+            mistakes++;
+
+        } else {
+
+            notDone++;
+
+        }
+
+    });
+
+
+    summary.innerHTML = `
+
+        <div class="exam-progress-title">
+
+            Your Exam Practice Progress
+
+        </div>
+
+
+        <div class="exam-progress-stats">
+
+            <span class="exam-stat">
+
+                <span class="exam-dot done"></span>
+
+                ${done} Done
+
+            </span>
+
+
+            <span class="exam-stat">
+
+                <span class="exam-dot mistake"></span>
+
+                ${mistakes} Past Mistakes
+
+            </span>
+
+
+            <span class="exam-stat">
+
+                <span class="exam-dot not-done"></span>
+
+                ${notDone} Not Done
+
+            </span>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+function startExamPractice() {
+
+    let matching =
+        getMatchingExamQuestions();
+
+
+    const mode =
+        document.getElementById(
+            "difficultySelect"
+        ).value;
+
+
+    const count =
+        parseInt(
+            document.getElementById(
+                "questionCount"
+            ).value,
+            10
+        );
+
+
+    if (mode === "mistakes") {
+
+        matching =
+            matching.filter(
+                q =>
+                    getExamStatus(q.id) ===
+                    "mistake"
+            );
+
+    }
+
+
+    if (mode === "new") {
+
+        matching =
+            matching.filter(
+                q =>
+                    getExamStatus(q.id) !==
+                    "done"
+            );
+
+    }
+
+
+    if (!matching.length) {
+
+        alert(
+            "There are no questions available for this selection."
+        );
+
+        return;
+
+    }
+
+
+    shuffleArray(matching);
+
+
+    /*
+       Put past mistakes first.
+    */
+
+    matching.sort(
+        (a, b) => {
+
+            const aMistake =
+                getExamStatus(a.id) ===
+                "mistake";
+
+            const bMistake =
+                getExamStatus(b.id) ===
+                "mistake";
+
+
+            return (
+                Number(bMistake) -
+                Number(aMistake)
+            );
+
+        }
+    );
+
+
+    examQuestions =
+        matching.slice(
+            0,
+            count
+        );
+
+
+    currentExamIndex = 0;
+
+    totalMarksAvailable = 0;
+
+    totalMarksAwarded = 0;
+
+
+    examQuestions.forEach(
+        q => {
+            totalMarksAvailable +=
+                Number(q.marks) || 0;
+        }
+    );
+
+
+    document.getElementById(
+        "examSetup"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "examResults"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "examContainer"
+    ).style.display = "block";
+
+
+    showExamQuestion();
+
+}
+
+
+/* =========================================================
+   SHOW QUESTION
+   ========================================================= */
+
+function showExamQuestion() {
+
+    const question =
+        examQuestions[
+            currentExamIndex
+        ];
+
+
+    if (!question) {
+
+        finishExamPractice();
+
+        return;
+
+    }
+
+
+    currentStudentAnswer = "";
+
+    currentSelfMark = null;
+
+
+    document.getElementById(
+        "questionNumber"
+    ).textContent =
+        `Question ${
+            currentExamIndex + 1
+        } of ${
+            examQuestions.length
+        }`;
+
+
+    document.getElementById(
+        "markCount"
+    ).textContent =
+        `${question.marks} ${
+            question.marks === 1
+                ? "mark"
+                : "marks"
+        }`;
+
+
+    const status =
+        getExamStatus(
+            question.id
+        );
+
+
+    let mistakeTag = "";
+
+
+    if (status === "mistake") {
+
+        mistakeTag = `
+
+            <span
+                class="
+                    exam-tag
+                    exam-mistake-tag
+                "
+            >
+                🟠 Past mistake
+            </span>
+
+        `;
+
+    }
+
+
+    document.getElementById(
+        "examMeta"
+    ).innerHTML = `
+
+        <span class="exam-tag">
+
+            ${escapeHtml(
+                formatExamSubject(
+                    question.subject
+                )
+            )}
+
+        </span>
+
+
+        <span class="exam-tag">
+
+            ${escapeHtml(
+                question.topic
+            )}
+
+        </span>
+
+
+        <span class="exam-tag">
+
+            ${escapeHtml(
+                question.subtopic
+            )}
+
+        </span>
+
+
+        <span class="exam-tag">
+
+            ${escapeHtml(
+                question.commandWord
+            )}
+
+        </span>
+
+
+        ${mistakeTag}
+
+    `;
+
+
+    document.getElementById(
+        "examQuestion"
+    ).textContent =
+        question.question;
+
+
+    document.getElementById(
+        "studentAnswer"
+    ).value = "";
+
+
+    document.getElementById(
+        "modelAnswer"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "selfMark"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "teacherHelp"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "teacherReason"
+    ).value = "";
+
+
+    document.getElementById(
+        "teacherHelpStatus"
+    ).textContent = "";
+
+
+    document.getElementById(
+        "nextExamButton"
+    ).style.display = "none";
+
+}
+
+
+/* =========================================================
+   MODEL ANSWER
+   ========================================================= */
+
+function showModelAnswer() {
+
+    const question =
+        examQuestions[
+            currentExamIndex
+        ];
+
+
+    currentStudentAnswer =
+        document.getElementById(
+            "studentAnswer"
+        ).value.trim();
+
+
+    if (!currentStudentAnswer) {
+
+        alert(
+            "Please type your answer before revealing the model answer."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "modelAnswerText"
+    ).textContent =
+        question.modelAnswer;
+
+
+    document.getElementById(
+        "markSchemeList"
+    ).innerHTML =
+        question.markScheme.map(
+            point => `
+
+                <li>
+                    ${escapeHtml(point)}
+                </li>
+
+            `
+        ).join("");
+
+
+    document.getElementById(
+        "modelAnswer"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "selfMark"
+    ).style.display = "block";
+
+
+    buildMarkButtons();
+
+}
+
+
+/* =========================================================
+   MARK BUTTONS
+   ========================================================= */
+
+function buildMarkButtons() {
+
+    const question =
+        examQuestions[
+            currentExamIndex
+        ];
+
+
+    const container =
+        document.getElementById(
+            "markButtons"
+        );
+
+
+    let html = "";
+
+
+    for (
+        let i = 0;
+        i <= question.marks;
+        i++
+    ) {
+
+        html += `
+
+            <button
+                class="mark-button"
+                onclick="selectSelfMark(${i})"
+            >
+                ${i}
+            </button>
+
+        `;
+
+    }
+
+
+    container.innerHTML = html;
+
+}
+
+
+/* =========================================================
+   SELF MARK
+   ========================================================= */
+
+function selectSelfMark(mark) {
+
+    const question =
+        examQuestions[
+            currentExamIndex
+        ];
+
+
+    if (
+        currentSelfMark !== null
+    ) {
+
+        return;
+
+    }
+
+
+    currentSelfMark = mark;
+
+
+    document
+        .querySelectorAll(
+            ".mark-button"
+        )
+        .forEach(button => {
+
+            button.disabled = true;
+
+        });
+
+
+    const selected =
+        [
+            ...document.querySelectorAll(
+                ".mark-button"
+            )
+        ][mark];
+
+
+    if (selected) {
+
+        selected.classList.add(
+            "selected"
+        );
+
+    }
+
+
+    /*
+       A question counts as Done only
+       when the student gives themselves
+       the full available marks.
+
+       Anything below full marks becomes
+       a Past Mistake.
+    */
+
+    if (
+        mark === question.marks
+    ) {
+
+        setExamStatus(
+            question.id,
+            "done"
+        );
+
+        totalMarksAwarded += mark;
+
+    } else {
+
+        setExamStatus(
+            question.id,
+            "mistake"
+        );
+
+        totalMarksAwarded += mark;
+
+    }
+
+
+    document.getElementById(
+        "nextExamButton"
+    ).style.display = "block";
+
+
+    updateExamProgressSummary();
+
+}
+
+
+/* =========================================================
+   NEXT
+   ========================================================= */
+
+function nextExamQuestion() {
+
+    currentExamIndex++;
+
+    showExamQuestion();
+
+}
+
+
+/* =========================================================
+   TEACHER HELP
+   ========================================================= */
+
+function openTeacherHelp() {
+
+    const answer =
+        document.getElementById(
+            "studentAnswer"
+        ).value.trim();
+
+
+    if (!answer) {
+
+        alert(
+            "Please write your answer first so your teacher can see what you attempted."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "teacherHelp"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "teacherReason"
+    ).focus();
+
+}
+
+
+/* =========================================================
+   TEACHER HELP SUBMISSION
+   =========================================================
+
+   IMPORTANT:
+
+   Replace TEACHER_HELP_API with the same
+   Google Apps Script web-app URL used
+   by your Mission Possible system.
+
+   The Apps Script should accept:
+
+   action=teacherHelp
+
+   and the JSON payload below.
+   ========================================================= */
+
+const TEACHER_HELP_API =
+    "PASTE_YOUR_GOOGLE_APPS_SCRIPT_URL_HERE";
+
+
+async function submitTeacherHelp() {
+
+    const question =
+        examQuestions[
+            currentExamIndex
+        ];
+
+
+    const answer =
+        document.getElementById(
+            "studentAnswer"
+        ).value.trim();
+
+
+    const reason =
+        document.getElementById(
+            "teacherReason"
+        ).value.trim();
+
+
+    const status =
+        document.getElementById(
+            "teacherHelpStatus"
+        );
+
+
+    if (!reason) {
+
+        alert(
+            "Please explain what you need help with."
+        );
+
+        return;
+
+    }
+
+
+    /*
+       Get GCSE Hub student information.
+    */
+
+    let hubData = {};
+
+
+    try {
+
+        hubData =
+            typeof load === "function"
+                ? load()
+                : {};
+
+    } catch {
+
+        hubData = {};
+
+    }
+
+
+    const payload = {
+
+        action: "teacherHelp",
+
+        studentName:
+            hubData.name || "",
+
+        agentId:
+            hubData.agentId || "",
+
+        subject:
+            question.subject,
+
+        board:
+            question.board,
+
+        level:
+            question.level,
+
+        paper:
+            question.paper,
+
+        topic:
+            question.topic,
+
+        subtopic:
+            question.subtopic,
+
+        questionId:
+            question.id,
+
+        question:
+            question.question,
+
+        marks:
+            question.marks,
+
+        studentAnswer:
+            answer,
+
+        modelAnswer:
+            question.modelAnswer,
+
+        markScheme:
+            question.markScheme,
+
+        selfMark:
+            currentSelfMark,
+
+        reason:
+            reason,
+
+        date:
+            new Date().toISOString(),
+
+        status:
+            "Open"
+
+    };
+
+
+    /*
+       If the endpoint has not yet been
+       inserted, don't pretend the request
+       was sent.
+    */
+
+    if (
+        TEACHER_HELP_API.includes(
+            "PASTE_YOUR"
+        )
+    ) {
+
+        status.textContent =
+            "⚠️ Teacher Help is not connected yet. Add your Google Apps Script URL to TEACHER_HELP_API.";
+
+        return;
+
+    }
+
+
+    status.textContent =
+        "Sending request…";
+
+
+    try {
+
+        const response =
+            await fetch(
+                TEACHER_HELP_API,
+                {
+
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "text/plain;charset=utf-8"
+                    },
+
+                    body:
+                        JSON.stringify(payload)
+
+                }
+            );
+
+
+        const result =
+            await response.json();
+
+
+        if (
+            result &&
+            result.success
+        ) {
+
+            status.textContent =
+                "✅ Teacher Help request sent successfully.";
+
+        } else {
+
+            status.textContent =
+                "⚠️ The request could not be submitted.";
+
+        }
+
+    } catch (error) {
+
+        console.error(error);
+
+        status.textContent =
+            "⚠️ Could not connect to the teacher system. Please try again.";
+
+    }
+
+}
+
+
+/* =========================================================
+   FINISH
+   ========================================================= */
+
+function finishExamPractice() {
+
+    document.getElementById(
+        "examContainer"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "examResults"
+    ).style.display = "block";
+
+
+    const percentage =
+        totalMarksAvailable > 0
+
+            ? Math.round(
+                (
+                    totalMarksAwarded /
+                    totalMarksAvailable
+                ) * 100
+            )
+
+            : 0;
+
+
+    document.getElementById(
+        "finalMarks"
+    ).textContent =
+        `${totalMarksAwarded} / ${totalMarksAvailable}`;
+
+
+    let message;
+
+
+    if (percentage >= 80) {
+
+        message =
+            "Excellent exam practice. Keep working on precision and securing every available mark.";
+
+    } else if (percentage >= 60) {
+
+        message =
+            "Good progress. Review the questions you did not get full marks on.";
+
+    } else {
+
+        message =
+            "Keep practising. Your questions below full marks have been saved as Past Mistakes.";
+
+    }
+
+
+    document.getElementById(
+        "finalMessage"
+    ).textContent =
+        message;
+
+
+    /*
+       Award GCSE Hub points.
+    */
+
+    if (
+        typeof award === "function"
+    ) {
+
+        award(
+            totalMarksAwarded,
+            1
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   RESTART
+   ========================================================= */
+
+function restartExamPractice() {
+
+    document.getElementById(
+        "examResults"
+    ).style.display = "none";
+
+
+    document.getElementById(
+        "examSetup"
+    ).style.display = "block";
+
+
+    updateExamProgressSummary();
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+   ========================================================= */
+
+function shuffleArray(array) {
+
+    for (
+        let i = array.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() *
+                (i + 1)
+            );
+
+
+        [
+            array[i],
+            array[j]
+        ] = [
+            array[j],
+            array[i]
+        ];
+
+    }
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+loadExamProgress();
+
+initialiseExamPractice();
+
+</script>
+
+
+</body>
+
+</html>
