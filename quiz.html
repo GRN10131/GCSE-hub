@@ -1,0 +1,1450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Quick Quiz — GCSE Hub</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+
+/* =========================================================
+   QUICK QUIZ
+   ========================================================= */
+
+.quiz-page {
+    max-width: 900px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+/* HERO */
+
+.quiz-hero {
+    background: linear-gradient(135deg, #630914, #8b1020);
+    color: white;
+    border-radius: 18px;
+    padding: 34px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.quiz-hero h1 {
+    margin: 0 0 8px;
+    font-size: 34px;
+}
+
+.quiz-hero p {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* SETUP */
+
+.quiz-setup {
+    background: white;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.quiz-setup h2 {
+    margin-top: 0;
+}
+
+.quiz-field {
+    margin-bottom: 20px;
+}
+
+.quiz-field label {
+    display: block;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.quiz-field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ccc;
+    border-radius: 9px;
+    background: white;
+    font-size: 15px;
+}
+
+.quiz-start {
+    width: 100%;
+    margin-top: 5px;
+    font-size: 17px;
+    padding: 14px;
+}
+
+/* QUIZ AREA */
+
+.quiz-container {
+    display: none;
+}
+
+.quiz-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 15px;
+}
+
+.quiz-progress-text {
+    font-weight: 700;
+}
+
+.quiz-score {
+    font-weight: 700;
+    color: #630914;
+}
+
+.quiz-progress {
+    height: 9px;
+    background: #e5e5e5;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.quiz-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #630914;
+    transition: width 0.3s ease;
+}
+
+/* QUESTION CARD */
+
+.question-card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 5px 22px rgba(0,0,0,0.09);
+}
+
+.question-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.question-tag {
+    background: #f0f0f0;
+    border-radius: 20px;
+    padding: 5px 11px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.question-card h2 {
+    font-size: 25px;
+    line-height: 1.4;
+    margin: 0 0 25px;
+}
+
+/* OPTIONS */
+
+.quiz-options {
+    display: grid;
+    gap: 12px;
+}
+
+.quiz-option {
+    width: 100%;
+    padding: 16px;
+    text-align: left;
+    border: 2px solid #ddd;
+    background: white;
+    border-radius: 11px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s ease;
+}
+
+.quiz-option:hover:not(:disabled) {
+    border-color: #630914;
+    transform: translateY(-1px);
+}
+
+.quiz-option:disabled {
+    cursor: default;
+}
+
+.quiz-option.correct {
+    border-color: #27813a;
+    background: #eaf7ed;
+}
+
+.quiz-option.incorrect {
+    border-color: #b52b35;
+    background: #fdeced;
+}
+
+/* FEEDBACK */
+
+.quiz-feedback {
+    display: none;
+    margin-top: 22px;
+    padding: 18px;
+    border-radius: 12px;
+}
+
+.quiz-feedback.correct-feedback {
+    background: #eaf7ed;
+    border-left: 5px solid #27813a;
+}
+
+.quiz-feedback.incorrect-feedback {
+    background: #fdeced;
+    border-left: 5px solid #b52b35;
+}
+
+.quiz-feedback-title {
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 7px;
+}
+
+.quiz-feedback p {
+    margin: 0;
+    line-height: 1.55;
+}
+
+/* CONTINUE */
+
+.quiz-next {
+    display: none;
+    margin-top: 18px;
+    width: 100%;
+    padding: 13px;
+}
+
+/* RESULTS */
+
+.quiz-results {
+    display: none;
+}
+
+.results-card {
+    background: white;
+    border-radius: 18px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 5px 22px rgba(0,0,0,0.09);
+}
+
+.results-card h2 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.results-score {
+    font-size: 58px;
+    font-weight: 800;
+    color: #630914;
+    margin: 10px 0;
+}
+
+.results-percentage {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.results-message {
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.results-buttons {
+    display: grid;
+    gap: 10px;
+    max-width: 450px;
+    margin: 0 auto;
+}
+
+/* REVIEW */
+
+.quiz-review {
+    display: none;
+    margin-top: 25px;
+}
+
+.quiz-review h3 {
+    margin-bottom: 15px;
+}
+
+.review-item {
+    background: white;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 12px;
+    border-left: 5px solid #ccc;
+}
+
+.review-item.review-correct {
+    border-left-color: #27813a;
+}
+
+.review-item.review-incorrect {
+    border-left-color: #b52b35;
+}
+
+.review-question {
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.review-answer {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.review-explanation {
+    font-size: 14px;
+    color: #555;
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .quiz-hero {
+        padding: 25px;
+    }
+
+    .quiz-hero h1 {
+        font-size: 28px;
+    }
+
+    .question-card {
+        padding: 22px;
+    }
+
+    .question-card h2 {
+        font-size: 21px;
+    }
+
+    .quiz-option {
+        padding: 14px;
+    }
+
+    .results-card {
+        padding: 25px 18px;
+    }
+
+    .results-score {
+        font-size: 48px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<script src="js/app.js"></script>
+<script src="js/quiz-data.js"></script>
+
+<script>
+injectHeader();
+</script>
+
+
+<main class="main">
+
+<div class="quiz-page">
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section class="quiz-hero">
+
+        <h1>📝 Quick Quiz</h1>
+
+        <p>
+            Test what you know with quick GCSE-style questions.
+            Get instant feedback and track your progress.
+        </p>
+
+    </section>
+
+
+    <!-- =====================================================
+         SETUP
+         ===================================================== -->
+
+    <section class="quiz-setup" id="quizSetup">
+
+        <h2>Set up your quiz</h2>
+
+        <p>
+            Choose what you want to practise.
+        </p>
+
+
+        <div class="quiz-field">
+
+            <label for="subjectSelect">
+                Subject
+            </label>
+
+            <select id="subjectSelect">
+            </select>
+
+        </div>
+
+
+        <div class="quiz-field">
+
+            <label for="topicSelect">
+                Topic
+            </label>
+
+            <select id="topicSelect">
+            </select>
+
+        </div>
+
+
+        <div class="quiz-field">
+
+            <label for="difficultySelect">
+                Difficulty
+            </label>
+
+            <select id="difficultySelect">
+
+                <option value="all">
+                    Any difficulty
+                </option>
+
+                <option value="Easy">
+                    Easy
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="Hard">
+                    Hard
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="quiz-field">
+
+            <label for="questionCount">
+
+                Number of questions
+
+            </label>
+
+            <select id="questionCount">
+
+                <option value="5">
+                    5 questions
+                </option>
+
+                <option value="10" selected>
+                    10 questions
+                </option>
+
+                <option value="15">
+                    15 questions
+                </option>
+
+                <option value="20">
+                    20 questions
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <button
+            class="btn quiz-start"
+            onclick="startQuiz()"
+        >
+            Start Quiz →
+        </button>
+
+    </section>
+
+
+    <!-- =====================================================
+         QUIZ
+         ===================================================== -->
+
+    <section
+        class="quiz-container"
+        id="quizContainer"
+    >
+
+        <div class="quiz-top">
+
+            <div
+                class="quiz-progress-text"
+                id="progressText"
+            >
+                Question 1 of 10
+            </div>
+
+            <div
+                class="quiz-score"
+                id="scoreText"
+            >
+                Score: 0
+            </div>
+
+        </div>
+
+
+        <div class="quiz-progress">
+
+            <div
+                class="quiz-progress-bar"
+                id="progressBar"
+            ></div>
+
+        </div>
+
+
+        <div class="question-card">
+
+            <div
+                class="question-meta"
+                id="questionMeta"
+            ></div>
+
+
+            <h2 id="questionText">
+                Question
+            </h2>
+
+
+            <div
+                class="quiz-options"
+                id="quizOptions"
+            ></div>
+
+
+            <div
+                class="quiz-feedback"
+                id="quizFeedback"
+            >
+
+                <div
+                    class="quiz-feedback-title"
+                    id="feedbackTitle"
+                ></div>
+
+                <p
+                    id="feedbackText"
+                ></p>
+
+            </div>
+
+
+            <button
+                class="btn quiz-next"
+                id="nextButton"
+                onclick="nextQuestion()"
+            >
+                Continue →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         RESULTS
+         ===================================================== -->
+
+    <section
+        class="quiz-results"
+        id="quizResults"
+    >
+
+        <div class="results-card">
+
+            <h2>Quiz Complete 🎉</h2>
+
+            <div
+                class="results-score"
+                id="finalScore"
+            >
+                0 / 10
+            </div>
+
+            <div
+                class="results-percentage"
+                id="finalPercentage"
+            >
+                0%
+            </div>
+
+            <p
+                class="results-message"
+                id="resultsMessage"
+            ></p>
+
+
+            <div class="results-buttons">
+
+                <button
+                    class="btn"
+                    onclick="restartQuiz()"
+                >
+                    Try Again
+                </button>
+
+                <button
+                    class="btn ghost"
+                    onclick="toggleReview()"
+                >
+                    Review Answers
+                </button>
+
+                <a
+                    href="test.html"
+                    class="btn ghost"
+                >
+                    ← Test Centre
+                </a>
+
+                <a
+                    href="dashboard.html"
+                    class="btn ghost"
+                >
+                    ← Dashboard
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="quiz-review"
+            id="quizReview"
+        >
+
+            <h3>
+                Your Answers
+            </h3>
+
+            <div id="reviewList"></div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+</main>
+
+
+<script>
+
+/* =========================================================
+   QUIZ STATE
+   ========================================================= */
+
+let quizQuestions = [];
+
+let currentQuestionIndex = 0;
+
+let quizScore = 0;
+
+let quizAnswers = [];
+
+let currentQuestion = null;
+
+
+/* =========================================================
+   SUBJECTS
+   ========================================================= */
+
+function getAvailableSubjects() {
+
+    const subjects = [
+        ...new Set(
+            QUIZ_QUESTIONS.map(q => q.subject)
+        )
+    ];
+
+    return subjects;
+
+}
+
+
+/* =========================================================
+   INITIALISE
+   ========================================================= */
+
+function initialiseQuiz() {
+
+    const subjectSelect =
+        document.getElementById("subjectSelect");
+
+    const subjects =
+        getAvailableSubjects();
+
+    subjectSelect.innerHTML =
+        subjects.map(subject => {
+
+            return `
+                <option value="${subject}">
+                    ${formatSubject(subject)}
+                </option>
+            `;
+
+        }).join("");
+
+    updateTopics();
+
+}
+
+
+/* =========================================================
+   SUBJECT NAME
+   ========================================================= */
+
+function formatSubject(subject) {
+
+    const names = {
+
+        biology: "Biology",
+        chemistry: "Chemistry",
+        physics: "Physics",
+        maths: "Maths",
+        english: "English",
+        history: "History",
+        geography: "Geography",
+        spanish: "Spanish",
+        french: "French",
+        ethics: "Ethics & Philosophy",
+        systems: "Systems Programmable Engineering",
+        engineering: "Engineering",
+        business: "Business",
+        imedia: "iMedia"
+
+    };
+
+    return names[subject] ||
+        subject.charAt(0).toUpperCase() +
+        subject.slice(1);
+
+}
+
+
+/* =========================================================
+   TOPICS
+   ========================================================= */
+
+function updateTopics() {
+
+    const subject =
+        document.getElementById("subjectSelect").value;
+
+    const topicSelect =
+        document.getElementById("topicSelect");
+
+    const topics = [
+        ...new Set(
+
+            QUIZ_QUESTIONS
+
+                .filter(q =>
+                    q.subject === subject
+                )
+
+                .map(q => q.topic)
+
+        )
+    ];
+
+    topicSelect.innerHTML = `
+        <option value="all">
+            All topics
+        </option>
+
+        ${topics.map(topic => `
+            <option value="${topic}">
+                ${topic}
+            </option>
+        `).join("")}
+    `;
+
+}
+
+
+/* =========================================================
+   START QUIZ
+   ========================================================= */
+
+function startQuiz() {
+
+    const subject =
+        document.getElementById("subjectSelect").value;
+
+    const topic =
+        document.getElementById("topicSelect").value;
+
+    const difficulty =
+        document.getElementById("difficultySelect").value;
+
+    const count =
+        Number(
+            document.getElementById("questionCount").value
+        );
+
+
+    let available =
+        QUIZ_QUESTIONS.filter(q =>
+            q.subject === subject
+        );
+
+
+    if (topic !== "all") {
+
+        available =
+            available.filter(q =>
+                q.topic === topic
+            );
+
+    }
+
+
+    if (difficulty !== "all") {
+
+        available =
+            available.filter(q =>
+                q.difficulty === difficulty
+            );
+
+    }
+
+
+    if (available.length === 0) {
+
+        alert(
+            "There are no quiz questions matching those choices yet."
+        );
+
+        return;
+
+    }
+
+
+    /* Shuffle */
+
+    available =
+        shuffleArray(available);
+
+
+    /* Take requested amount */
+
+    quizQuestions =
+        available.slice(
+            0,
+            Math.min(count, available.length)
+        );
+
+
+    currentQuestionIndex = 0;
+
+    quizScore = 0;
+
+    quizAnswers = [];
+
+
+    document.getElementById("quizSetup").style.display =
+        "none";
+
+    document.getElementById("quizResults").style.display =
+        "none";
+
+    document.getElementById("quizContainer").style.display =
+        "block";
+
+
+    showQuestion();
+
+}
+
+
+/* =========================================================
+   SHUFFLE
+   ========================================================= */
+
+function shuffleArray(array) {
+
+    const copy =
+        [...array];
+
+    for (
+        let i = copy.length - 1;
+        i > 0;
+        i--
+    ) {
+
+        const j =
+            Math.floor(
+                Math.random() * (i + 1)
+            );
+
+        [
+            copy[i],
+            copy[j]
+        ] =
+        [
+            copy[j],
+            copy[i]
+        ];
+
+    }
+
+    return copy;
+
+}
+
+
+/* =========================================================
+   SHOW QUESTION
+   ========================================================= */
+
+function showQuestion() {
+
+    currentQuestion =
+        quizQuestions[currentQuestionIndex];
+
+
+    const total =
+        quizQuestions.length;
+
+
+    document.getElementById("progressText").textContent =
+        `Question ${currentQuestionIndex + 1} of ${total}`;
+
+
+    document.getElementById("scoreText").textContent =
+        `Score: ${quizScore}`;
+
+
+    const progress =
+        (
+            currentQuestionIndex /
+            total
+        ) * 100;
+
+
+    document.getElementById("progressBar").style.width =
+        `${progress}%`;
+
+
+    /* Metadata */
+
+    document.getElementById("questionMeta").innerHTML = `
+
+        <span class="question-tag">
+            ${formatSubject(currentQuestion.subject)}
+        </span>
+
+        <span class="question-tag">
+            ${currentQuestion.topic}
+        </span>
+
+        <span class="question-tag">
+            ${currentQuestion.difficulty}
+        </span>
+
+    `;
+
+
+    /* Question */
+
+    document.getElementById("questionText").textContent =
+        currentQuestion.question;
+
+
+    /* Options */
+
+    const optionsContainer =
+        document.getElementById("quizOptions");
+
+
+    optionsContainer.innerHTML =
+        currentQuestion.options
+
+            .map((option, index) => `
+
+                <button
+                    class="quiz-option"
+                    onclick="selectAnswer(${index})"
+                >
+                    ${option}
+                </button>
+
+            `)
+
+            .join("");
+
+
+    /* Reset feedback */
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+    feedback.style.display =
+        "none";
+
+    feedback.className =
+        "quiz-feedback";
+
+
+    document.getElementById("nextButton").style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   ANSWER
+   ========================================================= */
+
+function selectAnswer(index) {
+
+    const buttons =
+        document.querySelectorAll(
+            ".quiz-option"
+        );
+
+
+    if (!currentQuestion) {
+        return;
+    }
+
+
+    buttons.forEach(button => {
+
+        button.disabled = true;
+
+    });
+
+
+    const selected =
+        currentQuestion.options[index];
+
+    const correct =
+        selected === currentQuestion.answer;
+
+
+    if (correct) {
+
+        quizScore++;
+
+        buttons[index].classList.add(
+            "correct"
+        );
+
+    } else {
+
+        buttons[index].classList.add(
+            "incorrect"
+        );
+
+
+        buttons.forEach((button, i) => {
+
+            if (
+                currentQuestion.options[i] ===
+                currentQuestion.answer
+            ) {
+
+                button.classList.add(
+                    "correct"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    quizAnswers.push({
+
+        question:
+            currentQuestion.question,
+
+        selected:
+            selected,
+
+        correct:
+            currentQuestion.answer,
+
+        isCorrect:
+            correct,
+
+        explanation:
+            currentQuestion.explanation
+
+    });
+
+
+    showFeedback(correct);
+
+
+    document.getElementById("scoreText").textContent =
+        `Score: ${quizScore}`;
+
+}
+
+
+/* =========================================================
+   FEEDBACK
+   ========================================================= */
+
+function showFeedback(correct) {
+
+    const feedback =
+        document.getElementById("quizFeedback");
+
+    const title =
+        document.getElementById("feedbackTitle");
+
+    const text =
+        document.getElementById("feedbackText");
+
+
+    feedback.style.display =
+        "block";
+
+
+    if (correct) {
+
+        feedback.classList.add(
+            "correct-feedback"
+        );
+
+        title.textContent =
+            "✓ Correct!";
+
+    } else {
+
+        feedback.classList.add(
+            "incorrect-feedback"
+        );
+
+        title.textContent =
+            "✗ Not quite";
+
+    }
+
+
+    text.textContent =
+        currentQuestion.explanation;
+
+
+    document.getElementById("nextButton").style.display =
+        "block";
+
+}
+
+
+/* =========================================================
+   NEXT QUESTION
+   ========================================================= */
+
+function nextQuestion() {
+
+    currentQuestionIndex++;
+
+
+    if (
+        currentQuestionIndex >=
+        quizQuestions.length
+    ) {
+
+        finishQuiz();
+
+        return;
+
+    }
+
+
+    showQuestion();
+
+}
+
+
+/* =========================================================
+   FINISH QUIZ
+   ========================================================= */
+
+function finishQuiz() {
+
+    document.getElementById("quizContainer").style.display =
+        "none";
+
+    document.getElementById("quizResults").style.display =
+        "block";
+
+
+    const total =
+        quizQuestions.length;
+
+
+    const percentage =
+        Math.round(
+            (quizScore / total) * 100
+        );
+
+
+    document.getElementById("finalScore").textContent =
+        `${quizScore} / ${total}`;
+
+
+    document.getElementById("finalPercentage").textContent =
+        `${percentage}%`;
+
+
+    let message;
+
+
+    if (percentage === 100) {
+
+        message =
+            "Perfect score! Excellent work.";
+
+    } else if (percentage >= 80) {
+
+        message =
+            "Great work! You have a strong understanding of this topic.";
+
+    } else if (percentage >= 60) {
+
+        message =
+            "Good effort. A little more revision could push your score higher.";
+
+    } else if (percentage >= 40) {
+
+        message =
+            "You're making progress. Try revising the areas you found difficult.";
+
+    } else {
+
+        message =
+            "This is a good opportunity to revise the topic and try again.";
+
+    }
+
+
+    document.getElementById("resultsMessage").textContent =
+        message;
+
+
+    buildReview();
+
+
+    /* =====================================================
+       REWARD XP
+       ===================================================== */
+
+    let xp =
+        quizScore * 5;
+
+
+    let gems =
+        0;
+
+
+    if (percentage >= 80) {
+
+        gems = 2;
+
+    }
+
+    if (percentage === 100) {
+
+        gems = 5;
+
+    }
+
+
+    if (typeof award === "function") {
+
+        award(xp, gems);
+
+    }
+
+}
+
+
+/* =========================================================
+   REVIEW
+   ========================================================= */
+
+function buildReview() {
+
+    const reviewList =
+        document.getElementById("reviewList");
+
+
+    reviewList.innerHTML =
+        quizAnswers.map((answer, index) => `
+
+            <div class="
+                review-item
+                ${answer.isCorrect
+                    ? "review-correct"
+                    : "review-incorrect"}
+            ">
+
+                <div class="review-question">
+
+                    ${index + 1}.
+                    ${escapeHTML(answer.question)}
+
+                </div>
+
+                <div class="review-answer">
+
+                    <strong>Your answer:</strong>
+                    ${escapeHTML(answer.selected)}
+
+                </div>
+
+                ${
+                    answer.isCorrect
+                    ? ""
+                    : `
+                        <div class="review-answer">
+
+                            <strong>Correct answer:</strong>
+                            ${escapeHTML(answer.correct)}
+
+                        </div>
+                    `
+                }
+
+                <div class="review-explanation">
+
+                    ${escapeHTML(answer.explanation)}
+
+                </div>
+
+            </div>
+
+        `).join("");
+
+}
+
+
+/* =========================================================
+   TOGGLE REVIEW
+   ========================================================= */
+
+function toggleReview() {
+
+    const review =
+        document.getElementById("quizReview");
+
+
+    if (
+        review.style.display ===
+        "block"
+    ) {
+
+        review.style.display =
+            "none";
+
+    } else {
+
+        review.style.display =
+            "block";
+
+    }
+
+}
+
+
+/* =========================================================
+   RESTART
+   ========================================================= */
+
+function restartQuiz() {
+
+    document.getElementById("quizResults").style.display =
+        "none";
+
+    document.getElementById("quizSetup").style.display =
+        "block";
+
+    document.getElementById("quizReview").style.display =
+        "none";
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+   ========================================================= */
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   SUBJECT CHANGE
+   ========================================================= */
+
+document
+    .getElementById("subjectSelect")
+    .addEventListener(
+        "change",
+        updateTopics
+    );
+
+
+/* =========================================================
+   STARTUP
+   ========================================================= */
+
+initialiseQuiz();
+
+</script>
+
+</body>
+</html>
