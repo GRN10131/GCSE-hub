@@ -1362,12 +1362,14 @@ async function loadAgent() {
             currentAgent
         );
 
-        const response =
-            await fetch(
-                API_URL +
-                "?action=agent&agent=" +
-                encodeURIComponent(currentAgent)
-            );
+     const response =
+    await fetch(
+        API_URL +
+        "?action=agent&agent=" +
+        encodeURIComponent(currentAgent) +
+        "&name=" +
+        encodeURIComponent(hubData.name)
+    );
 
         const data =
             await response.json();
